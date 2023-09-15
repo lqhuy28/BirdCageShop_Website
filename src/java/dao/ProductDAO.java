@@ -3,12 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package sample.user;
+package dao;
 
 /**
  *
- * @author HOANGDUC
+ * @author QUANG HUY
  */
-public class UserDAO {
+public class ProductDAO {
     
 }

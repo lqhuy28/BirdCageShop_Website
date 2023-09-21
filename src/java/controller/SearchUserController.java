@@ -6,37 +6,41 @@
 package controller;
 
 import dao.UserDAO;
-import model.User;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.List;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import model.User;
 
 /**
  *
  * @author Admin
  */
-public class SearchUser extends HttpServlet {
-
-    /**
-     * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
-     * methods.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
+@WebServlet(name = "SearchUserController", urlPatterns = {"/searchUser"})
+public class SearchUserController extends HttpServlet {
+    private static final String ERROR="userManager.jsp";
+    private static final String SUCCESS="userManager.jsp";
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
+            response.setContentType("text/html;charset=UTF-8");
+            String url=ERROR;
+            try {
+            String search =request.getParameter("search"); 
             UserDAO dao = new UserDAO();
-            List<User> list = dao.getAllUser();
-            
-            request.setAttribute("listU", list);
-            request.getRequestDispatcher("userManagement.jsp").forward(request, response);
+            List<User> list = dao.SearchUser(search);
+            if(list.size()>0){
+                request.setAttribute("listU",list);
+                url=SUCCESS;
+            }
+        } catch (Exception e) {
+            log("Error at SearchController: "+e.toString());
+        }finally{
+                request.getRequestDispatcher(url).forward(request, response);
+            }
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -51,11 +55,7 @@ public class SearchUser extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        UserDAO dao = new UserDAO();
-            List<User> list = dao.getAllUser();
-            
-            request.setAttribute("listU", list);
-            request.getRequestDispatcher("User.jsp").forward(request, response);
+        processRequest(request, response);
     }
 
     /**

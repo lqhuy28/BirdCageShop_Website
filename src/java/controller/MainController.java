@@ -31,6 +31,16 @@ public class MainController extends HttpServlet {
     
     private static final String UPDATEUSER = "updateUser";
     private static final String UPDATEUSER_CONTROLLLER = "UpdateUserController";
+    
+    private static final String LOGIN = "Login";
+    private static final String LOGIN_CONTROLLER = "LoginController";
+    
+    private static final String LOGOUT = "Logout";
+    private static final String LOGOUT_CONTROLLER = "LogoutController";
+    
+     private static final String REGISTRATION = "Register";
+    private static final String REGISTRATION_CONTROLLER = "RegistrationController";
+    
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
             response.setContentType("text/html;charset=UTF-8");
@@ -45,7 +55,13 @@ public class MainController extends HttpServlet {
                 url = SEARCHUSER_CONTROLLLER;
             }else if(UPDATEUSER.equals(action)){
                 url = UPDATEUSER_CONTROLLLER;
-            }
+            }else if (LOGIN.equals(action)) {
+                url = LOGIN_CONTROLLER;
+            }  else if (REGISTRATION.equals(action)) {
+                url = REGISTRATION_CONTROLLER;
+            } else if (LOGOUT.equals(action)) {
+                url = LOGOUT_CONTROLLER;
+            } 
              
         } catch (Exception e) {
         }finally{

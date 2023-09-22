@@ -1,0 +1,230 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Sep 22, 2023, 10:26:03 PM
+    Author     : HOANGDUC
+*/
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #F7462E;
+    padding: 0px 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo img {
+    margin-left: 50px;
+    width: 180px;
+    height: auto;
+
+}
+
+.search {
+    display: flex;
+    align-items: center;
+    margin-right: 50px;
+    position: relative;
+}
+
+.search input[type="text"] {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 500px;
+    font-size: 15px;
+    vertical-align: middle;
+    /* Đặt căn chỉnh theo chiều dọc giữa */
+}
+
+.search button {
+    top: 0;
+    right: 0;
+    position: absolute;
+    cursor: pointer;
+    padding: 5px 10px;
+    margin: 3px 5px;
+    border: none;
+    border-radius: 5px;
+    background-color: #F7462E;
+    color: white;
+    cursor: pointer;
+    font-size: 18px;
+    vertical-align: middle;
+    /* Đặt căn chỉnh theo chiều dọc giữa */
+}
+
+
+.search button:hover {
+    background-color: rgb(227, 93, 75);
+}
+
+.login a {
+    background-color: F7462E;
+    text-decoration: none;
+    padding: 9px 15px;
+    border: 1px solid white;
+    border-radius: 5px;
+    color: white;
+    margin-right: 50px;
+}
+
+.login a:hover {
+    background-color: rgb(227, 93, 75);
+    color: white;
+}
+
+.menu-navbar {
+    display: flex;
+}
+
+.navbar {
+    margin-right: 800px;
+    display: flex;
+    padding: 10px 0;
+}
+
+.navbar a {
+    text-decoration: none;
+    margin: 0 15px;
+}
+
+/* start detail */
+
+
+.detail {
+    display: flex;
+}
+
+/*panel*/
+
+.panel {
+    border: none;
+    box-shadow: none;
+}
+
+.panel-heading {
+    border-color: #eff2f7;
+    font-size: 16px;
+    font-weight: 300;
+}
+
+.panel-title {
+    color: #2A3542;
+    font-size: 14px;
+    font-weight: 400;
+    margin-bottom: 0;
+    margin-top: 0;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.pro-img-details {
+    margin-left: -15px;
+}
+
+.pro-img-details img {
+    width: 100%;
+}
+
+.pro-d-title {
+    font-size: 16px;
+    margin-top: 0;
+}
+
+.product_meta {
+    border-top: 1px solid #eee;
+    border-bottom: 1px solid #eee;
+    padding: 10px 0;
+    margin: 15px 0;
+}
+
+.product_meta span {
+    display: block;
+    margin-bottom: 10px;
+}
+
+.product_meta a,
+.pro-price {
+    color: #fc5959;
+}
+
+.pro-price,
+.amount-old {
+    font-size: 18px;
+    padding: 0 10px;
+}
+
+.amount-old {
+    text-decoration: line-through;
+}
+
+.quantity {
+    width: 120px;
+}
+
+.pro-img-list {
+    margin: 10px 0 0 -15px;
+    width: 100%;
+    display: inline-block;
+}
+
+.pro-img-list a {
+    float: left;
+    margin-right: 10px;
+    margin-bottom: 10px;
+}
+
+
+/* end detail */
+/* start footer */
+footer {
+    background-color: white;
+}
+
+.footer {
+    background-color: #fff;
+    color: #333;
+    /* Màu chữ */
+    padding: 20px 0;
+}
+
+.box-container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.box {
+    flex: 1;
+    margin: 0 80px;
+    max-width: 200px;
+}
+
+.box h3 {
+    font-size: 18px;
+    margin-bottom: 10px;
+    color: #CD141A;
+}
+
+.box a {
+    display: block;
+    margin-bottom: 8px;
+    text-decoration: none;
+    color: #333;
+    font-size: 14px;
+}
+
+.box a:hover {
+    text-decoration: underline;
+}
+
+/* end footer */

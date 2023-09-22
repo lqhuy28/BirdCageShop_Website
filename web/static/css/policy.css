@@ -1,0 +1,172 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Sep 23, 2023, 12:18:14 AM
+    Author     : HOANGDUC
+*/
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  background-color: #F7462E;
+  padding: 0px 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo img {
+  margin-left: 50px;
+  width: 180px;
+  height: auto;
+
+}
+
+.search {
+  display: flex;
+  align-items: center;
+  margin-right: 50px;
+  position: relative;
+}
+
+.search input[type="text"] {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  width: 500px;
+  font-size: 15px;
+  vertical-align: middle;
+  /* Đặt căn chỉnh theo chiều dọc giữa */
+}
+
+.search button {
+  top: 0;
+  right: 0;
+  position: absolute;
+  cursor: pointer;
+  padding: 5px 10px;
+  margin: 3px 5px;
+  border: none;
+  border-radius: 5px;
+  background-color: #F7462E;
+  color: white;
+  cursor: pointer;
+  font-size: 18px;
+  vertical-align: middle;
+  /* Đặt căn chỉnh theo chiều dọc giữa */
+}
+
+
+.search button:hover {
+  background-color: rgb(227, 93, 75);
+}
+
+.login a {
+  background-color: F7462E;
+  text-decoration: none;
+  padding: 9px 15px;
+  border: 1px solid white;
+  border-radius: 5px;
+  color: white;
+  margin-right: 50px;
+}
+
+.login a:hover {
+  background-color: rgb(227, 93, 75);
+  color: white;
+}
+
+
+/* start main */
+
+h1,
+h2,
+h3 {
+  color: #F7462E;
+}
+
+h1 {
+  font-size: 30px;
+  padding-bottom: 10px;
+}
+
+.row-main {
+  padding: 35px;
+  background-color: rgb(247, 243, 234);
+}
+
+h2 {
+  font-size: 1.6em;
+  line-height: 1.3;
+  margin: 10px;
+  container: auto;
+}
+
+/* end main */
+
+footer {
+  background-color: white;
+}
+
+.footer {
+  background-color: #fff;
+  color: #333;
+  /* Màu chữ */
+  padding: 20px 0;
+  /* Khoảng cách giữa nội dung và biên ngoài */
+}
+
+/* Định dạng container bên trong footer */
+.box-container {
+  display: flex;
+  /* Hiển thị các box cùng một hàng */
+  justify-content: space-between;
+  /* Cách đều các box */
+  flex-wrap: wrap;
+  /* Cho phép các box xuống dòng khi không đủ không gian */
+}
+
+/* Định dạng cho từng box */
+.box {
+  flex: 1;
+  /* Cân bằng chiều rộng của các box */
+  margin: 0 80px;
+  /* Khoảng cách giữa các box */
+  max-width: 200px;
+  /* Chiều rộng tối đa của mỗi box */
+}
+
+/* Định dạng tiêu đề trong box */
+.box h3 {
+  font-size: 18px;
+  /* Kích thước font tiêu đề */
+  margin-bottom: 10px;
+  /* Khoảng cách dưới tiêu đề */
+  color: #CD141A;
+}
+
+/* Định dạng các liên kết trong box */
+.box a {
+  display: block;
+  /* Hiển thị liên kết dạng block để căn chỉnh và tạo khoảng cách */
+  margin-bottom: 8px;
+  /* Khoảng cách giữa các liên kết */
+  text-decoration: none;
+  /* Loại bỏ gạch chân liên kết */
+  color: #333;
+  /* Màu chữ cho liên kết */
+  font-size: 14px;
+  /* Kích thước font cho liên kết */
+}
+
+/* Định dạng hover khi di chuột qua liên kết */
+.box a:hover {
+  text-decoration: underline;
+  /* Gạch chân khi di chuột qua liên kết */
+}

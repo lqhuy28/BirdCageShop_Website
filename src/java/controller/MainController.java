@@ -38,8 +38,23 @@ public class MainController extends HttpServlet {
     private static final String LOGOUT = "Logout";
     private static final String LOGOUT_CONTROLLER = "LogoutController";
     
-     private static final String REGISTRATION = "Register";
+    private static final String REGISTRATION = "Register";
     private static final String REGISTRATION_CONTROLLER = "RegistrationController";
+    
+    private static final String ADDCONTROL = "AddControl";
+    private static final String ADD_CONTROL = "AddControl";
+    
+    private static final String UPDATECONTROL = "UpdateControl";
+    private static final String UPDATE_CONTROL = "UpdateControl";
+    
+    private static final String DELETECONTROL = "DeleteControl";
+    private static final String DELETE_CONTROL = "DeleteControl";
+    
+    private static final String LOADCONTROL = "LoadControl";
+    private static final String LOAD_CONTROL = "LoadControl";
+    
+    
+    
     
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {

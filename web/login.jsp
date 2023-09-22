@@ -27,10 +27,10 @@
                 <h1>Đăng nhập </h1>
                 <form action="MainController" method="POST" id="form">
                     <div class="form-group">
-                        <input type="text"  id="UserID" name="UserID" placeholder="Tên đăng nhập" required="">
+                        <input type="text"  id="UserID" name="userID" placeholder="Tên đăng nhập" required="">
                     </div>
                     <div class="form-group">
-                        <input type="password"  id="Password" name="Password" placeholder="Mật khẩu" required="">
+                        <input type="password"  id="Password" name="password" placeholder="Mật khẩu" required="">
                     </div>
                     <div class="error_message">
                         ${requestScope.ERROR}

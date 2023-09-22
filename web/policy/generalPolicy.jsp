@@ -23,21 +23,7 @@
 
     <body>
         <!-- start header -->
-        <div>
-            <header>
-                <div class="logo">
-                    <img src="../client/static/img/logoHomepage.png">
-                </div>
-                <div class="search">
-                    <input type="text" placeholder="Tìm kiếm...">
-                    <button type="submit"><i class="fas fa-search"></i>
-                    </button>
-                </div>
-                <div class="login">
-                    <a href="#">Đăng nhập</a>
-                </div>
-            </header>
-        </div>
+        <jsp:include page="header.jsp" />
         <!-- end header -->
         <!-- start main -->
         <div class="row row-main">
@@ -97,41 +83,6 @@
                 </div>
             </div>
         </div>
-        <footer class="footer">
-            <div class="box-container">
-                <div class="box">
-                    <h3>THÔNG TIN CỬA HÀNG</h3>
-                    <a href="homepage.html">Trang Chủ</a>
-                    <a href="#">Giới Thiệu</a>
-                    <a href="#">Liên Hệ</a>
-                    <a href="#">Tin Tức</a>
-                </div>
-
-                <div class="box">
-                    <h3>CHÍNH SÁCH</h3>
-                    <a href="#">Chính Sách Chung</a>
-                    <a href="#">Chính Sách Mua Hàng</a>
-                    <a href="#">Chính Sách Đổi Trả</a>
-                    <a href="#">Chính Sách Bảo Mật</a>
-                </div>
-
-                <div class="box">
-                    <h3>LIÊN HỆ VỚI CHÚNG TÔI</h3>
-                    <a href="#">Hotline: 0858.655.818</a>
-                    <a href="#">Email: cageshop2023@gmail.com</a>
-                    <a href="#">Facebook: fb.com/cageshop2023</a>
-                    <a href="#">Thu Duc, HCM, VietNam</a>
-                </div>
-
-                <div class="box">
-                    <h3>KẾT NỐI</h3>
-                    <a href="#">Facebook</a>
-                    <a href="#">Instagram</a>
-                    <a href="#">Tiktok</a>
-                    <a href="#">Shoppe</a>
-                </div>
-            </div>
-
-        </footer>
+        <jsp:include page="footer.jsp" />
     </body>
 </html>

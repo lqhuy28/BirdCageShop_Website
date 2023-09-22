@@ -110,63 +110,6 @@ h2 {
 
 /* end main */
 
-footer {
-  background-color: white;
-}
-
-.footer {
-  background-color: #fff;
-  color: #333;
-  /* Màu chữ */
-  padding: 20px 0;
-  /* Khoảng cách giữa nội dung và biên ngoài */
-}
-
-/* Định dạng container bên trong footer */
-.box-container {
-  display: flex;
-  /* Hiển thị các box cùng một hàng */
-  justify-content: space-between;
-  /* Cách đều các box */
-  flex-wrap: wrap;
-  /* Cho phép các box xuống dòng khi không đủ không gian */
-}
-
-/* Định dạng cho từng box */
-.box {
-  flex: 1;
-  /* Cân bằng chiều rộng của các box */
-  margin: 0 80px;
-  /* Khoảng cách giữa các box */
-  max-width: 200px;
-  /* Chiều rộng tối đa của mỗi box */
-}
-
-/* Định dạng tiêu đề trong box */
-.box h3 {
-  font-size: 18px;
-  /* Kích thước font tiêu đề */
-  margin-bottom: 10px;
-  /* Khoảng cách dưới tiêu đề */
-  color: #CD141A;
-}
-
-/* Định dạng các liên kết trong box */
-.box a {
-  display: block;
-  /* Hiển thị liên kết dạng block để căn chỉnh và tạo khoảng cách */
-  margin-bottom: 8px;
-  /* Khoảng cách giữa các liên kết */
-  text-decoration: none;
-  /* Loại bỏ gạch chân liên kết */
-  color: #333;
-  /* Màu chữ cho liên kết */
-  font-size: 14px;
-  /* Kích thước font cho liên kết */
-}
-
-/* Định dạng hover khi di chuột qua liên kết */
-.box a:hover {
-  text-decoration: underline;
-  /* Gạch chân khi di chuột qua liên kết */
+.logo-main{
+    width: 100%;
 }

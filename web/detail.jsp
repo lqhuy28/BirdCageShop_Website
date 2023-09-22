@@ -21,50 +21,9 @@
 <body>
     <!-- start header -->
     
-    <div>
-        <header>
-            <div class="logo">
-                <img src="client/static/img/logoHomepage.png">
-            </div>
-            <div class="search">
-                <input type="text" placeholder="Tìm kiếm...">
-                <button type="submit"><i class="fas fa-search"></i>
-                </button>
-            </div>
-            <div class="login">
-                <a href="#">Đăng nhập</a>
-            </div>
-        </header>
-        <nav class="navbar navbar-expand-lg navbar-light bg-light justify-content-center align-items-center  w-100 mr-auto">
-            <div class="collapse navbar-collapse container " id="navbarSupportedContent">
-              <ul class="navbar-nav mr-auto ">
-                <li class="nav-item active">
-                  <a class="nav-link" href="#">Trang chủ  <span class="sr-only">(current)</span></a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="#">Giới thiệu</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link " href="#">Sản phẩm </a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link " href="#">Phụ kiện lòng chim</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link " href="#">Đặt hàng theo yêu cầu </a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link " href="#">Liên hệ</a>
-                </li>
-              </ul>
-              
-            </div>
-            <div class="icons">
-                <a href="">giỏ hàng</a>
-                <a href="#" class="fas fa-shopping-cart"></a>
-            </div>
-          </nav>
-    </div>
+    <div class="content">
+        <!-- Sử dụng thẻ jsp:include để bao gồm header và footer -->
+        <jsp:include page="header.jsp" />
     <!-- end header -->
     <div class="container bootdey">
         <div class="col-md-12">
@@ -106,6 +65,6 @@
           </section>
           </div>
     </div>
-   
+    <jsp:include page="footer.jsp" />
 </body>
 </html>

@@ -1,0 +1,155 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Sep 15, 2023, 11:54:55 PM
+    Author     : QUANG HUY
+*/
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    overflow-x: hidden;
+}
+/* Header Styles */
+.header {
+    background-color: #fff;
+    display: flex;
+    align-items: center;
+    padding: 10px;
+}
+
+.header img {
+    margin-left: 50px;
+    width: 180px;
+    height: auto;
+}
+
+.header h2 {
+    margin-left: 20px;
+    font-size: 23px;
+    color: #333;
+} *
+.body {
+    background-color: #F7462E;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 700px;
+}
+/* Các quy tắc kiểu cho trang đăng ký */
+.container {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    padding: 20px 80px;
+    padding-left: 70px;
+    width: 300px;
+    margin-left: 200px;
+    text-align: center;
+}
+
+.container h1 {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+/* Quy tắc kiểu cho các trường nhập liệu và thông báo lỗi */
+.container input {
+    width: 93%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    margin: 7px
+}
+
+.or{
+    font-size: 13px;
+    color: #C0C0C0;
+    padding: 10px;
+}
+
+.error_message {
+    color: red;
+    font-size: 13px;
+    margin-bottom: 5px;
+    font-weight: bold;
+    text-align: left;
+    margin-left: 10px; 
+}
+
+/* Quy tắc kiểu cho nút và liên kết */
+button[type="submit"]{
+    background-color: #F7462E;
+    color: #fff;
+    border: none;
+    padding: 10px 120px;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    width: 100%; /* Đặt chiều rộng của nút là 100% */
+    margin: 0px 8px
+    
+}
+
+button[type="submit"]:hover{
+    background-color: #E54646;
+}
+
+.btn-container a {
+    text-decoration: none;
+    color: #F7462E;
+    font-weight: bold;
+}
+
+.btn-container a:hover {
+    text-decoration: underline;
+}
+
+.footer {
+    background-color: #fff;
+    color: #333;
+    padding: 20px 0;
+}
+
+.box-container {
+    display: flex; 
+    justify-content: space-between;
+    flex-wrap: wrap; 
+}
+
+.box {
+    flex: 1; 
+    margin: 0 70px; 
+    max-width: 300px; 
+}
+
+.box h3 {
+    font-size: 18px; 
+    margin-bottom: 10px; 
+    color: #F7462E;
+}
+
+.box a {
+    display: block; 
+    margin-bottom: 8px; 
+    text-decoration: none;
+    color: #333; 
+    font-size: 14px;
+}
+
+.box a:hover {
+    text-decoration: underline; 
+}
+
+
+.box img{
+    width: 120%;
+    height: auto;
+    margin-left: -10px;
+}

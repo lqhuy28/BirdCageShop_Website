@@ -35,20 +35,20 @@ public class RegistrationController extends HttpServlet {
             String fullName = request.getParameter("fullName");
             String password = request.getParameter("password");
             String confirm = request.getParameter("confirm");
-            String phone = request.getParameter("Phone") ;
+            String phone = request.getParameter("Phone");
             String email = request.getParameter("email");
             String address = request.getParameter("address");
             String roleID = request.getParameter("roleID");
-            
+
             boolean checkValidation = true;
             if (userID.length() > 10 || userID.length() < 3) {
-                userError.setUserIDError("Tên đâng nhập phải từ 3 tới 10 chữ");
+                userError.setUserIDError("Tên đăng nhập phải từ 3-10 kí tự");
                 checkValidation = false;
             }
             boolean checkDuplicate = dao.checkDuplicate(userID);
-            if(checkDuplicate== true){
-            userError.setUserIDError("Tên đăng nhập đã tồn tại");
-            checkValidation= false;
+            if (checkDuplicate) {
+                userError.setUserIDError("Tên đăng nhập đã tồn tại");
+                checkValidation = false;
             }
             if (fullName.length() > 50 || fullName.length() < 2) {
                 userError.setFullNameError("Tên phải từ 2 tới 50 chữ");
@@ -58,7 +58,7 @@ public class RegistrationController extends HttpServlet {
                 userError.setConfirmError("Hai password không giống nhau");
                 checkValidation = false;
             }
-            
+
             //kiem tra data da validation hay chua
             if (checkValidation) {
                 User user = new User(userID, fullName, password, phone, email, address, roleID);
@@ -72,7 +72,7 @@ public class RegistrationController extends HttpServlet {
             }
 
         } catch (Exception e) {
-            log("Error at RegítrationController" + e.toString());
+            log("Error at RegistrationController" + e.toString());
             if (e.toString().contains("duplicate")) {
                 userError.setUserIDError("Trung ID roi kia");
                 request.setAttribute("USER_ERROR", userError);

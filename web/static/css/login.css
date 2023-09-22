@@ -1,0 +1,146 @@
+/* Reset some default styles */
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Header Styles */
+.header {
+    background-color: #fff;
+    display: flex;
+    align-items: center;
+    padding: 10px;
+}
+
+.header img {
+    margin-left: 50px;
+    width: 180px;
+    height: auto;
+}
+
+.header h2 {
+    margin-left: 20px;
+    font-size: 23px;
+    color: #333;
+}
+
+/* Body Styles */
+.body {
+    background-color: #F7462E;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 600px;
+
+}
+
+.login {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    padding: 20px 50px;
+    width: 280px;
+    margin-left: 200px;
+    text-align: center;
+}
+
+.login h1 {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.form-group {
+    margin-bottom: 25px;
+    margin-right: 65px;
+}
+
+.form-group input {
+    width: 120%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.btn-container {
+    margin-top: 20px;
+}
+
+button {
+    background-color: #F7462E;
+    color: #fff;
+    border: none;
+    padding: 10px 100px;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #E54646;
+}
+
+.or{
+    font-size: 13px;
+    color: #C0C0C0;
+    padding: 10px;
+}
+
+.error_message {
+    color: red;
+    font-size: 14px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.btn-container a {
+    text-decoration: none;
+    color: #F7462E;
+    font-weight: bold;
+}
+
+.btn-container a:hover {
+    text-decoration: underline;
+}
+
+.footer {
+    background-color: #fff;
+    color: #333; 
+    padding: 20px 0;
+}
+
+.box-container {
+    display: flex; 
+    justify-content: space-between; 
+    flex-wrap: wrap; /* Cho phép các box xuống dòng khi không đủ không gian */
+}
+
+.box {
+    flex: 1; /* Cân bằng chiều rộng của các box */
+    margin: 0 80px; /* Khoảng cách giữa các box */
+    max-width: 300px; /* Chiều rộng tối đa của mỗi box */
+}
+
+/* Định dạng tiêu đề trong box */
+.box h3 {
+    font-size: 18px; /* Kích thước font tiêu đề */
+    margin-bottom: 10px; /* Khoảng cách dưới tiêu đề */
+    color: #F7462E;
+}
+
+/* Định dạng các liên kết trong box */
+.box a {
+    display: block; /* Hiển thị liên kết dạng block để căn chỉnh và tạo khoảng cách */
+    margin-bottom: 8px; /* Khoảng cách giữa các liên kết */
+    text-decoration: none; /* Loại bỏ gạch chân liên kết */
+    color: #333; /* Màu chữ cho liên kết */
+    font-size: 14px; /* Kích thước font cho liên kết */
+}
+
+/* Định dạng hover khi di chuột qua liên kết */
+.box a:hover {
+    text-decoration: underline; /* Gạch chân khi di chuột qua liên kết */
+}

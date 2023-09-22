@@ -6,56 +6,81 @@
         <title>Đăng nhập tài khoản</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-       <!-- <script src="https://www.google.com/recaptcha/api.js" async defer></script> -->
-        <!--        <link rel="stylesheet" type="text/css" href="../static/css/login.css">-->
+        <!--        <script src="https://www.google.com/recaptcha/api.js" async defer></script>-->
+        <link rel="stylesheet" type="text/css" href="static/css/login.css">
     </head>
-    <div class="container">
-        <h2>Đăng nhập </h2>
-        <form action="MainController" method="POST" id="form">
-            <div class="form-group">
-                <label for="userID">Tên đăng nhâp: </label>
-                <input type="text"  id="userID" name="userID" required="">
+    <body>
+        <div class="header">
+            <div>
+                <img src="static/img/logoheada.png">
             </div>
-            <div class="form-group">
-                <label for="password">Mật khẩu :</label>
-                <input type="password"  id="password" name="password" required="">
+            <div>    
+                <h2> Đăng Nhập </h2>
             </div>
-          <!--  <div class="g-recaptcha" data-sitekey="6LdYPDYoAAAAAJYX_Nv5N4fwu1QJp6kO1qMKeKLH"></div>-->
+        </div>
 
-            <div class="btn-container">
-                <button type="submit" name="action" value="Login">Đăng nhập</button>
-                <a href="login.jsp">Reset</a>
+        <div class="body">
+            <div class="logo"> 
+                <img src="static/img/logobia.png">
             </div>
+            <div class="login">
+                <h1>Đăng nhập </h1>
+                <form action="MainController" method="POST" id="form">
+                    <div class="form-group">
+                        <input type="text"  id="UserID" name="UserID" placeholder="Tên đăng nhập" required="">
+                    </div>
+                    <div class="form-group">
+                        <input type="password"  id="Password" name="Password" placeholder="Mật khẩu" required="">
+                    </div>
+                    <div class="error_message">
+                        ${requestScope.ERROR}
+                    </div>
+                    <!--                    <div class="g-recaptcha" data-sitekey="6LdYPDYoAAAAAJYX_Nv5N4fwu1QJp6kO1qMKeKLH"></div>-->
+                    <div class="btn-container">
+                        <button type="submit" name="action" value="Login">Đăng nhập</button>
+                    </div>
 
-           
+                    
+                </form>
+                <div class="or">------------ Hoặc ------------</div>
+                <div class="btn-container">
+                    Chưa có tài khoản? <a href="register.jsp">Đăng ký</a>
+                </div>    
+            </div>    
+        </div>
 
-        </form>
-       <!-- <script>
-            window.onload = function () {
-                let isValid = false;
-                const form = document.getElementById("form");
-                const error = document.getElementById("error");
+        <div class="footer">
+            <div class="box-container">
+                <div class="box">
+                    <h3>THÔNG TIN CỬA HÀNG</h3>
+                    <a href="homepage.html">Trang Chủ</a>
+                    <a href="#">Giới Thiệu</a>
+                    <a href="#">Liên Hệ</a>
+                    <a href="#">Tin Tức</a>
+                </div>
 
+                <div class="box">
+                    <h3>CHÍNH SÁCH</h3>
+                    <a href="#">Chính Sách Chung</a>
+                    <a href="#">Chính Sách Mua Hàng</a>
+                    <a href="#">Chính Sách Đổi Trả</a>
+                    <a href="#">Chính Sách Bảo Mật</a>
+                </div>
 
-                form.addEventListener("submit", function (event) {
-                    event.preventDefault();
-                    const response = grecaptcha.getResponse();
-                    console.log("123")
-                    if (response) {
-                        form.submit();
-                    } else {
-                        error.innerHTML = "Please tick not a robot!";
-                    }
-                });
-            }
-        </script> -->
-        <div class="error_message">
-            ${requestScope.ERROR}
-        </div>    
-        <div class="btn-container">
-            Chưa có tài khoản ? <a href="register.jsp">Tạo tài khoản tại đây</a>
-        </div>    
+                <div class="box">
+                    <h3>LIÊN HỆ VỚI CHÚNG TÔI</h3>
+                    <a href="#">Hotline: 0858.655.818</a>
+                    <a href="#">Email: cageshop2023@gmail.com</a>
+                    <a href="#">Facebook: fb.com/cageshop2023</a>
+                    <a href="#">Thu Duc, HCM, VietNam</a>
+                </div>
 
-
-    </div>
+                <div class="box">
+                    <h3>KẾT NỐI</h3>
+                    <a href="#">Facebook</a>
+                    <a href="#">Instagram</a>
+                    <a href="#">Tiktok</a>
+                    <a href="#">Shoppe</a>
+                </div>
+            </div>
 </html>

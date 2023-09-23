@@ -16,13 +16,17 @@
     <link rel="stylesheet" href="static/css/dashboard.css">
 </head>
 <body>
+   <form action="MainController">
+                <input type="submit" name="action" value="Logout"/>
+        </form> 
     <header>
         <div class="logo">
             <img src="static/img/logoheadb.png">
         </div>
         
-        <div class="login">
-            <a class="fas fa-sign-out-alt " href="#"></a>
+        <div class="logout">
+            <a class="fas fa-sign-out-alt"  href="MainController?action=Logout"></a>
+            </form>
         </div>
     </header>
     <div class="bodya">

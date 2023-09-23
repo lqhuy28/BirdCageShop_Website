@@ -25,7 +25,7 @@
                 <div class="box">
                     <h3>THÔNG TIN CỬA HÀNG</h3>
                     <a href="homepage.html">Trang Chủ</a>
-                    <a href="#">Giới Thiệu</a>
+                    <a href="../policy/IntroduceShop.jsp">Giới Thiệu</a>
                     <a href="#">Liên Hệ</a>
                     <a href="#">Tin Tức</a>
                 </div>

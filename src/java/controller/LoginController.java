@@ -21,7 +21,7 @@ import javax.servlet.http.HttpSession;
  */
 public class LoginController extends HttpServlet {
     private static final String LOGIN_PAGE = "login.jsp";
-    private static final String HOMEPAGE = "homepage.jsp";
+    private static final String HOMEPAGE = "homePage.jsp";
     private static final String DASHBOARD = "dashboard.jsp";
     private static final String US = "User";
     private static final String AD = "Admin";

@@ -22,25 +22,27 @@ import model.User;
  */
 @WebServlet(name = "SearchUserController", urlPatterns = {"/searchUser"})
 public class SearchUserController extends HttpServlet {
-    private static final String ERROR="userManager.jsp";
-    private static final String SUCCESS="userManager.jsp";
+
+    private static final String ERROR = "userManager.jsp";
+    private static final String SUCCESS = "userManager.jsp";
+
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-            response.setContentType("text/html;charset=UTF-8");
-            String url=ERROR;
-            try {
-            String search =request.getParameter("search"); 
+        response.setContentType("text/html;charset=UTF-8");
+        String url = ERROR;
+        try {
+            String search = request.getParameter("search");
             UserDAO dao = new UserDAO();
             List<User> list = dao.SearchUser(search);
-            if(list.size()>0){
-                request.setAttribute("listU",list);
-                url=SUCCESS;
+            if (list.size() > 0) {
+                request.setAttribute("listU", list);
+                url = SUCCESS;
             }
         } catch (Exception e) {
-            log("Error at SearchController: "+e.toString());
-        }finally{
-                request.getRequestDispatcher(url).forward(request, response);
-            }
+            log("Error at SearchController: " + e.toString());
+        } finally {
+            request.getRequestDispatcher(url).forward(request, response);
+        }
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

@@ -16,14 +16,14 @@
     <link rel="stylesheet" href="static/css/dashboard.css">
 </head>
 <body>
-   
     <header>
+        
         <div class="logo">
             <img src="static/img/logoheadb.png">
         </div>
         
-        <div class="logout">
-            <a class="fas fa-sign-out-alt"  href="MainController?action=Logout"></a>
+        <div class="login">
+            <a class="fas fa-sign-out-alt " href ="MainController?action=Logout"></a>
         </div>
     </header>
     <div class="bodya">
@@ -46,7 +46,7 @@
                                 <i class="fa-solid fa-network-wired" style="color: #ffffff;"></i>
                             </div>
                             <div class="title">
-                                <a class="nav-link" href="dashboard.jsp"><span>   Bảng điều khiển</span></a>
+                                <a class="nav-link" href="dashboard.jsp"><span>Bảng điều khiển</span></a>
                         </div>
                     </li>
                     <li class="nav-item">
@@ -67,7 +67,7 @@
                             </div>
 
                             <div class="title">
-                                <a class="nav-link" href="#"><span>Quản lí sản phẩm</span></a>
+                                <a class="nav-link" href ="MainController?action=LoadProduct"><span>Quản lí sản phẩm</span></a>
                             </div>
                         </div>
                     </li>

@@ -41,7 +41,7 @@
                       <a class="nav-link" href="#">Trang chủ  <span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item">
-                      <a class="nav-link" href="#">Giới thiệu</a>
+                        <a class="nav-link" href="IntroduceShop.jsp">Giới thiệu</a>
                     </li>
                     <li class="nav-item">
                       <a class="nav-link " href="#">Sản phẩm </a>

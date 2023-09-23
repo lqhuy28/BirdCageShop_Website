@@ -21,7 +21,7 @@ header {
 
 }
 
-.logout a {
+.login a {
     background-color: F7462E;
     text-decoration: none;
     padding: 9px 15px;
@@ -31,7 +31,7 @@ header {
     margin-right: 50px;
 }
 
-.logout a:hover {
+.login a:hover {
     background-color: rgb(227, 93, 75);
     color: white;
 }

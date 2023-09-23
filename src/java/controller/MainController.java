@@ -21,7 +21,12 @@ import model.User;
  */
 public class MainController extends HttpServlet {
     
-    private static final String USERMANAGER = "userManager.jsp";
+    private static final String HOMEPAGE = "homePage.jsp";
+    
+    private static final String LOGIN = "Login";
+    private static final String LOGIN_CONTROLLER = "LoginController";
+    private static final String LOGINPAGE = "LoginPage";
+    private static final String LOGIN_PAGE = "login.jsp";
     
     private static final String SEARCHUSER = "Search";
     private static final String SEARCHUSER_CONTROLLLER = "SearchUserController";
@@ -31,12 +36,7 @@ public class MainController extends HttpServlet {
     
     private static final String UPDATEUSER = "updateUser";
     private static final String UPDATEUSER_CONTROLLLER = "UpdateUserController";
-    
-    private static final String LOGIN = "Login";
-    private static final String LOGIN_CONTROLLER = "LoginController";
-    private static final String LOGINPAGE = "LoginPage";
-    private static final String LOGIN_PAGE = "login.jsp";
-    
+
     private static final String LOGOUT = "Logout";
     private static final String LOGOUT_CONTROLLER = "LogoutController";
     
@@ -61,12 +61,12 @@ public class MainController extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
             response.setContentType("text/html;charset=UTF-8");
-            String url = USERMANAGER;
+            String url = HOMEPAGE;
             UserDAO dao = new UserDAO();
             try {
             String action = request.getParameter("action");
             if (action == null) {
-                url = USERMANAGER;
+                url = HOMEPAGE;
             }
             else if(SEARCHUSER.equals(action)){
                 url = SEARCHUSER_CONTROLLLER;

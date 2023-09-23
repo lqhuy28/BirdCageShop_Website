@@ -34,6 +34,8 @@ public class MainController extends HttpServlet {
     
     private static final String LOGIN = "Login";
     private static final String LOGIN_CONTROLLER = "LoginController";
+    private static final String LOGINPAGE = "LoginPage";
+    private static final String LOGIN_PAGE = "login.jsp";
     
     private static final String LOGOUT = "Logout";
     private static final String LOGOUT_CONTROLLER = "LogoutController";
@@ -76,6 +78,8 @@ public class MainController extends HttpServlet {
                 url = REGISTRATION_CONTROLLER;
             } else if (LOGOUT.equals(action)) {
                 url = LOGOUT_CONTROLLER;
+            } else if (LOGINPAGE.equals(action)) {
+                url = LOGIN_PAGE;
             } 
              
         } catch (Exception e) {

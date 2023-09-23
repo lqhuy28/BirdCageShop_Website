@@ -31,7 +31,7 @@
                     </button>
                 </div>
                 <div class="login">
-                    <a href="#">Đăng nhập</a>
+                    <a href="MainController?action=LoginPage">Đăng nhập</a>
                 </div>
             </header>
             <nav class="navbar navbar-expand-lg navbar-light bg-light justify-content-center align-items-center  w-100 mr-auto">

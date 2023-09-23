@@ -32,10 +32,10 @@
           
                 <div class="box">
                     <h3>CHÍNH SÁCH</h3>
-                    <a href="#">Chính Sách Chung</a>
-                    <a href="#">Chính Sách Mua Hàng</a>
-                    <a href="#">Chính Sách Đổi Trả</a>
-                    <a href="#">Chính Sách Bảo Mật</a>
+                    <a href="policy/generalPolicy.jsp">Chính Sách Chung</a>
+                    <a href="policy/buyPolicy.jsp">Chính Sách Mua Hàng</a>
+                    <a href="policy/returnPolicy.jsp">Chính Sách Đổi Trả</a>
+                    <a href="policy/privacyPolicy.jsp">Chính Sách Bảo Mật</a>
                 </div>
           
                 <div class="box">

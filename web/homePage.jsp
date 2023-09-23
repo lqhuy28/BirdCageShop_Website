@@ -90,11 +90,9 @@
             </div>
         </div>
 
-        
-        <!-- end item -->
-        <!-- start footer -->
         <jsp:include page="footer.jsp" />
-        <!-- end footer -->
+        <!-- end item -->
+        
 
         <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
         <script src="static/js/index.js"></script>

@@ -4,6 +4,7 @@
     Author     : Admin
 --%>
 
+<%@page import="dao.UserDAO"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page import="java.util.List"%>
 <%@page import="model.User"%>
@@ -108,21 +109,23 @@
                             <div id="clock"></div>
                         </div>
                     </div>
-<%
-    String search = request.getParameter("search");
-    if(search==null){
-    search="";
-    }
-%>
                     <div class="container">
+                        <%
+            UserDAO dao = new UserDAO();
+            List<User> listU = (List<User>) request.getAttribute("listU");
+            if (listU == null) {
+                listU = dao.SearchUser("");
+                request.setAttribute("listU", listU);
+
+            }
+        %>
                         <form action="searchUser" method="POST" class="form-inline">
                             <div class="form-group">
-                                <input type="text"  class="form-control" value="<%=search%>" name="search" id="search" />
+                                <input type="text"  class="form-control" value="Search" name="search" id="search" />
                             </div>
                             <button type="submit" class="fa fa-solid fa-magnifying-glass" name="action" value="Search"></button>
                         </form>
                         <% int count = 1;%>
-                        <c:set var="listU" value="${requestScope.listU}" />
                         <c:if test="${not empty listU}">
                             <table class="table">
                                 <thead>

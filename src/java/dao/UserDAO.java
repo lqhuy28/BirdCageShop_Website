@@ -29,7 +29,7 @@ public class UserDAO {
     private static final String listUser = "select * from tblUsers";
     private static final String DELETEUSER = "delete from tblUsers where userID = ?";
     private static final String getUserByuserID = "select UserID, FullName, Password, Phone, Email, Address, RoleID FROM tblUsers where userID like ?";
-
+    private static final String UPDATE = "UPDATE tblUsers set fullName=?, password=?, phone=?, email=?, address=?, roleID=? WHERE userID=?";
     private static final String INSERT = "INSERT INTO dbo.tblUsers(UserID, FullName, Password, Phone, Email, Address, RoleID) VALUES(?,?,?,?,?,?,?)";
     private static final String CHECK_DUPLICATE = "SELECT UserID FROM dbo.tblUsers ";
 
@@ -120,6 +120,7 @@ public class UserDAO {
             e.printStackTrace();
         }
     }
+
     public User checkLogin(String userID, String password) throws SQLException {
         User user = null;
         Connection conn = null;
@@ -216,6 +217,37 @@ public class UserDAO {
                 conn.close();
             }
         }
+        return check;
+    }
+
+    public boolean update(User user) throws SQLException {
+        boolean check = false;
+        Connection conn = null;
+        PreparedStatement ptm = null;
+        try {
+            conn = DBUtils.getConnection();
+            if (conn != null) {
+                ptm = conn.prepareStatement(UPDATE);
+                ptm.setString(1, user.getFullName());
+                ptm.setString(2, user.getPassword());
+                ptm.setString(3, user.getPhone());
+                ptm.setString(4, user.getEmail());
+                ptm.setString(5, user.getAddress());
+                ptm.setString(6, user.getRoleID());
+                ptm.setString(7, user.getUserID());
+                check = ptm.executeUpdate() > 0 ? true : false;
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            if (ptm != null) {
+                ptm.close();
+            }
+            if (conn != null) {
+                conn.close();
+            }
+        }
+
         return check;
     }
 

@@ -16,6 +16,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import model.User;
 
 /**
@@ -25,10 +26,47 @@ import model.User;
 @WebServlet(name = "UpdateUserController", urlPatterns = {"/updateUser"})
 public class UpdateUserController extends HttpServlet {
 
+    private static final String ERROR = "dashboard.jsp";
+    private static final String SUCCESS = "SearchUserCotronller";
+    
+    UserDAO dao = new UserDAO();
+
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        
+        String url = ERROR;
+        try {
+            String lastSearchValue = request.getParameter("search");
+            String userID = request.getParameter("userID");
+            String fullName = request.getParameter("fullName");
+            String password = request.getParameter("password");
+            String phone = request.getParameter("phone");
+            String email = request.getParameter("email");
+            String address = request.getParameter("address");
+            String roleID = request.getParameter("roleID");
+           
+            HttpSession session = request.getSession();
+            User user = (User) session.getAttribute("LIST_USER");
+            boolean checkUpdate = dao.update(new User(userID, fullName, password, phone, email, address, roleID));
+            if (checkUpdate) {
+                if (user.getUserID().equals(userID)) {
+                    user.setFullName(fullName);
+                    user.setPassword(password);
+                    user.setPhone(phone);
+                    user.setEmail(email);
+                    user.setAddress(address);
+                    user.setRoleID(roleID);
+                    
+                    session.setAttribute("LIST_USER", user);
+                }
+
+            }
+            url = SUCCESS;
+        } catch (Exception e) {
+            log("Error at UpdateUserController : " + e.toString());
+        } finally {
+            request.getRequestDispatcher(url).forward(request, response);
+        }
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

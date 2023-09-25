@@ -8,63 +8,104 @@
 <!DOCTYPE html>
 <html>
     <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="static/bootstrap/css/bootstrap.min.css">
+        <meta charset="UTF-8">
+        <meta name="viewport" content="">
+        <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css"/>
         <!-- font awesome cnd link -->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
         <!-- css link -->
-        <link rel="stylesheet" href="static/css/index.css">
-    <title>Document</title>
-</head>
-<body>
-    <!-- start header -->
-    
-    <div class="content">
-        <!-- Sử dụng thẻ jsp:include để bao gồm header và footer -->
-        <jsp:include page="header.jsp" />
-    <!-- end header -->
-    <div class="container bootdey">
-        <div class="col-md-12">
-        <section class="panel">
-              <div class="panel-body detail">
-                  <div class="col-md-6">
-                      <div class="pro-img-details">
-                          <img src="https://www.bootdey.com/image/550x380/FFB6C1/000000" alt="">
-                      </div>
-                      <div class="pro-img-list">
-                          <a href="#">
-                              <img src="https://www.bootdey.com/image/115x100/87CEFA/000000" alt="">
-                          </a>
-                       
-                          </a>
-                      </div>
-                  </div>
-                  <div class="col-md-6">
-                      <h4 class="pro-d-title">
-                          <a href="" class=""></a>
-                      </h4>
-                      <p>
-                          Praesent ac condimentum felis. Nulla at nisl orci, at dignissim dolor, The best product descriptions address your ideal buyer directly and personally. The best product descriptions address your ideal buyer directly and personally.
-                      </p>
-                      <div class="product_meta">
-                          <span class="posted_in"> <strong>Chất liệu:</strong> <a rel="tag" href=""></a></span>
-                          <span class="tagged_as"><strong>Kích thước:</strong> <a rel="tag" href=""></a></span>
-                      </div>
-                      <div class="m-bot15"> <span class="amount-old">$544</span>  <span class="pro-price"> $300.00</span></div>
-                      <div class="form-group">
-                          <label>Số lượng</label>
-                          <input type="quantiy" placeholder="1" class="form-control quantity">
-                      </div>
-                      <p>
-                          <button class="btn btn-round btn-danger" type="button"><i class="fa fa-shopping-cart"></i> Add to Cart</button>
-                      </p>
-                  </div>
-              </div>
-          </section>
-          </div>
-    </div>
-    <jsp:include page="footer.jsp" />
-</body>
+        <link rel="stylesheet" href="static/css/detail.css">
+        <title>Document</title>
+    </head>
+    <body>
+        <!-- start header -->
+        body class="main-layout">
+        <!--loader-->  
+        <div class="loader_bg">
+            <div class="loader"><img src="static/images/loading.gif" alt="#" /></div>
+        </div>
+        <!-- end loader -->
+        <!-- header -->
+        <section style="background-color: #eee;">
+            <div class="container py-5">
+                <%@ include file="headerProfile.jsp" %> 
+                <div class="row">
+                    <div class="col-lg-4">
+                        <div class="card mb-4">
+                            <div class="card-body text-center">
+                                <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava3.webp" alt="avatar" class="rounded-circle img-fluid" style="width: 150px;">
+                                <h5 class="my-3"></h5>
+                                <p class="text-muted mb-0">Số dư:</p>
+                                <a href="./VNPAY/index.jsp"><button class="btn btn-primary">Nạp tiền</button></a>
+                                <button id="s5" class="btn btn-primary" >Cập nhật thông tin</button>
+                                <div class="d-flex justify-content-center mb-2">
+                                    <!-- <button type="button" class="btn btn-primary">Follow</button>
+                                         <button type="button" class="btn btn-outline-primary ms-1">Message</button> -->
+                                </div>
+                            </div>
+                        </div>
+                    </div> 
+                    <div class="col-lg-8">
+
+                        <div class="card mb-4">
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-sm-3">
+                                        <p class="mb-0">Họ và Tên</p>
+                                    </div>
+                                    <form id="updateUser" action="./UpdateProfile" method="post"></form>
+                                    
+                                    <div class="col-sm-9">
+                                        <p id="s1" class="text-muted mb-0"></p>
+                                        <p><input pattern="^[\p{L}\s]+" title="Tên không được chữa ký tự đặc biệt" name="name" form="updateUser" id="a1" style="display: none" type="text" class="form-control" required value=""/></p>
+                                    </div>
+                                </div>
+                                <hr>
+                                <div class="row">
+                                    <div class="col-sm-3">
+                                        <p class="mb-0">Email</p> 
+                                    </div>
+                                    <div class="col-sm-9">
+                                        <p id="s2" class="text-muted mb-0"></p>
+                                        <p><input id="a2" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}" form="updateUser" style="display: none"  type="text" class="form-control" readonly value=""/></p>
+                                    </div>
+                                </div>
+                                <hr>
+                                <div class="row"
+                                    <div class="col-sm-3">
+                                        <p  class="mb-0">Số điện thoại</p>
+                                    </div>
+                                    <div class="col-sm-9">
+                                        <p id="s3" class="text-muted mb-0"></p>
+                                        <p><input name="phone" id="a3" pattern="[0-9]{10,11}" form="updateUser" style="display: none" type="text" class="form-control" required value="$"/></p>
+                                    </div>
+                                </div> 
+                                <hr>
+                                <div class="row">
+                                    <div class="col-sm-3">
+                                        <p  class="mb-0">Địa chỉ</p>
+                                    </div>
+                                    <div class="col-sm-9">
+                                        <p id="s4" class="text-muted mb-0"></p>
+                                        <p><input name="address" id="a4" pattern="[a-zA-ZÀ-ỹ0-9\s,'-]{3,}" form="updateUser" style="display: none" type="text" class="form-control" required value=""/></p>
+                                    </div>
+                                </div><hr>
+                                <div class="row">
+                                    <div class="col-sm-3">
+                                    </div>
+                                    <div class="col-sm-9">
+                                        <button id="a5" form="updateUser" style="display: none" class="btn btn-primary" type="submit">Cập nhật</button>
+
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div> 
+                    </div>
+                </div>
+            </div>
+        </section>
+                
+    </body>
 </html>

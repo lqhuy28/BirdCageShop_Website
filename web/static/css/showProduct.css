@@ -1,0 +1,186 @@
+/* Global styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f8f9fa;
+    overflow-x: hidden;
+}
+
+header {
+    background-color: #02295c;
+    padding: 0px 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+}
+
+.logo img {
+    margin-left: 30px;
+    width: 150px;
+    height: auto ;
+
+}
+
+.login a {
+    background-color: F7462E;
+    text-decoration: none;
+    padding: 9px 15px;
+    border: 1px solid white;
+    border-radius: 5px;
+    color: white;
+    margin-right: 50px;
+}
+
+.login a:hover {
+    background-color: rgb(227, 93, 75);
+    color: white;
+}
+
+/* Sidebar styles */
+aside {
+    padding: 10px 5px;
+}
+
+.admin{
+    text-align: center;
+    color: white;
+    font-size: 16px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.admin img{
+    width: 150px;
+}
+.admin b{
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.col-md-2{
+    background-color: #02295c;
+    height: 100%;
+    padding-bottom: 175px;
+}
+
+.col-md-10{
+    padding: 10px 40px;
+}
+
+.nav-item span{
+    color: white;
+    font-size: 15px;
+    font-weight: bolder;
+    margin-left: 15px;
+}
+
+.icon-integration:hover{
+    background-color: #F7462E;
+}
+
+.icon-integration {
+    display: flex;
+    margin: 3px 15px; /* Điều chỉnh khoảng cách theo ý muốn */
+}
+
+.icon {
+    display: inline-block;
+    padding: 8px; /* Điều chỉnh khoảng cách theo ý muốn */
+}
+
+.title {
+    display: inline-block;
+    margin-left: -30px; /* Điều chỉnh khoảng cách theo ý muốn */
+}
+
+.breadcrumb {
+    margin-top: 15px;
+    border: 2px solid gray;
+    padding: 10px ;
+    border-radius: 10px;
+    border-left: 10px solid #F7462E;
+}
+.breadcrumb a{
+    text-decoration: none;
+    color: black;
+}
+
+.breadcrumb a:hover{
+    color: #F7462E;
+}   
+
+
+/* Style the form container */
+.container {
+    margin-top: 20px;
+}
+
+.add{
+    display: flex;
+}
+
+/* Style the search form */
+.form-inline {
+    display: flex;
+    border: 2px solid gray;
+    border-radius: 10px;
+    padding: 7px;
+}
+.addpro{
+    border: 2px solid gray;
+    background-color: #9DF99D;
+    border-radius: 10px;
+    margin-left: 750px;
+    padding: 15px 10px;
+}
+
+.addpro a{
+    text-decoration: none;
+    color: #13553D;
+    font-weight: bold;
+    vertical-align: middle;
+    
+}
+/* Style the search input */
+.form-control {
+    flex: 1;
+    margin-right: 10px;
+}
+
+/* Style the search button */
+.fa {
+    flex-basis: auto;
+    margin-left: 5px;
+    padding: 0px 10px;
+    border-radius: 10px;
+    background-color: #F7462E;
+}
+
+/* Style the table */
+table {
+    margin-top: 20px;
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.table th,
+.table td {
+    border: 1px solid black;
+    padding: 10px;
+    text-align: left;
+}
+
+.table th {
+    background-color: rgb(203, 196, 196);
+    color: black;
+    text-align: center;
+    vertical-align: middle;
+
+    font-size: 15px;
+}
+
+.btn-group{
+    margin-left: 5px;
+}
+.btn{
+    padding: 7px 10px;
+}
+

@@ -84,12 +84,16 @@ public class UpdateProduct extends HttpServlet {
         String sProductID = request.getParameter("ProductID");
         String sProductName = request.getParameter("ProductName");
         String sProductDetails = request.getParameter("ProductDetails");
-        String sProductPrice = request.getParameter("ProductPrice");
+        String sProductPriceNew = request.getParameter("ProductPriceNew");
+        String sProductPriceOld = request.getParameter("ProductPriceOld");
         String sProductImage = request.getParameter("ProductImage");
         String sQuantity = request.getParameter("Quantity");
         String sProductStatus = request.getParameter("ProductStatus");
+        String sProductType = request.getParameter("ProductType");
+        String sProductMaterial = request.getParameter("ProductMaterial");
+        String sOtherRequest = request.getParameter("OtherRequest");
         ProductDAO dao = new ProductDAO();
-        dao.updateProduct(sProductID, sProductName, sProductDetails, sProductPrice, sProductImage, sQuantity, sProductStatus);
+        dao.updateProduct(sProductID, sProductName, sProductDetails, sProductPriceNew, sProductPriceOld, sProductImage, sQuantity, sProductStatus, sProductType, sProductMaterial, sOtherRequest);
         response.sendRedirect("load");
     }
 

@@ -1,0 +1,101 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Sep 24, 2023, 10:18:28 PM
+    Author     : QUANG HUY
+*//* Global styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f8f9fa;
+    overflow-x: hidden;
+}
+
+header {
+    background-color: #02295c;
+    padding: 0px 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+}
+
+.logo img {
+    margin-left: 30px;
+    width: 150px;
+    height: auto ;
+
+}
+
+.login a {
+    background-color: F7462E;
+    text-decoration: none;
+    padding: 9px 15px;
+    border: 1px solid white;
+    border-radius: 5px;
+    color: white;
+    margin-right: 50px;
+}
+
+.login a:hover {
+    background-color: rgb(227, 93, 75);
+    color: white;
+}
+
+/* Sidebar styles */
+aside {
+    padding: 10px 5px;
+}
+
+.admin{
+    text-align: center;
+    color: white;
+    font-size: 16px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.admin img{
+    width: 150px;
+}
+.admin b{
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.col-md-2{
+    background-color: #02295c;
+    height: 100%;
+    padding-bottom: 175px;
+}
+
+.col-md-10{
+    padding: 10px 40px;
+}
+
+.nav-item span{
+    color: white;
+    font-size: 15px;
+    font-weight: bolder;
+    margin-left: 15px;
+}
+
+.icon-integration:hover{
+    background-color: #F7462E;
+}
+
+.icon-integration {
+    display: flex;
+    margin: 3px 15px; /* Điều chỉnh khoảng cách theo ý muốn */
+}
+
+.icon {
+    display: inline-block;
+    padding: 8px; /* Điều chỉnh khoảng cách theo ý muốn */
+}
+
+.title {
+    display: inline-block;
+    margin-left: -30px; /* Điều chỉnh khoảng cách theo ý muốn */
+}
+

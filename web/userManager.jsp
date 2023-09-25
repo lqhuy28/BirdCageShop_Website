@@ -70,7 +70,7 @@
                                 </div>
 
                                 <div class="title">
-                                    <a class="nav-link" href="/load"><span>Quản lí sản phẩm</span></a>
+                                    <a class="nav-link" href="ShowProduct.jsp"><span>Quản lí sản phẩm</span></a>
                                 </div>
                             </div>
                         </li>
@@ -121,7 +121,7 @@
         %>
                         <form action="searchUser" method="POST" class="form-inline">
                             <div class="form-group">
-                                <input type="text"  class="form-control" value="Search" name="search" id="search" />
+                                <input type="text"  class="form-control" name="search" id="search" />
                             </div>
                             <button type="submit" class="fa fa-solid fa-magnifying-glass" name="action" value="Search"></button>
                         </form>

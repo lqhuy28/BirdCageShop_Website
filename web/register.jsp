@@ -28,7 +28,7 @@
             </div>
             <div class="container">
                 <h1>Đăng ký</h1>
-                <form action="MainController" method="POST" id="form">
+                <form action="/Fall2023SWP391_NET1703_Group6/MainController" method="POST" id="form">
                 <%
                     UserError userError = (UserError) request.getAttribute("USER_ERROR");
                     if (userError == null) {

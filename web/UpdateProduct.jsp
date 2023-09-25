@@ -37,9 +37,16 @@
                 
                 
                 <tr>
-                    <td>ProductPrice</td>
+                    <td>ProductPriceNew</td>
                     <td>
-                        <input value="${st.productPrice}" type="text" name="ProductPrice">
+                        <input value="${st.productPriceNew}" type="text" name="ProductPriceNew">
+                    </td>
+                </tr>
+                
+                <tr>
+                    <td>ProductPriceOld</td>
+                    <td>
+                        <input value="${st.productPriceOld}" type="text" name="ProductPriceOld">
                     </td>
                 </tr>
                 
@@ -61,6 +68,27 @@
                     <td>ProductStatus</td>
                     <td>
                         <input value="${st.productStatus}" type="text" name="ProductStatus">
+                    </td>
+                </tr>
+                
+                <tr>
+                    <td>ProductType</td>
+                    <td>
+                        <input value="${st.productType}" type="text" name="ProductType">
+                    </td>
+                </tr>
+                
+                <tr>
+                    <td>ProductMaterial</td>
+                    <td>
+                        <input value="${st.productMaterial}" type="text" name="ProductMaterial">
+                    </td>
+                </tr>
+                
+                <tr>
+                    <td>OtherRequest</td>
+                    <td>
+                        <input value="${st.otherRequest}" type="text" name="OtherRequest">
                     </td>
                 </tr>
                 

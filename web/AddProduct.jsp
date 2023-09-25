@@ -37,9 +37,16 @@
                 </tr>
                 
                 <tr>
-                    <td>ProductPrice</td>
+                    <td>ProductPriceNew</td>
                     <td>
-                        <input type="text" name="ProductPrice">
+                        <input type="text" name="ProductPriceNew">
+                    </td>
+                </tr>
+                
+                <tr>
+                    <td>ProductPriceOld</td>
+                    <td>
+                        <input type="text" name="ProductPriceOld">
                     </td>
                 </tr>
                 
@@ -61,6 +68,27 @@
                     <td>ProductStatus</td>
                     <td>
                         <input type="text" name="ProductStatus">
+                    </td>
+                </tr>
+                
+                <tr>
+                    <td>ProductType</td>
+                    <td>
+                        <input type="text" name="ProductType">
+                    </td>
+                </tr>
+                
+                <tr>
+                    <td>ProductMaterial</td>
+                    <td>
+                        <input type="text" name="ProductMaterial">
+                    </td>
+                </tr>
+                
+                <tr>
+                    <td>OtherRequest</td>
+                    <td>
+                        <input type="text" name="OtherRequest">
                     </td>
                 </tr>
                 

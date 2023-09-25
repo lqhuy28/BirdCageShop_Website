@@ -13,22 +13,30 @@ public class ProductDTO {
     private String ProductID;
     private String ProductName;
     private String ProductDetails;
-    private double ProductPrice;
+    private double ProductPriceNew;
+    private double ProductPriceOld;
     private String ProductImage;
     private int Quantity;
     private String ProductStatus;
+    private String ProductType;
+    private String ProductMaterial;
+    private String OtherRequest;
 
     public ProductDTO() {
     }
 
-    public ProductDTO(String ProductID, String ProductName, String ProductDetails, double ProductPrice, String ProductImage, int Quantity, String ProductStatus) {
+    public ProductDTO(String ProductID, String ProductName, String ProductDetails, double ProductPriceNew, double ProductPriceOld, String ProductImage, int Quantity, String ProductStatus, String ProductType, String ProductMaterial, String OtherRequest) {
         this.ProductID = ProductID;
         this.ProductName = ProductName;
         this.ProductDetails = ProductDetails;
-        this.ProductPrice = ProductPrice;
+        this.ProductPriceNew = ProductPriceNew;
+        this.ProductPriceOld = ProductPriceOld;
         this.ProductImage = ProductImage;
         this.Quantity = Quantity;
         this.ProductStatus = ProductStatus;
+        this.ProductType = ProductType;
+        this.ProductMaterial = ProductMaterial;
+        this.OtherRequest = OtherRequest;
     }
 
     public String getProductID() {
@@ -38,7 +46,6 @@ public class ProductDTO {
     public void setProductID(String ProductID) {
         this.ProductID = ProductID;
     }
-
 
     public String getProductName() {
         return ProductName;
@@ -56,12 +63,20 @@ public class ProductDTO {
         this.ProductDetails = ProductDetails;
     }
 
-    public double getProductPrice() {
-        return ProductPrice;
+    public double getProductPriceNew() {
+        return ProductPriceNew;
     }
 
-    public void setProductPrice(double ProductPrice) {
-        this.ProductPrice = ProductPrice;
+    public void setProductPriceNew(double ProductPriceNew) {
+        this.ProductPriceNew = ProductPriceNew;
+    }
+
+    public double getProductPriceOld() {
+        return ProductPriceOld;
+    }
+
+    public void setProductPriceOld(double ProductPriceOld) {
+        this.ProductPriceOld = ProductPriceOld;
     }
 
     public String getProductImage() {
@@ -88,10 +103,35 @@ public class ProductDTO {
         this.ProductStatus = ProductStatus;
     }
 
+    public String getProductType() {
+        return ProductType;
+    }
+
+    public void setProductType(String ProductType) {
+        this.ProductType = ProductType;
+    }
+
+    public String getProductMaterial() {
+        return ProductMaterial;
+    }
+
+    public void setProductMaterial(String ProductMaterial) {
+        this.ProductMaterial = ProductMaterial;
+    }
+
+    public String getOtherRequest() {
+        return OtherRequest;
+    }
+
+    public void setOtherRequest(String OtherRequest) {
+        this.OtherRequest = OtherRequest;
+    }
+
     @Override
     public String toString() {
-        return "ProductDTO{" + "ProductID=" + ProductID + ", ProductName=" + ProductName + ", ProductDetails=" + ProductDetails + ", ProductPrice=" + ProductPrice + ", ProductImage=" + ProductImage + ", Quantity=" + Quantity + ", ProductStatus=" + ProductStatus + '}';
+        return "ProductDTO{" + "ProductID=" + ProductID + ", ProductName=" + ProductName + ", ProductDetails=" + ProductDetails + ", ProductPriceNew=" + ProductPriceNew + ", ProductPriceOld=" + ProductPriceOld + ", ProductImage=" + ProductImage + ", Quantity=" + Quantity + ", ProductStatus=" + ProductStatus + ", ProductType=" + ProductType + ", ProductMaterial=" + ProductMaterial + ", OtherRequest=" + OtherRequest + '}';
     }
-    
-    
 }
+
+    
+    

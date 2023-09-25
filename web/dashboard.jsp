@@ -67,7 +67,7 @@
                             </div>
 
                             <div class="title">
-                                <a class="nav-link" href ="MainController?action=LoadProduct"><span>Quản lí sản phẩm</span></a>
+                                <a class="nav-link" href ="ShowProduct.jsp"><span>Quản lí sản phẩm</span></a>
                             </div>
                         </div>
                     </li>

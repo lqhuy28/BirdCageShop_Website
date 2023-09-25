@@ -1,0 +1,178 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Sep 26, 2023, 2:16:33 AM
+    Author     : QUANG HUY
+*/
+
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f8f9fa;
+    overflow-x: hidden;
+}
+
+header {
+    background-color: #02295c;
+    padding: 0px 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+}
+
+.logo img {
+    margin-left: 30px;
+    width: 150px;
+    height: auto ;
+
+}
+
+.login a {
+    background-color: #F7462E;
+    text-decoration: none;
+    padding: 9px 15px;
+    border: 1px solid white;
+    border-radius: 5px;
+    color: white;
+    margin-right: 50px;
+}
+
+.login a:hover {
+    background-color: rgb(227, 93, 75);
+    color: white;
+}
+
+/* Sidebar styles */
+aside {
+    padding: 10px 5px;
+}
+
+.admin{
+    text-align: center;
+    color: white;
+    font-size: 16px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.admin img{
+    width: 150px;
+}
+.admin b{
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.col-md-2{
+    background-color: #02295c;
+    height: 100%;
+    padding-bottom: 350px;
+}
+
+.col-md-10{
+    padding: 10px 40px;
+}
+
+.nav-item span{
+    color: white;
+    font-size: 15px;
+    font-weight: bolder;
+    margin-left: 15px;
+}
+
+.icon-integration:hover{
+    background-color: #F7462E;
+}
+
+.icon-integration {
+    display: flex;
+    margin: 3px 15px; /* Điều chỉnh khoảng cách theo ý muốn */
+}
+
+.icon {
+    display: inline-block;
+    padding: 8px; /* Điều chỉnh khoảng cách theo ý muốn */
+}
+
+.title {
+    display: inline-block;
+    margin-left: -30px; /* Điều chỉnh khoảng cách theo ý muốn */
+}
+
+.breadcrumb {
+    margin-top: 15px;
+    border: 2px solid gray;
+    padding: 10px ;
+    border-radius: 10px;
+    border-left: 10px solid #F7462E;
+}
+.breadcrumb a{
+    text-decoration: none;
+    color: black;
+}
+
+.breadcrumb a:hover{
+    color: #F7462E;
+}   
+
+
+/* next */
+
+/* Style the container */
+.container {
+    margin: 20px 350px;
+    width: 40%;
+    padding: 20px;
+    background-color: #f0f0f0;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    
+}
+
+/* Style the table */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+/* Style table cells (td) */
+td {
+    padding: 5px;
+    font-weight: bold;
+}
+
+/* Style input fields */
+input[type="text"] {
+    width: 90%;
+    padding: 7px;
+    margin-bottom: 0px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+/* Style the submit button */
+button[type="submit"] {
+    background-color: green;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    margin: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-left: -45px;
+}
+
+button:hover{
+    background-color: #33CC66;
+}
+
+/* Style the readonly input fields */
+input[readonly] {
+    background-color: #eee;
+    cursor: not-allowed;
+}

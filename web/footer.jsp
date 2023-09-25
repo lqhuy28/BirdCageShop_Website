@@ -23,43 +23,45 @@
           <footer class="footer spad">
             <div class="container">
                 <div class="row">
-                    <div class="col-lg-3 col-md-6 col-sm-6">
+                    <div class="col-lg-2 col-md-6 col-sm-6">
                         <div class="footer__about">
-                            <div class="footer__about__logo">
+                            
+                            
+                            <ul>
+                                <div class="footer__about__logo">
                                 <a href="homePage.jsp"><img src="static/img/logoheada.png" alt=""></a>
                             </div>
-                            <ul>
-                                <li>Address: 60-49 Road 11378 New York</li>
-                                <li>Phone: +65 11.188.888</li>
-                                <li>Email: hello@colorlib.com</li>
+                                <li>Địa chỉ:HCM</li>
+                                <li>SDT: 0123456789</li>
+                                <li>Email:birdcage@gmail.com</li>
                             </ul>
                         </div>
                     </div>
-                    <div class="col-lg-4 col-md-6 col-sm-6 offset-lg-1">
+                    <div class="col-lg-5 col-md-6 col-sm-6 offset-lg-1">
                         <div class="footer__widget">
-                            <h6>Useful Links</h6>
+                            
                             <ul>
-                                <li><a href="#">About Us</a></li>
-                                <li><a href="#">About Our Shop</a></li>
-                                <li><a href="#">Secure Shopping</a></li>
-                                <li><a href="#">Delivery infomation</a></li>
-                                <li><a href="#">Privacy Policy</a></li>
-                                <li><a href="#">Our Sitemap</a></li>
+                                <h6>THÔNG TIN CỬA HÀNG</h6>
+                                <li><a href="#">Thông tin cửa hàng</a></li>
+                                <li><a href="#">Giới thiệu</a></li>
+                                <li><a href="#">Liên hệ</a></li>
+                                <li><a href="#">Tin tức</a></li>
+                                <li><a href="#">Danh mục sản phẩm</a></li>
                             </ul>
+                            <h6>CHÍNH SÁCH CHUNG</h6>
                             <ul>
-                                <li><a href="#">Who We Are</a></li>
-                                <li><a href="#">Our Services</a></li>
-                                <li><a href="#">Projects</a></li>
-                                <li><a href="#">Contact</a></li>
-                                <li><a href="#">Innovation</a></li>
-                                <li><a href="#">Testimonials</a></li>
+                                <li><a href="#">Chính Sách Chung </a></li>
+                                <li><a href="#">Chính Sách Mua Hàng</a></li>
+                                <li><a href="#">Chính Sách Đổi Trản</a></li>
+                                <li><a href="#">Chính Sách Bảo Mật</a></li>
+                                
                             </ul>
                         </div>
                     </div>
                     <div class="col-lg-4 col-md-12">
                         <div class="footer__widget">
-                            <h6>Join Our Newsletter Now</h6>
-                            <p>Get E-mail updates about our latest shop and special offers.</p>
+                            <h6>THAM GIA BẢN TIN MỚI VỚI CHÚNG TÔI </h6>
+                            <p>Nhận thông tin cập nhật qua E-mail về cửa hàng mới nhất của chúng tôi và các ưu đãi đặc biệt..</p>
                             <form action="#">
                                 <input type="text" placeholder="Enter your mail" fdprocessedid="zvp6la">
                                 <button type="submit" class="site-btn" fdprocessedid="oqfqel">Subscribe</button>

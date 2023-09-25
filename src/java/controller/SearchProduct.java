@@ -30,6 +30,7 @@ public class SearchProduct extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         String url = ERROR;
+        request.setCharacterEncoding("UTF-8");
         try {
             String search = request.getParameter("search");
             ProductDAO dao = new ProductDAO();

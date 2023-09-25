@@ -110,18 +110,25 @@
                         </div>
                     </div>
                     <div class="container">
-                        <%
+         
+        <%
+            String search = request.getParameter("search");
+            if(search == null){
+                search = "";
+            }
+        %>    
+        
+        <%
             UserDAO dao = new UserDAO();
             List<User> listU = (List<User>) request.getAttribute("listU");
             if (listU == null) {
                 listU = dao.SearchUser("");
                 request.setAttribute("listU", listU);
-
             }
         %>
-                        <form action="searchUser" method="POST" class="form-inline">
+        <form action="searchUser" method="POST" class="form-inline">
                             <div class="form-group">
-                                <input type="text"  class="form-control" name="search" id="search" />
+                                <input type="text" value="<%=search%>"  class="form-control" name="search" id="search" />
                             </div>
                             <button type="submit" class="fa fa-solid fa-magnifying-glass" name="action" value="Search"></button>
                         </form>

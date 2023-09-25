@@ -17,7 +17,7 @@ public class ProductDTO {
     private double ProductPriceOld;
     private String ProductImage;
     private int Quantity;
-    private String ProductStatus;
+    private boolean ProductStatus;
     private String ProductType;
     private String ProductMaterial;
     private String OtherRequest;
@@ -25,7 +25,7 @@ public class ProductDTO {
     public ProductDTO() {
     }
 
-    public ProductDTO(String ProductID, String ProductName, String ProductDetails, double ProductPriceNew, double ProductPriceOld, String ProductImage, int Quantity, String ProductStatus, String ProductType, String ProductMaterial, String OtherRequest) {
+    public ProductDTO(String ProductID, String ProductName, String ProductDetails, double ProductPriceNew, double ProductPriceOld, String ProductImage, int Quantity, boolean ProductStatus, String ProductType, String ProductMaterial, String OtherRequest) {
         this.ProductID = ProductID;
         this.ProductName = ProductName;
         this.ProductDetails = ProductDetails;
@@ -95,11 +95,11 @@ public class ProductDTO {
         this.Quantity = Quantity;
     }
 
-    public String getProductStatus() {
+    public boolean getProductStatus() {
         return ProductStatus;
     }
 
-    public void setProductStatus(String ProductStatus) {
+    public void setProductStatus(boolean ProductStatus) {
         this.ProductStatus = ProductStatus;
     }
 

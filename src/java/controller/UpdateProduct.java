@@ -61,9 +61,9 @@ public class UpdateProduct extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         //processRequest(request, response);
-        String ID = request.getParameter("sid");
+        String ProductID = request.getParameter("sid");
         ProductDAO dao = new ProductDAO();
-        ProductDTO p = dao.getProductByID(ID);
+        ProductDTO p = dao.getProductByID(ProductID);
         request.setAttribute("st", p);
         request.getRequestDispatcher("UpdateProduct.jsp").
                 forward(request, response);

@@ -125,13 +125,13 @@ public class ProductDAO {
         } catch (Exception e) {
         }
     }
-    public ProductDTO getProductByID(String ID){
+    public ProductDTO getProductByID(String ProductID){
         String query = "select * from tblProducts\n"
                 + "where ProductID = ?";
         try {
             conn = new DBUtils().getConnection();
             ps = conn.prepareStatement(query);
-            ps.setString(1, ID);
+            ps.setString(1, ProductID);
             rs = ps.executeQuery();
             while(rs.next()){
                 return new ProductDTO(rs.getString(1),
@@ -151,18 +151,18 @@ public class ProductDAO {
         return null;
     }
     public void updateProduct(String ProductID, String ProductName, String ProductDetails, String ProductPriceNew, String ProductPriceOld, String ProductImage, String Quantity, String ProductStatus, String ProductType, String ProductMaterial, String OtherRequest){
-        String query ="update tblProducts\n"
-                + "set [ProductName] = ?,\n" 
-                + "ProductDetails = ?,\n" 
-                + "ProductPriceNew = ?,\n" 
-                + "ProductPriceOld = ?,\n"
-                + "ProductImage = ?,\n" 
-                + "Quantity = ?,\n" 
-                + "ProductStatus = ?\n"
-                + "ProductType = ?\n"
-                + "ProductMaterial = ?\n"
-                + "OtherRequest = ?\n"
-                + "where ProductID = ?";
+        String query ="update tblProducts\n" 
+                +"set [ProductName] = ?,\n" 
+                +"ProductDetails = ?,\n" 
+                +"ProductPriceNew = ?,\n" 
+                +"ProductPriceOld = ?,\n" 
+                +"ProductImage = ?,\n" 
+                +"Quantity = ?,\n" 
+                +"ProductStatus = ?,\n" 
+                +"ProductType = ?,\n" 
+                +"ProductMaterial = ?,\n" 
+                +"OtherRequest = ?\n" 
+                +"where ProductID = ?";
         try {
             conn = new DBUtils().getConnection();
             ps = conn.prepareStatement(query);

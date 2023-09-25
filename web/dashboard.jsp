@@ -26,6 +26,8 @@
             <a class="fas fa-sign-out-alt " href ="MainController?action=Logout"></a>
         </div>
     </header>
+    
+
     <div class="bodya">
         <div class="row">
             <aside class="col-md-2" ">
@@ -33,7 +35,7 @@
                     <img src="static/img/admin1.png" width="200px">
                     <div>
                         <p>
-                            <b>Nguyễn Văn A</b>
+                            <b>${sessionScope.LOGIN_USER.fullName}</b>
                             <br>Chào mừng bạn quay trở lại
                         </p>
                     </div>
@@ -114,7 +116,7 @@
                             </div>
                             <div>
                                 <h4>Tổng khách hàng</h4>
-                                <p><b>2 khách hàng</b></p>
+                                <p><b>6 khách hàng</b></p>
                                 <hr>
                                 <p>Tổng số khách hàng được quản lý.</p>
                             </div>

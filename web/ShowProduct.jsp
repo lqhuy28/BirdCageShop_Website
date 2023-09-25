@@ -36,7 +36,7 @@
                         <img src="static/img/admin1.png" width="200px">
                         <div>
                             <p>
-                                <b>Quang Huy</b>
+                                <b>${sessionScope.LOGIN_USER.fullName}</b>
                                 <br>Chào mừng bạn quay trở lại
                             </p>
                         </div>

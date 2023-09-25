@@ -21,7 +21,7 @@
             </div>
 
             <div class="login">
-                <a class="fas fa-sign-out-alt " href="#"></a>
+                <a class="fas fa-sign-out-alt " href="MainController?action=Logout"></a>
             </div>
         </header>
         <div class="bodya">
@@ -31,7 +31,7 @@
                         <img src="static/img/admin1.png" width="200px">
                         <div>
                             <p>
-                                <b>Quang Huy</b>
+                                <b>${sessionScope.LOGIN_USER.fullName}</b>
                                 <br>Chào mừng bạn quay trở lại
                             </p>
                         </div>
@@ -108,21 +108,21 @@
                         <form action="update" method="post">
                             <table>
                                 <tr>
-                                    <td>ProductID</td>
+                                    <td>Mã sản phẩm</td>
                                     <td>
                                         <input value="${st.productID}" type="text" name="ProductID" readonly>
                                     </td>
                                 </tr>
 
                                 <tr>
-                                    <td>ProductName</td>
+                                    <td>Tên sản phẩm</td>
                                     <td>
                                         <input value="${st.productName}" type="text" name="ProductName">
                                     </td>
                                 </tr>
 
                                 <tr>
-                                    <td>ProductDetails</td>
+                                    <td>Thông tin sản phẩm</td>
                                     <td>
                                         <input value="${st.productDetails}" type="text" name="ProductDetails">
                                     </td>
@@ -130,56 +130,56 @@
 
 
                                 <tr>
-                                    <td>ProductPriceNew</td>
+                                    <td>Giá mới</td>
                                     <td>
                                         <input value="${st.productPriceNew}" type="text" name="ProductPriceNew">
                                     </td>
                                 </tr>
 
                                 <tr>
-                                    <td>ProductPriceOld</td>
+                                    <td>Giá cũ</td>
                                     <td>
                                         <input value="${st.productPriceOld}" type="text" name="ProductPriceOld">
                                     </td>
                                 </tr>
 
                                 <tr>
-                                    <td>ProductImage</td>
+                                    <td>Hình ảnh</td>
                                     <td>
                                         <input value="${st.productImage}" type="text" src="" name="ProductImage">
                                     </td>
                                 </tr>
 
                                 <tr>
-                                    <td>Quantity</td>
+                                    <td>Số lượng</td>
                                     <td>
                                         <input value="${st.quantity}" type="text" name="Quantity">
                                     </td>
                                 </tr>
 
                                 <tr>
-                                    <td>ProductStatus</td>
+                                    <td>Tình trạng</td>
                                     <td>
                                         <input value="${st.productStatus}" type="text" name="ProductStatus">
                                     </td>
                                 </tr>
 
                                 <tr>
-                                    <td>ProductType</td>
+                                    <td>Loại sản phẩm</td>
                                     <td>
                                         <input value="${st.productType}" type="text" name="ProductType">
                                     </td>
                                 </tr>
 
                                 <tr>
-                                    <td>ProductMaterial</td>
+                                    <td>Chất liệu</td>
                                     <td>
                                         <input value="${st.productMaterial}" type="text" name="ProductMaterial">
                                     </td>
                                 </tr>
 
                                 <tr>
-                                    <td>OtherRequest</td>
+                                    <td>Khác</td>
                                     <td>
                                         <input value="${st.otherRequest}" type="text" name="OtherRequest">
                                     </td>
@@ -187,11 +187,13 @@
 
                                 <tr>
                                     <td></td>
-                                    <td><button type="submit">Update</button></td>
+                                    <td><button type="submit">Cập nhật</button></td>
                                 </tr>
                             </table>
                         </form>
                     </div>
+                    </div>
+                                    
                 </main>
                 </body>
                 </html>

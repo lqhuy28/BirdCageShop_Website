@@ -49,6 +49,7 @@ aside {
 }
 .admin img{
     width: 150px;
+    margin-left: 20px;
 }
 .admin b{
     font-weight: bold;
@@ -137,7 +138,7 @@ aside {
     color: #13553D;
     font-weight: bold;
     vertical-align: middle;
-    
+
 }
 /* Style the search input */
 .form-control {

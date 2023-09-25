@@ -49,6 +49,7 @@ aside {
 }
 .admin img{
     width: 150px;
+    margin-left: 20px;
 }
 .admin b{
     font-weight: bold;

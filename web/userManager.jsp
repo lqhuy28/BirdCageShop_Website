@@ -36,7 +36,7 @@
                         <img src="static/img/admin1.png" width="200px">
                         <div>
                             <p>
-                                <b>Quang Huy</b>
+                                <b>${sessionScope.LOGIN_USER.fullName}</b>
                                 <br>Chào mừng bạn quay trở lại
                             </p>
                         </div>
@@ -81,7 +81,7 @@
                                     <i class="fa-solid fa-cart-shopping" style="color: #ffffff;"></i>                            
                                 </div>
                                 <div class="title">
-                                    <a class="nav-link" href="dashboard"><span>Quản lí đơn hàng</span></a>
+                                    <a class="nav-link" href="#"><span>Quản lí đơn hàng</span></a>
                                 </div>
                             </div>
                         </li>
@@ -92,7 +92,7 @@
                                     <i class="fa-solid fa-comments" style="color: #ffffff;"></i>                            
                                 </div>
                                 <div class="title">
-                                    <a class="nav-link" href="dashboard"><span>Kiểm tra phản hồi</span></a>
+                                    <a class="nav-link" href="#"><span>Kiểm tra phản hồi</span></a>
                                 </div>
                             </div>
                         </li>
@@ -104,7 +104,7 @@
                     <div class="row">
                         <div class="col-md-12">
                             <div class="breadcrumb">
-                                <a href="dashboard.html"><b>Danh sách người dùng</b></a>
+                                <a href="userManager.jsp"><b>Danh sách người dùng</b></a>
                             </div>
                             <div id="clock"></div>
                         </div>

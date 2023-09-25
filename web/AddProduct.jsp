@@ -21,7 +21,7 @@
             </div>
 
             <div class="login">
-                <a class="fas fa-sign-out-alt " href="#"></a>
+                <a class="fas fa-sign-out-alt " href="MainController?action=Logout"></a>
             </div>
         </header>
         <div class="bodya">
@@ -31,7 +31,7 @@
                         <img src="static/img/admin1.png" width="200px">
                         <div>
                             <p>
-                                <b>Quang Huy</b>
+                                <b>${sessionScope.LOGIN_USER.fullName}</b>
                                 <br>Chào mừng bạn quay trở lại
                             </p>
                         </div>
@@ -44,7 +44,7 @@
                                     <i class="fa-solid fa-network-wired" style="color: #ffffff;"></i>
                                 </div>
                                 <div class="title">
-                                    <a class="nav-link" href="dashboard"><span>   Bảng điều khiển</span></a>
+                                    <a class="nav-link" href="dashboard.jsp"><span>  Bảng điều khiển</span></a>
                                 </div>
                         </li>
                         <li class="nav-item">
@@ -53,7 +53,7 @@
                                     <i class="fa fa-solid fa-users" style="color: #ffffff;"></i>
                                 </div>
                                 <div class="title">
-                                    <a class="nav-link" href="dashboard"><span>Quản lí khách hàng</span></a>
+                                    <a class="nav-link" href="userManager.jsp"><span>Quản lí khách hàng</span></a>
                                 </div>
                             </div>
                         </li>
@@ -65,7 +65,7 @@
                                 </div>
 
                                 <div class="title">
-                                    <a class="nav-link" href="dashboard"><span>Quản lí sản phẩm</span></a>
+                                    <a class="nav-link" href="ShowProduct.jsp"><span>Quản lí sản phẩm</span></a>
                                 </div>
                             </div>
                         </li>
@@ -76,7 +76,7 @@
                                     <i class="fa-solid fa-cart-shopping" style="color: #ffffff;"></i>                            
                                 </div>
                                 <div class="title">
-                                    <a class="nav-link" href="dashboard"><span>Quản lí đơn hàng</span></a>
+                                    <a class="nav-link" href="#"><span>Quản lí đơn hàng</span></a>
                                 </div>
                             </div>
                         </li>
@@ -87,7 +87,7 @@
                                     <i class="fa-solid fa-comments" style="color: #ffffff;"></i>                            
                                 </div>
                                 <div class="title">
-                                    <a class="nav-link" href="dashboard"><span>Kiểm tra phản hồi</span></a>
+                                    <a class="nav-link" href="#"><span>Kiểm tra phản hồi</span></a>
                                 </div>
                             </div>
                         </li>

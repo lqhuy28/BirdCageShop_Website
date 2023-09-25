@@ -49,6 +49,7 @@ aside {
 }
 .admin img{
     width: 150px;
+    margin-left: 20px;
 }
 .admin b{
     font-weight: bold;
@@ -155,6 +156,10 @@ button[type="submit"] {
     border-radius: 5px;
     cursor: pointer;
     margin-right: 100px;
+}
+
+button:hover{
+    background-color: #33CC66;
 }
 
 /* Style the readonly input fields */

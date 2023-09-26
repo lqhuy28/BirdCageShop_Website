@@ -57,9 +57,9 @@
                                             <li>
 <a href="#">${sessionScope.LOGIN_USER.fullName}</a>
                                                 <ul class="header__menu__dropdown">
-                                                    <li><a href="">Thông tin cá nhân</a></li>
-                                                    <li><a href="">Giỏ hàng</a></li>
-                                                    <li><a href="">Đăng xuất</a></li>
+                                                    <li><a href="profile.jsp">Thông tin cá nhân</a></li>
+                                                    <li><a href="">Đơn mua</a></li>
+                                                    <li><a href="MainController?action=Logout">Đăng xuất</a></li>
                                                 </ul> 
                                             </li>
                                         </ul>

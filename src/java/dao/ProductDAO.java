@@ -40,7 +40,7 @@ public class ProductDAO {
                         rs.getDouble(5),
                         rs.getString(6),
                         rs.getInt(7),
-                        rs.getBoolean(8), 
+                        rs.getString(8), 
                         rs.getString(9), 
                         rs.getString(10), 
                         rs.getString(11)));
@@ -68,7 +68,7 @@ public class ProductDAO {
                     Double ProductPriceOld = rs.getDouble("ProductPriceOld");
                     String ProductImage = rs.getString("ProductImage");
                     int Quantity = rs.getInt("Quantity");
-                    boolean ProductStatus = rs.getBoolean("ProductStatus");
+                    String ProductStatus = rs.getString("ProductStatus");
                     String ProductType = rs.getString("ProductType");
                     String ProductMaterial = rs.getString("ProductMaterial");
                     String OtherRequest = rs.getString("OtherRequest");
@@ -141,7 +141,7 @@ public class ProductDAO {
                         rs.getDouble(5),
                         rs.getString(6),
                         rs.getInt(7),
-                        rs.getBoolean(8),
+                        rs.getString(8),
                         rs.getString(9),
                         rs.getString(10),
                         rs.getString(11));

@@ -28,25 +28,11 @@
               <div class="pro-img-details">
                   <img src="https://www.bootdey.com/image/550x380/FFB6C1/000000" alt="">
               </div>
-              <div class="pro-img-list">
-                  <a href="#">
-                      <img src="https://www.bootdey.com/image/115x100/87CEFA/000000" alt="">
-                  </a>
-                  <a href="#">
-                      <img src="https://www.bootdey.com/image/115x100/FF7F50/000000" alt="">
-                  </a>
-                  <a href="#">
-                      <img src="https://www.bootdey.com/image/115x100/20B2AA/000000" alt="">
-                  </a>
-                  <a href="#">
-                      <img src="https://www.bootdey.com/image/120x100/20B2AA/000000" alt="">
-                  </a>
-              </div>
           </div>
           <div class="col-md-6">
               <h4 class="pro-d-title">
-                  <a href="#" class="">
-                      Leopard Shirt Dress
+                  <a>
+                      truyền tên sản phẩm vào đây 
                   </a>
               </h4>
               <p>

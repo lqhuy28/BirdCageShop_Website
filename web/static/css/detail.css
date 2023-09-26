@@ -10,7 +10,9 @@ and open the template in the editor.
 body{margin-top:20px;
 background:#eee;
 }
-
+.panel-body{
+    display: flex
+}
 /*panel*/
 .panel {
     border: none;

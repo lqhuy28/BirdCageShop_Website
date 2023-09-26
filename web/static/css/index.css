@@ -437,6 +437,7 @@ ol {
 }
 
 .header__menu ul li a {
+    text-decoration: none;
 	font-size: 14px;
 	color: #252525;
 	text-transform: uppercase;
@@ -572,6 +573,7 @@ ol {
 }
 
 .hero__categories ul li a {
+    text-decoration: none;
 	font-size: 16px;
 	color: #1c1c1c;
 	line-height: 39px;
@@ -880,6 +882,7 @@ ol {
 }
 
 .featured__item__text h6 a {
+    text-decoration: none;
 	color: #252525;
 }
 
@@ -2157,6 +2160,7 @@ ol {
 }
 
 .blog__item__text h5 a {
+    text-decoration: none;
 	font-size: 20px;
 	color: #1c1c1c;
 	font-weight: 700;
@@ -2510,6 +2514,7 @@ ol {
 }
 
 .footer__widget ul li a {
+    text-decoration: none;
 	color: #1c1c1c;
 	font-size: 14px;
 	line-height: 32px;

@@ -97,27 +97,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="col-lg-3 col-md-4 col-sm-6">
-                                            <div class="featured__item">
-                                                <div class="featured__item__pic set-bg">
-                                                    <img src="static/img/logobia.png" alt="">
-
-                                                    <ul class="featured__item__pic__hover">
-                                                        <!-- ảnh sản phẩm -->
-                                                        <li><a href="#"><i class="fa fa-heart"></i></a></li>
-                                                        <li><a href="#"><i class="fa fa-retweet"></i></a></li>
-                                                        <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
-                                                    </ul>
-                                                </div>
-                                                <div class="featured__item__text">
-                                                    <h6><a href="#">Tên sản phẩm</a></h6>
-                                                    <h5>Giá sản phẩm</h5>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    
-
+                                    </div>  
                                 </div>
                             </section>
                         </div>

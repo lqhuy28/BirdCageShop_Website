@@ -39,16 +39,16 @@
                                     <span>DANH SÁCH SẢN PHẨM</span>
                                 </div>
                                 <ul>
-                                    <li><a href="#">Lồng chim chào mào </a></li>
-                                    <li><a href="#">Lồng chim cu</a></li>
-                                    <li><a href="#">Lồng chim khuyên </a></li>
-                                    <li><a href="#">Lồng khướu</a></li>
-                                    <li><a href="#">Lồng vẹt</a></li>
-                                    <li><a href="#">Lồng chim sâu</a></li>
-                                    <li><a href="#">Lồng chim họa mi</a></li>
-                                    <li><a href="#">Lồng chim sơn ca</a></li>
-                                    <li><a href="#">Lồng chim sáo </a></li>
-                                    <li><a href="#">Lồng chim chích chòe</a></li>
+                                    <li><a href="category.jsp">Lồng chim Hào Mào </a></li>
+                                    <li><a href="category.jsp">Lồng chim Cu</a></li>
+                                    <li><a href="category.jsp">Lồng chim Khuyên </a></li>
+                                    <li><a href="category.jsp">Lồng chim Khướu</a></li>
+                                    <li><a href="category.jsp">Lồng chim Vẹt</a></li>
+                                    <li><a href="category.jsp">Lồng chim Sâu</a></li>
+                                    <li><a href="category.jsp">Lồng chim Họa Mi</a></li>
+                                    <li><a href="category.jsp">Lồng chim Sơn Ca</a></li>
+                                    <li><a href="category.jsp">Lồng chim Sáo </a></li>
+                                    <li><a href="category.jsp">Lồng chim Vần Khuyên</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -94,11 +94,9 @@
                             </div>
                             <div class="featured__controls">
                                 <ul>
-                                    <li class="active" data-filter="*">All</li>
-                                    <li data-filter=".oranges">Lồng tre </li>
-                                    <li data-filter=".fresh-meat">Lồng trần </li>
-                                    <li data-filter=".vegetables">Lồng vuông</li>
-                                    <li data-filter=".fastfood">Lồng tam giác</li>
+                                    <li >Lồng chim Khuyên </li>
+                                    <li >Lồng chim Chào mào </li>
+                                    <li >Lồng chim Sâu  </li>
                                 </ul>
                             </div>
                         </div>
@@ -163,6 +161,11 @@
             <div class="banner">
                 <div class="container">
                     <div class="row">
+                        <div class="col-lg-6 col-md-6 col-sm-6">
+                            <div class="banner__pic">
+                                <img src="static/img/logobia.png" alt="">
+                            </div>
+                        </div>
                         <div class="col-lg-6 col-md-6 col-sm-6">
                             <div class="banner__pic">
                                 <img src="static/img/logobia.png" alt="">

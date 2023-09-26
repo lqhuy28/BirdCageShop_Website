@@ -175,6 +175,11 @@
                                             <div class="btn-group">
                                                 <a href="update?sid=${x.productID}" class="btn btn-success">Update</a>
                                                 <a href="delete?sid=${x.productID}" class="btn btn-danger">Delete</a>
+                                                <form action="cart" method="POST">
+                                                    <input type="hidden" name="id" value="${x.productID}"/>
+                                                    <input type="hidden" name="quantity" value="1"/>
+                                                    <input type="submit" value="Add to Cart"/>
+                                                </form>
                                             </div>
                                         </td>
                                     </tr>
@@ -182,7 +187,7 @@
 
                             </table>
                         </c:if>
-
+                        <h4><a href="viewCart.jsp">View Cart</a></h4>
                     </div>
                 </main>
                 </body>

@@ -36,14 +36,15 @@ public class ProductDAO {
                 list.add(new ProductDTO(rs.getString(1),
                         rs.getString(2), 
                         rs.getString(3),
-                        rs.getDouble(4),
+                        rs.getString(4), 
                         rs.getDouble(5),
-                        rs.getString(6),
-                        rs.getInt(7),
-                        rs.getString(8), 
+                        rs.getDouble(6),
+                        rs.getString(7),
+                        rs.getInt(8),
                         rs.getString(9), 
                         rs.getString(10), 
-                        rs.getString(11)));
+                        rs.getString(11), 
+                        rs.getString(12)));
             }
         }   catch (Exception e){
         }
@@ -62,6 +63,7 @@ public class ProductDAO {
                 rs = ps.executeQuery();
                 while (rs.next()) {
                     String ProductID = rs.getString("ProductID");
+                    String CategoryID = rs.getString("CategoryID");
                     String ProductName = rs.getString("ProductName");
                     String ProductDetails = rs.getString("ProductDetails");
                     Double ProductPriceNew = rs.getDouble("ProductPriceNew");
@@ -72,7 +74,7 @@ public class ProductDAO {
                     String ProductType = rs.getString("ProductType");
                     String ProductMaterial = rs.getString("ProductMaterial");
                     String OtherRequest = rs.getString("OtherRequest");
-                    list.add(new ProductDTO(ProductID, ProductName, ProductDetails, ProductPriceNew, ProductPriceOld, ProductImage, Quantity, ProductStatus, ProductType, ProductMaterial, OtherRequest));
+                    list.add(new ProductDTO(ProductID, CategoryID, ProductName, ProductDetails, ProductPriceNew, ProductPriceOld, ProductImage, Quantity, ProductStatus, ProductType, ProductMaterial, OtherRequest));
                 }                    
             }
         } catch (Exception e) {
@@ -104,23 +106,24 @@ public class ProductDAO {
         } catch (Exception e) {
         }
     }
-    public void insertProduct(String ProductID, String ProductName, String ProductDetails, String ProductPriceNew, String ProductPriceOld, String ProductImage, String Quantity, String ProductStatus, String ProductType, String ProductMaterial, String OtherRequest){
+    public void insertProduct(String ProductID, String CategoryID, String ProductName, String ProductDetails, String ProductPriceNew, String ProductPriceOld, String ProductImage, String Quantity, String ProductStatus, String ProductType, String ProductMaterial, String OtherRequest){
         String query = "insert into tblProducts\n"
-                + "values(?,?,?,?,?,?,?,?,?,?,?)";
+                + "values(?,?,?,?,?,?,?,?,?,?,?,?)";
         try {
             conn = new DBUtils().getConnection();
             ps = conn.prepareStatement(query);
             ps.setString(1, ProductID);
-            ps.setString(2, ProductName);
-            ps.setString(3, ProductDetails);
-            ps.setString(4, ProductPriceNew);
-            ps.setString(5, ProductPriceOld);
-            ps.setString(6, ProductImage);
-            ps.setString(7, Quantity);
-            ps.setString(8, ProductStatus);
-            ps.setString(9, ProductType);
-            ps.setString(10, ProductMaterial);
-            ps.setString(11, OtherRequest);
+            ps.setString(2, CategoryID);
+            ps.setString(3, ProductName);
+            ps.setString(4, ProductDetails);
+            ps.setString(5, ProductPriceNew);
+            ps.setString(6, ProductPriceOld);
+            ps.setString(7, ProductImage);
+            ps.setString(8, Quantity);
+            ps.setString(9, ProductStatus);
+            ps.setString(10, ProductType);
+            ps.setString(11, ProductMaterial);
+            ps.setString(12, OtherRequest);
             ps.executeUpdate();
         } catch (Exception e) {
         }
@@ -135,48 +138,51 @@ public class ProductDAO {
             rs = ps.executeQuery();
             while(rs.next()){
                 return new ProductDTO(rs.getString(1),
-                        rs.getString(2), 
+                        rs.getString(2),
                         rs.getString(3),
-                        rs.getDouble(4),
+                        rs.getString(4),
                         rs.getDouble(5),
-                        rs.getString(6),
-                        rs.getInt(7),
-                        rs.getString(8),
+                        rs.getDouble(6),
+                        rs.getString(7),
+                        rs.getInt(8),
                         rs.getString(9),
                         rs.getString(10),
-                        rs.getString(11));
+                        rs.getString(11),
+                        rs.getString(12));
             }
         } catch (Exception e) {
         }
         return null;
     }
-    public void updateProduct(String ProductID, String ProductName, String ProductDetails, String ProductPriceNew, String ProductPriceOld, String ProductImage, String Quantity, String ProductStatus, String ProductType, String ProductMaterial, String OtherRequest){
+    public void updateProduct(String ProductID, String CategoryID, String ProductName, String ProductDetails, String ProductPriceNew, String ProductPriceOld, String ProductImage, String Quantity, String ProductStatus, String ProductType, String ProductMaterial, String OtherRequest){
         String query ="update tblProducts\n" 
-                +"set [ProductName] = ?,\n" 
-                +"ProductDetails = ?,\n" 
-                +"ProductPriceNew = ?,\n" 
-                +"ProductPriceOld = ?,\n" 
-                +"ProductImage = ?,\n" 
-                +"Quantity = ?,\n" 
-                +"ProductStatus = ?,\n" 
-                +"ProductType = ?,\n" 
-                +"ProductMaterial = ?,\n" 
-                +"OtherRequest = ?\n" 
-                +"where ProductID = ?";
+                + "set [CategoryID] = ?,\n" 
+                + "ProductName = ?,\n" 
+                + "ProductDetails = ?,\n" 
+                + "ProductPriceNew = ?,\n" 
+                + "ProductPriceOld = ?,\n" 
+                + "ProductImage = ?,\n" 
+                + "Quantity = ?,\n" 
+                + "ProductStatus = ?,\n" 
+                + "ProductType = ?,\n" 
+                + "ProductMaterial = ?,\n" 
+                + "OtherRequest = ?\n" 
+                + "where ProductID = ?";
         try {
             conn = new DBUtils().getConnection();
             ps = conn.prepareStatement(query);
-            ps.setString(1, ProductName);
-            ps.setString(2, ProductDetails);
-            ps.setString(3, ProductPriceNew);
-            ps.setString(4, ProductPriceOld);
-            ps.setString(5, ProductImage);
-            ps.setString(6, Quantity);
-            ps.setString(7, ProductStatus);
-            ps.setString(8, ProductType);
-            ps.setString(9, ProductMaterial);
-            ps.setString(10, OtherRequest);
-            ps.setString(11, ProductID);
+            ps.setString(1, CategoryID);
+            ps.setString(2, ProductName);
+            ps.setString(3, ProductDetails);
+            ps.setString(4, ProductPriceNew);
+            ps.setString(5, ProductPriceOld);
+            ps.setString(6, ProductImage);
+            ps.setString(7, Quantity);
+            ps.setString(8, ProductStatus);
+            ps.setString(9, ProductType);
+            ps.setString(10, ProductMaterial);
+            ps.setString(11, OtherRequest);
+            ps.setString(12, ProductID);
             ps.executeUpdate();
         } catch (Exception e) {
         }

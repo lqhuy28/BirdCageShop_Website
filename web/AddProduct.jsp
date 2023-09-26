@@ -115,6 +115,13 @@
                                         <input type="text" name="ProductID">
                                     </td>
                                 </tr>
+                                
+                                <tr>
+                                    <td>Danh mục</td>
+                                    <td>
+                                        <input type="text" name="CategoryID">
+                                    </td>
+                                </tr>
 
                                 <tr>
                                     <td>Tên sản phẩm</td>

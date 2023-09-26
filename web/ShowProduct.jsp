@@ -141,6 +141,7 @@
                                 <thead>
                                     <tr>
                                         <th scope="col">Mã sản phẩm</th>
+                                        <th scope="col">Danh mục</th>
                                         <th scope="col">Tên sản phẩm</th>
                                         <th scope="col">Thông tin sản phẩm</th>
                                         <th scope="col">Giá mới</th>
@@ -159,6 +160,7 @@
                                 <c:forEach items="${listS}" var="x">
                                     <tr>
                                         <td>${x.productID}</td>
+                                        <td>${x.categoryID}</td>
                                         <td>${x.productName}</td>
                                         <td>${x.productDetails}</td>
                                         <td>${x.productPriceNew}</td>

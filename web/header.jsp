@@ -48,14 +48,29 @@
                                     <li><a href="#">English</a></li>
                                 </ul>
                             </div>
-                            <div class="header__top__right__auth">
-                                <a href="login.jsp"><i class="fa fa-user"></i> Login</a>
+                                         <div class="header__top__right__auth">
+                                    <% if (session.getAttribute("LOGIN_USER") == null) { %>
+                                    <a href="login.jsp"><i class="fa fa-user"></i> Login</a>  
+                                    <% } else { %>
+                                    <nav class="header__menu">
+                                        <ul>
+                                            <li>
+<a href="#">${sessionScope.LOGIN_USER.fullName}</a>
+                                                <ul class="header__menu__dropdown">
+                                                    <li><a href="">Thông tin cá nhân</a></li>
+                                                    <li><a href="">Giỏ hàng</a></li>
+                                                    <li><a href="">Đăng xuất</a></li>
+                                                </ul> 
+                                            </li>
+                                        </ul>
+                                    </nav> 
+                                    <% }%>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
         <div class="container-menu">
             <div class="row">
                 <div class="col-lg-2">

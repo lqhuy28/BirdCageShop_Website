@@ -32,7 +32,7 @@ public class ShoppingDAO {
                         rs.getDouble(5),
                         rs.getString(6),
                         rs.getInt(7),
-                        rs.getBoolean(8), 
+                        rs.getString(8), 
                         rs.getString(9), 
                         rs.getString(10), 
                         rs.getString(11)));

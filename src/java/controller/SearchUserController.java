@@ -35,7 +35,9 @@ public class SearchUserController extends HttpServlet {
             String search = request.getParameter("search");
             UserDAO dao = new UserDAO();
             List<User> list = dao.SearchUser(search);
-            if (list.size() > 0) {
+        if (list.isEmpty()) {
+            request.setAttribute("ERROR", "User is not found!");
+        }else {
                 request.setAttribute("listU", list);
                 url = SUCCESS;
             }

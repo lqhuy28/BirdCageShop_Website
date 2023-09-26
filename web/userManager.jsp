@@ -126,11 +126,15 @@
                 request.setAttribute("listU", listU);
             }
         %>
+        <div class="error_message">
+                                ${requestScope.ERROR}
+                            </div>
         <form action="searchUser" method="POST" class="form-inline">
                             <div class="form-group">
-                                <input type="text" value="<%=search%>"  class="form-control" name="search" id="search" />
+                                <input type="text" value="<%=search%>" placeholder="Search by userID"  class="form-control" name="search" id="search" />
                             </div>
                             <button type="submit" class="fa fa-solid fa-magnifying-glass" name="action" value="Search"></button>
+                            
                         </form>
                         <% int count = 1;%>
                         <c:if test="${not empty listU}">

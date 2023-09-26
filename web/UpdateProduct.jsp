@@ -113,6 +113,13 @@
                                         <input value="${st.productID}" type="text" name="ProductID" readonly>
                                     </td>
                                 </tr>
+                                
+                                <tr>
+                                    <td>Danh mục</td>
+                                    <td>
+                                        <input value="${st.categoryID}" type="text" name="CategoryID">
+                                    </td>
+                                </tr>
 
                                 <tr>
                                     <td>Tên sản phẩm</td>

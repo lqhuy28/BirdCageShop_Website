@@ -11,6 +11,7 @@ package model;
  */
 public class ProductDTO {
     private String ProductID;
+    private String CategoryID;
     private String ProductName;
     private String ProductDetails;
     private double ProductPriceNew;
@@ -25,8 +26,9 @@ public class ProductDTO {
     public ProductDTO() {
     }
 
-    public ProductDTO(String ProductID, String ProductName, String ProductDetails, double ProductPriceNew, double ProductPriceOld, String ProductImage, int Quantity, String ProductStatus, String ProductType, String ProductMaterial, String OtherRequest) {
+    public ProductDTO(String ProductID, String CategoryID, String ProductName, String ProductDetails, double ProductPriceNew, double ProductPriceOld, String ProductImage, int Quantity, String ProductStatus, String ProductType, String ProductMaterial, String OtherRequest) {
         this.ProductID = ProductID;
+        this.CategoryID = CategoryID;
         this.ProductName = ProductName;
         this.ProductDetails = ProductDetails;
         this.ProductPriceNew = ProductPriceNew;
@@ -38,6 +40,8 @@ public class ProductDTO {
         this.ProductMaterial = ProductMaterial;
         this.OtherRequest = OtherRequest;
     }
+    
+    
 
     public String getProductID() {
         return ProductID;
@@ -45,6 +49,14 @@ public class ProductDTO {
 
     public void setProductID(String ProductID) {
         this.ProductID = ProductID;
+    }
+
+    public String getCategoryID() {
+        return CategoryID;
+    }
+
+    public void setCategoryID(String CategoryID) {
+        this.CategoryID = CategoryID;
     }
 
     public String getProductName() {
@@ -129,9 +141,7 @@ public class ProductDTO {
 
     @Override
     public String toString() {
-        return "ProductDTO{" + "ProductID=" + ProductID + ", ProductName=" + ProductName + ", ProductDetails=" + ProductDetails + ", ProductPriceNew=" + ProductPriceNew + ", ProductPriceOld=" + ProductPriceOld + ", ProductImage=" + ProductImage + ", Quantity=" + Quantity + ", ProductStatus=" + ProductStatus + ", ProductType=" + ProductType + ", ProductMaterial=" + ProductMaterial + ", OtherRequest=" + OtherRequest + '}';
+        return "ProductDTO{" + "ProductID=" + ProductID + ", CategoryID=" + CategoryID + ", ProductName=" + ProductName + ", ProductDetails=" + ProductDetails + ", ProductPriceNew=" + ProductPriceNew + ", ProductPriceOld=" + ProductPriceOld + ", ProductImage=" + ProductImage + ", Quantity=" + Quantity + ", ProductStatus=" + ProductStatus + ", ProductType=" + ProductType + ", ProductMaterial=" + ProductMaterial + ", OtherRequest=" + OtherRequest + '}';
     }
-}
 
-    
-    
+}

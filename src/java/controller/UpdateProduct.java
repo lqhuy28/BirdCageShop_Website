@@ -82,6 +82,7 @@ public class UpdateProduct extends HttpServlet {
             throws ServletException, IOException {
         //processRequest(request, response);
         String sProductID = request.getParameter("ProductID");
+        String sCategoryID = request.getParameter("CategoryID");
         String sProductName = request.getParameter("ProductName");
         String sProductDetails = request.getParameter("ProductDetails");
         String sProductPriceNew = request.getParameter("ProductPriceNew");
@@ -93,7 +94,7 @@ public class UpdateProduct extends HttpServlet {
         String sProductMaterial = request.getParameter("ProductMaterial");
         String sOtherRequest = request.getParameter("OtherRequest");
         ProductDAO dao = new ProductDAO();
-        dao.updateProduct(sProductID, sProductName, sProductDetails, sProductPriceNew, sProductPriceOld, sProductImage, sQuantity, sProductStatus, sProductType, sProductMaterial, sOtherRequest);
+        dao.updateProduct(sProductID, sCategoryID, sProductName, sProductDetails, sProductPriceNew, sProductPriceOld, sProductImage, sQuantity, sProductStatus, sProductType, sProductMaterial, sOtherRequest);
         response.sendRedirect("load");
     }
 

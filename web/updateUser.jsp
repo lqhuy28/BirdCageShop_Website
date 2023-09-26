@@ -133,7 +133,7 @@
                                 </tr>
                                 <tr>
                                     <td>Email</td>
-                                    <td><input value="${us.email}" type="text" name="email"></td>
+                                    <td><input value="${us.email}" type="email" name="email"></td>
                                 </tr>
                                 <tr>
                                     <td>Địa chỉ</td>

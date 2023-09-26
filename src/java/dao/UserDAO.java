@@ -25,7 +25,7 @@ public class UserDAO {
     ResultSet rs = null;
     private static final String UPDATEUSER = "UPDATE tblUsers set fullName=?, password=?, phone=?, email=?, address=?, roleID=? WHERE userID=?";
     private static final String LOGIN = "SELECT FullName, Phone, Email, Address, RoleID FROM tblUsers WHERE UserID=? AND Password=?";
-    private static final String searchUser = "select * from tblUsers where userID like ?";
+    private static final String searchUser = "select * from tblUsers where userID like ? or fullname like ?";
     private static final String listUser = "select * from tblUsers";
     private static final String DELETEUSER = "delete from tblUsers where userID = ?";
     private static final String getUserByuserID = "select UserID, FullName, Password, Phone, Email, Address, RoleID FROM tblUsers where userID like ?";
@@ -43,6 +43,7 @@ public class UserDAO {
             if (conn != null) {
                 ptm = conn.prepareStatement(searchUser);
                 ptm.setString(1, "%" + search + "%");
+                ptm.setString(2, "%" + search + "%");
                 rs = ptm.executeQuery();
                 while (rs.next()) {
                     String userID = rs.getString("userID");

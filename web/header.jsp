@@ -67,7 +67,7 @@
                     <nav class="header__menu">
                         <ul>
                             <li class="active"><a href="">Trang chủ</a></li>
-                            <li><a href="">Giới thiệu</a></li>
+                            <li><a href="policy/IntroduceShop.jsp">Giới thiệu</a></li>
                             <li><a href="#">Sản phẩm </a>
                                 <ul class="header__menu__dropdown">
                                     <li><a href="">Lồng chim gỗ</a></li>

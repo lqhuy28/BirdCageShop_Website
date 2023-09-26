@@ -42,18 +42,17 @@
                             
                             <ul>
                                 <h6>THÔNG TIN CỬA HÀNG</h6>
-                                <li><a href="#">Thông tin cửa hàng</a></li>
-                                <li><a href="#">Giới thiệu</a></li>
+                                <li><a href="#">Trang chủ</a></li>
+                                <li><a href="policy/IntroduceShop.jsp">Giới thiệu</a></li>
                                 <li><a href="#">Liên hệ</a></li>
                                 <li><a href="#">Tin tức</a></li>
-                                <li><a href="#">Danh mục sản phẩm</a></li>
-                            </ul>
+                          </ul>
                             <h6>CHÍNH SÁCH CHUNG</h6>
                             <ul>
-                                <li><a href="#">Chính Sách Chung </a></li>
-                                <li><a href="#">Chính Sách Mua Hàng</a></li>
-                                <li><a href="#">Chính Sách Đổi Trản</a></li>
-                                <li><a href="#">Chính Sách Bảo Mật</a></li>
+                                <li><a href="policy/generalPolicy.jsp">Chính Sách Chung </a></li>
+                                <li><a href="policy/buyPolicy.jsp">Chính Sách Mua Hàng</a></li>
+                                <li><a href="policy/returnPolicy.jsp">Chính Sách Đổi Trả</a></li>
+                                <li><a href="policy/privacyPolicy.jsp">Chính Sách Bảo Mật</a></li>
                                 
                             </ul>
                         </div>

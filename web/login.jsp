@@ -43,6 +43,8 @@
                     
                 </form>
                 <div class="or">------------ Hoặc ------------</div>
+                <a href="https://accounts.google.com/o/oauth2/auth?scope=profile&redirect_uri=http://localhost:8080/Fall2023SWP391_NET1703_Group6/LoginGoogleController&response_type=code
+		   &client_id=242838873945-fafllo7gm5ups4aejqla1t4mievr9kov.apps.googleusercontent.com&approval_prompt=force">Login With Google</a>
                 <div class="btn-container">
                     Chưa có tài khoản? <a href="register.jsp">Đăng ký</a>
                 </div>    

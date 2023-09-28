@@ -81,7 +81,7 @@
                 <div class="col-lg-8">
                     <nav class="header__menu">
                         <ul>
-                            <li class="active"><a href="">Trang chủ</a></li>
+                            <li class="active"><a href="homePage.jsp">Trang chủ</a></li>
                             <li><a href="policy/IntroduceShop.jsp">Giới thiệu</a></li>
                             <li><a href="#">Sản phẩm </a>
                                 <ul class="header__menu__dropdown">
@@ -103,7 +103,6 @@
                             <li><a href="#"><i class="fa fa-heart"></i> <span>1</span></a></li>
                             <li><a href="#"><i class="fa fa-shopping-bag"></i> <span>3</span></a></li>
                         </ul>
-                        <div class="header__cart__price">item: <span>$150.00</span></div>
                     </div>
                 </div>
             </div>

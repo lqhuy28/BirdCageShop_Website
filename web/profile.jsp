@@ -23,7 +23,7 @@
         <body>
         <main class="col-md-10">
             <div class="container main ">
-                <form action="updateUser" method="POST">
+                <form action="changeProfile" method="POST">
                     <table>
                         <tr>
                             <td>Tên đăng nhập</td>
@@ -49,15 +49,19 @@
                         </tr>
                         <tr>
                             <td>Email</td>
-                            <td><input value="${us.email}" type="text" name="email"></td>
+                            <td><input value="${us.email}" type="text" name="email" readonly=""></td>
                         </tr>
                         <tr>
                             <td>Địa chỉ</td>
                             <td><input value="${us.address}" type="text" name="address"></td>
                         </tr>
                         <tr>
+                            <td>Vai trò</td>
+                            <td><input value="${us.roleID}" type="text" name="roleID"></td>
+                        </tr>
+                        <tr>
                             <td></td>
-                            <td><button name="updateUser" type="submit">Cập nhật</button></td>
+                            <td><button name="changeProfile" type="submit">Cập nhật</button></td>
                         </tr>
                     </table>
                 </form>

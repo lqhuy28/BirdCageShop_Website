@@ -27,7 +27,7 @@
                 <main class="row ">
                     <div class="col-lg-6">
                         </br>
-                        <img src="static/img/Screenshot 2023-09-29 023218.png" alt="">                                
+                        <img src="static/img/profile.png" alt="">                                
                     </div>
                     <div class="col-lg-6">
                         <div class=" main ">

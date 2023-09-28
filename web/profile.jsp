@@ -20,54 +20,65 @@
     </head>
     <body>
         <jsp:include page="header.jsp" />
-        <body>
-        <main class="col-md-10">
-            <div class="container main ">
-                <form action="changeProfile" method="POST">
-                    <table>
-                        <tr>
-                            <td>Tên đăng nhập</td>
-                            <td>
-                                <input value="${us.userID}" type="text" name="userID" readonly>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Tên người dùng</td>
-                            <td>
-                                <input value="${us.fullName}" type="text" name="fullName">
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Mật khẩu</td>
-                            <td>
-                                <input value="${us.password}" type="text" name="password">
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Số điện thoại</td>
-                            <td><input value="${us.phone}" type="text" name="phone"></td>
-                        </tr>
-                        <tr>
-                            <td>Email</td>
-                            <td><input value="${us.email}" type="text" name="email" readonly=""></td>
-                        </tr>
-                        <tr>
-                            <td>Địa chỉ</td>
-                            <td><input value="${us.address}" type="text" name="address"></td>
-                        </tr>
-                        <tr>
-                            <td>Vai trò</td>
-                            <td><input value="${us.roleID}" type="text" name="roleID"></td>
-                        </tr>
-                        <tr>
-                            <td></td>
-                            <td><button name="changeProfile" type="submit">Cập nhật</button></td>
-                        </tr>
-                    </table>
-                </form>
+        <div class="profile">
+            <div class=" container ">
+
+
+                <main class="row ">
+                    <div class="col-lg-6">
+                        </br>
+                        <img src="static/img/Screenshot 2023-09-29 023218.png" alt="">                                
+                    </div>
+                    <div class="col-lg-6">
+                        <div class=" main ">
+                            <h3 class="text-center"><strong>Thông tin cá nhân & cài đặt</strong></h3>
+                            </br>
+                            </br>
+                            <form action="changeProfile" method="POST">
+                                <table>
+                                    <tr>
+                                        <td>Tên đăng nhập</td>
+                                        <td>
+                                            <input value="${us.userID}" type="text" name="userID" readonly>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Tên người dùng</td>
+                                        <td>
+                                            <input value="${us.fullName}" type="text" name="fullName">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Mật khẩu</td>
+                                        <td>
+                                            <input value="${us.password}" type="text" name="password">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Số điện thoại</td>
+                                        <td><input value="${us.phone}" type="text" name="phone"></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Email</td>
+                                        <td><input value="${us.email}" type="text" name="email" readonly=""></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Địa chỉ</td>
+                                        <td><input value="${us.address}" type="text" name="address"></td>
+                                    </tr>
+
+                                    <tr>
+                                        <td></td>
+                                        <td><button name="changeProfile" type="submit">Cập nhật</button></td>
+                                    </tr>
+                                </table>
+                            </form>
+                        </div>
+                    </div>
+                    
+                </main>
             </div>
-        </main>
-    </body>
+        </div>
         <jsp:include page="footer.jsp" />
     </body>
 </html>

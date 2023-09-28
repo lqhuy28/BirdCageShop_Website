@@ -152,7 +152,7 @@
                             </div>
                         </div>
                     </div>
-                    
+
                 </div>
             </section>
 
@@ -186,14 +186,14 @@
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-lg-4 col-md-4 col-sm-6">
+                        <div class="col-lg-4 col-md-4 col-sm-6" >
                             <div class="blog__item">
                                 <div class="blog__item__pic">
-                                    <img src="" alt="">
+                                    <img src="static/img/blog1.png" alt="">
                                 </div>
                                 <div class="blog__item__text">
-                                    <h5><a href="#">Cooking tips make cooking simple</a></h5>
-                                    <p>Sed quia non numquam modi tempora indunt ut labore et dolore magnam aliquam quaerat </p>
+                                    <h5><a href="https://nguoiyeuchimcanh.blogspot.com/2023/09/nuoi-chao-mao.html">10 Bí quyết nuôi chim chào mào hót hay</a></h5>
+                                    <p>Việc nuôi chim chào mào và làm cho chúng hót hay đòi hỏi kiên nhẫn, hiểu biết về loài chim này và sự quan tâm đều đặn. Dưới đây là một số bí quyết để </p>
                                 </div>
                             </div>
                         </div>

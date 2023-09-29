@@ -79,10 +79,10 @@ public class AddProduct extends HttpServlet {
         String sCategoryID = request.getParameter("CategoryID");
         String sProductName = request.getParameter("ProductName");
         String sProductDetails = request.getParameter("ProductDetails");
-        String sProductPriceNew = request.getParameter("ProductPriceNew");
-        String sProductPriceOld = request.getParameter("ProductPriceOld");
+        double sProductPriceNew = Double.parseDouble(request.getParameter("ProductPriceNew"));
+        double sProductPriceOld = Double.parseDouble(request.getParameter("ProductPriceOld"));
         String sProductImage = request.getParameter("ProductImage");
-        String sQuantity = request.getParameter("Quantity");
+        int sQuantity = Integer.parseInt(request.getParameter("Quantity"));
         String sProductStatus = request.getParameter("ProductStatus");
         String sProductType = request.getParameter("ProductType");
         String sProductMaterial = request.getParameter("ProductMaterial");

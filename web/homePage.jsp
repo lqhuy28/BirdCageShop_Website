@@ -3,7 +3,7 @@
     Created on : Sep 22, 2023, 10:22:12 PM
     Author     : HOANGDUC
 --%>
-
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -39,7 +39,7 @@
                                     <span>DANH SÁCH SẢN PHẨM</span>
                                 </div>
                                 <ul>
-                                    <li><a href="category.jsp">Lồng chim Hào Mào </a></li>
+                                    <li><a href="category.jsp">Lồng chim Chào Mào </a></li>
                                     <li><a href="category.jsp">Lồng chim Cu</a></li>
                                     <li><a href="category.jsp">Lồng chim Khuyên </a></li>
                                     <li><a href="category.jsp">Lồng chim Khướu</a></li>
@@ -48,7 +48,7 @@
                                     <li><a href="category.jsp">Lồng chim Họa Mi</a></li>
                                     <li><a href="category.jsp">Lồng chim Sơn Ca</a></li>
                                     <li><a href="category.jsp">Lồng chim Sáo </a></li>
-                                    <li><a href="category.jsp">Lồng chim Vần Khuyên</a></li>
+                                    <li><a href="category.jsp">Lồng chim Vành Khuyên</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -133,24 +133,30 @@
                         </div>
                     </div>
                     <div class="row featured__filter">
-                        <div class="col-lg-3 col-md-4 col-sm-6">
-                            <div class="featured__item">
-                                <div class="featured__item__pic set-bg">
-                                    <img src="static/img/logobia.png" alt="">
+                        <c:set var="listS" value="${requestScope.listS}" />
+                        <c:forEach items="${listS}" var="x">
+                            <div class="col-lg-3 col-md-4 col-sm-6">
+                                <div class="featured__item">
+                                    <div class="featured__item__pic set-bg">
+                                        <img src="${x.productImage}" alt="">
 
-                                    <ul class="featured__item__pic__hover">
-                                        <!-- ảnh sản phẩm -->
-                                        <li><a href="#"><i class="fa fa-heart"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-retweet"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
-                                    </ul>
-                                </div>
-                                <div class="featured__item__text">
-                                    <h6><a href="#">Tên sản phẩm</a></h6>
-                                    <h5>Giá sản phẩm</h5>
+                                        <ul class="featured__item__pic__hover">
+                                            <!-- ảnh sản phẩm -->
+                                            <li><a href="#"><i class="fa fa-heart"></i></a></li>
+                                            <li><a href="#"><i class="fa fa-retweet"></i></a></li>
+                                            <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
+                                        </ul>
+                                    </div>
+
+                                    <div class="featured__item__text">
+
+
+                                        <h6><a href="#" title="View Product">${x.productName}</a></h6>
+                                        <h5>${x.productPriceNew} $</h5>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
+                        </c:forEach>
                     </div>
 
                 </div>

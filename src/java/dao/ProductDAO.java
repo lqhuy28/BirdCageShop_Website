@@ -50,6 +50,15 @@ public class ProductDAO {
         }
         return list;
     }
+    
+    public static void main(String[] args) {
+        ProductDAO dao = new ProductDAO();
+        List<ProductDTO> list = dao.getAllProductDTO();
+        for (ProductDTO o : list){
+            System.out.println(o);
+        }
+    }
+    
     public List<ProductDTO> SearchProduct(String search)throws SQLException{
         List<ProductDTO> list = new ArrayList<>();
         Connection conn = null;
@@ -106,7 +115,7 @@ public class ProductDAO {
         } catch (Exception e) {
         }
     }
-    public void insertProduct(String ProductID, String CategoryID, String ProductName, String ProductDetails, String ProductPriceNew, String ProductPriceOld, String ProductImage, String Quantity, String ProductStatus, String ProductType, String ProductMaterial, String OtherRequest){
+    public void insertProduct(String ProductID, String CategoryID, String ProductName, String ProductDetails, double ProductPriceNew, double ProductPriceOld, String ProductImage, int Quantity, String ProductStatus, String ProductType, String ProductMaterial, String OtherRequest){
         String query = "insert into tblProducts\n"
                 + "values(?,?,?,?,?,?,?,?,?,?,?,?)";
         try {
@@ -116,10 +125,10 @@ public class ProductDAO {
             ps.setString(2, CategoryID);
             ps.setString(3, ProductName);
             ps.setString(4, ProductDetails);
-            ps.setString(5, ProductPriceNew);
-            ps.setString(6, ProductPriceOld);
+            ps.setDouble(5, ProductPriceNew);
+            ps.setDouble(6, ProductPriceOld);
             ps.setString(7, ProductImage);
-            ps.setString(8, Quantity);
+            ps.setInt(8, Quantity);
             ps.setString(9, ProductStatus);
             ps.setString(10, ProductType);
             ps.setString(11, ProductMaterial);
@@ -154,7 +163,7 @@ public class ProductDAO {
         }
         return null;
     }
-    public void updateProduct(String ProductID, String CategoryID, String ProductName, String ProductDetails, String ProductPriceNew, String ProductPriceOld, String ProductImage, String Quantity, String ProductStatus, String ProductType, String ProductMaterial, String OtherRequest){
+    public void updateProduct(String ProductID, String CategoryID, String ProductName, String ProductDetails, double ProductPriceNew, double ProductPriceOld, String ProductImage, int Quantity, String ProductStatus, String ProductType, String ProductMaterial, String OtherRequest){
         String query ="update tblProducts\n" 
                 + "set [CategoryID] = ?,\n" 
                 + "ProductName = ?,\n" 
@@ -174,10 +183,10 @@ public class ProductDAO {
             ps.setString(1, CategoryID);
             ps.setString(2, ProductName);
             ps.setString(3, ProductDetails);
-            ps.setString(4, ProductPriceNew);
-            ps.setString(5, ProductPriceOld);
+            ps.setDouble(4, ProductPriceNew);
+            ps.setDouble(5, ProductPriceOld);
             ps.setString(6, ProductImage);
-            ps.setString(7, Quantity);
+            ps.setInt(7, Quantity);
             ps.setString(8, ProductStatus);
             ps.setString(9, ProductType);
             ps.setString(10, ProductMaterial);

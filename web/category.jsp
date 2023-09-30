@@ -33,16 +33,16 @@
                                     <span>DANH SÁCH SẢN PHẨM</span>
                                 </div>
                                 <ul>
-                                    <li><a href="#">Lồng chim chào mào </a></li>
-                                    <li><a href="#">Lồng chim cu</a></li>
-                                    <li><a href="#">Lồng chim khuyên </a></li>
-                                    <li><a href="#">Lồng khướu</a></li>
-                                    <li><a href="#">Lồng vẹt</a></li>
-                                    <li><a href="#">Lồng chim sâu</a></li>
-                                    <li><a href="#">Lồng chim họa mi</a></li>
-                                    <li><a href="#">Lồng chim sơn ca</a></li>
-                                    <li><a href="#">Lồng chim sáo </a></li>
-                                    <li><a href="#">Lồng chim chích chòe</a></li>
+                                    <li><a href="category.jsp">Lồng chim chào mào </a></li>
+                                    <li><a href="category.jsp">Lồng chim cu</a></li>
+                                    <li><a href="category.jsp">Lồng chim khuyên </a></li>
+                                    <li><a href="category.jsp">Lồng khướu</a></li>
+                                    <li><a href="category.jsp">Lồng vẹt</a></li>
+                                    <li><a href="category.jsp">Lồng chim sâu</a></li>
+                                    <li><a href="category.jsp">Lồng chim họa mi</a></li>
+                                    <li><a href="category.jsp">Lồng chim sơn ca</a></li>
+                                    <li><a href="category.jsp">Lồng chim sáo </a></li>
+                                    <li><a href="category.jsp">Lồng chim chích chòe</a></li>
                                 </ul>
                             </div>
                         </div>

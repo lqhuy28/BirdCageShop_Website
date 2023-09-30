@@ -77,7 +77,7 @@
                                 </ul>
                             </li>
                             <li><a href="">Blog</a></li>
-                            <li><a href="">Đặt hàng theo yêu cầu</a></li>
+                            <li><a href="">Phụ kiện lòng chim</a></li>
                             <li><a href="">Liên hệ</a></li>
                         </ul>
                     </nav>

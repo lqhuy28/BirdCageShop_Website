@@ -10,45 +10,37 @@ package model;
  * @author Acer
  */
 public class ProductDTO {
-    private String ProductID;
+    private String CageID;
     private String CategoryID;
-    private String ProductName;
-    private String ProductDetails;
-    private double ProductPriceNew;
-    private double ProductPriceOld;
-    private String ProductImage;
+    private String CageName;
+    private String CageDetails;
+    private double PriceNew;
+    private double PriceOld;
+    private String Image;
     private int Quantity;
-    private String ProductStatus;
-    private String ProductType;
-    private String ProductMaterial;
-    private String OtherRequest;
+    private String Status;
 
     public ProductDTO() {
     }
 
-    public ProductDTO(String ProductID, String CategoryID, String ProductName, String ProductDetails, double ProductPriceNew, double ProductPriceOld, String ProductImage, int Quantity, String ProductStatus, String ProductType, String ProductMaterial, String OtherRequest) {
-        this.ProductID = ProductID;
+    public ProductDTO(String CageID, String CategoryID, String CageName, String CageDetails, double PriceNew, double PriceOld, String Image, int Quantity, String Status) {
+        this.CageID = CageID;
         this.CategoryID = CategoryID;
-        this.ProductName = ProductName;
-        this.ProductDetails = ProductDetails;
-        this.ProductPriceNew = ProductPriceNew;
-        this.ProductPriceOld = ProductPriceOld;
-        this.ProductImage = ProductImage;
+        this.CageName = CageName;
+        this.CageDetails = CageDetails;
+        this.PriceNew = PriceNew;
+        this.PriceOld = PriceOld;
+        this.Image = Image;
         this.Quantity = Quantity;
-        this.ProductStatus = ProductStatus;
-        this.ProductType = ProductType;
-        this.ProductMaterial = ProductMaterial;
-        this.OtherRequest = OtherRequest;
-    }
-    
-    
-
-    public String getProductID() {
-        return ProductID;
+        this.Status = Status;
     }
 
-    public void setProductID(String ProductID) {
-        this.ProductID = ProductID;
+    public String getCageID() {
+        return CageID;
+    }
+
+    public void setCageID(String CageID) {
+        this.CageID = CageID;
     }
 
     public String getCategoryID() {
@@ -59,44 +51,44 @@ public class ProductDTO {
         this.CategoryID = CategoryID;
     }
 
-    public String getProductName() {
-        return ProductName;
+    public String getCageName() {
+        return CageName;
     }
 
-    public void setProductName(String ProductName) {
-        this.ProductName = ProductName;
+    public void setCageName(String CageName) {
+        this.CageName = CageName;
     }
 
-    public String getProductDetails() {
-        return ProductDetails;
+    public String getCageDetails() {
+        return CageDetails;
     }
 
-    public void setProductDetails(String ProductDetails) {
-        this.ProductDetails = ProductDetails;
+    public void setCageDetails(String CageDetails) {
+        this.CageDetails = CageDetails;
     }
 
-    public double getProductPriceNew() {
-        return ProductPriceNew;
+    public double getPriceNew() {
+        return PriceNew;
     }
 
-    public void setProductPriceNew(double ProductPriceNew) {
-        this.ProductPriceNew = ProductPriceNew;
+    public void setPriceNew(double PriceNew) {
+        this.PriceNew = PriceNew;
     }
 
-    public double getProductPriceOld() {
-        return ProductPriceOld;
+    public double getPriceOld() {
+        return PriceOld;
     }
 
-    public void setProductPriceOld(double ProductPriceOld) {
-        this.ProductPriceOld = ProductPriceOld;
+    public void setPriceOld(double PriceOld) {
+        this.PriceOld = PriceOld;
     }
 
-    public String getProductImage() {
-        return ProductImage;
+    public String getImage() {
+        return Image;
     }
 
-    public void setProductImage(String ProductImage) {
-        this.ProductImage = ProductImage;
+    public void setImage(String Image) {
+        this.Image = Image;
     }
 
     public int getQuantity() {
@@ -107,41 +99,17 @@ public class ProductDTO {
         this.Quantity = Quantity;
     }
 
-    public String getProductStatus() {
-        return ProductStatus;
+    public String getStatus() {
+        return Status;
     }
 
-    public void setProductStatus(String ProductStatus) {
-        this.ProductStatus = ProductStatus;
-    }
-
-    public String getProductType() {
-        return ProductType;
-    }
-
-    public void setProductType(String ProductType) {
-        this.ProductType = ProductType;
-    }
-
-    public String getProductMaterial() {
-        return ProductMaterial;
-    }
-
-    public void setProductMaterial(String ProductMaterial) {
-        this.ProductMaterial = ProductMaterial;
-    }
-
-    public String getOtherRequest() {
-        return OtherRequest;
-    }
-
-    public void setOtherRequest(String OtherRequest) {
-        this.OtherRequest = OtherRequest;
+    public void setStatus(String Status) {
+        this.Status = Status;
     }
 
     @Override
     public String toString() {
-        return "ProductDTO{" + "ProductID=" + ProductID + ", CategoryID=" + CategoryID + ", ProductName=" + ProductName + ", ProductDetails=" + ProductDetails + ", ProductPriceNew=" + ProductPriceNew + ", ProductPriceOld=" + ProductPriceOld + ", ProductImage=" + ProductImage + ", Quantity=" + Quantity + ", ProductStatus=" + ProductStatus + ", ProductType=" + ProductType + ", ProductMaterial=" + ProductMaterial + ", OtherRequest=" + OtherRequest + '}';
+        return "ProductDTO{" + "CageID=" + CageID + ", CategoryID=" + CategoryID + ", CageName=" + CageName + ", CageDetails=" + CageDetails + ", PriceNew=" + PriceNew + ", PriceOld=" + PriceOld + ", Image=" + Image + ", Quantity=" + Quantity + ", Status=" + Status + '}';
     }
 
 }

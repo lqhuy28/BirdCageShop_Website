@@ -10,35 +10,37 @@ package model;
  * @author Admin
  */
 public class Cart {
-    private String ProductID;
-    private String ProductName;
+    private String CageID;
+    private String CageName;
     private double price;
     private int quantity;
+    private String image;
 
     public Cart() {
     }
 
-    public Cart(String ProductID, String ProductName, double price, int quantity) {
-        this.ProductID = ProductID;
-        this.ProductName = ProductName;
+    public Cart(String CageID, String CageName, double price, int quantity, String image) {
+        this.CageID = CageID;
+        this.CageName = CageName;
         this.price = price;
         this.quantity = quantity;
+        this.image = image;
     }
 
-    public String getProductID() {
-        return ProductID;
+    public String getCageID() {
+        return CageID;
     }
 
-    public void setProductID(String ProductID) {
-        this.ProductID = ProductID;
+    public void setCageID(String CageID) {
+        this.CageID = CageID;
     }
 
-    public String getProductName() {
-        return ProductName;
+    public String getCageName() {
+        return CageName;
     }
 
-    public void setProductName(String ProductName) {
-        this.ProductName = ProductName;
+    public void setCageName(String CageName) {
+        this.CageName = CageName;
     }
 
     public double getPrice() {
@@ -57,9 +59,16 @@ public class Cart {
         this.quantity = quantity;
     }
 
-    @Override
-    public String toString() {
-        return "Cart{" + "ProductID=" + ProductID + ", ProductName=" + ProductName + ", price=" + price + ", quantity=" + quantity + '}';
+    public String getImage() {
+        return image;
     }
+
+    public void setImage(String image) {
+        this.image = image;
+    }
+
+
+
+    
     
 }

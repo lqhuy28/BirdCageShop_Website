@@ -9,11 +9,13 @@ import static com.sun.org.apache.xalan.internal.xsltc.compiler.util.Type.Int;
 import dao.ProductDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import model.ProductDTO;
 
 /**
  *
@@ -60,6 +62,10 @@ public class AddProduct extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        ProductDAO dao = new ProductDAO();
+        
+        request.getRequestDispatcher("AddProduct.jsp").
+                forward(request, response);
         processRequest(request, response);
     }
 
@@ -75,22 +81,17 @@ public class AddProduct extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         //processRequest(request, response);
-        String sProductID = request.getParameter("ProductID");
+        String sCageID = request.getParameter("CageID");
         String sCategoryID = request.getParameter("CategoryID");
-        String sProductName = request.getParameter("ProductName");
-        String sProductDetails = request.getParameter("ProductDetails");
-        double sProductPriceNew = Double.parseDouble(request.getParameter("ProductPriceNew"));
-        double sProductPriceOld = Double.parseDouble(request.getParameter("ProductPriceOld"));
-        String sProductImage = request.getParameter("ProductImage");
+        String sCageName = request.getParameter("CageName");
+        String sCageDetails = request.getParameter("CageDetails");
+        double sPriceNew = Double.parseDouble(request.getParameter("PriceNew"));
+        double sPriceOld = Double.parseDouble(request.getParameter("PriceOld"));
+        String sImage = request.getParameter("Image");
         int sQuantity = Integer.parseInt(request.getParameter("Quantity"));
-        String sProductStatus = request.getParameter("ProductStatus");
-        String sProductType = request.getParameter("ProductType");
-        String sProductMaterial = request.getParameter("ProductMaterial");
-        String sOtherRequest = request.getParameter("OtherRequest");
-        
-        
+        String sStatus = request.getParameter("Status");     
         ProductDAO dao = new ProductDAO();
-        dao.insertProduct(sProductID, sCategoryID, sProductName, sProductDetails, sProductPriceNew, sProductPriceOld, sProductImage, sQuantity, sProductStatus, sProductType, sProductMaterial, sOtherRequest);
+        dao.insertProduct(sCageID, sCategoryID, sCageName, sCageDetails, sPriceNew, sPriceOld, sImage, sQuantity, sStatus);
         response.sendRedirect("load");
     }
 

@@ -1,0 +1,61 @@
+form {
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+/* Style cho các input, select */ 
+input[type="number"],
+select {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+/* Style cho button */
+#add, #checkout {
+  width: 100%;
+  background-color: #4CAF50;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+/* Style bảng */
+table {
+  border: 1px;
+  width: 100%;
+  border-collapse: collapse;
+}
+
+/* Stye cho các phần tử trong table */
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+/* Giữ cùng 1 dòng */
+option {
+  display: flex; 
+  flex-direction: row;
+  align-items: center;
+}
+
+/* Tách riêng phần giá tiền */ 
+#materialPrice {
+  margin-left: auto; 
+}
+
+/* Thêm khoảng cách giữa tên và giá */
+#materialPrice {
+  margin-left: 200px; 
+}

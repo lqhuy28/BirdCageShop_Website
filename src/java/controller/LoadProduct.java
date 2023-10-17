@@ -15,6 +15,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import model.Category;
 
 /**
  *
@@ -28,10 +29,15 @@ public class LoadProduct extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         ProductDAO dao = new ProductDAO();
-            List<ProductDTO> list = dao.getAllProductDTO();
+        
+        List<ProductDTO> list = dao.getAllProductDTO();
+        List<Category> listC = dao.getAllCategory();
+        
         request.setAttribute("listS", list);
-            request.getRequestDispatcher("homePage.jsp").
-                    forward(request, response);
+        request.setAttribute("listCC", listC);
+        
+        request.getRequestDispatcher("homePage.jsp").
+                forward(request, response);
     }
 
     
@@ -40,10 +46,15 @@ public class LoadProduct extends HttpServlet {
             throws ServletException, IOException {
         
         ProductDAO dao = new ProductDAO();
-            List<ProductDTO> list = dao.getAllProductDTO();
+        
+        List<ProductDTO> list = dao.getAllProductDTO();
+        List<Category> listC = dao.getAllCategory();
+        
         request.setAttribute("listS", list);
-            request.getRequestDispatcher("homePage.jsp").
-                    forward(request, response);
+        request.setAttribute("listCC", listC);
+        
+        request.getRequestDispatcher("ShowProduct.jsp").
+                forward(request, response);
     }
 
     

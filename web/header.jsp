@@ -4,6 +4,8 @@
     Author     : HOANGDUC
 --%>
 
+<%@page import="model.Cart"%>
+<%@page import="java.util.List"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -35,10 +37,10 @@
                         <div class="col-lg-6 col-md-6">
                             <div class="header__top__right">
                                 <div class="header__top__right__social">
-                                    <a href="#"><i class="fa fa-facebook"></i></a>
-                                    <a href="#"><i class="fa fa-twitter"></i></a>
-                                    <a href="#"><i class="fa fa-linkedin"></i></a>
-                                    <a href="#"><i class="fa fa-pinterest-p"></i></a>
+                                    <a href="#"><i class="fa fa-brands fa-facebook"></i></a>
+                                    <a href="#"><i class="fa fa-brands fa-twitter" ></i></a>
+                                    <a href="#"><i class="fa fa-brands fa-linkedin" ></i></i></a>
+                                    <a href="#"><i class="fa fa-brands fa-telegram" ></i></i></a>
                                 </div>
                                 <div class="header__top__right__language">
                                     <div>English</div>
@@ -59,7 +61,7 @@
                                                 <ul class="header__menu__dropdown">
                                                     <li><a href="changeProfile?userID=${sessionScope.LOGIN_USER.userID}">Thông tin cá nhân</a></li>
                                                     <li><a href="">Đơn mua</a></li>
-                                                    <li><a href="MainController?action=Logout">Đăng xuất</a></li>
+                                                    <li><a href="LogoutController">Đăng xuất</a></li>
                                                 </ul> 
                                             </li>
                                         </ul>
@@ -92,16 +94,20 @@
                                     </ul>
                                 </li>
                                 <li><a href="">Blog</a></li>
-                                <li><a href="">Phụ kiện lồng chim</a></li>
+                                <li><a href="OrderRequest">Đặt hàng theo yêu cầu</a></li>
                                 <li><a href="">Liên hệ</a></li>
                             </ul>
                         </nav>
                     </div>
                     <div class="col-lg-2">
                         <div class="header__cart">
+                            <%
+                                List<Cart> cart = (List<Cart>) session.getAttribute("cart");
+                                int cartSize = (cart != null) ? cart.size() : 0;
+                            %>
                             <ul>
-                                <li><a href="#"><i class="fa fa-heart"></i> <span>1</span></a></li>
-                                <li><a href="#"><i class="fa fa-shopping-bag"></i> <span>3</span></a></li>
+                                <li><a href="#"><i class="fa fa-heart"></i> <span>0</span></a></li>
+                                <li><a href="viewCart.jsp"><i class="fa fa-shopping-bag"></i> <span><%= cartSize%></span></a></li>
                             </ul>
                         </div>
                     </div>

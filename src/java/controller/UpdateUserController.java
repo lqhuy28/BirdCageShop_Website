@@ -61,7 +61,7 @@ public class UpdateUserController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        try {
+       try {
             String userID = request.getParameter("userID");
             String fullName = request.getParameter("fullName");
             String password = request.getParameter("password");

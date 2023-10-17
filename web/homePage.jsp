@@ -4,6 +4,8 @@
     Author     : HOANGDUC
 --%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
+
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -11,7 +13,7 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Document</title>
+        <title>Bird Cage Shop</title>
         <link rel="stylesheet" href="static/bootstrap/css/bootstrap.min.css">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css"/>
         <!-- font awesome cnd link -->
@@ -58,16 +60,16 @@
                                         <i class="fa fa-phone"></i>
                                     </div>
                                     <div class="hero__search__phone__text">
-                                        <h5>+65 11.188.888</h5>
+                                        <h5>+84 85.999.999</h5>
                                         <span>Hỗ trợ 24/7</span>
                                     </div>
                                 </div>
                             </div>
                             <div class="hero__item set-bg" data-setbg="img/hero/banner.jpg"
-                                 style="background-image: url(&quot;img/hero/banner.jpg&quot;);">
+                                 style="background-image: url(https://c4.wallpaperflare.com/wallpaper/404/390/382/cages-cityscape-window-digital-art-wallpaper-preview.jpg);">
                                 <div class="hero__text">
-                                    <span>FRUIT FRESH</span>
-                                    <h2>Vegetable <br>100% Organic</h2>
+                                    <span>BIRD CAGE </span>
+                                    <h2>Material <br>100% Organic</h2>
                                     <p>Free Pickup and Delivery Available</p>
                                     <a href="#" class="primary-btn">SHOP NOW</a>
                                 </div>
@@ -136,16 +138,14 @@
                                         <ul class="featured__item__pic__hover">
                                             <!-- ảnh sản phẩm -->
                                             <li><a href="#"><i class="fa fa-heart"></i></a></li>
-                                            <li><a href="#"><i class="fa fa-retweet"></i></a></li>
-                                            <li><a href="ProductDetail?id=${x.cageID}"><i class="fa fa-shopping-cart"></i></a></li>
+                                            <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
+                                            <li><a href="ProductDetail?id=${x.cageID}"><i class="fa-solid fa-circle-info"></i></a></li>
                                         </ul>
                                     </div>
 
                                     <div class="featured__item__text">
-
-
                                         <h6><a href="#" title="View Product">${x.cageName}</a></h6>
-                                        <h5>${x.priceNew} $</h5>
+                                        <h5>${x.priceNew} VNĐ</h5>
                                     </div>
                                 </div>
                             </div>
@@ -156,24 +156,6 @@
             </section>
 
             <!-- end featured -->
-            <!-- start banner -->
-            <div class="banner">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-lg-6 col-md-6 col-sm-6">
-                            <div class="banner__pic">
-                                <img src="static/img/logobia.png" alt="">
-                            </div>
-                        </div>
-                        <div class="col-lg-6 col-md-6 col-sm-6">
-                            <div class="banner__pic">
-                                <img src="static/img/logobia.png" alt="">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- end banner -->
             <!-- start blog -->
             <section class="from-blog spad">
                 <div class="container">

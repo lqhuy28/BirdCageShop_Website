@@ -151,13 +151,13 @@
                     <div class="col-md-5">
                         <div class="section-container">
                             <div class="logo-main four-logo">
-                                <i class="fa-solid fa-circle-exclamation fa-2xl" style="color: #ff0000;"></i>
+                                <i class="fa-solid fa-money-bill fa-2xl" style="color: #ff0000;"></i>
                             </div>
                             <div>
-                                <h4>Sắp hết hàng</h4>
-                            <p><b>1 sản phẩm</b></p>
+                                <h4>Tổng doanh thu</h4>
+                            <p><b>1.000.000 VNĐ</b></p>
                             <hr>
-                            <p>Số sản phẩm cảnh báo hết cần nhập thêm.</p>
+                            <p>Tổng doanh thu của cửa hàng.</p>
                             </div>
                         </div>
                     </div>

@@ -165,8 +165,8 @@
                                             <td>${x.roleID}</td>
                                             <td>
                                                 <div class="btn-group">
-                                                    <a href="updateUser?userID=${x.userID}" class="btn btn-success">Update</a>
-                                                    <a href="deleteUser?userID=${x.userID}" class="btn btn-danger">Delete</a>
+                                                    <a href="updateUser?userID=${x.userID}" class="btn btn-success"><i class="fa-solid fa-file-pen"></i></a>
+                                                    <a href="deleteUser?userID=${x.userID}" class="btn btn-danger"><i class="fa-solid fa-trash"></i></a>
                                                 </div>
                                             </td>
                                         </tr>

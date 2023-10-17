@@ -16,6 +16,7 @@
         <link href="//fonts.googleapis.com/css?family=Raleway:100,200,300,400,500,600,700,800,900" rel="stylesheet">
         <link href="//fonts.googleapis.com/css?family=Monoton" rel="stylesheet">
         <!-- /fonts -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
         <!-- css -->
         <link href="static/bootstrap/css/font-awesome.min.css" rel="stylesheet" type="text/css" media="all" />
         <link href="static/css/login.css" rel='stylesheet' type='text/css' media="all" />
@@ -50,9 +51,9 @@
                 </div> 
                 <p class="wthree w3l">--------- HOẶC ---------</p>
                 <ul class="social-agileinfo wthree2">
-                    <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                    <li><a href="#"><i class="fa fa-brands fa-facebook"></i></a></li>
                     <li><a href="https://accounts.google.com/o/oauth2/auth?scope=profile&redirect_uri=http://localhost:8080/Fall2023SWP391_NET1703_Group6/LoginGoogleController&response_type=code
-                           &client_id=242838873945-fafllo7gm5ups4aejqla1t4mievr9kov.apps.googleusercontent.com&approval_prompt=force"><i class="fa fa-google-plus"></i></a></li>
+                           &client_id=242838873945-fafllo7gm5ups4aejqla1t4mievr9kov.apps.googleusercontent.com&approval_prompt=force"><i class="fa fa-brands fa-google-plus"></i></a></li>
                 </ul>
             </div>
             <div class="clear"></div>

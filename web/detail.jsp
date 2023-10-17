@@ -4,6 +4,9 @@
     Author     : HOANGDUC
 --%>
 
+<%@page import="model.Cart"%>
+<%@page import="java.util.List"%>
+<%@page import="model.ProductDTO"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -19,6 +22,10 @@
         <title>Document</title>
     </head>
     <body>
+        <%
+            ProductDTO product = (ProductDTO) request.getAttribute("product");
+            int quantityCart = (int) session.getAttribute("quantityCart");
+        %>
         <jsp:include page="header.jsp" />
         <div class="container bootdey">
             <div class="col-md-12">
@@ -26,28 +33,37 @@
                     <div class="panel-body">
                         <div class="col-md-6">
                             <div class="pro-img-details">
-                                <img src="https://www.bootdey.com/image/550x380/FFB6C1/000000" alt="">
+                                <img src="<%=product.getImage()%>" alt="">
                             </div>
                         </div>
+
                         <div class="col-md-6">
                             <h4 class="pro-d-title">
-                                <strong> tryền tên sản phẩm vào đây </strong>
+                                <strong><%=product.getCageName()%> </strong>
                             </h4>
                             <p>
-                                Praesent ac condimentum felis. Nulla at nisl orci, at dignissim dolor, The best product descriptions address your ideal buyer directly and personally. The best product descriptions address your ideal buyer directly and personally.
+                                <%=product.getCageDetails()%>
                             </p>
                             <div class="product_meta">
-                                <span class="posted_in"> <strong>Chất liệu</strong> <a rel="tag" href="#">Jackets</a></span>
-                                <span class="tagged_as"><strong>Tags:</strong><a rel="tag" href="#">Jackets</a> </span>
                             </div>
-                            <div class="m-bot15"> <strong>Price : </strong> <span class="amount-old">$544</span>  <span class="pro-price"> $300.00</span></div>
-                            <div class="form-group">
-                                <label>Quantity</label>
-                                <input type="quantiy" placeholder="1" class="form-control quantity">
-                            </div>
-                            <p>
-                                <button class="btn btn-round btn-danger" type="button"><i class="fa fa-shopping-cart"></i> Add to Cart</button>
-                            </p>
+                            <div class="m-bot15"> <strong>Price : </strong> <span class="amount-old"><%=product.getPriceOld()%></span>  <span class="pro-price"> <%=product.getPriceNew()%></span></div>
+                            <form action="CartController" method="post">
+                                <div class="form-group">
+                                    <label for="quantity">Quantity</label>
+                                    <input class="form-control" type="number" value="1" name="quantity" id="numberInput">
+                                </div>
+                                </br>
+                                <span id="quantityAvailable"><%=product.getQuantity()%> sản phẩm sẳn có sẳn</span>
+                                <p>
+                                    <button type="submit" id="checkout" name="id" value="<%=product.getCageID()%>" class="btn btn-round btn-danger"> Mua ngay</button>
+                                </p>
+                            </form>
+                            <span id="quantityCart"><%=quantityCart%></span>
+                            <form action="CartController" method="get">
+                                <input type="hidden" value="" name="quantity" id="hiddenInput">
+                                <input type="hidden" value="<%=product.getCageID()%>" name="id">
+                                <button id="addCart" type="submit" class="btn btn-round btn-warning"><i class="fa fa-shopping-cart"></i> Thêm vào giỏ hàng</button>
+                            </form>
                         </div>
                     </div>
                 </section>
@@ -55,4 +71,58 @@
         </div>
         <jsp:include page="footer.jsp" />
     </body>
+    <script>
+        const checkoutItem = document.getElementById("checkout");
+        const addCartItem = document.getElementById("addCart");
+
+        const numberInput = document.getElementById('numberInput');
+
+        const hiddenInput = document.getElementById('hiddenInput');
+        hiddenInput.value = numberInput.value;
+        numberInput.addEventListener('input', function () {
+
+            let newValue = this.value;
+
+            hiddenInput.value = newValue;
+        });
+        
+
+        checkoutItem.addEventListener("click", function () {
+            location.reload();
+            const quantityAvailableItem = document.getElementById("quantityAvailable");
+            const quantityCartItem = document.getElementById("quantityCart");
+            const quantityAvailable = parseInt(quantityAvailableItem.innerText);
+            const quantityCart = parseInt(quantityCartItem.innerText);
+            const quantityOrdered = document.getElementsByName("quantity")[0];
+            const quantityOrder = quantityOrdered.value;
+
+            if (parseInt(quantityOrder) < 1) {
+                alert("Invalid amount");
+                event.preventDefault();
+            }
+            if ((parseInt(quantityOrder) + quantityCart) > quantityAvailable) {
+                alert("Not enough in stock");
+                event.preventDefault();
+            }
+
+        });
+
+//        window.addEventListener('pageshow', function (event) {
+//            if (event.persisted) {
+//                location.reload();
+//                // page loaded after back navigation
+//            } else {
+//                // normal page load
+//            }
+//        });
+//        window.addEventListener('popstate', () => {
+//            window.location = '/ProductDetail';
+//        });
+    </script>
+    });
+
+
+
+
+</script>
 </html>

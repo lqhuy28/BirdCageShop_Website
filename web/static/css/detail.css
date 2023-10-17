@@ -5,10 +5,13 @@ and open the template in the editor.
 */
 /* 
     Created on : Sep 25, 2023, 5:37:25 PM
-    Author     : QUANG HUY
+    Author     : HOANGDUC
 */
 body{margin-top:20px;
 background:#eee;
+}
+.bootdey{
+    padding: 70px 0 50px 0;
 }
 .panel-body{
     display: flex
@@ -117,20 +120,18 @@ background:#eee;
 }
 
 .pro-img-details img {
-    width: 100%;
+    width: 95%;
+}
+.detail_cage{
+    padding-left: 50px;
+    padding-top: 20px;
 }
 
 .pro-d-title {
-    font-size: 16px;
+    font-size: 30px;
     margin-top: 0;
 }
 
-.product_meta {
-    border-top: 1px solid #eee;
-    border-bottom: 1px solid #eee;
-    padding: 10px 0;
-    margin: 15px 0;
-}
 
 .product_meta span {
     display: block;
@@ -152,7 +153,9 @@ background:#eee;
 .quantity {
     width: 120px;
 }
-
+.btn{
+    pading:10px;
+}
 .pro-img-list {
     margin: 10px 0 0 -15px;
     width: 100%;

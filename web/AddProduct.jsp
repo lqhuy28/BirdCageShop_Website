@@ -112,10 +112,10 @@
                                 <tr>
                                     <td>Mã sản phẩm</td>
                                     <td>
-                                        <input type="text" name="ProductID">
+                                        <input type="text" name="CageID">
                                     </td>
                                 </tr>
-                                
+
                                 <tr>
                                     <td>Danh mục</td>
                                     <td>
@@ -126,35 +126,35 @@
                                 <tr>
                                     <td>Tên sản phẩm</td>
                                     <td>
-                                        <input type="text" name="ProductName">
+                                        <input type="text" name="CageName">
                                     </td>
                                 </tr>
 
                                 <tr>
                                     <td>Thông tin sản phẩm</td>
                                     <td>
-                                        <input type="text" name="ProductDetails">
+                                        <input type="text" name="CageDetails">
                                     </td>
                                 </tr>
 
                                 <tr>
                                     <td>Giá mới</td>
                                     <td>
-                                        <input type="text" name="ProductPriceNew">
+                                        <input type="text" name="PriceNew">
                                     </td>
                                 </tr>
 
                                 <tr>
                                     <td>Giá cũ</td>
                                     <td>
-                                        <input type="text" name="ProductPriceOld">
+                                        <input type="text" name="PriceOld">
                                     </td>
                                 </tr>
 
                                 <tr>
                                     <td>Hình ảnh</td>
                                     <td>
-                                        <input type="text" src="" name="ProductImage">
+                                        <input type="text" src="" name="Image">
                                     </td>
                                 </tr>
 
@@ -168,30 +168,11 @@
                                 <tr>
                                     <td>Tình trạng</td>
                                     <td>
-                                        <input type="text" name="ProductStatus">
+                                        <input type="text" name="Status">
                                     </td>
                                 </tr>
 
-                                <tr>
-                                    <td>Loại sản phẩm</td>
-                                    <td>
-                                        <input type="text" name="ProductType">
-                                    </td>
-                                </tr>
 
-                                <tr>
-                                    <td>Chất liệu</td>
-                                    <td>
-                                        <input type="text" name="ProductMaterial">
-                                    </td>
-                                </tr>
-
-                                <tr>
-                                    <td>Khác</td>
-                                    <td>
-                                        <input type="text" name="OtherRequest">
-                                    </td>
-                                </tr>
 
                                 <tr>
                                     <td></td>

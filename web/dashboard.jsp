@@ -80,7 +80,7 @@
                                 <i class="fa-solid fa-cart-shopping" style="color: #ffffff;"></i>                            
                             </div>
                             <div class="title">
-                                <a class="nav-link" href="#"><span>Quản lí đơn hàng</span></a>
+                                <a class="nav-link" href="orderManager.jsp"><span>Quản lí đơn hàng</span></a>
                             </div>
                         </div>
                     </li>

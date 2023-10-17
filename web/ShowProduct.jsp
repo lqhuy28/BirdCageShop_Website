@@ -149,7 +149,7 @@
                                         <th scope="col">Hình ảnh</th>
                                         <th scope="col">Số lượng</th>
                                         <th scope="col">Tình trạng</th>
-                                        
+                                        <th scope="col">Chức năng</th>
 
 
                                     </tr>
@@ -162,15 +162,15 @@
                                         <td>${x.cageDetails}</td>
                                         <td>${x.priceNew}</td>
                                         <td>${x.priceOld}</td>
-                                        <td><img src="${x.image}"></td>
+                                        <td><img src="${x.image}" style="width: 100px; height: auto;"></td>
                                         <td>${x.quantity}</td>
                                         <td>${x.status}</td>
 
 
                                         <td>
                                             <div class="btn-group">
-                                                <a href="update?sid=${x.cageID}" class="btn btn-success">Update</a>
-                                                <a href="delete?sid=${x.cageID}" class="btn btn-danger">Delete</a>
+                                                <a href="update?sid=${x.cageID}" class="btn btn-success"><i class="fa-solid fa-file-pen"></i></a>
+                                                <a href="delete?sid=${x.cageID}" class="btn btn-danger"><i class="fa-solid fa-trash"></i></a>
                                                 <form action="cart" method="POST">
                                                     <input type="hidden" name="id" value="${x.cageID}"/>
                                                     <input type="hidden" name="quantity" value="1"/>
@@ -182,9 +182,9 @@
 
                             </table>
                         </c:if>
-                        <h4><a href="viewCart.jsp">View Cart</a></h4>
                     </div>
                 </main>
-                </body>
-
-                </html>
+            </div>
+        </div>
+    </body>
+</html>

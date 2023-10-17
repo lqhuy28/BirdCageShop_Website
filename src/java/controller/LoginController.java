@@ -54,7 +54,12 @@ public class LoginController extends HttpServlet {
             log("Error at LoginController: " + e.toString());
         } finally {
 //            response.sendRedirect(url);
-            request.getRequestDispatcher(url).forward(request, response);
+            if(url == HOMEPAGE ){
+                response.sendRedirect("MainController");
+            }else{
+                request.getRequestDispatcher(url).forward(request, response);
+            }
+            
         }
     }
 

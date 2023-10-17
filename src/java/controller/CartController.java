@@ -28,7 +28,7 @@ public class CartController extends HttpServlet {
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
+       response.setContentType("text/html;charset=UTF-8");
         HttpSession session = request.getSession();
         String sid = request.getParameter("id");
         String squantity = request.getParameter("quantity");
@@ -46,7 +46,7 @@ public class CartController extends HttpServlet {
             }
             Cart item = null;
             for (Cart c : cart) {
-                if (c.getProductID().equals(p.getProductID()) ) {
+                if (c.getCageID().equals(p.getCageID())) {
                     // sp đã có trong cart => tăng quantity
                     // save sp vào item
                     item = c;
@@ -57,16 +57,18 @@ public class CartController extends HttpServlet {
                 item.setQuantity(item.getQuantity() + quantity);
             } else {
                 // chưa có sp trong cart, tạo mới và thêm vào cart
-                item = new Cart(p.getProductID(),
-                        p.getProductName(),
-                        p.getProductPriceNew(),
-                        quantity);
+                item = new Cart(p.getCageID(),
+                        p.getCageName(),
+                        p.getPriceNew(),
+                        quantity,
+                        p.getImage());
                 cart.add(item);
             }
-            // update lại giỏ hàng
+//            // update lại giỏ hàng
             session.setAttribute("cart", cart);
-
-            response.sendRedirect("load");
+//
+            request.getRequestDispatcher("viewCart.jsp").
+                    forward(request, response);
         }
     }
 
@@ -82,7 +84,56 @@ public class CartController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        HttpSession session = request.getSession();
+        String sid = request.getParameter("id");
+        String squantity = request.getParameter("quantity");
+        int quantity = Integer.parseInt(squantity);
+        ProductDAO dao = new ProductDAO();
+        ProductDTO p = dao.getProductByID(sid);
+        if (p != null) {
+            List<Cart> cart;
+            // check xem đã có session Cart chưa ?
+            if (session.getAttribute("cart") != null) {
+                cart = (List<Cart>) session.getAttribute("cart");
+            } else {
+                // chưa có cart trong session => tạo mới
+                cart = new ArrayList<>();
+            }
+            Cart item = null;
+            for (Cart c : cart) {
+                if (c.getCageID().equals(p.getCageID())) {
+                    // sp đã có trong cart => tăng quantity
+                    // save sp vào item
+                    item = c;
+                    break;
+                }
+            }
+            if (item != null) {
+                item.setQuantity(item.getQuantity() + quantity);
+            } else {
+                // chưa có sp trong cart, tạo mới và thêm vào cart
+                item = new Cart(p.getCageID(),
+                        p.getCageName(),
+                        p.getPriceNew(),
+                        quantity,
+                        p.getImage());
+                cart.add(item);
+            }
+//            // update lại giỏ hàng
+            session.setAttribute("cart", cart);
+            String pid = request.getParameter("id");
+            ProductDTO product = dao.getProductByID(pid);
+            int quantityCart = 0;
+            for (Cart cd : cart) {
+                if (cd.getCageID().equals(product.getCageID())) {
+                    quantityCart = cd.getQuantity();
+                }
+            }
+            session.setAttribute("quantityCart", quantityCart);
+            request.setAttribute("product", product);
+            request.getRequestDispatcher("detail.jsp").
+                    forward(request, response);
+        }
     }
 
     /**
@@ -96,7 +147,47 @@ public class CartController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+       HttpSession session = request.getSession();
+        String sid = request.getParameter("id");
+        String squantity = request.getParameter("quantity");
+        int quantity = Integer.parseInt(squantity);
+        ProductDAO dao = new ProductDAO();
+        ProductDTO p = dao.getProductByID(sid);
+        if (p != null) {
+            List<Cart> cart;
+            // check xem đã có session Cart chưa ?
+            if (session.getAttribute("cart") != null) {
+                cart = (List<Cart>) session.getAttribute("cart");
+            } else {
+                // chưa có cart trong session => tạo mới
+                cart = new ArrayList<>();
+            }
+            Cart item = null;
+            for (Cart c : cart) {
+                if (c.getCageID().equals(p.getCageID())) {
+                    // sp đã có trong cart => tăng quantity
+                    // save sp vào item
+                    item = c;
+                    break;
+                }
+            }
+            if (item != null) {
+                item.setQuantity(item.getQuantity() + quantity);
+            } else {
+                // chưa có sp trong cart, tạo mới và thêm vào cart
+                item = new Cart(p.getCageID(),
+                        p.getCageName(),
+                        p.getPriceNew(),
+                        quantity,
+                        p.getImage());
+                cart.add(item);
+            }
+//            // update lại giỏ hàng
+            session.setAttribute("cart", cart);
+//
+            request.getRequestDispatcher("viewCart.jsp").
+                    forward(request, response);
+        }
     }
 
     /**

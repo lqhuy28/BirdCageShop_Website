@@ -39,16 +39,9 @@
                                     <span>DANH SÁCH SẢN PHẨM</span>
                                 </div>
                                 <ul>
-                                    <li><a href="category.jsp">Lồng chim Chào Mào </a></li>
-                                    <li><a href="category.jsp">Lồng chim Cu</a></li>
-                                    <li><a href="category.jsp">Lồng chim Khuyên </a></li>
-                                    <li><a href="category.jsp">Lồng chim Khướu</a></li>
-                                    <li><a href="category.jsp">Lồng chim Vẹt</a></li>
-                                    <li><a href="category.jsp">Lồng chim Sâu</a></li>
-                                    <li><a href="category.jsp">Lồng chim Họa Mi</a></li>
-                                    <li><a href="category.jsp">Lồng chim Sơn Ca</a></li>
-                                    <li><a href="category.jsp">Lồng chim Sáo </a></li>
-                                    <li><a href="category.jsp">Lồng chim Vành Khuyên</a></li>
+                                    <c:forEach items ="${listCC}" var ="o">
+                                    <li><a href="category?cid=${o.categoryID}">${o.categoryName}</a></li>
+                                    </c:forEach>
                                 </ul>
                             </div>
                         </div>
@@ -138,21 +131,21 @@
                             <div class="col-lg-3 col-md-4 col-sm-6">
                                 <div class="featured__item">
                                     <div class="featured__item__pic set-bg">
-                                        <img src="${x.productImage}" alt="">
+                                        <img src="${x.image}" alt="">
 
                                         <ul class="featured__item__pic__hover">
                                             <!-- ảnh sản phẩm -->
                                             <li><a href="#"><i class="fa fa-heart"></i></a></li>
                                             <li><a href="#"><i class="fa fa-retweet"></i></a></li>
-                                            <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
+                                            <li><a href="ProductDetail?id=${x.cageID}"><i class="fa fa-shopping-cart"></i></a></li>
                                         </ul>
                                     </div>
 
                                     <div class="featured__item__text">
 
 
-                                        <h6><a href="#" title="View Product">${x.productName}</a></h6>
-                                        <h5>${x.productPriceNew} $</h5>
+                                        <h6><a href="#" title="View Product">${x.cageName}</a></h6>
+                                        <h5>${x.priceNew} $</h5>
                                     </div>
                                 </div>
                             </div>
@@ -236,5 +229,6 @@
 
             <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
             <script src="static/js/index.js"></script>
+            
     </body>
 </html>

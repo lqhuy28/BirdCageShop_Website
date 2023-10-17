@@ -149,38 +149,31 @@
                                         <th scope="col">Hình ảnh</th>
                                         <th scope="col">Số lượng</th>
                                         <th scope="col">Tình trạng</th>
-                                        <th scope="col">Loại sản phẩm</th>
-                                        <th scope="col">Chất liệu</th>
-                                        <th scope="col">Khác</th>
-                                        <th scope="col">Chức năng</th>
+                                        
 
 
                                     </tr>
                                 </thead>
                                 <c:forEach items="${listS}" var="x">
                                     <tr>
-                                        <td>${x.productID}</td>
+                                        <td>${x.cageID}</td>
                                         <td>${x.categoryID}</td>
-                                        <td>${x.productName}</td>
-                                        <td>${x.productDetails}</td>
-                                        <td>${x.productPriceNew}</td>
-                                        <td>${x.productPriceOld}</td>
-                                        <td><img src="${x.productImage}"></td>
+                                        <td>${x.cageName}</td>
+                                        <td>${x.cageDetails}</td>
+                                        <td>${x.priceNew}</td>
+                                        <td>${x.priceOld}</td>
+                                        <td><img src="${x.image}"></td>
                                         <td>${x.quantity}</td>
-                                        <td>${x.productStatus}</td>
-                                        <td>${x.productType}</td>
-                                        <td>${x.productMaterial}</td>
-                                        <td>${x.otherRequest}</td>
+                                        <td>${x.status}</td>
 
 
                                         <td>
                                             <div class="btn-group">
-                                                <a href="update?sid=${x.productID}" class="btn btn-success">Update</a>
-                                                <a href="delete?sid=${x.productID}" class="btn btn-danger">Delete</a>
+                                                <a href="update?sid=${x.cageID}" class="btn btn-success">Update</a>
+                                                <a href="delete?sid=${x.cageID}" class="btn btn-danger">Delete</a>
                                                 <form action="cart" method="POST">
-                                                    <input type="hidden" name="id" value="${x.productID}"/>
+                                                    <input type="hidden" name="id" value="${x.cageID}"/>
                                                     <input type="hidden" name="quantity" value="1"/>
-                                                    <input type="submit" value="Add to Cart"/>
                                                 </form>
                                             </div>
                                         </td>

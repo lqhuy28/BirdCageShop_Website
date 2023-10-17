@@ -110,7 +110,7 @@
                                 <tr>
                                     <td>Mã sản phẩm</td>
                                     <td>
-                                        <input value="${st.productID}" type="text" name="ProductID" readonly>
+                                        <input value="${st.cageID}" type="text" name="CageID" readonly>
                                     </td>
                                 </tr>
                                 
@@ -124,14 +124,14 @@
                                 <tr>
                                     <td>Tên sản phẩm</td>
                                     <td>
-                                        <input value="${st.productName}" type="text" name="ProductName">
+                                        <input value="${st.cageName}" type="text" name="CageName">
                                     </td>
                                 </tr>
 
                                 <tr>
                                     <td>Thông tin sản phẩm</td>
                                     <td>
-                                        <input value="${st.productDetails}" type="text" name="ProductDetails">
+                                        <input value="${st.cageDetails}" type="text" name="CageDetails">
                                     </td>
                                 </tr>
 
@@ -139,21 +139,21 @@
                                 <tr>
                                     <td>Giá mới</td>
                                     <td>
-                                        <input value="${st.productPriceNew}" type="text" name="ProductPriceNew">
+                                        <input value="${st.priceNew}" type="text" name="PriceNew">
                                     </td>
                                 </tr>
 
                                 <tr>
                                     <td>Giá cũ</td>
                                     <td>
-                                        <input value="${st.productPriceOld}" type="text" name="ProductPriceOld">
+                                        <input value="${st.priceOld}" type="text" name="PriceOld">
                                     </td>
                                 </tr>
 
                                 <tr>
                                     <td>Hình ảnh</td>
                                     <td>
-                                        <input value="${st.productImage}" type="text" src="" name="ProductImage">
+                                        <input value="${st.image}" type="text" src="" name="Image">
                                     </td>
                                 </tr>
 
@@ -167,30 +167,11 @@
                                 <tr>
                                     <td>Tình trạng</td>
                                     <td>
-                                        <input value="${st.productStatus}" type="text" name="ProductStatus">
+                                        <input value="${st.status}" type="text" name="Status">
                                     </td>
                                 </tr>
 
-                                <tr>
-                                    <td>Loại sản phẩm</td>
-                                    <td>
-                                        <input value="${st.productType}" type="text" name="ProductType">
-                                    </td>
-                                </tr>
-
-                                <tr>
-                                    <td>Chất liệu</td>
-                                    <td>
-                                        <input value="${st.productMaterial}" type="text" name="ProductMaterial">
-                                    </td>
-                                </tr>
-
-                                <tr>
-                                    <td>Khác</td>
-                                    <td>
-                                        <input value="${st.otherRequest}" type="text" name="OtherRequest">
-                                    </td>
-                                </tr>
+                                
 
                                 <tr>
                                     <td></td>

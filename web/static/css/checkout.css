@@ -1,0 +1,149 @@
+/* Apply some basic styling to the body */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+}
+
+/* Style the header */
+.title {
+    margin-left: 100px;
+    color: black;
+    padding-top: 20px;
+}
+
+.title1{
+    padding: 10px 0px;
+    font-weight: bold;
+    font-family: 'Roboto';
+}
+
+/* Style the container for the form and summary */
+.container-fluid {
+    margin: 10px;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+}
+
+.information{
+    border: 2px solid #ccc;
+    border-radius: 20px;
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.2);
+    margin-left: 180px;
+    padding: 5px 200px 40px 200px;
+    background-color: #F8F7F5;
+}
+
+
+.infor-user,
+.ship,
+.check-out {
+    margin: 20px; /* Điều chỉnh khoảng cách theo ý muốn */
+    padding: 10px; /* Điều chỉnh khoảng cách nội dung bên trong */
+}
+
+.ship,
+.check-out {
+    border: none;
+    border-top: 1px solid #686868; 
+}
+
+.infor-user label,
+.ship select,
+.check-out input, label{
+    margin-left: 10px;
+}
+
+/* Style the form elements */
+label {
+    font-weight: bold;
+}
+
+#shippingMethod{
+    width: 80%;
+    padding: 10px;
+    margin: 5px 0;
+}
+
+.summary{
+    border: 2px solid #ccc;
+    border-radius: 20px;
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.2);
+    margin-left: 50px;
+    padding: 5px 200px 40px 200px;
+}
+.ordersp, 
+.tabtotal{
+    margin: 15px; 
+    padding: 10px;  
+}
+.tabtotal           {
+    border: none;
+    border-top: 1px solid #686868; 
+}
+.but-check{
+    margin: 15px; 
+    padding: 10px; 
+    margin-left: 180px;
+}
+
+.table-container, .but-check {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+/* Style the summary table */
+table {
+    margin-top: 10px;
+    width: 90%;
+    border-collapse: collapse;
+}
+
+table, th, td {
+    border: 1px solid black;
+    
+}
+
+th{
+    background-color: rgb(182, 182, 182);
+}
+th, td {
+    padding: 10px;
+    text-align: left;
+}
+
+.bold-left {
+    display: flex;
+    justify-content: space-between;
+    font-weight: bold; /* Để in đậm phần bên trái */
+  }
+  
+  span {
+    font-weight: normal; /* Để không in đậm phần bên phải */
+  }
+
+/* Style the "Tổng đơn hàng" section */
+h5 {
+    font-weight: bold;
+}
+
+/* Style the "Thanh toán" button */
+.custom-button {
+    width: 40%;
+    border-radius: 10px;
+    color: #fff;
+    padding: 30px 20px;
+    border: none;
+    cursor: pointer;
+    border-radius: 20px;
+    text-align: center;
+}
+
+/* Media query for responsiveness */
+@media screen and (max-width: 768px) {
+    .container-fluid {
+        margin: 10px;
+    }
+}

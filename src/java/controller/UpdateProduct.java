@@ -81,20 +81,17 @@ public class UpdateProduct extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         //processRequest(request, response);
-        String sProductID = request.getParameter("ProductID");
+        String sCageID = request.getParameter("CageID");
         String sCategoryID = request.getParameter("CategoryID");
-        String sProductName = request.getParameter("ProductName");
-        String sProductDetails = request.getParameter("ProductDetails");
-        double sProductPriceNew = Double.parseDouble(request.getParameter("ProductPriceNew"));
-        double sProductPriceOld = Double.parseDouble(request.getParameter("ProductPriceOld"));
-        String sProductImage = request.getParameter("ProductImage");
+        String sCageName = request.getParameter("CageName");
+        String sCageDetails = request.getParameter("CageDetails");
+        double sPriceNew = Double.parseDouble(request.getParameter("PriceNew"));
+        double sPriceOld = Double.parseDouble(request.getParameter("PriceOld"));
+        String sImage = request.getParameter("Image");
         int sQuantity = Integer.parseInt(request.getParameter("Quantity"));
-        String sProductStatus = request.getParameter("ProductStatus");
-        String sProductType = request.getParameter("ProductType");
-        String sProductMaterial = request.getParameter("ProductMaterial");
-        String sOtherRequest = request.getParameter("OtherRequest");
+        String sStatus = request.getParameter("Status");
         ProductDAO dao = new ProductDAO();
-        dao.updateProduct(sProductID, sCategoryID, sProductName, sProductDetails, sProductPriceNew, sProductPriceOld, sProductImage, sQuantity, sProductStatus, sProductType, sProductMaterial, sOtherRequest);
+        dao.updateProduct(sCageID, sCategoryID, sCageName, sCageDetails, sPriceNew, sPriceOld, sImage, sQuantity, sStatus);
         response.sendRedirect("load");
     }
 

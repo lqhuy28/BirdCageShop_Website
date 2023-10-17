@@ -46,14 +46,14 @@
                             </p>
                             <div class="product_meta">
                             </div>
-                            <div class="m-bot15"> <strong>Price : </strong> <span class="amount-old"><%=product.getPriceOld()%></span>  <span class="pro-price"> <%=product.getPriceNew()%></span></div>
+                            <div class="m-bot15"> <strong>Giá : </strong> <span class="amount-old"><%=product.getPriceOld()%></span>  <span class="pro-price"> <%=product.getPriceNew()%></span></div>
                             <form action="CartController" method="post">
                                 <div class="form-group">
-                                    <label for="quantity">Quantity</label>
+                                    <label for="quantity">Số lượng</label>
                                     <input class="form-control" type="number" value="1" name="quantity" id="numberInput">
                                 </div>
                                 </br>
-                                <span id="quantityAvailable"><%=product.getQuantity()%> sản phẩm sẳn có sẳn</span>
+                                <span id="quantityAvailable"><%=product.getQuantity()%> sản phẩm sẳn có sẵn</span>
                                 <p>
                                     <button type="submit" id="checkout" name="id" value="<%=product.getCageID()%>" class="btn btn-round btn-danger"> Mua ngay</button>
                                 </p>
@@ -119,8 +119,6 @@
 //            window.location = '/ProductDetail';
 //        });
     </script>
-    });
-
 
 
 

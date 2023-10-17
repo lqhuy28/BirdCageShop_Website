@@ -60,7 +60,7 @@
                                                 <a href="#">${sessionScope.LOGIN_USER.fullName}</a>
                                                 <ul class="header__menu__dropdown">
                                                     <li><a href="changeProfile?userID=${sessionScope.LOGIN_USER.userID}">Thông tin cá nhân</a></li>
-                                                    <li><a href="">Đơn mua</a></li>
+                                                    <li><a href="order.jsp">Đơn mua</a></li>
                                                     <li><a href="LogoutController">Đăng xuất</a></li>
                                                 </ul> 
                                             </li>

@@ -29,7 +29,7 @@
                 <% }%>
             </select>
             <strong>Chọn số lượng</strong>
-            <input type="number" name="quantity" min="1" value="1">
+            <input type="number" name="quantity" min="1" placeholder="Nhập số lượng...">
             <button id="add">Thêm nguyên liệu</button>
 
             <br>

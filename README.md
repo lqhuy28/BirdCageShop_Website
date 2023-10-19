@@ -18,7 +18,7 @@ There are 5 actors participated in our system:
 - **Staff**: registered users who play the role of order management, warehouse operations, deliveries, and in-store work.
 - **Customer**: registered users can shop online and design products according to their preferences.
 - **Guest**: unregistered user.
-- 
+  
 Technology stack used:
 - **Backend**: Java Servlet
 - **Frontend**: HTML, CSS, JavaScript, Bootstrap 5

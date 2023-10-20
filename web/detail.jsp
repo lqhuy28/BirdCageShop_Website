@@ -26,7 +26,7 @@
         <%
             ProductDTO product = (ProductDTO) request.getAttribute("product");
             int quantityCart = (int) session.getAttribute("quantityCart");
-            List<CageMaterial> cm = (List<CageMaterial>)request.getAttribute("cageMaterial");
+            List<CageMaterial> cm = (List<CageMaterial>) request.getAttribute("cageMaterial");
         %>
         <jsp:include page="header.jsp" />
         <div class="container bootdey">
@@ -48,15 +48,10 @@
                             </p>
                             <div class="product_meta">
                             </div>
-                            <div class="m-bot15"> <strong>Price : </strong> <span class="amount-old"><%=product.getPriceOld()%></span>  <span class="pro-price"> <%=product.getPriceNew()%></span></div>
-                            <strong>Cage Material : </strong>
-                            <% for (CageMaterial c : cm) {
-                            %>
-                            <p><%=c.getMaterialName()%> : <%=c.getQuantity()%></p>
-                                <% } %>
+                            <div class="m-bot15"> <strong>Đơn giá : </strong> <span class="amount-old"><%=product.getPriceOld()%></span>  <span class="pro-price"> <%=product.getPriceNew()%></span></div>                          
                             <form action="CartController" method="post">
                                 <div class="form-group">
-                                    <label for="quantity">Quantity</label>
+                                    <label for="quantity">Số lượng</label>
                                     <input class="form-control" type="number" value="1" name="quantity" id="numberInput">
                                 </div>
                                 </br>
@@ -75,6 +70,29 @@
                     </div>
                 </section>
             </div>
+            <div class="material container">
+                <h4>Nguyên liệu lồng chim: </h4>
+                <div class="table-responsive">
+                    <table class="table material-table">
+                        <thead>
+                            <tr>
+                                <th class="text-center">Nguyên liệu</th>
+                                <th class="text-center">Số lượng</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <%
+                                for (CageMaterial c : cm) {
+                            %>
+                            <tr>
+                                <td class="text-center text-lg text-medium"><%=c.getMaterialName()%></td>
+                                <td class="text-center text-lg text-medium"><%=c.getQuantity()%></td>
+                            </tr>
+                            <% }%>
+                        </tbody>
+                    </table>
+                </div>     
+            </div>
         </div>
         <jsp:include page="footer.jsp" />
     </body>
@@ -92,7 +110,7 @@
 
             hiddenInput.value = newValue;
         });
-        
+
 
         checkoutItem.addEventListener("click", function () {
             location.reload();
@@ -126,10 +144,4 @@
 //            window.location = '/ProductDetail';
 //        });
     </script>
-    });
-
-
-
-
-</script>
 </html>

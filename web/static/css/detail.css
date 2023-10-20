@@ -7,6 +7,7 @@ and open the template in the editor.
     Created on : Sep 25, 2023, 5:37:25 PM
     Author     : HOANGDUC
 */
+
 body{margin-top:20px;
 background:#eee;
 }
@@ -154,7 +155,7 @@ background:#eee;
     width: 120px;
 }
 .btn{
-    pading:10px;
+    padding:10px;
 }
 .pro-img-list {
     margin: 10px 0 0 -15px;
@@ -172,3 +173,46 @@ background:#eee;
     font-size: 18px;
     font-weight: 300;
 }
+
+
+/*mục nguyên liệu*/
+
+/* Apply custom styles to the material div */
+.material {
+    max-width: 110%;  
+    background-color: #f7f7f7;
+    padding: 20px;
+    margin: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+/* Style the table */
+.material-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+/* Style table headers */
+.material-table th {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 10px;
+}
+
+/* Style table rows */
+.material-table tr {
+    border-bottom: 1px solid #ccc;
+}
+
+/* Style table data cells */
+.material-table td {
+    text-align: center;
+    padding: 10px;
+}
+
+
+
+

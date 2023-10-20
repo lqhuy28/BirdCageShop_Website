@@ -46,7 +46,7 @@
                                     <div>English</div>
                                     <span class="arrow_carrot-down"></span>
                                     <ul>
-                                        <li><a href="#"> tiếng việt</a></li>
+                                        <li><a href="#">Tiếng Việt</a></li>
                                         <li><a href="#">English</a></li>
                                     </ul>
                                 </div>
@@ -60,7 +60,7 @@
                                                 <a href="#">${sessionScope.LOGIN_USER.fullName}</a>
                                                 <ul class="header__menu__dropdown">
                                                     <li><a href="changeProfile?userID=${sessionScope.LOGIN_USER.userID}">Thông tin cá nhân</a></li>
-                                                    <li><a href="order.jsp">Đơn mua</a></li>
+                                                    <li><a href="OrderController">Đơn mua</a></li>
                                                     <li><a href="LogoutController">Đăng xuất</a></li>
                                                 </ul> 
                                             </li>
@@ -94,7 +94,7 @@
                                     </ul>
                                 </li>
                                 <li><a href="">Blog</a></li>
-                                <li><a href="OrderRequest">Đặt hàng theo yêu cầu</a></li>
+                                <li><a href="OrderRequest">Đặt lồng theo yêu cầu</a></li>
                                 <li><a href="">Liên hệ</a></li>
                             </ul>
                         </nav>

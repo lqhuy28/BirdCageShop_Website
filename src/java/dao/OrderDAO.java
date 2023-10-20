@@ -10,6 +10,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
+import model.Order;
+import model.ProductDTO;
 import utils.DBUtils;
 
 /**
@@ -21,7 +23,7 @@ public class OrderDAO {
     Connection conn = null;
     PreparedStatement ps = null;
     ResultSet rs = null;
-    private static final String SEARCHORDER = "select * from tblOrders where orderID like ? or userID like ?";
+
     public void insertOrder(String orderID, String userID, String phone, String address, Date orderDate, String orderStatus, String discount,double ship, double totalPrice) {
         String query = "insert into tblOrders\n"
                 + "values(?,?,?,?,?,?,?,?,?)";
@@ -64,19 +66,26 @@ public class OrderDAO {
         }
     }
 
-    public void getOrder(String orderID) {
-        String query = "insert into tblOrders\n"
-                + "values(?,?,?,?,?,?)";
+    public List<Order> getOrder(String userID) {
+        List<Order> list = new ArrayList<>();
+        String query = "select o.OrderID, o.UserID, o.Phone, o.Address,o.OrderDate,o.ShippingCod, o.Total from tblOrders o where o.UserID = ?";
         try {
             conn = new DBUtils().getConnection();
             ps = conn.prepareStatement(query);
-            ps.setString(1, orderID);
-
+            ps.setString(1, userID);
+            rs = ps.executeQuery();
+            while (rs.next()) {
+                list.add(new Order(rs.getString(1),
+                        rs.getString(2),
+                        rs.getString(3),
+                        rs.getString(4),
+                        rs.getDate(5),
+                        rs.getDouble(6),
+                        rs.getDouble(7)));
+            }
             ps.executeUpdate();
         } catch (Exception e) {
         }
-    }
-    public void searchOrder(String search){
-        
+        return list;
     }
 }

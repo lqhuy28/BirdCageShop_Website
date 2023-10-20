@@ -168,7 +168,7 @@ public class ProductDAO {
     
     public void insertMaterialRequest(String CageID, String MaterialID, int Quantity, String Description) {
         String query = "insert into tblCageMaterial\n"
-                + "values(?,?,?,?,?,?,?,?,?)";
+                + "values(?,?,?,?)";
         try {
             conn = new DBUtils().getConnection();
             ps = conn.prepareStatement(query);

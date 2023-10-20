@@ -8,11 +8,15 @@ package controller;
 import dao.OrderDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+import model.Order;
+import model.User;
 
 /**
  *
@@ -59,8 +63,13 @@ public class OrderController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
-        processRequest(request, response);
+        HttpSession session = request.getSession();
+        User u = (User)session.getAttribute("LOGIN_USER");
+        OrderDAO od = new OrderDAO();
+        List<Order> list = od.getOrder(u.getUserID());
+        request.setAttribute("listOrder", list);
+        request.getRequestDispatcher("order.jsp").
+                forward(request, response);
     }
 
     /**

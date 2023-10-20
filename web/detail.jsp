@@ -4,6 +4,7 @@
     Author     : HOANGDUC
 --%>
 
+<%@page import="model.CageMaterial"%>
 <%@page import="model.Cart"%>
 <%@page import="java.util.List"%>
 <%@page import="model.ProductDTO"%>
@@ -25,6 +26,7 @@
         <%
             ProductDTO product = (ProductDTO) request.getAttribute("product");
             int quantityCart = (int) session.getAttribute("quantityCart");
+            List<CageMaterial> cm = (List<CageMaterial>)request.getAttribute("cageMaterial");
         %>
         <jsp:include page="header.jsp" />
         <div class="container bootdey">
@@ -46,19 +48,24 @@
                             </p>
                             <div class="product_meta">
                             </div>
-                            <div class="m-bot15"> <strong>Giá : </strong> <span class="amount-old"><%=product.getPriceOld()%></span>  <span class="pro-price"> <%=product.getPriceNew()%></span></div>
+                            <div class="m-bot15"> <strong>Price : </strong> <span class="amount-old"><%=product.getPriceOld()%></span>  <span class="pro-price"> <%=product.getPriceNew()%></span></div>
+                            <strong>Cage Material : </strong>
+                            <% for (CageMaterial c : cm) {
+                            %>
+                            <p><%=c.getMaterialName()%> : <%=c.getQuantity()%></p>
+                                <% } %>
                             <form action="CartController" method="post">
                                 <div class="form-group">
-                                    <label for="quantity">Số lượng</label>
+                                    <label for="quantity">Quantity</label>
                                     <input class="form-control" type="number" value="1" name="quantity" id="numberInput">
                                 </div>
                                 </br>
-                                <span id="quantityAvailable"><%=product.getQuantity()%> sản phẩm sẳn có sẵn</span>
+                                <span id="quantityAvailable"><%=product.getQuantity()%> sản phẩm sẳn có sẳn</span>
                                 <p>
                                     <button type="submit" id="checkout" name="id" value="<%=product.getCageID()%>" class="btn btn-round btn-danger"> Mua ngay</button>
                                 </p>
                             </form>
-                            <span id="quantityCart"><%=quantityCart%></span>
+                            <span hidden="true" id="quantityCart"><%=quantityCart%></span>
                             <form action="CartController" method="get">
                                 <input type="hidden" value="" name="quantity" id="hiddenInput">
                                 <input type="hidden" value="<%=product.getCageID()%>" name="id">
@@ -119,6 +126,8 @@
 //            window.location = '/ProductDetail';
 //        });
     </script>
+    });
+
 
 
 

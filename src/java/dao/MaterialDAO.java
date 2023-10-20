@@ -9,6 +9,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
+import model.CageMaterial;
 import model.Material;
 import utils.DBUtils;
 
@@ -35,6 +36,25 @@ public class MaterialDAO {
                         rs.getString(3),
                         rs.getString(4),
                         rs.getDouble(5)));
+            }
+        } catch (Exception e) {
+        }
+        return list;
+    }
+    
+    public List<CageMaterial> getCageMaterialByID(String productID) {
+        List<CageMaterial> list = new ArrayList<>();
+        String query = "select cm.CageID,m.MaterialName,cm.Quantity, cm.Description from tblCageMaterial cm inner join tblMaterial m on cm.MaterialID = m.MaterialID where cm.CageID = ?";
+        try {
+            conn = new DBUtils().getConnection();
+            ps = conn.prepareStatement(query);
+            ps.setString(1, productID);
+            rs = ps.executeQuery();
+            while (rs.next()) {
+                list.add(new CageMaterial(rs.getString(1),
+                        rs.getString(2),
+                        rs.getInt(3),
+                        rs.getString(4)));
             }
         } catch (Exception e) {
         }

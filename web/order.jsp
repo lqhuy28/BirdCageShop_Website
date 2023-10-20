@@ -36,6 +36,7 @@
                             <th class="text-center">Ngày đặt hàng</th>
                             <th class="text-center">Phí Ship</th>
                             <th class="text-center">Tổng Tiền</th>
+                            <th class="text-center">Chi tiết</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -49,6 +50,7 @@
                             <td class="text-center text-lg text-medium"><%=o.getOrderDate()%></td>   
                             <td class="text-center text-lg text-medium"><%=o.getShipCost()%></td>
                             <td class="text-center text-lg text-medium"><%=o.getTotal()%></td>
+                            <td class="text-center text-lg text-medium"><a href="#"><i class="fa-solid fa-eye" style="color: red;"></i></a></td>
                         </tr>
                         <% } %>
                     </tbody>

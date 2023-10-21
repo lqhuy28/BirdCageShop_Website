@@ -29,8 +29,8 @@
                         <div class="col-lg-6 col-md-6">
                             <div class="header__top__left">
                                 <ul>
-                                    <li><i class="fa fa-envelope"></i> birdcage@.gmail.com</li>
-                                    <li>Free Ship cho tất cả các đơn hàng trên 3.000.000 </li>
+                                    <li><i class="fa fa-envelope"></i> birdcage@gmail.com</li>
+                                    <li>Cửa hàng bán lồng chim số 1 Việt Nam</li>
                                 </ul>
                             </div>
                         </div>

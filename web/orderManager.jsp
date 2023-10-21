@@ -4,6 +4,8 @@
     Author     : QUANG HUY
 --%>
 
+<%@page import="model.Order"%>
+<%@page import="java.util.List"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -114,39 +116,34 @@
                                 <input type="text" value="#" placeholder="Search..."  class="form-control" name="search" id="search" />
                             </div>
                             <button type="submit" class="fa fa-solid fa-magnifying-glass" name="action" value="Search"></button>
-
+                            <% List<Order> listOrder = (List<Order>) request.getAttribute("listOrder"); %>
                         </form>
                         <table class="table">
                             <thead>
                                 <tr>
-                                    <th scope="col">STT</th>
-                                    <th scope="col">Mã đơn hàng</th>
-                                    <th scope="col">Tên người dùng</th>
-                                    <th scope="col">Số điện thoại</th>
-                                    <th scope="col">Địa chỉ</th>
-                                    <th scope="col">#</th>
-                                    <th scope="col">#</th>
-                                    <th scope="col">#</th>
-                                    <th scope="col">#</th>
+                                    <th class="text-center">Mã đơn hàng</th>
+                                    <th class="text-center">Người dùng</th>
+                                    <th class="text-center">Số điện thoại</th>
+                                    <th class="text-center">Địa chỉ</th>
+                                    <th class="text-center">Ngày đặt hàng</th>
+                                    <th class="text-center">Phí Ship</th>
+                                    <th class="text-center">Tổng Tiền</th>
                                 </tr>
                             </thead>
+
                             <tbody>
+                                <% for (Order o : listOrder) {
+                                %>
                                 <tr>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td>
-                                        <div class="btn-group">
-                                            <a href="#" class="btn btn-success">Update</a>
-                                            <a href="#" class="btn btn-danger">Delete</a>
-                                        </div>
-                                    </td>
+                                    <td class="text-center text-lg text-medium"><%=o.getOrderID()%></td>
+                                    <td class="text-center text-lg text-medium"><%=o.getUserID()%></td>
+                                    <td class="text-center text-lg text-medium"><%=o.getPhone()%></td>
+                                    <td class="text-center text-lg text-medium"><%=o.getAddress()%></td>
+                                    <td class="text-center text-lg text-medium"><%=o.getOrderDate()%></td>   
+                                    <td class="text-center text-lg text-medium"><%=o.getShipCost()%></td>
+                                    <td class="text-center text-lg text-medium"><%=o.getTotal()%></td>
                                 </tr>
+                                <% }%>
                             </tbody>
                         </table>
 

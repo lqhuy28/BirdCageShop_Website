@@ -29,7 +29,7 @@
 
                             <ul>
                                 <div class="footer__about__logo">
-                                    <a href="homePage.jsp"><img src="static/img/logoheada.png" alt="" style="width: 70%;"></a>
+                                    <a href="MainController"><img src="static/img/logoheada.png" alt="" style="width: 70%;"></a>
                                 </div>
                                 <li style="font-weight: bold;">Địa chỉ: <span style="font-weight: normal;">TP Thủ Đức, TP HCM</span></li>
                                 <li style="font-weight: bold;">Số điện thoại: <span style="font-weight: normal;">0123456789</span></li>

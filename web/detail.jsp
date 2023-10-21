@@ -56,6 +56,10 @@
                                 </div>
                                 </br>
                                 <span id="quantityAvailable"><%=product.getQuantity()%> sản phẩm sẳn có sẳn</span>
+                                
+                            </form>
+                            <form action="CartController" method="post">
+                                
                                 <p>
                                     <button type="submit" id="checkout" name="id" value="<%=product.getCageID()%>" class="btn btn-round btn-danger"> Mua ngay</button>
                                 </p>

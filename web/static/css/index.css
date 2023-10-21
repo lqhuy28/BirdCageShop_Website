@@ -684,7 +684,7 @@ ol {
 	text-transform: uppercase;
 	font-weight: 700;
 	letter-spacing: 4px;
-	color: #7fad39;
+	color: #385808;
 }
 
 .hero__text h2 {
@@ -697,6 +697,7 @@ ol {
 
 .hero__text p {
 	margin-bottom: 35px;
+            color: #030601bd;
 }
 /*---------------------
   Categories

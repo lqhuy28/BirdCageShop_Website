@@ -69,8 +69,8 @@
                                  style="background-image: url(https://c4.wallpaperflare.com/wallpaper/404/390/382/cages-cityscape-window-digital-art-wallpaper-preview.jpg);">
                                 <div class="hero__text">
                                     <span>BIRD CAGE </span>
-                                    <h2>Material <br>100% Organic</h2>
-                                    <p>Free Pickup and Delivery Available</p>
+                                    <h2>Lồng chim <br>số 1 Việt Nam </h2>
+                                    <p>Lồng chim luôn có sẳn để hỗ trợ khạch hàng</p>
                                     <a href="#" class="primary-btn">SHOP NOW</a>
                                 </div>
                             </div>

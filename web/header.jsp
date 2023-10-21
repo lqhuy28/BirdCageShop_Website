@@ -77,13 +77,13 @@
                 <div class="row">
                     <div class="col-lg-2">
                         <div class="header__logo">
-                            <a href="homePage.jsp"><img src="static/img/logoheada.png" alt=""></a>
+                            <a href="MainController"><img src="static/img/logoheada.png" alt=""></a>
                         </div>
                     </div>
                     <div class="col-lg-8 text-center">
                         <nav class="header__menu">
                             <ul>
-                                <li class="active"><a href="homePage.jsp">Trang chủ</a></li>
+                                <li class="active"><a href="/MainController">Trang chủ</a></li>
                                 <li><a href="policy/IntroduceShop.jsp">Giới thiệu</a></li>
                                 <li><a href="#">Sản phẩm </a>
                                     <ul class="header__menu__dropdown">

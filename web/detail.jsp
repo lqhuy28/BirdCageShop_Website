@@ -43,8 +43,9 @@
                             <h4 class="pro-d-title">
                                 <strong><%=product.getCageName()%> </strong>
                             </h4>
+                            </br>
                             <p>
-                                <%=product.getCageDetails()%>
+                                <strong>Mô tả sản phẩm: </strong><%=product.getCageDetails()%>
                             </p>
                             <div class="product_meta">
                             </div>
@@ -56,10 +57,6 @@
                                 </div>
                                 </br>
                                 <span id="quantityAvailable"><%=product.getQuantity()%> sản phẩm sẳn có sẳn</span>
-                                
-                            </form>
-                            <form action="CartController" method="post">
-                                
                                 <p>
                                     <button type="submit" id="checkout" name="id" value="<%=product.getCageID()%>" class="btn btn-round btn-danger"> Mua ngay</button>
                                 </p>
@@ -74,9 +71,10 @@
                     </div>
                 </section>
             </div>
-            <div class="material container">
-                <h4>Thành phần lồng chim: </h4>
-                <div class="table-responsive">
+            <div class="material ">
+                <h4 class="pro-d-title">
+                    <strong>Thành phần lồng chim </strong>
+                </h4>                <div class="table-responsive">
                     <table class="table material-table">
                         <thead>
                             <tr>

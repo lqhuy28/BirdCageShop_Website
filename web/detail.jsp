@@ -71,7 +71,7 @@
                 </section>
             </div>
             <div class="material container">
-                <h4>Nguyên liệu lồng chim: </h4>
+                <h4>Thành phần lồng chim: </h4>
                 <div class="table-responsive">
                     <table class="table material-table">
                         <thead>

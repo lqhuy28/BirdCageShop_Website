@@ -57,7 +57,7 @@
             </table>
             <br>
             <strong>Chọn số lượng lồng</strong>
-            <input type="number" name="cageQuantity" id="cageQuantity" min="1" value="1">
+            <input type="number" name="cageQuantity" id="cageQuantity" min="1" value="1" placeholder="Nhập số lượng lồng...">
             <h2>Ghi chú</h2>
             <input type="text" name="description" placeholder="Nhập ghi chú của bạn">
 

@@ -12,62 +12,102 @@
     <head>
         <link rel="stylesheet" href="static/css/orderRequest.css">
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link rel="stylesheet" href="static/bootstrap/css/bootstrap.min.css">
         <title>Đặt lồng theo yêu cầu</title>
     </head>
     <body>
+        <jsp:include page="header.jsp" />
         <%
             List<Material> list = (List<Material>) request.getAttribute("listM");
         %>
+        <div class="main">
+            <div class="container">
+                <div class="row">
+                    <div class="title-main">
+                        <h3> Thiết kế lồng chim theo yêu cầu </h3>
+                    </div>
+                    <div class="col-md-6 add-material">
+                        <form action="OrderRequest" method="post">
+                            <div class="selectcage">
+                                <strong>Chọn Loại Lồng:</strong>
+                                <select class="form-control" name="cageType" id="cageType">
+                                    <option value="" selected disabled>Loại lồng...</option>
+                                    <option value="CageType1">Lồng tre</option>
+                                    <option value="CageType2">Lồng sắt</option>
+                                    <option value="CageType3">Lồng gỗ</option>
+                                </select>
+                            </div>
+                            <div class="materialSuggestion" id="materialSuggestion" style="display: none;">
+                                <strong>Gợi ý số liệu thiết kế:</strong>
+                                <ul id="suggestedMaterials"></ul>
+                            </div>
+                            <div class="quantitycage">
+                                <strong>Số lượng lồng cần thiết kế: </strong>
+                                <input class="form-control" type="number" name="cageQuantity" id="cageQuantity" min="1" value="1">
+                            </div>   
+                            <div class="titlemat">
+                                <h5>CUNG CẤP NGUYÊN LIỆU</h5>
+                            </div>
+                            <div class="selectmate">
+                                <strong>Chọn Nguyên Liệu:</strong>
+                                <select class="form-control" name="material" id="material">
+                                    <option value="" selected disabled>Nguyên liệu...</option>
+                                    <% for (Material m : list) {
+                                            int price = (int) m.getPrice();
+                                    %> 
+                                    <option value="<%=m.getMaterialName()%>-<%=price%>">
+                                        <%=m.getMaterialName()%> - <span id="materialPrice"><%=price%></span> VND</option>
+                                        <% }%>
+                                </select>
+                            </div>
+                            <div class="quantitymate">
+                                <strong>Số lượng:</strong>
+                                <input class="form-control" type="number" name="quantity" min="1" value="1">
+                            </div>
+                            <div class="button-addmate">
+                                <button id="add" class="btn btn-danger">Thêm Nguyên Liệu</button>
+                            </div>
+                                </div>
+                    
 
-        <form action="OrderRequest" method="post">
-            <strong>Chọn loại lồng</strong>
-            <select name="cageType" id="cageType">
-                <option value="" selected disabled>Chọn loại lồng...</option>
-                <option value="CageType1"> Lồng tre</option>
-                <option value="CageType2"> Lồng sắt</option>
-                <option value="CageType3"> Lồng gỗ</option>
-            </select>
-            <div id="materialSuggestion" style="display: none;">
-                <strong>Gợi ý số liệu thiết kế:</strong>
-                <ul id="suggestedMaterials"></ul>
+                    <div class="col-md-5 material">
+                        <div class="mat-tab-title">
+                            <h5>TỔNG HỢP NGUYÊN LIỆU: </h5>
+                        </div>
+                        <div class="mat-tab">
+                            <table class="table table-bordered">
+                                <thead>
+                                    <tr>
+                                        <th>Tên nguyên liệu</th>
+                                        <th>Số lượng</th>
+                                        <th>Thành tiền </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="note">
+                            <strong>Ghi chú:</strong>
+                            <textarea class="form-control" type="text" name="description" placeholder="Nhập ghi chú của bạn" rows="4"></textarea>
+                        </div>
+                        <div class="checkout">
+                            <p>Tiền công: <span id="ship">100000</span> VND</p>
+                            <p>Thành tiền: <span id="total"></span> VND</p>
+                        </div>
+                        <input type="hidden" id="totalPrice" name="totalPrice">
+                        <input type="hidden" id="shipCost" name="shipCost">
+
+                        <div class="sendrequest">  
+                            <button type="submit" id="checkout" class="btn btn-success ">Gửi yêu cầu</button>
+                        </div>
+                    </div>
+                                                        </form>
+
+                </div>
             </div>
-            <strong>Chọn nguyên liệu</strong>
-            <select name="material" id="material">
-                <option value="" selected disabled>Chọn nguyên liệu...</option>
-                <% for (Material m : list) {
-                        int price = (int) m.getPrice();
-                %>              
-                <option value="<%=m.getMaterialName()%>-<%=price%>"><%=m.getMaterialName()%> -------- <span id="materialPrice"><%=price%></span> VND</option>
-                <% }%>
-            </select>
-            <strong>Chọn số lượng</strong>
-            <input type="number" name="quantity" min="1" value="1">
-            <button id="add">Thêm nguyên liệu</button>
-            <br>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Tên nguyên liệu</th>
-                        <th>Số lượng</th>
-                        <th>Thành tiền  </th>
-                    </tr>
-                </thead>
-                <tbody>
-                </tbody>
-            </table>
-            <br>
-            <strong>Chọn số lượng lồng</strong>
-            <input type="number" name="cageQuantity" id="cageQuantity" min="1" value="1" placeholder="Nhập số lượng lồng...">
-            <h2>Ghi chú</h2>
-            <input type="text" name="description" placeholder="Nhập ghi chú của bạn">
-
-            <p>Tiền công: <span id="ship">100000</span>VND</p>
-            <p>Thành tiền: <span id="total"></span>VND</p>
-            <input type="hidden" id="totalPrice" name="totalPrice">
-            <input type="hidden" id="shipCost" name="shipCost">
-            <button type="submit" id="checkout" >Gửi yêu cầu</button>
-        </form>
-
+        </div>
+        <jsp:include page="footer.jsp" />
         <script>
             // Lấy giá trị các phần tử
             const addBtn = document.getElementById('add');
@@ -167,7 +207,6 @@
                 document.getElementById('total').textContent = total;
                 document.getElementById("totalPrice").value = document.getElementById("total").textContent;
             }
-
         </script>
     </body>
 </html>

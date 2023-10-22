@@ -1,61 +1,128 @@
-form {
-  max-width: 500px;
-  margin: 0 auto;
-  padding: 20px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
+.main{
+    background: #f5f5f5;
+    font-family: 'Arial', sans-serif;
+    padding: 50px;
+}
+.title-main{
+    padding-bottom: 20px;
 }
 
-/* Style cho các input, select */ 
-input[type="number"],
-select {
-  width: 100%;
-  padding: 12px 20px;
-  margin: 8px 0;
-  box-sizing: border-box;
-  border: 1px solid #ccc;
-  border-radius: 4px;
+.add-material {
+    border: 1px solid white;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.2);
+    padding: 30px 40px;
+    margin-right: 20px;
+    margin-top: 50px;
 }
 
-/* Style cho button */
-#add, #checkout {
-  width: 100%;
-  background-color: #4CAF50;
-  color: white;
-  padding: 14px 20px;
-  margin: 8px 0;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
+/* Chọn loại lồng */
+.selectcage{
+    display: flex;
+    align-items: center;
+    padding: 10px 0px;
+}
+.selectcage select{
+    border-radius: 20px;
+    width: 300px;
+    margin-left: 10px;
+}
+/* SỐ LƯỢNG LỒNG CẦN THIẾT KẾ */
+.quantitycage{
+    display: flex;
+    padding-bottom: 10px;
+    align-items: center;
+    border-bottom: 1px solid gray;
+
 }
 
-/* Style bảng */
-table {
-  border: 1px;
-  width: 100%;
-  border-collapse: collapse;
+.quantitycage input{
+    width: 50px;
+    border-radius: 20px;
+    margin-left: 10px;
 }
 
-/* Stye cho các phần tử trong table */
-td, th {
-  border: 1px solid #dddddd;
-  text-align: left;
-  padding: 8px;
+.titlemat h5{
+    font-weight: bold;
+    padding-top: 20px;
+
+}
+/* CHỌN NGUYÊN LIỆU */
+.selectmate{
+    display: flex;
+    align-items: center;
+}
+.selectmate select{
+    border-radius: 20px;
+    width: 300px;
+    margin-left: 10px;
 }
 
-/* Giữ cùng 1 dòng */
-option {
-  display: flex; 
-  flex-direction: row;
-  align-items: center;
+.materialSuggestion ul{
+    margin-left: 50px;
 }
 
-/* Tách riêng phần giá tiền */ 
-#materialPrice {
-  margin-left: auto; 
+/* Số lượng material */
+.quantitymate{
+    display: flex;
+    align-items: center;   
+}
+.quantitymate input{
+    width: 50px;
+    border-radius: 20px;
+    margin-left: 10px;
+}
+/* button-addmate */
+.button-addmate{
+    text-align: center;
+    padding: 10px;
+}
+.button-addmate button{
+    border-radius: 20px;
+    padding: 10px;
 }
 
-/* Thêm khoảng cách giữa tên và giá */
-#materialPrice {
-  margin-left: 200px; 
+.mat-tab-title h5{
+    font-weight: bold;
 }
+.mat-tab thead{
+    background-color: #f5f5f5
+}
+
+.note textarea{
+    margin: 10px 0px;
+}
+.checkout{
+    padding-top: 10px;
+}
+.checkout p{
+    font-weight: bold;
+    color: black;
+
+}
+
+.checkout span{
+    font-weight: normal;
+}
+.sendrequest {
+    text-align: center; 
+}
+
+.sendrequest button{
+    width: 30%;
+    border-radius: 20px;
+    padding: 10px;
+    
+}
+  
+.material {
+    border: 1px solid white;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.2);
+    padding: 30px 40px;
+    margin-left: 20px; /* Khoảng cách 20px về bên trái */
+}
+
+

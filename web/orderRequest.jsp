@@ -92,9 +92,10 @@
                             <textarea class="form-control" type="text" name="description" placeholder="Nhập ghi chú của bạn" rows="4"></textarea>
                         </div>
                         <div class="checkout">
-                            <p>Tiền công: <span id="ship">100000</span> VND</p>
-                            <p>Thành tiền: <span id="total"></span> VND</p>
+                            <p><span class="money">Tiền công:</span> <span id="ship">100000</span> VND</p>
+                            <p><span class="money">Thành tiền:</span> <span id="total"></span> VND</p>
                         </div>
+
                         <input type="hidden" id="totalPrice" name="totalPrice">
                         <input type="hidden" id="shipCost" name="shipCost">
 

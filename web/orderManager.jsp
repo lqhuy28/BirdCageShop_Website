@@ -14,7 +14,7 @@
         <title>Quản lý đơn hàng</title>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
         <link rel="stylesheet" href="static/bootstrap/css/bootstrap.min.css">
-        <link rel="stylesheet" href="static/css/userManager.css">
+        <link rel="stylesheet" href="static/css/orderManager.css">
     </head>
     <body>
         <header>
@@ -143,7 +143,7 @@
                                     <td class="text-center text-lg text-medium"><%=o.getOrderDate()%></td>   
                                     <td class="text-center text-lg text-medium"><%=o.getShipCost()%></td>
                                     <td class="text-center text-lg text-medium"><%=o.getTotal()%></td>
-                                    <td class="text-center text-lg text-medium"><a href="#"><i class="fa-solid fa-eye" style="color: red;"></i></a></td>
+                                    <td class="text-center text-lg text-medium"><a href="#" class="round-button"><i class="fa-solid fa-eye" style="color: white;"></i></a></td>
                                 </tr>
                                 <% }%>
                             </tbody>

@@ -38,7 +38,7 @@
                             <div class="hero__categories">
                                 <div class="hero__categories__all">
                                     <i class="fa fa-bars"></i>
-                                    <span>DANH SÁCH SẢN PHẨM</span>
+                                    <span>PHÂN LOẠI SẢN PHẨM</span>
                                 </div>
                                 <ul>
                                     <c:forEach items ="${listCC}" var ="o">
@@ -50,8 +50,8 @@
                         <div class="col-lg-9">
                             <div class="hero__search">
                                 <div class="hero__search__form">
-                                    <form action="#">
-                                        <input type="text" placeholder="Tìm kiếm sản phẩm..." fdprocessedid="5py24">
+                                    <form action="search" method="GET">
+                                        <input type="text" name="search" placeholder="Tìm kiếm sản phẩm..." fdprocessedid="5py24">
                                         <button type="submit" class="site-btn" fdprocessedid="6hi3um">SEARCH</button>
                                     </form>
                                 </div>
@@ -123,7 +123,7 @@
                     <div class="row">
                         <div class="col-lg-12">
                             <div class="section-title">
-                                <h2>LỒNG CU GÁY </h2>
+                                <h2>DANH SÁCH SẢN PHẨM </h2>
                             </div>
                         </div>
                     </div>

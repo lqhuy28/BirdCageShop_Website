@@ -14,6 +14,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import model.Category;
 import model.ProductDTO;
 
 /**
@@ -24,7 +25,7 @@ import model.ProductDTO;
 public class SearchProduct extends HttpServlet {
 
     private static final String ERROR = "ShowProduct.jsp";
-    private static final String SUCCESS = "ShowProduct.jsp";
+    private static final String SUCCESS = "homePage.jsp";
     
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -35,8 +36,10 @@ public class SearchProduct extends HttpServlet {
             String search = request.getParameter("search");
             ProductDAO dao = new ProductDAO();
             List<ProductDTO> listProduct = dao.SearchProduct(search);
+            List<Category> listC = dao.getAllCategory();
             if (listProduct.size() >0) {
                 request.setAttribute("listS", listProduct);
+                request.setAttribute("listCC", listC);
                 url = SUCCESS;
             }
         } catch (Exception e) {

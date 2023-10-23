@@ -53,7 +53,7 @@ public class LoadProduct extends HttpServlet {
         request.setAttribute("listS", list);
         request.setAttribute("listCC", listC);
         
-        request.getRequestDispatcher("ShowProduct.jsp").
+        request.getRequestDispatcher("homePage.jsp").
                 forward(request, response);
     }
 

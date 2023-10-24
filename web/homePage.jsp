@@ -38,7 +38,7 @@
                                 </div>
                                 <ul>
                                     <c:forEach items ="${listCC}" var ="o">
-                                    <li><a href="category?cid=${o.categoryID}">${o.categoryName}</a></li>
+                                        <li><a href="category?cid=${o.categoryID}">${o.categoryName}</a></li>
                                     </c:forEach>
                                 </ul>
                             </div>
@@ -124,6 +124,10 @@
                         </div>
                     </div>
                     <div class="row featured__filter">
+                        <% if (request.getAttribute("ERROR") != null) {%>
+                        <p> Không tìm thấy kết quả </p>
+
+                        <% }else{%> 
                         <c:set var="listS" value="${requestScope.listS}" />
                         <c:forEach items="${listS}" var="x">
                             <div class="col-lg-3 col-md-4 col-sm-6">
@@ -146,6 +150,7 @@
                                 </div>
                             </div>
                         </c:forEach>
+                        <% } %>
                     </div>
 
                 </div>
@@ -207,6 +212,6 @@
 
             <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
             <script src="static/js/index.js"></script>
-            
+
     </body>
 </html>

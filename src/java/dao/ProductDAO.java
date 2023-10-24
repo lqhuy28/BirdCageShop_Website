@@ -49,7 +49,7 @@ public class ProductDAO {
         }
         return list;
     }
-    
+
     public List<ProductDTO> getProductByCategoryID(String cid) {
         List<ProductDTO> list = new ArrayList<>();
         String query = "select * from tblCage\n"
@@ -74,7 +74,7 @@ public class ProductDAO {
         }
         return list;
     }
-    
+
     public List<Category> getAllCategory() {
         List<Category> listC = new ArrayList<>();
         String query = "select * from tblCategory";
@@ -140,7 +140,12 @@ public class ProductDAO {
     }
 
     public void deleteProduct(String id) {
-        String query = "delete from tblCage\n"
+        String query = "UPDATE tblCage \n"
+                + "SET Status = CASE\n"
+                + "WHEN Status = '0' THEN '1'\n"
+                + "WHEN Status = '1' THEN '0'\n"
+                + "ELSE Status\n"
+                + "end\n"
                 + "where CageID = ?";
         try {
             conn = new DBUtils().getConnection();
@@ -170,7 +175,7 @@ public class ProductDAO {
         } catch (Exception e) {
         }
     }
-    
+
     public void insertProductRequest(String CageID, String CategoryID, String CageName, String CageDetails, double PriceNew, double PriceOld, String Image, int Quantity, String Status) {
         String query = "insert into tblCage\n"
                 + "values(?,?,?,?,?,?,?,?,?)";
@@ -190,7 +195,7 @@ public class ProductDAO {
         } catch (Exception e) {
         }
     }
-    
+
     public void insertMaterialRequest(String CageID, String MaterialID, int Quantity, String Description) {
         String query = "insert into tblCageMaterial\n"
                 + "values(?,?,?,?)";

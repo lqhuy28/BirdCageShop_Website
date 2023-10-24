@@ -63,7 +63,7 @@ public class DeleteProduct extends HttpServlet {
         String id = request.getParameter("sid");
         ProductDAO dao = new ProductDAO();
         dao.deleteProduct(id);
-        response.sendRedirect("load");
+        response.sendRedirect("ShowProduct.jsp");
     }
 
     /**

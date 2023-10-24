@@ -8,6 +8,7 @@ package controller;
 import dao.ProductDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.sql.SQLException;
 import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -24,9 +25,9 @@ import model.ProductDTO;
 @WebServlet(name = "SearchProduct", urlPatterns = {"/search"})
 public class SearchProduct extends HttpServlet {
 
-    private static final String ERROR = "ShowProduct.jsp";
+    private static final String ERROR = "homePage.jsp";
     private static final String SUCCESS = "homePage.jsp";
-    
+
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
@@ -37,14 +38,21 @@ public class SearchProduct extends HttpServlet {
             ProductDAO dao = new ProductDAO();
             List<ProductDTO> listProduct = dao.SearchProduct(search);
             List<Category> listC = dao.getAllCategory();
-            if (listProduct.size() >0) {
+//            if (listProduct.size() >0) {
+//                request.setAttribute("listS", listProduct);
+//                request.setAttribute("listCC", listC);
+//                url = SUCCESS;
+//            }
+            if (listProduct.isEmpty() || listC.isEmpty()) {
+                request.setAttribute("ERROR", "CageName is not found!");
+            } else {
                 request.setAttribute("listS", listProduct);
-                request.setAttribute("listCC", listC);
                 url = SUCCESS;
             }
-        } catch (Exception e) {
+            request.setAttribute("listCC", listC);
+        } catch (SQLException e) {
             log("Error at SearchProduct: " + e.toString());
-        } finally{
+        } finally {
             request.getRequestDispatcher(url).forward(request, response);
         }
     }

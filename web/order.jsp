@@ -21,7 +21,7 @@
     </head>
     <body>
         <jsp:include page="header.jsp" />
-        <% List<Order> listOrder = (List<Order>)request.getAttribute("listOrder"); %>
+        <% List<Order> listOrder = (List<Order>) request.getAttribute("listOrder"); %>
         <h2>Đơn hàng của bạn</h2>
         <div class="container padding-bottom-3x mb-1">
             <!-- Shopping Cart-->
@@ -30,13 +30,14 @@
                     <thead>
                         <tr>
                             <th class="text-center">Mã đơn hàng</th>
-                            <th class="text-center">Người dùng</th>
+                            <th class="text-center">Ngày đặt hàng</th>
                             <th class="text-center">Số điện thoại</th>
                             <th class="text-center">Địa chỉ</th>
-                            <th class="text-center">Ngày đặt hàng</th>
                             <th class="text-center">Phí Ship</th>
                             <th class="text-center">Tổng Tiền</th>
+                            <th class="text-center">Tình Trạng</th>
                             <th class="text-center">Chi tiết</th>
+                            <th class="text-center">Chi tiết 2</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -44,15 +45,16 @@
                         %>
                         <tr>
                             <td class="text-center text-lg text-medium"><%=o.getOrderID()%></td>
-                            <td class="text-center text-lg text-medium"><%=o.getUserID()%></td>
+                            <td class="text-center text-lg text-medium"><%=o.getOrderDate()%></td>   
                             <td class="text-center text-lg text-medium"><%=o.getPhone()%></td>
                             <td class="text-center text-lg text-medium"><%=o.getAddress()%></td>
-                            <td class="text-center text-lg text-medium"><%=o.getOrderDate()%></td>   
                             <td class="text-center text-lg text-medium"><%=o.getShipCost()%></td>
                             <td class="text-center text-lg text-medium"><%=o.getTotal()%></td>
-                            <td class="text-center text-lg text-medium"><a href="#"><i class="fa-solid fa-eye" style="color: red;"></i></a></td>
+                            <td class="text-center text-lg text-medium"><%=o.isStatus() ? "Đã thanh toán" : "Chưa thanh toán"%></td>
+                            <td class="text-center text-lg text-medium"><a href="DetailOrder?orderId=<%=o.getOrderID()%>"><i class="fa-solid fa-eye" style="color: red;"></i></a></td>
+                            <td class="text-center text-lg text-medium"><a href="OrderController?orderId=<%=o.getOrderID()%>">Hủy Đơn Hàng</a></td>
                         </tr>
-                        <% } %>
+                        <% }%>
                     </tbody>
                 </table>
             </div>

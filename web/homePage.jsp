@@ -39,7 +39,7 @@
                                 <ul>
                                     <c:forEach items ="${listCC}" var ="o">
                                         <li><a href="category?cid=${o.categoryID}">${o.categoryName}</a></li>
-                                    </c:forEach>
+                                        </c:forEach>
                                 </ul>
                             </div>
                         </div>
@@ -127,30 +127,32 @@
                         <% if (request.getAttribute("ERROR") != null) {%>
                         <p> Không tìm thấy kết quả </p>
 
-                        <% }else{%> 
+                        <% } else {%> 
                         <c:set var="listS" value="${requestScope.listS}" />
                         <c:forEach items="${listS}" var="x">
-                            <div class="col-lg-3 col-md-4 col-sm-6">
-                                <div class="featured__item">
-                                    <div class="featured__item__pic set-bg">
-                                        <img src="${x.image}" alt="">
+                            <c:if test="${x.status eq '1'}">
+                                <div class="col-lg-3 col-md-4 col-sm-6">
+                                    <div class="featured__item">
+                                        <div class="featured__item__pic set-bg">
+                                            <img src="${x.image}" alt="">
 
-                                        <ul class="featured__item__pic__hover">
-                                            <!-- ảnh sản phẩm -->
-                                            <li><a href="#"><i class="fa fa-heart"></i></a></li>
-                                            <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
-                                            <li><a href="ProductDetail?id=${x.cageID}"><i class="fa-solid fa-circle-info"></i></a></li>
-                                        </ul>
-                                    </div>
+                                            <ul class="featured__item__pic__hover">
+                                                <!-- ảnh sản phẩm -->
+                                                <li><a href="WishlistServlet?id=${x.cageID}&type=home"><i class="fa fa-heart"></i></a></li>
+                                                <li><a href="CartController?id=${x.cageID}&quantity=1&type=home"><i class="fa fa-shopping-cart"></i></a></li>
+                                                <li><a href="ProductDetail?id=${x.cageID}"><i class="fa-solid fa-circle-info"></i></a></li>
+                                            </ul>
+                                        </div>
 
-                                    <div class="featured__item__text">
-                                        <h6><a href="#" title="View Product">${x.cageName}</a></h6>
-                                        <h5>${x.priceNew} VNĐ</h5>
+                                        <div class="featured__item__text">
+                                            <h6><a href="#" title="View Product">${x.cageName}</a></h6>
+                                            <h5>${x.priceNew} VNĐ</h5>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
+                            </c:if>
                         </c:forEach>
-                        <% } %>
+                        <% }%>
                     </div>
 
                 </div>

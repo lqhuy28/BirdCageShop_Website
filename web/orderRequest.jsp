@@ -43,7 +43,7 @@
                             </div>
                             <div class="quantitycage">
                                 <strong>Số lượng lồng cần thiết kế: </strong>
-                                <input class="form-control" type="number" name="cageQuantity" id="cageQuantity" min="1" value="1">
+                                <input type="number" name="cageQuantity" id="cageQuantity" min="1" value="1" required>
                             </div>   
                             <div class="titlemat">
                                 <h5>CUNG CẤP NGUYÊN LIỆU</h5>
@@ -67,8 +67,8 @@
                             <div class="button-addmate">
                                 <button id="add" class="btn btn-danger">Thêm Nguyên Liệu</button>
                             </div>
-                                </div>
-                    
+                    </div>
+
 
                     <div class="col-md-5 material">
                         <div class="mat-tab-title">
@@ -89,7 +89,7 @@
                         </div>
                         <div class="note">
                             <strong>Ghi chú:</strong>
-                            <textarea class="form-control" type="text" name="description" placeholder="Nhập ghi chú của bạn" rows="4"></textarea>
+                            <textarea class="form-control" type="text" name="description" placeholder="Nhập ghi chú của bạn" rows="4" id="des" required></textarea>
                         </div>
                         <div class="checkout">
                             <p><span class="money">Tiền công:</span> <span id="ship">100000</span> VND</p>
@@ -103,7 +103,7 @@
                             <button type="submit" id="checkout" class="btn btn-success ">Gửi yêu cầu</button>
                         </div>
                     </div>
-                                                        </form>
+                    </form>
 
                 </div>
             </div>
@@ -112,9 +112,11 @@
         <script>
             // Lấy giá trị các phần tử
             const addBtn = document.getElementById('add');
+            const checkoutBtn = document.getElementById('checkout');
             const materialSelect = document.getElementById('material');
             const quantityInput = document.querySelector('input[name="quantity"]');
             const quantityChange = document.getElementById('cageQuantity');
+            const des = document.getElementById('des');
             const tableBody = document.querySelector('table tbody');
             const cageQuantity = document.querySelector('input[name="cageQuantity"]');
             const shipItem = document.getElementById("ship");
@@ -124,25 +126,82 @@
             const suggestedMaterialsList = document.getElementById('suggestedMaterials');
 
             const suggestedMaterials = {
-                CageType1: ['Số lượng móc: 3', 'Số lượng trụ: 5', 'Số lượng nan: 40', 'Số lượng đáy: 2', 'Số lượng cửa: 1', 'Số lượng cốc: 2'],
-                CageType2: ['Số lượng móc: 2', 'Số lượng trụ: 3', 'Số lượng nan: 28', 'Số lượng đáy: 2', 'Số lượng cửa: 2', 'Số lượng cốc: 2'],
-                CageType3: ['Số lượng móc: 2', 'Số lượng trụ: 3', 'Số lượng nan: 30', 'Số lượng đáy: 2', 'Số lượng cửa: 2', 'Số lượng cốc: 2']
+                CageType1: [{mat: "Số lượng móc: ", quan: 3}, {mat: "Số lượng trụ: ", quan: 5}, {mat: "Số lượng nan: ", quan: 40}, {mat: "Số lượng đáy: ", quan: 2}, {mat: "Số lượng cửa: ", quan: 1}, {mat: "Số lượng cốc: ", quan: 2}],
+                CageType2: [{mat: "Số lượng móc: ", quan: 2}, {mat: "Số lượng trụ: ", quan: 3}, {mat: "Số lượng nan: ", quan: 28}, {mat: "Số lượng đáy: ", quan: 2}, {mat: "Số lượng cửa: ", quan: 2}, {mat: "Số lượng cốc: ", quan: 2}],
+                CageType3: [{mat: "Số lượng móc: ", quan: 2}, {mat: "Số lượng trụ: ", quan: 3}, {mat: "Số lượng nan: ", quan: 30}, {mat: "Số lượng đáy: ", quan: 2}, {mat: "Số lượng cửa: ", quan: 2}, {mat: "Số lượng cốc: ", quan: 2}]
             };
 
             cageTypeSelect.addEventListener('change', function () {
                 suggestedMaterialsList.innerHTML = '';
 
                 const selectedCageType = cageTypeSelect.value;
-
+                let count = 1;
                 if (suggestedMaterials[selectedCageType]) {
                     suggestedMaterials[selectedCageType].forEach(material => {
                         const li = document.createElement('li');
-                        li.textContent = material;
+                        const liId = "li" + count;
+                        const spanId = "span" + count;
+                        li.id = liId;
+                        const span = document.createElement('span');
+                        span.id = spanId;
+                        span.textContent = material.quan;
+                        li.textContent = material.mat;
+                        li.appendChild(span);
                         suggestedMaterialsList.appendChild(li);
+                        count += 1;
                     });
                     materialSuggestionDiv.style.display = 'block';
                 } else {
                     materialSuggestionDiv.style.display = 'none';
+                }
+            });
+
+            checkoutBtn.addEventListener('click', function () {
+                document.querySelectorAll('table td:first-child').forEach(item => {
+                    if (item.textContent === "móc") {
+                        const hangerQuantity = parseInt(item.parentNode.querySelector('td:nth-child(2)').textContent);
+                        //console.log(""+"---"+);
+                        console.log(parseInt(document.getElementById("span1").textContent));
+                        if (hangerQuantity < parseInt(document.getElementById("span1").textContent)) {
+                            alert("Số móc phải đạt tối thiểu!");
+                            event.preventDefault();
+                        }
+                    } else if (item.textContent === "trụ") {
+                        const hangerQuantity = parseInt(item.parentNode.querySelector('td:nth-child(2)').textContent);
+                        if (hangerQuantity < parseInt(document.getElementById("span2").textContent)) {
+                            alert("Số trụ phải đạt tối thiểu!");
+                            event.preventDefault();
+                        }
+                    } else if (item.textContent === "nan") {
+                        const hangerQuantity = parseInt(item.parentNode.querySelector('td:nth-child(2)').textContent);
+                        if (hangerQuantity < parseInt(document.getElementById("span3").textContent)) {
+                            alert("Số nan phải đạt tối thiểu!");
+                            event.preventDefault();
+                        }
+                    } else if (item.textContent === "đáy") {
+                        const hangerQuantity = parseInt(item.parentNode.querySelector('td:nth-child(2)').textContent);
+                        if (hangerQuantity < parseInt(document.getElementById("span4").textContent)) {
+                            alert("Số đáy phải đạt tối thiểu!");
+                            event.preventDefault();
+                        }
+                    } else if (item.textContent === "cửa") {
+                        const hangerQuantity = parseInt(item.parentNode.querySelector('td:nth-child(2)').textContent);
+                        if (hangerQuantity < parseInt(document.getElementById("span5").textContent)) {
+                            alert("Số cửa phải đạt tối thiểu!");
+                            event.preventDefault();
+                        }
+                    } else if (item.textContent === "cốc") {
+                        const hangerQuantity = parseInt(item.parentNode.querySelector('td:nth-child(2)').textContent);
+                        if (hangerQuantity < parseInt(document.getElementById("span6").textContent)) {
+                            alert("Số cốc phải đạt tối thiểu!");
+                            event.preventDefault();
+                        }
+                    }
+                });
+                console.log(quantityChange.value);
+                if (quantityChange.value === null) {
+                    alert("Missing Cage Quantity");
+                    event.preventDefault();
                 }
             });
 
@@ -153,14 +212,12 @@
                 const material = arr[0];
                 const price = parseInt(arr[1]);
                 const quantity = quantityInput.value;
-
                 let existingRow = null;
                 document.querySelectorAll('table td:first-child').forEach(item => {
                     if (item.textContent === material) {
                         existingRow = item.parentNode;
                     }
                 });
-
                 if (existingRow) {
                     const existingQuantity = parseInt(existingRow.querySelector('td:nth-child(2)').textContent);
                     const newQuantity = existingQuantity + parseInt(quantity);
@@ -176,9 +233,7 @@
                             "</tr>";
                 }
                 calculateTotal();
-
             });
-
             quantityChange.addEventListener("change", function () {
                 document.getElementById("ship").textContent = cageQuantity.value * 100000;
                 document.getElementById("shipCost").value = document.getElementById("ship").textContent;
@@ -194,14 +249,12 @@
                 document.getElementById("shipCost").value = document.getElementById("ship").textContent;
                 calculateTotal();
             });
-
             function calculateTotal() {
 
                 // Lấy tổng giá trị
                 let total = 0;
                 document.querySelectorAll('table td:last-child').forEach(item => {
                     total += parseInt(item.textContent);
-
                 });
                 total = total * cageQuantity.value + parseInt(shipItem.textContent);
                 // Hiển thị tổng lên UI

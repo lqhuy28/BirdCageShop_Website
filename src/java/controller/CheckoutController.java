@@ -55,7 +55,6 @@ public class CheckoutController extends HttpServlet {
             out.println("</html>");
         }
     }
-    
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
@@ -73,13 +72,13 @@ public class CheckoutController extends HttpServlet {
         List<Cart> cart;
         cart = (List<Cart>) session.getAttribute("cart");
         session.setAttribute("cart", cart);
-        User u = (User)session.getAttribute("LOGIN_USER");
-        if(u == null){
+        User u = (User) session.getAttribute("LOGIN_USER");
+        if (u == null) {
             request.getRequestDispatcher("login.jsp").
-                forward(request, response);
-        }else{
-        request.getRequestDispatcher("checkout.jsp").
-                forward(request, response);
+                    forward(request, response);
+        } else {
+            request.getRequestDispatcher("checkout.jsp").
+                    forward(request, response);
         }
     }
 
@@ -110,20 +109,25 @@ public class CheckoutController extends HttpServlet {
             text[i] = (char) (random.nextInt(26) + 'a');
         }
         String orderID = new String(text);
-        User u = (User)session.getAttribute("LOGIN_USER");
-        od.insertOrder(orderID, u.getUserID(), phone, address, orderDate, "", "",shipCost,totalPrice);
+        User u = (User) session.getAttribute("LOGIN_USER");
+        od.insertOrder(orderID, u.getUserID(), phone, address, orderDate, "", "", shipCost, totalPrice);
         List<Cart> cart;
         cart = (List<Cart>) session.getAttribute("cart");
         for (Cart item : cart) {
             od.insertOrderDetail(orderID, item.getCageID(), item.getCageName(), String.valueOf(item.getPrice()), item.getQuantity());
             ProductDTO p = pd.getProductByID(item.getCageID());
             int quantity = p.getQuantity() - item.getQuantity();
-            pd.updateQuantityProduct(item.getCageID(), quantity);
+            if (quantity < 0) {
+                request.getRequestDispatcher("Error.jsp").
+                        forward(request, response);
+            } else {
+                pd.updateQuantityProduct(item.getCageID(), quantity);
+                session.removeAttribute("cart");
+                request.getRequestDispatcher("SuccessOrder.jsp").
+                        forward(request, response);
+            }
         }
-        session.removeAttribute("cart");
-        request.getRequestDispatcher("SuccessOrder.jsp").
-                forward(request, response);
-        }
+    }
 
     /**
      * Returns a short description of the servlet.

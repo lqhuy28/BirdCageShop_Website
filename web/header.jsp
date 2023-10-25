@@ -4,6 +4,7 @@
     Author     : HOANGDUC
 --%>
 
+<%@page import="model.Wishlist"%>
 <%@page import="model.Cart"%>
 <%@page import="java.util.List"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -105,8 +106,12 @@
                                 List<Cart> cart = (List<Cart>) session.getAttribute("cart");
                                 int cartSize = (cart != null) ? cart.size() : 0;
                             %>
+                            <%
+                                List<Wishlist> w = (List<Wishlist>) session.getAttribute("wishlist");
+                                int wlSize = (w != null) ? w.size() : 0;
+                            %>
                             <ul>
-                                <li><a href="#"><i class="fa fa-heart"></i> <span>0</span></a></li>
+                                <li><a href="WishlistServlet"><i class="fa fa-heart"></i> <span><%= wlSize%></span></a></li>
                                 <li><a href="viewCart.jsp"><i class="fa fa-shopping-bag"></i> <span><%= cartSize%></span></a></li>
                             </ul>
                         </div>

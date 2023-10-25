@@ -18,11 +18,12 @@ public class Order {
     Date orderDate;
     double shipCost;
     double total;
+    boolean status;
 
     public Order() {
     }
 
-    public Order(String orderID, String UserID, String phone, String address, Date orderDate, double shipCost, double total) {
+    public Order(String orderID, String UserID, String phone, String address, Date orderDate, double shipCost, double total, boolean status) {
         this.orderID = orderID;
         this.UserID = UserID;
         this.phone = phone;
@@ -30,6 +31,7 @@ public class Order {
         this.orderDate = orderDate;
         this.shipCost = shipCost;
         this.total = total;
+        this.status = status;
     }
 
     public String getOrderID() {
@@ -87,6 +89,16 @@ public class Order {
     public void setTotal(double total) {
         this.total = total;
     }
+
+    public boolean isStatus() {
+        return status;
+    }
+
+    public void setStatus(boolean status) {
+        this.status = status;
+    }
+
+    
     
     
 }

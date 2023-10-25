@@ -100,15 +100,20 @@ public class MainController extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         ProductDAO dao = new ProductDAO();
-        
-        List<ProductDTO> list = dao.getAllProductDTO();
-        List<Category> listC = dao.getAllCategory();
-        
-        request.setAttribute("listS", list);
-        request.setAttribute("listCC", listC);
-        
-        request.getRequestDispatcher("homePage.jsp").
-                forward(request, response);
+        String action = request.getParameter("action");
+        if (action == null) {
+            List<ProductDTO> list = dao.getAllProductDTO();
+            List<Category> listC = dao.getAllCategory();
+
+            request.setAttribute("listS", list);
+            request.setAttribute("listCC", listC);
+
+            request.getRequestDispatcher("homePage.jsp").
+                    forward(request, response);
+        }else{
+            processRequest(request, response);
+        }
+
         //processRequest(request, response);
     }
 

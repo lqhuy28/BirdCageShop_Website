@@ -112,7 +112,7 @@ public class OrderRequest extends HttpServlet {
             ProductDAO dao = new ProductDAO();
             OrderDAO od = new OrderDAO();
 
-            dao.insertProductRequest(cageID, "6", "Lồng yêu cầu", description, 0, 0, "", 0, "1");
+            dao.insertProductRequest(cageID, "7", "Lồng yêu cầu", description, 0, 0, "", 0, "1");
             int length1 = 4;
             Random random1 = new Random();
             char[] text1 = new char[length1];

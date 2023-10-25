@@ -11,6 +11,7 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 import model.Order;
+import model.OrderDetail;
 import model.ProductDTO;
 import utils.DBUtils;
 
@@ -24,7 +25,7 @@ public class OrderDAO {
     PreparedStatement ps = null;
     ResultSet rs = null;
 
-    public void insertOrder(String orderID, String userID, String phone, String address, Date orderDate, String orderStatus, String discount,double ship, double totalPrice) {
+    public void insertOrder(String orderID, String userID, String phone, String address, Date orderDate, String orderStatus, String discount, double ship, double totalPrice) {
         String query = "insert into tblOrders\n"
                 + "values(?,?,?,?,?,?,?,?,?)";
         try {
@@ -68,7 +69,7 @@ public class OrderDAO {
 
     public List<Order> getOrder(String userID) {
         List<Order> list = new ArrayList<>();
-        String query = "select o.OrderID, o.UserID, o.Phone, o.Address,o.OrderDate,o.ShippingCod, o.Total from tblOrders o where o.UserID = ?";
+        String query = "select o.OrderID, o.UserID, o.Phone, o.Address,o.OrderDate,o.ShippingCod, o.Total, o.OrderStatus from tblOrders o where o.UserID = ?";
         try {
             conn = new DBUtils().getConnection();
             ps = conn.prepareStatement(query);
@@ -81,17 +82,18 @@ public class OrderDAO {
                         rs.getString(4),
                         rs.getDate(5),
                         rs.getDouble(6),
-                        rs.getDouble(7)));
+                        rs.getDouble(7),
+                        rs.getBoolean(8)));
             }
             ps.executeUpdate();
         } catch (Exception e) {
         }
         return list;
     }
-    
+
     public List<Order> getOrder() {
         List<Order> list = new ArrayList<>();
-        String query = "select o.OrderID, o.UserID, o.Phone, o.Address,o.OrderDate,o.ShippingCod, o.Total from tblOrders o";
+        String query = "select o.OrderID, o.UserID, o.Phone, o.Address,o.OrderDate,o.ShippingCod, o.Total, o.OrderStatus from tblOrders o";
         try {
             conn = new DBUtils().getConnection();
             ps = conn.prepareStatement(query);
@@ -103,11 +105,48 @@ public class OrderDAO {
                         rs.getString(4),
                         rs.getDate(5),
                         rs.getDouble(6),
-                        rs.getDouble(7)));
+                        rs.getDouble(7),
+                        rs.getBoolean(8)));
             }
             ps.executeUpdate();
         } catch (Exception e) {
         }
         return list;
+    }
+
+    public List<OrderDetail> getOrderDetailById(String orderId) {
+        List<OrderDetail> list = new ArrayList<>();
+        String query = "SELECT od.CageName,od.Quantity,od.Price,c.Image\n"
+                + "  FROM tblOrderDetails od inner join tblCage c on c.CageID = od.CageID\n"
+                + "  where od.OrderID = ?";
+        try {
+            conn = new DBUtils().getConnection();
+            ps = conn.prepareStatement(query);
+            ps.setString(1, orderId);
+            rs = ps.executeQuery();
+            while (rs.next()) {
+                list.add(new OrderDetail(rs.getString(1),
+                        rs.getInt(2),
+                        rs.getDouble(3),
+                        rs.getString(4)));
+            }
+            ps.executeUpdate();
+        } catch (Exception e) {
+        }
+        return list;
+    }
+
+    public void deleteOrder(String orderId) {
+        String query = "delete from tblOrderDetails where OrderID = ?\n"
+                + "  delete from tblOrders where OrderID = ?";
+        try {
+            conn = new DBUtils().getConnection();
+            ps = conn.prepareStatement(query);
+            ps.setString(1, orderId);
+            ps.setString(2, orderId);
+            ps.executeUpdate();
+        } catch (Exception e) {
+        }
+
     }
 }

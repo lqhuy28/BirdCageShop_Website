@@ -4,7 +4,6 @@ package controller;
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Servlet.java to edit this template
  */
-
 import dao.OrderDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -42,7 +41,7 @@ public class OrderController extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet OrderController</title>");            
+            out.println("<title>Servlet OrderController</title>");
             out.println("</head>");
             out.println("<body>");
             out.println("<h1>Servlet OrderController at " + request.getContextPath() + "</h1>");
@@ -63,13 +62,27 @@ public class OrderController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        HttpSession session = request.getSession();
-        User u = (User)session.getAttribute("LOGIN_USER");
         OrderDAO od = new OrderDAO();
-        List<Order> list = od.getOrder(u.getUserID());
-        request.setAttribute("listOrder", list);
-        request.getRequestDispatcher("order.jsp").
-                forward(request, response);
+        try {
+            String orderId = request.getParameter("orderId");
+            od.deleteOrder(orderId);
+            HttpSession session = request.getSession();
+            User u = (User) session.getAttribute("LOGIN_USER");
+
+            List<Order> list = od.getOrder(u.getUserID());
+            request.setAttribute("listOrder", list);
+            request.getRequestDispatcher("order.jsp").
+                    forward(request, response);
+        } catch (Exception e) {
+            HttpSession session = request.getSession();
+            User u = (User) session.getAttribute("LOGIN_USER");
+
+            List<Order> list = od.getOrder(u.getUserID());
+            request.setAttribute("listOrder", list);
+            request.getRequestDispatcher("order.jsp").
+                    forward(request, response);
+        }
+
     }
 
     /**

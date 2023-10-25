@@ -76,7 +76,7 @@
                 <div class="row">
                     <div class="col-lg-2">
                         <div class="header__logo">
-                            <a href="../MainController"><img src="static/img/logoheada.png" alt=""></a>
+                            <a href="../MainController"><img src="../static/img/logoheada.png" alt=""></a>
                         </div>
                     </div>
                     <div class="col-lg-8 text-center">
@@ -93,7 +93,7 @@
                                     </ul>
                                 </li>
                                 <li><a href="">Blog</a></li>
-                                <li><a href="OrderRequest">Đặt lồng theo yêu cầu</a></li>
+                                <li><a href="../OrderRequest">Đặt lồng theo yêu cầu</a></li>
                                 <li><a href="">Liên hệ</a></li>
                             </ul>
                         </nav>

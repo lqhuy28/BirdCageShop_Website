@@ -61,7 +61,7 @@ public class RegistrationController extends HttpServlet {
 
             //kiem tra data da validation hay chua
             if (checkValidation) {
-                User user = new User(userID, fullName, password, phone, email, address, roleID);
+                User user = new User(userID, fullName, password, phone, email, address, roleID, checkDuplicate);
                 //boolean checkCreate = dao.create2(user);
                 boolean checkLogin = dao.insert(user);
                 if (checkLogin) {

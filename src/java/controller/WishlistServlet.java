@@ -17,6 +17,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import model.Cart;
 import model.ProductDTO;
+import model.Wishlist;
 
 /**
  *
@@ -42,7 +43,7 @@ public class WishlistServlet extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet WishlistServlet</title>");            
+            out.println("<title>Servlet WishlistServlet</title>");
             out.println("</head>");
             out.println("<body>");
             out.println("<h1>Servlet WishlistServlet at " + request.getContextPath() + "</h1>");
@@ -63,8 +64,49 @@ public class WishlistServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        request.getRequestDispatcher("wishlist.jsp").
+        HttpSession session = request.getSession();
+        try {
+            String sid = request.getParameter("id");
+            ProductDAO dao = new ProductDAO();
+            ProductDTO p = dao.getProductByID(sid);
+            if (p != null) {
+                List<Wishlist> wishlist;
+                if (session.getAttribute("wishlist") != null) {
+                    wishlist = (List<Wishlist>) session.getAttribute("wishlist");
+                } else {
+                    wishlist = new ArrayList<>();
+                }
+                Wishlist item = null;
+                for (Wishlist w : wishlist) {
+                    if (w.getCageId().equals(p.getCageID())) {
+                        item = w;
+                        break;
+                    }
+                }
+                if (item != null) {
+
+                } else {
+                    item = new Wishlist(p.getCageID(),
+                            p.getImage(),
+                            p.getCageName(),
+                            p.getPriceNew(),
+                            p.getStatus());
+                    wishlist.add(item);
+                }
+                session.setAttribute("wishlist", wishlist);
+                response.sendRedirect("MainController");
+            } else {
+                List<Wishlist> wishlists;
+                wishlists = (List<Wishlist>) session.getAttribute("wishlist");
+                session.setAttribute("wishlist", wishlists);
+                request.getRequestDispatcher("wishlist.jsp").
+                        forward(request, response);
+            }
+        } catch (Exception e) {
+            request.getRequestDispatcher("Error.jsp").
                     forward(request, response);
+        }
+
     }
 
     /**
@@ -132,3 +174,4 @@ public class WishlistServlet extends HttpServlet {
     }// </editor-fold>
 
 }
+

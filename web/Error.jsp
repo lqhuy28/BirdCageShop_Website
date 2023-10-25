@@ -9,7 +9,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>404 Page</title>
         <link rel="stylesheet" href="static/css/error.css">
     </head>
     <body>
@@ -18,7 +18,7 @@
             <h1>404</h1>
         </div>
         <h2>we are sorry, but the page you requested was not found</h2>
-        <a href="#" class="home-btn">Go Home</a>
+        <a href="homePage.jsp" class="home-btn">Go Home</a>
         <a href="#" class="contact-btn">Contact us</a>
     </div>
     </body>

@@ -112,7 +112,7 @@ public class OrderRequest extends HttpServlet {
             ProductDAO dao = new ProductDAO();
             OrderDAO od = new OrderDAO();
 
-            dao.insertProductRequest(cageID, "1", "CUSTOM CAGE", description, 0, 0, "", 0, "1");
+            dao.insertProductRequest(cageID, "6", "Lồng yêu cầu", description, 0, 0, "", 0, "1");
             int length1 = 4;
             Random random1 = new Random();
             char[] text1 = new char[length1];
@@ -125,7 +125,7 @@ public class OrderRequest extends HttpServlet {
             java.util.Date currentDate = new java.util.Date();
             java.sql.Date orderDate = new java.sql.Date(currentDate.getTime());
             od.insertOrder(orderID, u.getUserID(), u.getPhone(), u.getAddress(), orderDate, "", "", shipCost, totalPrice);
-            od.insertOrderDetail(orderID, cageID, "CUSTOM CAGE", String.valueOf(totalPrice), cageQuantity);
+            od.insertOrderDetail(orderID, cageID, "Lồng yêu cầu", String.valueOf(totalPrice), cageQuantity);
 
 //            for (Material material : list) {
 //                if (material.getMaterialName().equals(cageType)) {

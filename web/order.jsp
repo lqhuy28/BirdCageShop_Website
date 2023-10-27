@@ -18,8 +18,9 @@
         <!-- font awesome cnd link -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
         <link rel="stylesheet" href="static/css/order.css"/>
+        <link rel="stylesheet" href="static/css/root.css">
     </head>
-    <body>
+    <body class="fade-in">
         <jsp:include page="header.jsp" />
         <% List<Order> listOrder = (List<Order>) request.getAttribute("listOrder"); %>
         <h2>Đơn hàng của bạn</h2>

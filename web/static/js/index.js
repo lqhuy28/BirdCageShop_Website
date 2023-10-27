@@ -6,19 +6,30 @@
 
 
 
-//  start banner
-var swiper = new Swiper(".home-slider", {
-    spaceBetween: 30,
+
+ var swiper = new Swiper(".featured__filter", {
+    spaceBetween: 20,
     centeredSlides: true,
     autoplay: {
-      delay: 3500,
-      disableOnInteraction: false,
-    },
-    pagination: {
-      el: ".swiper-pagination",
-      clickable: true,
+      delay: 2000,
+      disableOnInteraction: false
     },
     loop: true,
+    breakpoints: {
+      0: {
+        slidesPerView: 1
+      },
+      640: {
+        slidesPerView: 2
+      },
+      768: {
+        slidesPerView: 2
+      },
+      1024: {
+        slidesPerView: 3
+      },
+    }
   });
+
 
 // end banner

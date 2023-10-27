@@ -16,9 +16,10 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
         <!-- css link -->
         <link rel="stylesheet" href="static/css/profile.css">
+        <link rel="stylesheet" href="static/css/root.css">
         <title>Document</title>
     </head>
-    <body>
+    <body class="fade-in">
         <jsp:include page="header.jsp" />
         <div class="profile">
             <div class=" container ">

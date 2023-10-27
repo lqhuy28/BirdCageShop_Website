@@ -21,9 +21,10 @@
         <!-- css -->
         <link href="static/bootstrap/css/font-awesome.min.css" rel="stylesheet" type="text/css" media="all" />
         <link href="static/css/register.css" rel='stylesheet' type='text/css' media="all" />
+        <link rel="stylesheet" href="static/css/root.css">
         <!-- /css -->
     </head>
-    <body>
+    <body class="fade-in">
         <h1 class="w3ls">ĐĂNG KÝ</h1>
         <div class="content-w3ls">
             <div class="content-agile1">

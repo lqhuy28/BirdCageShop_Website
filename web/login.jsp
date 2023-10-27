@@ -19,11 +19,11 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
         <!-- css -->
         <link href="static/bootstrap/css/font-awesome.min.css" rel="stylesheet" type="text/css" media="all" />
-        <link href="static/css/login.css" rel='stylesheet' type='text/css' media="all" />
+        <link href="static/css/login.css" rel='stylesheet' type='text/css' media="all" />       
+        <link rel="stylesheet" href="static/css/root.css">
         <!-- /css -->
     </head>
-    <body>
-        
+    <body class="fade-in">
         <h1 class="w3ls">ĐĂNG NHẬP</h1>
         <div class="content-w3ls">
             <div class="content-agile1">

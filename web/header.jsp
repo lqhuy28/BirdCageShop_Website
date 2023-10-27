@@ -27,15 +27,15 @@
             <div class="header__top">
                 <div class="container">
                     <div class="row">
-                        <div class="col-lg-6 col-md-6">
-                            <div class="header__top__left">
+                        <div class="col-lg-6 col-md-6 d-flex justify-content-start align-items-center">
+                            <div class="header__top__left p-0 py-4">
                                 <ul>
                                     <li><i class="fa fa-envelope"></i> birdcage@gmail.com</li>
                                     <li>Cửa hàng bán lồng chim số 1 Việt Nam</li>
                                 </ul>
                             </div>
                         </div>
-                        <div class="col-lg-6 col-md-6">
+                        <div class="col-lg-6 col-md-6  d-flex justify-content-end align-items-center">
                             <div class="header__top__right">
                                 <div class="header__top__right__social">
                                     <a href="#"><i class="fa fa-brands fa-facebook"></i></a>
@@ -76,12 +76,12 @@
             </div>
             <div class="container-menu">
                 <div class="row">
-                    <div class="col-lg-2">
+                    <div class="col-2">
                         <div class="header__logo">
                             <a href="MainController"><img src="static/img/logoheada.png" alt=""></a>
                         </div>
                     </div>
-                    <div class="col-lg-8 text-center">
+                    <div class="col-8 text-center d-flex align-items-center justify-content-center">
                         <nav class="header__menu">
                             <ul>
                                 <li class="active"><a href="/MainController">Trang chủ</a></li>
@@ -100,7 +100,7 @@
                             </ul>
                         </nav>
                     </div>
-                    <div class="col-lg-2">
+                    <div class="col-2 d-flex align-items-center justify-content-end">
                         <div class="header__cart">
                             <%
                                 List<Cart> cart = (List<Cart>) session.getAttribute("cart");

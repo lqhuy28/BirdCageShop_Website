@@ -8,7 +8,7 @@ body {
 
 /* Style the header */
 .title {
-    margin-left: 100px;
+
     color: black;
     padding-top: 20px;
 }
@@ -29,13 +29,19 @@ body {
 
 .information{
     border: 2px solid #ccc;
-    border-radius: 20px;
+    border-radius: 8px;
     box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.2);
-    margin-left: 180px;
+
     padding: 5px 200px 40px 200px;
     background-color: #F8F7F5;
 }
 
+.infor-user {
+    display: grid;
+    grid-template-columns: 150px 1fr;
+    gap: 16px;
+ 
+}
 
 .infor-user,
 .ship,
@@ -52,7 +58,7 @@ body {
 
 .infor-user label,
 .ship select,
-.check-out input, label{
+label{
     margin-left: 10px;
 }
 
@@ -62,16 +68,19 @@ label {
 }
 
 #shippingMethod{
-    width: 80%;
+    width: 100%;
     padding: 10px;
     margin: 5px 0;
 }
 
+.form__container {
+    gap: 24px;
+}
+
 .summary{
     border: 2px solid #ccc;
-    border-radius: 20px;
+    border-radius: 8px;
     box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.2);
-    margin-left: 50px;
     padding: 5px 200px 40px 200px;
 }
 .ordersp, 
@@ -86,7 +95,7 @@ label {
 .but-check{
     margin: 15px; 
     padding: 10px; 
-    margin-left: 180px;
+    
 }
 
 .table-container, .but-check {

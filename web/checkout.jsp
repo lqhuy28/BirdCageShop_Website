@@ -19,24 +19,30 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+        <link rel="stylesheet" href="static/css/root.css">
         <title>Trang thanh toán</title>
     </head>
-    <body>
+    <body class="fade-in">
         <jsp:include page="header.jsp"/>
-        <h2 class="title">Thanh toán</h2>
-        <div class="container-fluid">
-            <div class="row">
+        <div class="container py-3">
+            <h2 class="title">Thanh toán</h2>
+        </div>
+        <div class="container mt-2 mb-3">
+            <div class="row form__container">
 
-                <div class="col-md-5 information">
+                <div class="col-md-6 information">
                     <form action="CheckoutController" method="post" id="myForm">
                         <%
                             User u = (User) session.getAttribute("LOGIN_USER");
                         %>
                         <div class="infor-user">
-                            <h4 class="title1"><i class="fa-solid fa-user fa-sm"></i> Thông tin khách hàng:</h4>
-                            <label>Họ và tên:</label> <span><%= u.getFullName()%></span></br>
-                            <label>Số điện thoại:</label> <input type="text" value="<%= u.getPhone()%>" name="phone"></br>
-                            <label>Địa chỉ:</label> <input type="text" value="<%= u.getAddress()%>" name="address"></br>
+                            <div style="grid-column: span 2;">
+                                <h4 class="title1"><i class="fa-solid fa-user fa-sm"></i> Thông tin khách hàng:</h4>
+                            </div>
+                            <label>Họ và tên:</label> 
+                            <span><%= u.getFullName()%></span>
+                            <label>Số điện thoại:</label> <input type="text" value="<%= u.getPhone()%>" name="phone">
+                            <label>Địa chỉ:</label> <input type="text" value="<%= u.getAddress()%>" name="address">
                         </div>
 
                         <div class="ship">
@@ -66,7 +72,7 @@
                     </form>
                 </div>
 
-                <div class="col-md-4 summary">
+                <div class="col-md-5 summary">
 
                     <div class="ordersp">
                         <%
@@ -77,7 +83,7 @@
                         %>
                         <h4 class="title1" >TÓM TẮT ĐƠN HÀNG:</h4>
                         <div class="table-container">
-                            <table>
+                            <table style="width: 100%;">
                                 <tr>
                                     <th>Sản phẩm</th>
                                     <th>Số lượng</th>
@@ -91,7 +97,7 @@
                                 <tr>
                                     <td><%= item.getCageName()%></td>
                                     <td><%= item.getQuantity()%></td>
-                                    <td><%= (item.getPrice() * item.getQuantity())%></td>
+                                    <td><%= (item.getPrice() * item.getQuantity())%> VNĐ</td>
                                 </tr>
                                 <%
                                     }
@@ -105,16 +111,20 @@
                     <div class="tabtotal">
                         <div class="bold-left">
                             <label id="shipping-fee">Phí giao hàng:</label>
-                            <span id="shipping-fee-value">10</span>
+                            <span>
+                                <span id="shipping-fee-value">10</span>
+                                <span>VNĐ</span>
+                            </span>
                         </div>
                         <div class="bold-left">
                             <label id="total-payment">Tổng thanh toán:</label>
-                            <span id="totalP"><%=(int) total%></span>
+                            <span id="totalP"><%=(int) total%> VNĐ</span>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-5 but-check">
-                    <button id="submitBtn" class="btn btn-success custom-button" value="Thanh toán">
+                <div class="but-check col-md-6">
+                    <button id="submitBtn" class="btn btn-lg btn-success custom-button" value="Thanh toán">
+                        <i class="fas fa-shopping-cart"></i>
                         <span class=" button-text">Thanh toán</span>
                     </button>
                 </div>
@@ -186,7 +196,5 @@
                 document.getElementById("shipCost").value = fee;
             });
         </script>       
-
-
     </body>
 </html>

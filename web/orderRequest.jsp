@@ -13,9 +13,10 @@
         <link rel="stylesheet" href="static/css/orderRequest.css">
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link rel="stylesheet" href="static/bootstrap/css/bootstrap.min.css">
+        <link rel="stylesheet" href="static/css/root.css">
         <title>Đặt lồng theo yêu cầu</title>
     </head>
-    <body>
+    <body class="fade-in">
         <jsp:include page="header.jsp" />
         <%
             List<Material> list = (List<Material>) request.getAttribute("listM");

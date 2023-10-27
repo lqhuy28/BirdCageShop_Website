@@ -18,8 +18,9 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
         <link rel="stylesheet" href="static/bootstrap/css/bootstrap.min.css">
         <link rel="stylesheet" href="static/css/userManager.css">
+        <link rel="stylesheet" href="static/css/root.css">
     </head>
-    <body>
+    <body class="fade-in">
         <header>
             <div class="logo">
                 <img src="static/img/logoheadb.png">
@@ -31,7 +32,7 @@
         </header>
         <div class="bodya">
             <div class="row">
-                <aside class="col-md-2" ">
+                <aside class="col-md-2 dashboard__sider" >
                     <div class="admin">
                         <img src="static/img/admin1.png" width="200px">
                         <div>
@@ -110,31 +111,31 @@
                         </div>
                     </div>
                     <div class="container">
-         
-        <%
-            String search = request.getParameter("search");
-            if(search == null){
-                search = "";
-            }
-        %>    
-        
-        <%
-            UserDAO dao = new UserDAO();
-            List<User> listU = (List<User>) request.getAttribute("listU");
-            if (listU == null) {
-                listU = dao.SearchUser("");
-                request.setAttribute("listU", listU);
-            }
-        %>
-        <div class="error_message">
-                                ${requestScope.ERROR}
-                            </div>
-        <form action="searchUser" method="POST" class="form-inline">
+
+                        <%
+                            String search = request.getParameter("search");
+                            if (search == null) {
+                                search = "";
+                            }
+                        %>    
+
+                        <%
+                            UserDAO dao = new UserDAO();
+                            List<User> listU = (List<User>) request.getAttribute("listU");
+                            if (listU == null) {
+                                listU = dao.SearchUser("");
+                                request.setAttribute("listU", listU);
+                            }
+                        %>
+                        <div class="error_message">
+                            ${requestScope.ERROR}
+                        </div>
+                        <form action="searchUser" method="POST" class="form-inline">
                             <div class="form-group">
                                 <input type="text" value="<%=search%>" placeholder="Search by userID or fullName"  class="form-control" name="search" id="search" />
                             </div>
                             <button type="submit" class="fa fa-solid fa-magnifying-glass" name="action" value="Search"></button>
-                            
+
                         </form>
                         <% int count = 1;%>
                         <c:if test="${not empty listU}">
@@ -149,7 +150,6 @@
                                         <th scope="col">Email</th>
                                         <th scope="col">Địa chỉ</th>
                                         <th scope="col">Chức vụ</th>
-                                        <th scope="col">Trạng thái</th>
                                         <th scope="col">Chức năng</th>
                                     </tr>
                                 </thead>
@@ -164,7 +164,6 @@
                                             <td>${x.email}</td>
                                             <td>${x.address}</td>
                                             <td>${x.roleID}</td>
-                                            <td>${x.status}</td>
                                             <td>
                                                 <div class="btn-group">
                                                     <a href="updateUser?userID=${x.userID}" class="btn btn-success"><i class="fa-solid fa-file-pen"></i></a>
@@ -179,5 +178,6 @@
                     </div>
                 </main>
             </div>
+        </div>
     </body>
 </html>

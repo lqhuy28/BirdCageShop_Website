@@ -13,8 +13,9 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
         <link rel="stylesheet" href="static/bootstrap/css/bootstrap.min.css">
         <link rel="stylesheet" href="static/css/updateProduct.css">
+        <link rel="stylesheet" href="static/css/root.css">
     </head>
-    <body>
+    <body class="fade-in">
         <header>
             <div class="logo">
                 <img src="static/img/logoheadb.png">
@@ -26,7 +27,7 @@
         </header>
         <div class="bodya">
             <div class="row">
-                <aside class="col-md-2" ">
+                <aside class="col-md-2 dashboard__sider" >
                     <div class="admin">
                         <img src="static/img/admin1.png" width="200px">
                         <div>
@@ -113,7 +114,7 @@
                                         <input value="${st.cageID}" type="text" name="CageID" readonly>
                                     </td>
                                 </tr>
-                                
+
                                 <tr>
                                     <td>Danh mục</td>
                                     <td>
@@ -171,7 +172,7 @@
                                     </td>
                                 </tr>
 
-                                
+
 
                                 <tr>
                                     <td></td>
@@ -180,8 +181,8 @@
                             </table>
                         </form>
                     </div>
-                    </div>
-                                    
                 </main>
-                </body>
-                </html>
+            </div>
+        </div>
+    </body>
+</html>

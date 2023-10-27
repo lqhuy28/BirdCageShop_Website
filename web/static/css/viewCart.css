@@ -26,7 +26,7 @@ select.form-control {
 }
 
 h2{
-    padding: 20px 200px;
+    padding: 20px 0;
 }
 
 .shopping-cart,
@@ -247,3 +247,25 @@ h2{
     height: 36px;
 }
 
+
+.btn-action {
+    width: 200px;
+    border-radius: 6px !important;
+}
+
+.cart__bottom {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+
+    gap: 20px;
+}
+
+.cart__total {
+    font-size: 24px;
+}
+
+.cart__price__total {
+    color: #fc5959;
+    font-weight: bold;
+}

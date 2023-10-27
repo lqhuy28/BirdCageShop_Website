@@ -11,13 +11,19 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Bird Cage Shop</title>
         <link rel="stylesheet" href="static/bootstrap/css/bootstrap.min.css">
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css"/>
+        <link
+            rel="stylesheet"
+            href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+            />
+        <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
         <!-- font awesome cnd link -->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
         <!-- css link -->
         <link rel="stylesheet" href="static/css/index.css">
+        <link rel="stylesheet" href="static/css/root.css">
+        <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet"/>
     </head>
-    <body>
+    <body class="fade-in">
         <!-- header -->
 
         <div class="content">
@@ -27,7 +33,7 @@
 
             <!--start home section-->
             <!-- start hero -->
-            <section class="hero">
+            <section class="hero  ">
                 <div class="container">
                     <div class="row">
                         <div class="col-lg-3">
@@ -61,14 +67,45 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="hero__item set-bg" data-setbg="img/hero/banner.jpg"
-                                 style="background-image: url(https://c4.wallpaperflare.com/wallpaper/404/390/382/cages-cityscape-window-digital-art-wallpaper-preview.jpg);">
-                                <div class="hero__text">
-                                    <span>BIRD CAGE </span>
-                                    <h2>Lồng chim <br>số 1 Việt Nam </h2>
-                                    <p>Lồng chim luôn có sẳn để hỗ trợ khạch hàng</p>
-                                    <a href="#" class="primary-btn">SHOP NOW</a>
+                            <div class="hero__item set-bg" >
+                                <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+
+                                    <div class="carousel-inner">
+                                        <div class="carousel-item active" style="background-image: url(https://c4.wallpaperflare.com/wallpaper/404/390/382/cages-cityscape-window-digital-art-wallpaper-preview.jpg);">
+                                            <div class="hero__text" >
+                                                <span>BIRD CAGE 3</span>
+                                                <h2>Lồng chim <br>số 1 Việt Nam </h2>
+                                                <p>Lồng chim luôn có sẳn để hỗ trợ khạch hàng</p>
+                                                <a href="#" class="primary-btn">SHOP NOW</a>
+                                            </div>
+                                        </div>
+                                        <div class="carousel-item" style="background-image: url(https://images.unsplash.com/photo-1680971661953-476b0c800faa?auto=format&fit=crop&q=80&w=1976&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D);">
+                                            <div class="hero__text" >
+                                                <span>BIRD CAGE 1</span>
+                                                <h2>Lồng chim <br>số 1 Việt Nam </h2>
+                                                <p>Lồng chim luôn có sẳn để hỗ trợ khạch hàng</p>
+                                                <a href="#" class="primary-btn">SHOP NOW</a>
+                                            </div>
+                                        </div>
+                                        <div class="carousel-item"  style="background-image: url(https://images.unsplash.com/photo-1540818767417-e2437dc12c3d?auto=format&fit=crop&q=80&w=2070&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D);"> 
+                                            <div class="hero__text">
+                                                <span>BIRD CAGE 2</span>
+                                                <h2>Lồng chim <br>số 1 Việt Nam </h2>
+                                                <p>Lồng chim luôn có sẳn để hỗ trợ khạch hàng</p>
+                                                <a href="#" class="primary-btn">SHOP NOW</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                        <span class="sr-only">Previous</span>
+                                    </a>
+                                    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                        <span class="sr-only">Next</span>
+                                    </a>
                                 </div>
+
                             </div>
                         </div>
                     </div>
@@ -94,7 +131,7 @@
                     </div>
                     <div class="row featured__filter">
                         <div class="col-lg-3 col-md-4 col-sm-6 mix oranges fresh-meat">
-                            <div class="featured__item">
+                            <div class="featured__item" data-aos="fade-up">
                                 <div class="featured__item__pic set-bg">
                                     <img src="static/img/logobia.png" alt="">
 
@@ -132,7 +169,7 @@
                         <c:forEach items="${listS}" var="x">
                             <c:if test="${x.status eq '1'}">
                                 <div class="col-lg-3 col-md-4 col-sm-6">
-                                    <div class="featured__item">
+                                    <div class="featured__item " data-aos="fade-up">
                                         <div class="featured__item__pic set-bg">
                                             <img src="${x.image}" alt="">
 
@@ -170,7 +207,7 @@
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-lg-4 col-md-4 col-sm-6" >
+                        <div class="col-lg-4 col-md-4 col-sm-6" data-aos="zoom-in-up" >
                             <div class="blog__item">
                                 <div class="blog__item__pic">
                                     <img src="static/img/blog1.png" alt="">
@@ -181,25 +218,25 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-lg-4 col-md-4 col-sm-6">
+                        <div class="col-lg-4 col-md-4 col-sm-6" data-aos="zoom-in-up">
                             <div class="blog__item">
                                 <div class="blog__item__pic">
-                                    <img src="" alt="">
+                                    <img src="https://images.unsplash.com/photo-1444464666168-49d633b86797?auto=format&fit=crop&q=80&w=2069&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="">
                                 </div>
                                 <div class="blog__item__text">
-                                    <h5><a href="#">6 ways to prepare breakfast for 30</a></h5>
-                                    <p>Sed quia non numquam modi tempora indunt ut labore et dolore magnam aliquam quaerat </p>
+                                    <h5><a href="#">10 Loài chim cảnh đẹp nhất Việt Nam</a></h5>
+                                    <p>Việt Nam là một trong những quốc gia có nhiều loài chim cảnh đẹp nhất thế giới. Dưới đây là 10 loài chim cảnh đẹp nhất Việt Nam mà bạn nên biết.</p>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-lg-4 col-md-4 col-sm-6">
+                        <div class="col-lg-4 col-md-4 col-sm-6" data-aos="zoom-in-up">
                             <div class="blog__item">
                                 <div class="blog__item__pic">
-                                    <img src="" alt="">
+                                    <img src="https://images.unsplash.com/photo-1497206365907-f5e630693df0?auto=format&fit=crop&q=80&w=2080&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="">
                                 </div>
                                 <div class="blog__item__text">
-                                    <h5><a href="#">Visit the clean farm in the US</a></h5>
-                                    <p>Sed quia non numquam modi tempora indunt ut labore et dolore magnam aliquam quaerat </p>
+                                    <h5><a href="#">Hạt giống chim cảnh</a></h5>
+                                    <p>Chim cảnh là những loài chim được nuôi để thưởng thức vẻ đẹp của chúng. Để có được những chú chim cảnh đẹp, người nuôi cần phải chọn những hạt giống chim cảnh tốt nhất.</p>
                                 </div>
                             </div>
                         </div>
@@ -214,6 +251,15 @@
 
             <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
             <script src="static/js/index.js"></script>
-
+            <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+            <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+            <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+            <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+            <script>
+                AOS.init();
+                $('.carousel').carousel({
+                    interval: 5000
+                })
+            </script>
     </body>
 </html>

@@ -13,9 +13,10 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Sản phẩm yêu thích</title>
         <link rel="stylesheet" href="static/css/wishlist.css">
+        <link rel="stylesheet" href="static/css/root.css">
 
     </head>
-    <body>
+    <body class="fade-in">
         <div class="cart-wrap">
             <div class="container">
                 <div class="row">

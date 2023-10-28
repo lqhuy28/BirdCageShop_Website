@@ -13,12 +13,10 @@ body {
   padding: 0;
 }
 
-
 .logo img {
   margin-left: 50px;
   width: 180px;
   height: auto;
-
 }
 
 .search {
@@ -47,7 +45,7 @@ body {
   margin: 3px 5px;
   border: none;
   border-radius: 5px;
-  background-color: #F7462E;
+  background-color: #f7462e;
   color: white;
   cursor: pointer;
   font-size: 18px;
@@ -55,13 +53,12 @@ body {
   /* Đặt căn chỉnh theo chiều dọc giữa */
 }
 
-
 .search button:hover {
   background-color: rgb(227, 93, 75);
 }
 
 .login a {
-  background-color: F7462E;
+  background-color: #F7462E;
   text-decoration: none;
   padding: 9px 15px;
   border: 1px solid white;
@@ -75,13 +72,12 @@ body {
   color: white;
 }
 
-
 /* start main */
 
 h1,
 h2,
 h3 {
-  color: #F7462E;
+  color: #f7462e;
 }
 
 h1 {
@@ -91,6 +87,7 @@ h1 {
 
 .row-main {
   padding: 35px;
+  min-height: 550px;
   background-color: rgb(247, 243, 234);
 }
 
@@ -103,6 +100,6 @@ h2 {
 
 /* end main */
 
-.logo-main{
-    width: 100%;
+.logo-main {
+  width: 100%;
 }

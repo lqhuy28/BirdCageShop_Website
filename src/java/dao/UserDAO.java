@@ -261,5 +261,65 @@ public class UserDAO {
 
         return check;
     }
+public int CountCage() {
+        int count = 0;
+        String sql = "SELECT COUNT(*) as 'count'\n"
+                + "  FROM tblCage";
+        try {
+            conn = new DBUtils().getConnection();
+            ptm = conn.prepareStatement(sql);
+            rs = ptm.executeQuery();
+            while (rs.next()) {
+                count = rs.getInt(1);
+            }
+        } catch (Exception e) {
+        }
+        return count;
+    }
 
+    public int CountUser() {
+        int count = 0;
+        String sql = "SELECT COUNT(*) as 'count'\n"
+                + "  FROM tblUsers where RoleID = 'User' ";
+        try {
+            conn = new DBUtils().getConnection();
+            ptm = conn.prepareStatement(sql);
+            rs = ptm.executeQuery();
+            while (rs.next()) {
+                count = rs.getInt(1);
+            }
+        } catch (Exception e) {
+        }
+        return count;
+    }
+
+    public int CountOrder() {
+        int count = 0;
+        String sql = "SELECT COUNT(*) as 'count'\n"
+                + "  FROM tblOrders";
+        try {
+            conn = new DBUtils().getConnection();
+            ptm = conn.prepareStatement(sql);
+            rs = ptm.executeQuery();
+            while (rs.next()) {
+                count = rs.getInt(1);
+            }
+        } catch (Exception e) {
+        }
+        return count;
+    }
+    public double CountOrderPrice(){
+        double count = 0;
+        String sql = "SELECT SUM(Total) AS tong_doanh_thu FROM tblOrders ";
+        try {
+            conn = new DBUtils().getConnection();
+            ptm = conn.prepareStatement(sql);
+            rs = ptm.executeQuery();
+            while(rs.next()){
+                count = rs. getDouble(1);
+            }
+        } catch (Exception e) {
+        }
+        return count;
+    }
 }

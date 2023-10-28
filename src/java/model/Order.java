@@ -13,6 +13,8 @@ import java.sql.Date;
 public class Order {
     String orderID;
     String UserID;
+    String cageID;
+    String cageName;
     String phone;
     String address;
     Date orderDate;
@@ -32,6 +34,39 @@ public class Order {
         this.shipCost = shipCost;
         this.total = total;
         this.status = status;
+    }
+
+    public Order(String orderID, String UserID, String cageName, String phone, String address, Date orderDate, double shipCost, double total, boolean status) {
+        this.orderID = orderID;
+        this.UserID = UserID;
+        this.cageName = cageName;
+        this.phone = phone;
+        this.address = address;
+        this.orderDate = orderDate;
+        this.shipCost = shipCost;
+        this.total = total;
+        this.status = status;
+    }
+
+    public Order(String orderID, String UserID, String cageID, String cageName, String phone, String address, Date orderDate, double shipCost, double total, boolean status) {
+        this.orderID = orderID;
+        this.UserID = UserID;
+        this.cageID = cageID;
+        this.cageName = cageName;
+        this.phone = phone;
+        this.address = address;
+        this.orderDate = orderDate;
+        this.shipCost = shipCost;
+        this.total = total;
+        this.status = status;
+    }
+
+    public String getCageID() {
+        return cageID;
+    }
+
+    public void setCageID(String cageID) {
+        this.cageID = cageID;
     }
 
     public String getOrderID() {
@@ -96,6 +131,14 @@ public class Order {
 
     public void setStatus(boolean status) {
         this.status = status;
+    }
+
+    public String getCageName() {
+        return cageName;
+    }
+
+    public void setCageName(String cageName) {
+        this.cageName = cageName;
     }
 
     

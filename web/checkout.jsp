@@ -219,5 +219,7 @@
                 document.getElementById("shipCost").value = fee;
             });
         </script>       
+
+
     </body>
 </html>

@@ -27,74 +27,76 @@
         </header>
         <div class="bodya">
             <div class="row">
-                <aside class="col-md-2 dashboard__sider" >
-                    <div class="admin">
-                        <img src="static/img/admin1.png" width="200px">
-                        <div>
-                            <p>
-                                <b>${sessionScope.LOGIN_USER.fullName}</b>
-                                <br>Chào mừng bạn quay trở lại
-                            </p>
+                <div class="col-md-2">
+                    <aside class=" dashboard__sider" >
+                        <div class="admin">
+                            <img src="static/img/admin1.png" width="200px">
+                            <div>
+                                <p>
+                                    <b>${sessionScope.LOGIN_USER.fullName}</b>
+                                    <br>Chào mừng bạn quay trở lại
+                                </p>
+                            </div>
                         </div>
-                    </div>
-                    <hr>
-                    <ul class="nav flex-column">
-                        <li class="nav-item">
-                            <div class="icon-integration">
-                                <div class="icon">
-                                    <i class="fa-solid fa-network-wired" style="color: #ffffff;"></i>
+                        <hr>
+                        <ul class="nav flex-column">
+                            <li class="nav-item">
+                                <div class="icon-integration">
+                                    <div class="icon">
+                                        <i class="fa-solid fa-network-wired" style="color: #ffffff;"></i>
+                                    </div>
+                                    <div class="title">
+                                        <a class="nav-link" href="dashboard"><span>   Bảng điều khiển</span></a>
+                                    </div>
+                            </li>
+                            <li class="nav-item">
+                                <div class="icon-integration">
+                                    <div class="icon">
+                                        <i class="fa fa-solid fa-users" style="color: #ffffff;"></i>
+                                    </div>
+                                    <div class="title">
+                                        <a class="nav-link" href="dashboard"><span>Quản lí khách hàng</span></a>
+                                    </div>
                                 </div>
-                                <div class="title">
-                                    <a class="nav-link" href="dashboard"><span>   Bảng điều khiển</span></a>
-                                </div>
-                        </li>
-                        <li class="nav-item">
-                            <div class="icon-integration">
-                                <div class="icon">
-                                    <i class="fa fa-solid fa-users" style="color: #ffffff;"></i>
-                                </div>
-                                <div class="title">
-                                    <a class="nav-link" href="dashboard"><span>Quản lí khách hàng</span></a>
-                                </div>
-                            </div>
-                        </li>
+                            </li>
 
-                        <li class="nav-item">
-                            <div class="icon-integration" style="margin-left: 18px;">
-                                <div class="icon">
-                                    <i class="fa-solid fa-weight-hanging" style="color: #ffffff;"></i>                            
-                                </div>
+                            <li class="nav-item">
+                                <div class="icon-integration" style="margin-left: 18px;">
+                                    <div class="icon">
+                                        <i class="fa-solid fa-weight-hanging" style="color: #ffffff;"></i>                            
+                                    </div>
 
-                                <div class="title">
-                                    <a class="nav-link" href="dashboard"><span>Quản lí sản phẩm</span></a>
+                                    <div class="title">
+                                        <a class="nav-link" href="dashboard"><span>Quản lí sản phẩm</span></a>
+                                    </div>
                                 </div>
-                            </div>
-                        </li>
+                            </li>
 
-                        <li class="nav-item">
-                            <div class="icon-integration">
-                                <div class="icon">
-                                    <i class="fa-solid fa-cart-shopping" style="color: #ffffff;"></i>                            
+                            <li class="nav-item">
+                                <div class="icon-integration">
+                                    <div class="icon">
+                                        <i class="fa-solid fa-cart-shopping" style="color: #ffffff;"></i>                            
+                                    </div>
+                                    <div class="title">
+                                        <a class="nav-link" href="OrderManager"><span>Quản lí đơn hàng</span></a>
+                                    </div>
                                 </div>
-                                <div class="title">
-                                    <a class="nav-link" href="OrderManager"><span>Quản lí đơn hàng</span></a>
-                                </div>
-                            </div>
-                        </li>
+                            </li>
 
-                        <li class="nav-item">
-                            <div class="icon-integration">
-                                <div class="icon">
-                                    <i class="fa-solid fa-comments" style="color: #ffffff;"></i>                            
+                            <li class="nav-item">
+                                <div class="icon-integration">
+                                    <div class="icon">
+                                        <i class="fa-solid fa-comments" style="color: #ffffff;"></i>                            
+                                    </div>
+                                    <div class="title">
+                                        <a class="nav-link" href="dashboard"><span>Kiểm tra phản hồi</span></a>
+                                    </div>
                                 </div>
-                                <div class="title">
-                                    <a class="nav-link" href="dashboard"><span>Kiểm tra phản hồi</span></a>
-                                </div>
-                            </div>
-                        </li>
+                            </li>
 
-                    </ul>
-                </aside>
+                        </ul>
+                    </aside>
+                </div>
                 <main class="col-md-10">
                     <div class="row">
                         <div class="col-md-12">
@@ -180,8 +182,7 @@
                                 </tr>
                             </table>
                         </form>
-                    </div>
-                </main>
+                </main>     
             </div>
         </div>
     </body>

@@ -29,74 +29,76 @@
         </header>
         <div class="bodya">
             <div class="row">
-                <aside class="col-md-2 dashboard__sider" >
-                    <div class="admin">
-                        <img src="static/img/admin1.png" width="200px">
-                        <div>
-                            <p>
-                                <b>${sessionScope.LOGIN_USER.fullName}</b>
-                                <br>Chào mừng bạn quay trở lại
-                            </p>
+                 <div class="col-md-2">
+                    <aside class=" dashboard__sider" >
+                        <div class="admin">
+                            <img src="static/img/admin1.png" width="200px">
+                            <div>
+                                <p>
+                                    <b>${sessionScope.LOGIN_USER.fullName}</b>
+                                    <br>Chào mừng bạn quay trở lại
+                                </p>
+                            </div>
                         </div>
-                    </div>
-                    <hr>
-                    <ul class="nav flex-column">
-                        <li class="nav-item">
-                            <div class="icon-integration">
-                                <div class="icon">
-                                    <i class="fa-solid fa-network-wired" style="color: #ffffff;"></i>
+                        <hr>
+                        <ul class="nav flex-column">
+                            <li class="nav-item">
+                                <div class="icon-integration">
+                                    <div class="icon">
+                                        <i class="fa-solid fa-network-wired" style="color: #ffffff;"></i>
+                                    </div>
+                                    <div class="title">
+                                        <a class="nav-link" href="dashboard.jsp"><span>Bảng điều khiển</span></a>
+                                    </div>
+                            </li>
+                            <li class="nav-item">
+                                <div class="icon-integration">
+                                    <div class="icon">
+                                        <i class="fa-solid fa-users" style="color: #ffffff;"></i>
+                                    </div>
+                                    <div class="title">
+                                        <a class="nav-link" href="userManager.jsp"><span>Quản lí khách hàng</span></a>
+                                    </div>
                                 </div>
-                                <div class="title">
-                                    <a class="nav-link" href="dashboard.jsp"><span>Bảng điều khiển</span></a>
-                                </div>
-                        </li>
-                        <li class="nav-item">
-                            <div class="icon-integration">
-                                <div class="icon">
-                                    <i class="fa-solid fa-users" style="color: #ffffff;"></i>
-                                </div>
-                                <div class="title">
-                                    <a class="nav-link" href="userManager.jsp"><span>Quản lí khách hàng</span></a>
-                                </div>
-                            </div>
-                        </li>
+                            </li>
 
-                        <li class="nav-item">
-                            <div class="icon-integration" style="margin-left: 18px;">
-                                <div class="icon">
-                                    <i class="fa-solid fa-weight-hanging" style="color: #ffffff;"></i>                            
-                                </div>
+                            <li class="nav-item">
+                                <div class="icon-integration" style="margin-left: 18px;">
+                                    <div class="icon">
+                                        <i class="fa-solid fa-weight-hanging" style="color: #ffffff;"></i>                            
+                                    </div>
 
-                                <div class="title">
-                                    <a class="nav-link" href="ShowProduct.jsp"><span>Quản lí sản phẩm</span></a>
+                                    <div class="title">
+                                        <a class="nav-link" href="ShowProduct.jsp"><span>Quản lí sản phẩm</span></a>
+                                    </div>
                                 </div>
-                            </div>
-                        </li>
+                            </li>
 
-                        <li class="nav-item">
-                            <div class="icon-integration">
-                                <div class="icon">
-                                    <i class="fa-solid fa-cart-shopping" style="color: #ffffff;"></i>                            
+                            <li class="nav-item">
+                                <div class="icon-integration">
+                                    <div class="icon">
+                                        <i class="fa-solid fa-cart-shopping" style="color: #ffffff;"></i>                            
+                                    </div>
+                                    <div class="title">
+                                        <a class="nav-link" href="OrderManager"><span>Quản lí đơn hàng</span></a>
+                                    </div>
                                 </div>
-                                <div class="title">
-                                    <a class="nav-link" href="orderManager.jsp"><span>Quản lí đơn hàng</span></a>
-                                </div>
-                            </div>
-                        </li>
+                            </li>
 
-                        <li class="nav-item">
-                            <div class="icon-integration">
-                                <div class="icon">
-                                    <i class="fa-solid fa-comments" style="color: #ffffff;"></i>                            
+                            <li class="nav-item">
+                                <div class="icon-integration">
+                                    <div class="icon">
+                                        <i class="fa-solid fa-comments" style="color: #ffffff;"></i>                            
+                                    </div>
+                                    <div class="title">
+                                        <a class="nav-link" href="#"><span>Kiểm tra phản hồi</span></a>
+                                    </div>
                                 </div>
-                                <div class="title">
-                                    <a class="nav-link" href="#"><span>Kiểm tra phản hồi</span></a>
-                                </div>
-                            </div>
-                        </li>
+                            </li>
 
-                    </ul>
-                </aside>
+                        </ul>
+                    </aside>
+                </div>
 
                 <main class="col-md-10">
                     <div class="row">
@@ -112,13 +114,15 @@
                         <div class="error_message">
                             ${requestScope.ERROR}
                         </div>
-                        <form action="searchUser" method="POST" class="form-inline">
-                            <div class="form-group">
-                                <input type="text" value="#" placeholder="Search..."  class="form-control" name="search" id="search" />
-                            </div>
-                            <button type="submit" class="fa fa-solid fa-magnifying-glass" name="action" value="Search"></button>
-                            <% List<Order> listOrder = (List<Order>) request.getAttribute("listOrder"); %>
-                        </form>
+                        <div class="search-container">
+                            <form action="searchUser" method="POST" class="form-inline">
+                                <div class="form-group">
+                                    <input type="text" value="#" placeholder="Search..."  class="form-control" name="search" id="search" />
+                                </div>
+                                <button type="submit" class="fa fa-solid fa-magnifying-glass" name="action" value="Search"></button>
+                                <% List<Order> listOrder = (List<Order>) request.getAttribute("listOrder"); %>
+                            </form>
+                        </div>
                         <table class="table">
                             <thead>
                                 <tr>
@@ -149,10 +153,17 @@
                                 <% }%>
                             </tbody>
                         </table>
-
+                         <nav aria-label="Page navigation example">
+                                <ul class="pagination">
+                                    <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+                                    <li class="page-item"><a class="page-link" href="#">1</a></li>
+                                    <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                    <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                    <li class="page-item"><a class="page-link" href="#">Next</a></li>
+                                </ul>
+                            </nav>
                     </div>
                 </main>
             </div>
-        </div>
     </body>
 </html>

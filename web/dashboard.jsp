@@ -4,6 +4,8 @@
     Author     : QUANG HUY
 --%>
 
+<%@page import="model.Order"%>
+<%@page import="java.util.List"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
@@ -164,6 +166,7 @@
                     </div>
                     <div class="col-md-12">
                         <div class="order">
+                                            
                             <h3>Đơn hàng hôm nay</h3>
                             <hr>
                             <div>
@@ -181,16 +184,18 @@
                                         </tr>
                                     </thead>
                                     <tbody>
+                                       
                                         <tr>
-                                            <td>aa</td>
-                                            <td>aa</td>
-                                            <td>aa</td>
-                                            <td>aa</td>
-                                            <td>aa</td>
-                                            <td>aa</td>
-                                            <td>aa</td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
                                             <td><a href="#"><i class="fa-solid fa-eye" style="color: red;"></i></a></td>
                                         </tr>
+                                         
                                     </tbody>
                                 </table>
                             </div>

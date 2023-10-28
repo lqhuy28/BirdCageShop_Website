@@ -35,7 +35,7 @@ public class RegistrationController extends HttpServlet {
             String fullName = request.getParameter("fullName");
             String password = request.getParameter("password");
             String confirm = request.getParameter("confirm");
-            String phone = request.getParameter("Phone");
+            String phone = request.getParameter("phone");
             String email = request.getParameter("email");
             String address = request.getParameter("address");
             String roleID = request.getParameter("roleID");
@@ -54,6 +54,10 @@ public class RegistrationController extends HttpServlet {
                 userError.setFullNameError("Tên phải từ 2 tới 50 chữ");
                 checkValidation = false;
             }
+            if (phone.length() > 10 || phone.length() < 10) {
+                userError.setPasswordError("Số điện thoại phải 10 chữ số");
+                checkValidation = false;
+            }
             if (!password.equals(confirm)) {
                 userError.setConfirmError("Hai password không giống nhau");
                 checkValidation = false;
@@ -61,10 +65,11 @@ public class RegistrationController extends HttpServlet {
 
             //kiem tra data da validation hay chua
             if (checkValidation) {
-                User user = new User(userID, fullName, password, phone, email, address, roleID, status );
+                User user = new User(userID, fullName, password, phone, email, address, roleID, status);
                 //boolean checkCreate = dao.create2(user);
                 boolean checkLogin = dao.insert(user);
                 if (checkLogin) {
+                    
                     url = SUCCESS;
                 }
             } else {

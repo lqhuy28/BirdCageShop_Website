@@ -28,16 +28,17 @@ public class UserDAO {
     private static final String searchUser = "select * from tblUsers where userID like ? or fullname like ?";
     private static final String listUser = "select * from tblUsers";
     private static final String DELETEUSER = "UPDATE tblUsers \n"
-                + "SET Status = CASE\n"
-                + "WHEN Status = '0' THEN '1'\n"
-                + "WHEN Status = '1' THEN '0'\n"
-                + "ELSE Status\n"
-                + "end\n"
-                + "where userID = ?";;
+            + "SET Status = CASE\n"
+            + "WHEN Status = '0' THEN '1'\n"
+            + "WHEN Status = '1' THEN '0'\n"
+            + "ELSE Status\n"
+            + "end\n"
+            + "where userID = ?";
+    ;
     private static final String getUserByuserID = "select UserID, FullName, Password, Phone, Email, Address, RoleID FROM tblUsers where userID like ?";
     private static final String UPDATE = "UPDATE tblUsers set fullName=?, password=?, phone=?, email=?, address=?, roleID=? WHERE userID=?";
-    private static final String INSERT = "INSERT INTO dbo.tblUsers(UserID, FullName, Password, Phone, Email, Address, RoleID) VALUES(?,?,?,?,?,?,?)";
-    private static final String CHECK_DUPLICATE = "SELECT UserID FROM dbo.tblUsers ";
+    private static final String INSERT = "INSERT INTO tblUsers(UserID, FullName, Password, Phone, Email, Address, RoleID, Status) VALUES(?,?,?,?,?,?,?,?)";
+    private static final String CHECK_DUPLICATE = "SELECT UserID FROM tblUsers ";
 
     public List<User> SearchUser(String search) throws SQLException {
         List<User> list = new ArrayList<>();
@@ -59,7 +60,7 @@ public class UserDAO {
                     String email = rs.getString("email");
                     String address = rs.getString("address");
                     String roleID = rs.getString("roleID");
-                    Boolean status = rs.getBoolean("status");
+                    String status = rs.getString("status");
                     list.add(new User(userID, fullName, password, phone, email, address, roleID, status));
                 }
             }
@@ -103,7 +104,7 @@ public class UserDAO {
                         rs.getString(5),
                         rs.getString(6),
                         rs.getString(7),
-                        rs.getBoolean(8));
+                        rs.getString(8));
             }
         } catch (Exception e) {
         }
@@ -148,8 +149,7 @@ public class UserDAO {
                     String email = rs.getString("email");
                     String address = rs.getString("address");
                     String roleID = rs.getString("roleID");
-                    Boolean status = rs.getBoolean("status");
-
+                    String status = rs.getString("status");
                     user = new User(userID, fullName, password, phone, email, address, roleID, status);
                 }
             }
@@ -184,6 +184,7 @@ public class UserDAO {
                 ptm.setString(5, user.getEmail());
                 ptm.setString(6, user.getAddress());
                 ptm.setString(7, user.getRoleID());
+                ptm.setString(7, user.getStatus());
                 check = ptm.executeUpdate() > 0 ? true : false;
             }
         } catch (Exception e) {

@@ -39,7 +39,7 @@ public class RegistrationController extends HttpServlet {
             String email = request.getParameter("email");
             String address = request.getParameter("address");
             String roleID = request.getParameter("roleID");
-
+            String status = request.getParameter("status");
             boolean checkValidation = true;
             if (userID.length() > 10 || userID.length() < 3) {
                 userError.setUserIDError("Tên đăng nhập phải từ 3-10 kí tự");
@@ -61,7 +61,7 @@ public class RegistrationController extends HttpServlet {
 
             //kiem tra data da validation hay chua
             if (checkValidation) {
-                User user = new User(userID, fullName, password, phone, email, address, roleID, checkDuplicate);
+                User user = new User(userID, fullName, password, phone, email, address, roleID, status );
                 //boolean checkCreate = dao.create2(user);
                 boolean checkLogin = dao.insert(user);
                 if (checkLogin) {
@@ -74,7 +74,7 @@ public class RegistrationController extends HttpServlet {
         } catch (Exception e) {
             log("Error at RegistrationController" + e.toString());
             if (e.toString().contains("duplicate")) {
-                userError.setUserIDError("Trung ID roi kia");
+                userError.setUserIDError("Tên đăng nhập đã tồn tại!");
                 request.setAttribute("USER_ERROR", userError);
             }
 

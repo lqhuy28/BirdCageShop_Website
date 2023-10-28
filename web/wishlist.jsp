@@ -32,6 +32,7 @@
                                         <th>Tên sản phẩm</th>
                                         <th>Giá</th>
                                         <th>Tình trạng hàng</th>
+                                        <th>Chức năng</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -52,7 +53,8 @@
                                             </div>
                                         </td>
                                         <td><%=w.getPrice()%></td>
-                                        <td ><span>Còn hàng</span></td>
+                                        <td><span>Còn hàng</span></td>
+                                        <td><a href="#">Thêm vào giỏ hàng</a></td>
                                     </tr>
                                     <% }
                                         }%>

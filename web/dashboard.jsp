@@ -16,8 +16,9 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
         <link rel="stylesheet" href="static/bootstrap/css/bootstrap.min.css">
         <link rel="stylesheet" href="static/css/dashboard.css">
+        <link rel="stylesheet" href="static/css/root.css">
     </head>
-    <body>
+    <body class="fade-in">
         <header>
 
             <div class="logo">
@@ -32,7 +33,7 @@
 
         <div class="bodya">
             <div class="row">
-                <aside class="col-md-2" ">
+                <aside class="col-md-2 dashboard__sider" >
                     <div class="admin">
                         <img src="static/img/admin1.png" width="200px">
                         <div>
@@ -197,7 +198,7 @@
                                         </tr>
                                          
                                     </tbody>
-                                </table>
+                                </table>    
                             </div>
                         </div>
                     </div>

@@ -14,8 +14,9 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
         <link rel="stylesheet" href="static/bootstrap/css/bootstrap.min.css">
         <link rel="stylesheet" href="static/css/updateUser.css">
+        <link rel="stylesheet" href="static/css/root.css">
     </head>
-    <body>
+    <body class="fade-in">
         <header>
             <div class="logo">
                 <img src="static/img/logoheadb.png">
@@ -27,7 +28,7 @@
         </header>
         <div class="bodya">
             <div class="row">
-                <aside class="col-md-2" ">
+                <aside class="col-md-2 dashboard__sider" >
                     <div class="admin">
                         <img src="static/img/admin1.png" width="200px">
                         <div>
@@ -151,5 +152,7 @@
                         </form>
                     </div>
                 </main>
-        </body>
+            </div>
+        </div>
+    </body>
 </html>

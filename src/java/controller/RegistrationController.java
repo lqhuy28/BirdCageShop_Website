@@ -9,6 +9,7 @@ import dao.UserDAO;
 import model.UserError;
 import java.io.IOException;
 import java.io.PrintWriter;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -69,8 +70,9 @@ public class RegistrationController extends HttpServlet {
                 //boolean checkCreate = dao.create2(user);
                 boolean checkLogin = dao.insert(user);
                 if (checkLogin) {
-                    
-                    url = SUCCESS;
+                    request.setAttribute("SUCCESS_MESSAGE", "Đăng ký tài khoản thành công!");
+                    RequestDispatcher dispatcher = request.getRequestDispatcher("login.jsp");
+                    dispatcher.forward(request, response);
                 }
             } else {
                 request.setAttribute("USER_ERROR", userError);

@@ -42,7 +42,7 @@ public class CategoryProduct extends HttpServlet {
 
         request.setAttribute("listS", list);
         request.setAttribute("listCC", listC);
-        request.getRequestDispatcher("homePage.jsp").
+        request.getRequestDispatcher("category.jsp").
                 forward(request, response);
     }
 

@@ -110,11 +110,11 @@ public class CheckoutController extends HttpServlet {
         }
         String orderID = new String(text);
         User u = (User) session.getAttribute("LOGIN_USER");
-        od.insertOrder(orderID, u.getUserID(), phone, address, orderDate, "", "", shipCost, totalPrice);
+        od.insertOrder(orderID, u.getUserID(), phone, address, orderDate, "1", "", shipCost, totalPrice);
         List<Cart> cart;
         cart = (List<Cart>) session.getAttribute("cart");
         for (Cart item : cart) {
-            od.insertOrderDetail(orderID, item.getCageID(), item.getCageName(), String.valueOf(item.getPrice()), item.getQuantity());
+            od.insertOrderDetail(orderID, item.getCageID(), item.getCageName(), item.getPrice(), item.getQuantity());
             ProductDTO p = pd.getProductByID(item.getCageID());
             int quantity = p.getQuantity() - item.getQuantity();
             if (quantity < 0) {

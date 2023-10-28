@@ -46,35 +46,65 @@
                                 <h4 class="pro-d-title">
                                     <strong><%=product.getCageName()%> </strong>
                                 </h4>
-                                </br>
-                                <p>
-                                    <strong>Mô tả sản phẩm: </strong><%=product.getCageDetails()%>
+                                <div class="rate-container">
+                                    <div class="rate-avg">
+                                    3.9
+                                    </div>
+                                    <div class="star-rating">
+                                        <span>★★★★☆</span>
+                                    </div>
+                                    <div>
+                                    20 đánh giá
+                                    </div>
+                                </div>
+                                 <div class="m-bot15 detail-price mt-3 ">
+                                     <span class="amount-old"><%=product.getPriceOld()%> VNĐ</span>  
+                                     <span class="pro-price"> <%=product.getPriceNew()%> VNĐ</span>
+                                </div>    
+                                <p class="mt-2">
+                                    <strong>Mô tả sản phẩm: </strong>
+                                    <div><%=product.getCageDetails()%>
+                                    </div>
                                 </p>
                                 <div class="product_meta">
                                 </div>
-                                <div class="m-bot15"> <strong>Đơn giá : </strong> <span class="amount-old"><%=product.getPriceOld()%></span> VNĐ <span class="pro-price"> <%=product.getPriceNew()%> VNĐ</span></div>                          
-                                <form action="CartController" method="post" class="mt-3">
-                                    <div class="form-group mt-1">
+                                                     
+                                <form action="CartController" method="post" class="mt-3" id="buynow">
+                                    <div class="form-group mt-3 detail-quantity-container">
                                         <label for="quantity">Số lượng</label>
-                                        <input class="form-control" type="number" value="1" name="quantity" id="numberInput">
+                                        <div class="detail-quantity">
+                                            <button type="button" id="minus-quantity">
+                                                <i class="fa fa-minus" aria-hidden="true"></i>
+                                            </button>
+                                            <input class="form-control" type="number" value="1" name="quantity" id="numberInput" readonly/>
+                                            <button type="button" id="add-quantity">
+                                                <i class="fa fa-plus" aria-hidden="true"></i>
+                                            </button>
+                                        </div>
+                                        <span id="quantityAvailable" class="mt-1"><%=product.getQuantity()%> sản phẩm sẳn có sẳn</span>
                                     </div>
-                                    </br>
-                                    <span id="quantityAvailable" class="mt-1"><%=product.getQuantity()%> sản phẩm sẳn có sẳn</span>
-                                    <p class="m-0">
-                                        <button type="submit" id="checkout" name="id" value="<%=product.getCageID()%>" class="btn mt-3 action-btn btn-round btn-danger"> 
-                                        <i class="fa fa-credit-card" aria-hidden="true"></i>
-                                        Mua ngay</button>
-                                    </p>
+                                  
                                 </form>
                                 <span hidden="true" id="quantityCart"><%=quantityCart%></span>
-                                <form action="CartController" method="get">
+                                <form action="CartController" method="get" id="addcart">
                                     <input type="hidden" value="" name="quantity" id="hiddenInput">
                                     <input type="hidden" value="<%=product.getCageID()%>" name="id">
-                                    <button id="addCart" type="submit" class="btn mt-2 action-btn btn-round btn-warning">
+                                   
+                                </form>
+
+                                <div class="buy-btn-group">
+                               
+                                        <button type="submit" id="checkout" name="id" form="buynow" value="<%=product.getCageID()%>" class="btn  action-btn btn-round btn-danger"> 
+                                        <i class="fa fa-credit-card" aria-hidden="true"></i>
+                                        Mua ngay</button>
+                                    
+                                     <button id="addCart" type="submit"
+                                     form="addcart" 
+                                      class="btn  action-btn btn-round btn-warning">
                                         <i class="fa fa-shopping-cart"></i>
                                         Thêm vào giỏ hàng
                                     </button>
-                                </form>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -116,7 +146,7 @@
                                 John Doe
                             </div>
                             <div class="star-rating">
-                                <span>★★★★☆☆</span>
+                                <span>★★★★☆</span>
                             </div>
                         </div>
                         <div class="feedback-content">
@@ -210,6 +240,26 @@
             }
 
         });
+
+        const addQuantity = document.getElementById("add-quantity");
+        const minusQuantity = document.getElementById("minus-quantity");
+        const quantityAvailableItem = document.getElementById("quantityAvailable");
+        const quantityAvailable = parseInt(quantityAvailableItem.innerText);
+        const quantityOrdered = document.getElementsByName("quantity")[0];
+        const quantityOrder = quantityOrdered.value;
+        addQuantity.addEventListener("click", function () {
+            if (parseInt(quantityOrdered.value) < quantityAvailable) {
+                quantityOrdered.value = parseInt(quantityOrdered.value) + 1;
+                hiddenInput.value = quantityOrdered.value;
+            }
+        });
+        minusQuantity.addEventListener("click", function () {
+            if (parseInt(quantityOrdered.value) > 1) {
+                quantityOrdered.value = parseInt(quantityOrdered.value) - 1;
+                hiddenInput.value = quantityOrdered.value;
+            }
+        });
+
 
 //        window.addEventListener('pageshow', function (event) {
 //            if (event.persisted) {

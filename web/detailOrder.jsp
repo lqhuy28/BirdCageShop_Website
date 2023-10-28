@@ -4,6 +4,7 @@
     Author     : HOANGDUC
 --%>
 
+<%@page import="model.CageMaterial"%>
 <%@page import="model.OrderDetail"%>
 <%@page import="java.util.List"%>
 <%@page import="model.Order"%>
@@ -20,6 +21,15 @@
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
         <link rel="stylesheet" href="static/css/order.css"/>
     </head>
+    <style>
+        .mat-tab-title h5 {
+            font-weight: bold;
+            padding-bottom: 10px;
+        }
+        .mat-tab thead {
+            background-color: #f5f5f5;
+        }
+    </style>
     <body>
         <jsp:include page="header.jsp" />
         <% List<OrderDetail> ls = (List<OrderDetail>) request.getAttribute("ls"); %>
@@ -49,6 +59,30 @@
                     </tbody>
                 </table>
             </div>
+            <% for (OrderDetail o : ls) {
+                if(o.getCageName().equals("Lồng yêu cầu")){
+            %>
+            <% List<CageMaterial> lm = (List<CageMaterial>) request.getAttribute("lm"); %>
+            <div class="mat-tab">
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>Tên nguyên liệu</th>
+                            <th>Số lượng</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% for (CageMaterial cm : lm) {
+                        %>
+                        <tr>
+                            <td><%=cm.getMaterialName()%></td>
+                            <td><%=cm.getQuantity()%></td>
+                        </tr>
+                        <% }%>
+                    </tbody>
+                </table>
+            </div>
+            <% } } %>
         </div>
         <jsp:include page="footer.jsp" />
     </body>

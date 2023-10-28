@@ -24,6 +24,12 @@ public class CageMaterial {
         this.description = description;
     }
 
+    public CageMaterial(String materialName, int quantity) {
+        this.materialName = materialName;
+        this.quantity = quantity;
+    }
+    
+
     public String getCageId() {
         return cageId;
     }

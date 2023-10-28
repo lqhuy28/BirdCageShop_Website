@@ -130,7 +130,7 @@
             }
         %>
         <div class="error_message">
-                                ${requestScope.ERROR}
+                                ${sessionScope.ERROR}
                             </div>
                             <div class="search-container">
                                 <form action="searchUser" method="POST" class="form-inline">

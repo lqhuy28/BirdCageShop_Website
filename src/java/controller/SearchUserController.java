@@ -14,6 +14,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import model.User;
 
 /**
@@ -29,6 +30,7 @@ public class SearchUserController extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
+        HttpSession session = request.getSession();
         String url = ERROR;
         request.setCharacterEncoding("UTF-8");
         try {
@@ -38,7 +40,7 @@ public class SearchUserController extends HttpServlet {
         if (list.isEmpty()) {
             request.setAttribute("ERROR", "User is not found!");
         }else {
-                request.setAttribute("listU", list);
+                session.setAttribute("listU", list);
                 url = SUCCESS;
             }
         } catch (Exception e) {

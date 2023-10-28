@@ -17,13 +17,13 @@ public class User {
     private String email;
     private String address;
     private String roleID;
-    private Boolean status;
+    private String status;
 
     public User() {
         
     }
 
-    public User(String userID, String fullName, String password, String phone, String email, String address, String roleID, Boolean status) {
+    public User(String userID, String fullName, String password, String phone, String email, String address, String roleID, String status) {
         this.userID = userID;
         this.fullName = fullName;
         this.password = password;
@@ -90,17 +90,17 @@ public class User {
         this.roleID = roleID;
     }
 
-    public Boolean getStatus() {
+    public String getStatus() {
         return status;
     }
 
-    public void setStatus(Boolean status) {
+    public void setStatus(String status) {
         this.status = status;
     }
 
     @Override
     public String toString() {
-        return "User{" + "userID=" + userID + ", fullName=" + fullName + ", password=" + password + ", phone=" + phone + ", email=" + email + ", address=" + address + ", roleID=" + roleID + ", status=" + status + '}';
+        return "User{" + "userID=" + userID + ", fullName=" + fullName + ", password=" + password + ", phone=" + phone + ", email=" + email + ", address=" + address + ", roleID=" + roleID + ", status=" + status + "}";
     }
 
     

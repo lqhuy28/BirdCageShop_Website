@@ -10,6 +10,7 @@ package model;
  * @author QUANHONG
  */
 public class UserError {
+
     private String userIDError;
     private String fullNameError;
     private String passwordError;
@@ -18,8 +19,7 @@ public class UserError {
     private String addressError;
     private String roleIDError;
     private String confirmError;
-    
-
+    private String statusError;
 
     public UserError() {
         this.userIDError = "";
@@ -30,6 +30,7 @@ public class UserError {
         this.addressError = "";
         this.confirmError = "";
         this.roleIDError = "";
+        this.statusError = "";
     }
 
     public UserError(String userIDError, String fullNameError, String passwordError, String phoneError, String emailError, String addressError, String roleIDError, String confirmError) {
@@ -41,7 +42,8 @@ public class UserError {
         this.addressError = addressError;
         this.roleIDError = roleIDError;
         this.confirmError = confirmError;
-        
+        this.statusError = statusError;
+
     }
 
     public String getRoleIDError() {
@@ -59,7 +61,6 @@ public class UserError {
     public void setConfirmError(String confirmError) {
         this.confirmError = confirmError;
     }
-    
 
     public String getUserIDError() {
         return userIDError;
@@ -108,5 +109,13 @@ public class UserError {
     public void setAddressError(String addressError) {
         this.addressError = addressError;
     }
-    
+
+    public String getStatusError() {
+        return statusError;
+    }
+
+    public void setStatusError(String statusError) {
+        this.statusError = statusError;
+    }
+
 }

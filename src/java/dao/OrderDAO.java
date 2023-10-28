@@ -10,6 +10,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
+import model.CageMaterial;
+import model.Material;
 import model.Order;
 import model.OrderDetail;
 import model.ProductDTO;
@@ -51,7 +53,7 @@ public class OrderDAO {
         }
     }
 
-    public void insertOrderDetail(String orderID, String cageId, String cageName, String price, int quantity) {
+    public void insertOrderDetail(String orderID, String cageId, String cageName, double price, int quantity) {
         String query = "insert into tblOrderDetails\n"
                 + "values(?,?,?,?,?)";
         try {
@@ -60,7 +62,7 @@ public class OrderDAO {
             ps.setString(1, orderID);
             ps.setString(2, cageId);
             ps.setString(3, cageName);
-            ps.setString(4, price);
+            ps.setDouble(4, price);
             ps.setInt(5, quantity);
             ps.executeUpdate();
         } catch (Exception e) {
@@ -74,16 +76,46 @@ public class OrderDAO {
             conn = new DBUtils().getConnection();
             ps = conn.prepareStatement(query);
             ps.setString(1, userID);
+            ResultSet rs1 = ps.executeQuery();
+            while (rs1.next()) {
+                String query2 = "select od.CageName, od.CageID from tblOrderDetails od where od.OrderId = ?";
+                ps = conn.prepareStatement(query2);
+                ps.setString(1, rs1.getString(1));
+                ResultSet rs2 = ps.executeQuery();
+                String cageID = "";
+                String cageName = "";
+                while (rs2.next()) {
+                    cageName = rs2.getString(1);
+                    cageID = rs2.getString(2);
+                }
+                list.add(new Order(rs1.getString(1),
+                        rs1.getString(2),
+                        cageID,
+                        cageName,
+                        rs1.getString(3),
+                        rs1.getString(4),
+                        rs1.getDate(5),
+                        rs1.getDouble(6),
+                        rs1.getDouble(7),
+                        rs1.getBoolean(8)));
+            }
+            ps.executeUpdate();
+        } catch (Exception e) {
+        }
+        return list;
+    }
+    
+    public List<CageMaterial> getMaterialByCageId(String cageId) {
+        List<CageMaterial> list = new ArrayList<>();
+        String query = "select m.MaterialName, cm.Quantity from tblCageMaterial cm inner join tblMaterial m on cm.MaterialID = m.MaterialID where cm.CageID = ?";
+        try {
+            conn = new DBUtils().getConnection();
+            ps = conn.prepareStatement(query);
+            ps.setString(1, cageId);
             rs = ps.executeQuery();
             while (rs.next()) {
-                list.add(new Order(rs.getString(1),
-                        rs.getString(2),
-                        rs.getString(3),
-                        rs.getString(4),
-                        rs.getDate(5),
-                        rs.getDouble(6),
-                        rs.getDouble(7),
-                        rs.getBoolean(8)));
+                list.add(new CageMaterial(rs.getString(1),
+                        rs.getInt(2)));
             }
             ps.executeUpdate();
         } catch (Exception e) {
@@ -148,5 +180,22 @@ public class OrderDAO {
         } catch (Exception e) {
         }
 
+    }
+
+    public void changeOrderStatus(String orderId) {
+        String query = "UPDATE tblOrders \n"
+                + "SET OrderStatus = CASE\n"
+                + "WHEN OrderStatus = '0' THEN '1'\n"
+                + "WHEN OrderStatus = '1' THEN '0'\n"
+                + "ELSE OrderStatus\n"
+                + "end\n"
+                + "where OrderID = ?";
+        try {
+            conn = new DBUtils().getConnection();
+            ps = conn.prepareStatement(query);
+            ps.setString(1, orderId);
+            ps.executeUpdate();
+        } catch (Exception e) {
+        }
     }
 }

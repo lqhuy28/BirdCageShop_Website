@@ -5,6 +5,7 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
     <head>
@@ -24,6 +25,12 @@
         <!-- /css -->
     </head>
     <body class="fade-in">
+        <!-- Kiểm tra và hiển thị thông báo nếu có -->
+        <c:if test="${not empty requestScope.SUCCESS_MESSAGE}">
+            <div style="color: green;">
+                ${requestScope.SUCCESS_MESSAGE}
+            </div>
+        </c:if>
         <h1 class="w3ls">ĐĂNG NHẬP</h1>
         <div class="content-w3ls">
             <div class="content-agile1">
@@ -42,7 +49,7 @@
                     <div class="forgot">
                         <a href="#"> Quên mật khẩu?</a>
                     </div>
-                    
+
                     <button type="submit" name="action" class="register" value="Login"> Đăng nhập </button>
                     <div class="error_message">
                         ${requestScope.ERROR}
@@ -60,5 +67,6 @@
             </div>
             <div class="clear"></div>
         </div>
+
     </body>
 </html>

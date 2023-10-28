@@ -22,114 +22,137 @@
         <link rel="stylesheet" href="static/css/root.css">
         <title>Trang thanh toán</title>
     </head>
-    <body class="fade-in">
+    <body class="fade-in ">
         <jsp:include page="header.jsp"/>
-        <div class="container py-3">
-            <h2 class="title">Thanh toán</h2>
-        </div>
-        <div class="container mt-2 mb-3">
-            <div class="row form__container">
-
-                <div class="col-md-6 information">
-                    <form action="CheckoutController" method="post" id="myForm">
-                        <%
-                            User u = (User) session.getAttribute("LOGIN_USER");
-                        %>
-                        <div class="infor-user">
-                            <div style="grid-column: span 2;">
-                                <h4 class="title1"><i class="fa-solid fa-user fa-sm"></i> Thông tin khách hàng:</h4>
-                            </div>
-                            <label>Họ và tên:</label> 
-                            <span><%= u.getFullName()%></span>
-                            <label>Số điện thoại:</label> <input type="text" value="<%= u.getPhone()%>" name="phone">
-                            <label>Địa chỉ:</label> <input type="text" value="<%= u.getAddress()%>" name="address">
-                        </div>
-
-                        <div class="ship">
-                            <h4 for="shippingMethod" class="title1"><i class="fa-solid fa-truck-fast fa-sm"></i> Đơn vị vận chuyển:</h4>
-                            <select id="shippingMethod" name="shippingMethod">
-                                <option value="standard">Giao hàng tiết kiệm</option>
-                                <option value="express">Giao hàng nhanh</option>
-                                <option value="self_pickup">Nhận hàng tại shop</option>
-                            </select>
-                        </div>
-
-                        <div class="check-out">
-                            <h4 class="title1"><i class="fa-regular fa-credit-card fa-sm"></i> Phương thức thanh toán:</h4>
-                            <input type="checkbox" id="creditCard" name="paymentMethod" value="credit_card">
-                            <label><span for="creditCard">Thẻ tín dụng</span></label><br>
-
-                            <input type="checkbox" id="paypal" name="paymentMethod" value="paypal">
-                            <label><span for="paypal">PayPal</span></label><br>
-
-                            <input type="checkbox" id="cash" name="paymentMethod" value="cash" checked>
-                            <label><span for="cash">Thanh toán khi nhận hàng</span></label><br>
-
-                        </div>
-                        <input type="hidden" id="totalPrice" name="totalPrice">
-                        <input type="hidden" id="shipCost" name="shipCost" value="">
-
-                    </form>
-                </div>
-
-                <div class="col-md-5 summary">
-
-                    <div class="ordersp">
-                        <%
-                            double total = 0.0;
-                            double price = 0.0;
-                            List<Cart> cart = (List<Cart>) session.getAttribute("cart");
-                            if (!cart.isEmpty()) {
-                        %>
-                        <h4 class="title1" >TÓM TẮT ĐƠN HÀNG:</h4>
-                        <div class="table-container">
-                            <table style="width: 100%;">
-                                <tr>
-                                    <th>Sản phẩm</th>
-                                    <th>Số lượng</th>
-                                    <th>Thành tiền</th>
-                                </tr>
-                                <%
-                                    for (Cart item : cart) {
-                                        price = (item.getPrice() * item.getQuantity());
-                                        total += price;
-                                %>
-                                <tr>
-                                    <td><%= item.getCageName()%></td>
-                                    <td><%= item.getQuantity()%></td>
-                                    <td><%= (item.getPrice() * item.getQuantity())%> VNĐ</td>
-                                </tr>
-                                <%
-                                    }
-                                %>
-                            </table>
-                            <%
-                                }
-                            %>
-                        </div>
-                    </div>
-                    <div class="tabtotal">
-                        <div class="bold-left">
-                            <label id="shipping-fee">Phí giao hàng:</label>
-                            <span>
-                                <span id="shipping-fee-value">10</span>
-                                <span>VNĐ</span>
-                            </span>
-                        </div>
-                        <div class="bold-left">
-                            <label id="total-payment">Tổng thanh toán:</label>
-                            <span id="totalP"><%=(int) total%> VNĐ</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="but-check col-md-6">
-                    <button id="submitBtn" class="btn btn-lg btn-success custom-button" value="Thanh toán">
-                        <i class="fas fa-shopping-cart"></i>
-                        <span class=" button-text">Thanh toán</span>
-                    </button>
-                </div>
+        <div class="sm-container">
+            <div class="container">
+                <h3 class="title">
+                    <i class="fa-solid fa-shopping-cart"></i>
+                    Thanh toán Đơn Hàng
+                </h3>
             </div>
+            <div class="container mt-2 mb-3">
+                <div class="row form__container">
 
+                    <div class="col-md-6 ">
+                        <form action="CheckoutController" method="post" id="myForm">
+                            <%
+                                User u = (User) session.getAttribute("LOGIN_USER");
+                            %>
+                            <div class="add-material">
+                                <div style="grid-column: span 2;">
+                                    <h4 class="title1"><i class="fa-solid fa-user fa-sm"></i> Thông tin khách hàng:</h4>
+                                </div>
+                                <div class="form-container">
+                                    <label>Họ và tên:</label> 
+                                    <span class="form-name"><%= u.getFullName()%></span>
+                                </div>
+                                <div class="form-container">
+                                    <label>Số điện thoại:</label> 
+                                    <input class="form-control" type="text" value="<%= u.getPhone()%>" name="phone">
+                                </div>
+                                <div class="form-container">
+                                    <label>Địa chỉ:</label> 
+                                    <input class="form-control" type="text" value="<%= u.getAddress()%>" name="address">
+                                </div>
+                            </div>
+
+                            <div class="add-material">
+                                <h4 for="shippingMethod" class="title1"><i class="fa-solid fa-truck-fast fa-sm"></i> Đơn vị vận chuyển:</h4>
+                                <select id="shippingMethod" class="form-control" name="shippingMethod">
+                                    <option value="standard">Giao hàng tiết kiệm</option>
+                                    <option value="express">Giao hàng nhanh</option>
+                                    <option value="self_pickup">Nhận hàng tại shop</option>
+                                </select>
+                            </div>
+
+                            <div class="add-material">
+                                <h4 class="title1"><i class="fa-regular fa-credit-card fa-sm"></i> Phương thức thanh toán:</h4>
+                                <div class="form-group form-check">
+                                    <label class="beauty-checkbox">
+                                        <input class="form-check-input" type="checkbox" id="cash" name="paymentMethod" value="cash" checked>
+                                        <span class="checkmark"></span>
+                                    </label>
+                                    <label  class="check-label "><span for="cash">Thanh toán khi nhận hàng</span></label><br>
+                                </div>
+                                <div class="form-group form-check">
+                                     <label class="beauty-checkbox">
+                                        <input  class="form-check-input" type="checkbox" id="paypal" name="paymentMethod" value="paypal">
+                                        <span class="checkmark"></span>
+                                    </label>
+                                    <label  class="check-label "><span for="paypal">VNPAY</span></label><br>
+                                </div>
+                            </div>
+                            <input type="hidden" id="totalPrice" name="totalPrice">
+                            <input type="hidden" id="shipCost" name="shipCost" value="">
+
+                        </form>
+                    </div>
+
+                    <div class="col-md-6 ">
+                        <div class="material">
+                            <div class="material-list">
+                                <%
+                                    double total = 0.0;
+                                    double price = 0.0;
+                                    List<Cart> cart = (List<Cart>) session.getAttribute("cart");
+                                    if (!cart.isEmpty()) {
+                                %>
+                                <h4 class="title1" >TÓM TẮT ĐƠN HÀNG:</h4>
+                                <div class="">
+                                    <div style="width: 100%;" class="order-item">
+                                        <%
+                                            for (Cart item : cart) {
+                                                price = (item.getPrice() * item.getQuantity());
+                                                total += price;
+                                        %>
+                                        <div class="price-item">
+                                            <div class="price-item-name">
+                                            <span><%= item.getQuantity()%></span>
+                                            x
+                                            <span><%= item.getCageName()%></span>
+                                            </div>
+                                            <span class="price-item-total"><%= (item.getPrice() * item.getQuantity())%> VNĐ</span>
+                                        </div>
+                                        <%
+                                            }
+                                        %>
+                                    </div>
+                                    <%
+                                        }
+                                    %>
+                                </div>
+                            </div>
+                            <div class="ship">
+                                <div class="bold-left">
+                                    <label id="shipping-fee">Phí giao hàng:</label>
+                                    <span>
+                                        <span id="shipping-fee-value">10</span>
+                                        <span>VNĐ</span>
+                                    </span>
+                                </div>
+                                <div class="bold-left">
+                                    <label id="total-payment">Tổng thanh toán:</label>
+                                    <span>
+                                        <span id="totalP"><%=(int) total%></span>
+                                        <span>
+                                            VNĐ
+                                        </span>
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="but-check mt-3"">
+                                <button id="submitBtn" class="btn btn-success custom-button" value="Thanh toán">
+                                    <i class="fas fa-shopping-cart"></i>
+                                    <span class=" button-text">Thanh toán</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                  
+                </div>
+
+            </div>
         </div>
 
         <jsp:include page="footer.jsp"/>               

@@ -1,3 +1,5 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -31,19 +33,12 @@
                             <div class="hero__categories">
                                 <div class="hero__categories__all">
                                     <i class="fa fa-bars"></i>
-                                    <span>DANH SÁCH SẢN PHẨM</span>
+                                    <span>PHÂN LOẠI SẢN PHẨM</span>
                                 </div>
                                 <ul>
-                                    <li><a href="category.jsp">Lồng chim chào mào </a></li>
-                                    <li><a href="category.jsp">Lồng chim cu</a></li>
-                                    <li><a href="category.jsp">Lồng chim khuyên </a></li>
-                                    <li><a href="category.jsp">Lồng khướu</a></li>
-                                    <li><a href="category.jsp">Lồng vẹt</a></li>
-                                    <li><a href="category.jsp">Lồng chim sâu</a></li>
-                                    <li><a href="category.jsp">Lồng chim họa mi</a></li>
-                                    <li><a href="category.jsp">Lồng chim sơn ca</a></li>
-                                    <li><a href="category.jsp">Lồng chim sáo </a></li>
-                                    <li><a href="category.jsp">Lồng chim chích chòe</a></li>
+                                    <c:forEach items ="${listCC}" var ="o">
+                                        <li><a href="category?cid=${o.categoryID}">${o.categoryName}</a></li>
+                                        </c:forEach>
                                 </ul>
                             </div>
                         </div>
@@ -65,31 +60,49 @@
                                     </div>
                                 </div>
                             </div>
-                           
-                            <section class="">
-                                <div class="container">
-                                    <div class="row">
-                                    </div>
-                                    <div class="row featured__filter">
-                                        <div class="col-lg-3 col-md-4 col-sm-6">
-                                            <div class="featured__item">
-                                                <div class="featured__item__pic set-bg">
-                                                    <img src="static/img/logobia.png" alt="">
 
-                                                    <ul class="featured__item__pic__hover">
-                                                        <!-- ảnh sản phẩm -->
-                                                        <li><a href="#"><i class="fa fa-heart"></i></a></li>
-                                                        <li><a href="#"><i class="fa fa-retweet"></i></a></li>
-                                                        <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
-                                                    </ul>
-                                                </div>
-                                                <div class="featured__item__text">
-                                                    <h6><a href="#">Tên sản phẩm</a></h6>
-                                                    <h5>Giá sản phẩm</h5>
-                                                </div>
-                                            </div>
+                            <section class="">
+                                <div class="container-swiper">
+
+                                    <div class="swiper-button-prev"  style="top: 190px;left: -60px;"></div>
+                                    <div class="swiper-button-next" style="top: 190px;right: -60px;"></div>
+                                    <div class="row featured__filter swiper">
+
+                                        <div class="swiper-wrapper">
+
+                                            <c:set var="listS" value="${requestScope.listS}" />
+                                            <c:forEach items="${listS}" var="x">
+                                                <c:if test="${x.status eq '1'}">
+                                                    <div class="col-lg-3 col-md-4 col-sm-6 swiper-slide">
+                                                        <div class="featured__item " data-aos="fade-up">
+                                                            <div class="featured__item__pic set-bg">
+                                                                <img src="${x.image}" alt="">
+
+                                                                <ul class="featured__item__pic__hover">
+                                                                    <!-- ảnh sản phẩm -->
+                                                                    <li><a href="WishlistServlet?id=${x.cageID}&type=home"><i class="fa fa-heart"></i></a></li>
+                                                                    <li><a href="CartController?id=${x.cageID}&quantity=1&type=home"><i class="fa fa-shopping-cart"></i></a></li>
+                                                                    <li><a href="ProductDetail?id=${x.cageID}"><i class="fa-solid fa-circle-info"></i></a></li>
+                                                                </ul>
+                                                            </div>
+
+                                                            <div class="featured__item__text">
+                                                                <h6><a href="#" title="View Product">${x.cageName}</a></h6>
+                                                                <h5>${x.priceNew} VNĐ</h5>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </c:if>
+                                            </c:forEach>
+
+
                                         </div>
-                                    </div>  
+                                    </div>
+
+                                    <!-- If we need navigation buttons -->
+
+
+
                                 </div>
                             </section>
                         </div>

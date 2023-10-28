@@ -84,13 +84,12 @@ public class OrderRequest extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         try {
-//            String cageType = request.getParameter("cageType");
-//            int pillar = Integer.parseInt(request.getParameter("pillar"));
-//            int hanger = Integer.parseInt(request.getParameter("hanger"));
-//            int spokes = Integer.parseInt(request.getParameter("spokes"));
-//            int bottom = Integer.parseInt(request.getParameter("bottom"));
-//            int door = Integer.parseInt(request.getParameter("door"));
-//            int cup = Integer.parseInt(request.getParameter("cup"));
+            int pillar = Integer.parseInt(request.getParameter("tru"));
+            int hanger = Integer.parseInt(request.getParameter("moc"));
+            int spokes = Integer.parseInt(request.getParameter("nan"));
+            int bottom = Integer.parseInt(request.getParameter("day"));
+            int door = Integer.parseInt(request.getParameter("cua"));
+            int cup = Integer.parseInt(request.getParameter("coc"));
             HttpSession session = request.getSession();
             int cageQuantity = Integer.parseInt(request.getParameter("cageQuantity"));
             String description = request.getParameter("description");
@@ -124,28 +123,25 @@ public class OrderRequest extends HttpServlet {
             User u = (User) session.getAttribute("LOGIN_USER");
             java.util.Date currentDate = new java.util.Date();
             java.sql.Date orderDate = new java.sql.Date(currentDate.getTime());
-            od.insertOrder(orderID, u.getUserID(), u.getPhone(), u.getAddress(), orderDate, "", "", shipCost, totalPrice);
-            od.insertOrderDetail(orderID, cageID, "Lồng yêu cầu", String.valueOf(totalPrice), cageQuantity);
+            od.insertOrder(orderID, u.getUserID(), u.getPhone(), u.getAddress(), orderDate, "1", "", shipCost, totalPrice);
 
-//            for (Material material : list) {
-//                if (material.getMaterialName().equals(cageType)) {
-//                    dao.insertMaterialRequest(cageID, material.getMaterialID(), cageQuantity, "");
-//                } else if (material.getMaterialName().equals("pillar")) {
-//                    dao.insertMaterialRequest(cageID, material.getMaterialID(), pillar, "");
-//                } else if (material.getMaterialName().equals("hanger")) {
-//                    dao.insertMaterialRequest(cageID, material.getMaterialID(), hanger, "");
-//                } else if (material.getMaterialName().equals("spokes")) {
-//                    dao.insertMaterialRequest(cageID, material.getMaterialID(), spokes, "");
-//                } else if (material.getMaterialName().equals("bottom")) {
-//                    dao.insertMaterialRequest(cageID, material.getMaterialID(), bottom, "");
-//                } else if (material.getMaterialName().equals("door")) {
-//                    dao.insertMaterialRequest(cageID, material.getMaterialID(), door, "");
-//                } else if (material.getMaterialName().equals("cup")) {
-//                    dao.insertMaterialRequest(cageID, material.getMaterialID(), cup, "");
-//                }
-//            }
+            for (Material material : list) {
+                if (material.getMaterialName().equals("trụ")) {
+                    dao.insertMaterialRequest(cageID, material.getMaterialID(), pillar, "");
+                } else if (material.getMaterialName().equals("móc")) {
+                    dao.insertMaterialRequest(cageID, material.getMaterialID(), hanger, "");
+                } else if (material.getMaterialName().equals("nan")) {
+                    dao.insertMaterialRequest(cageID, material.getMaterialID(), spokes, "");
+                } else if (material.getMaterialName().equals("đáy")) {
+                    dao.insertMaterialRequest(cageID, material.getMaterialID(), bottom, "");
+                } else if (material.getMaterialName().equals("cửa")) {
+                    dao.insertMaterialRequest(cageID, material.getMaterialID(), door, "");
+                } else if (material.getMaterialName().equals("cốc")) {
+                    dao.insertMaterialRequest(cageID, material.getMaterialID(), cup, "");
+                }
+            }
+            od.insertOrderDetail(orderID, cageID, "Lồng yêu cầu", totalPrice, cageQuantity);
             //dao.insertMaterialRequest(cageID, "4", pillar, description);
-            //od.insertOrder(cageID, cageID, length, cageID, orderDate, cageID, description);
             request.getRequestDispatcher("SuccessOrder.jsp").
                     forward(request, response);
         } catch (Exception e) {

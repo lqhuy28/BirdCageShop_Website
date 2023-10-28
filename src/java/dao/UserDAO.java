@@ -35,7 +35,7 @@ public class UserDAO {
             + "end\n"
             + "where userID = ?";
     ;
-    private static final String getUserByuserID = "select UserID, FullName, Password, Phone, Email, Address, RoleID FROM tblUsers where userID like ?";
+    private static final String getUserByuserID = "select UserID, FullName, Password, Phone, Email, Address, RoleID,Status FROM tblUsers where userID like ?";
     private static final String UPDATE = "UPDATE tblUsers set fullName=?, password=?, phone=?, email=?, address=?, roleID=? WHERE userID=?";
     private static final String INSERT = "INSERT INTO tblUsers(UserID, FullName, Password, Phone, Email, Address, RoleID, Status) VALUES(?,?,?,?,?,?,?,?)";
     private static final String CHECK_DUPLICATE = "SELECT UserID FROM tblUsers ";

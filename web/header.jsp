@@ -84,7 +84,7 @@
                     <div class="col-8 text-center d-flex align-items-center justify-content-center">
                         <nav class="header__menu">
                             <ul>
-                                <li class="active"><a href="">Trang chủ</a></li>
+                                <li class="active"><a href="MainController">Trang chủ</a></li>
                                 <li><a href="policy/IntroduceShop.jsp">Giới thiệu</a></li>
                                 <li><a href="#">Sản phẩm </a>
                                     <ul class="header__menu__dropdown">

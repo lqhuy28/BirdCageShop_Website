@@ -15,7 +15,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Document</title>
-        <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+        <link rel="stylesheet" href="/static/bootstrap/css/bootstrap.min.css">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css"/>
         <!-- font awesome cnd link -->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -53,7 +53,7 @@
                                 </div>
                                 <div class="header__top__right__auth">
                                     <% if (session.getAttribute("LOGIN_USER") == null) { %>
-                                    <a href="login.jsp"><i class="fa fa-user"></i>Đăng nhập</a>  
+                                    <a href="login.jsp"><i class="fa fa-user"></i> Login</a>  
                                     <% } else { %>
                                     <nav class="header__menu">
                                         <ul>
@@ -75,16 +75,16 @@
                 </div>
             </div>
             <div class="container-menu">
-                <div class="row">
+                <div class="row px-3">
                     <div class="col-2">
                         <div class="header__logo">
-                            <a href="MainController"><img src="static/img/logoheada.png" alt=""></a>
+                            <a href="MainController"><img src="/Fall2023SWP391_NET1703_Group6/static/img/logoheada.png" alt=""></a>
                         </div>
                     </div>
                     <div class="col-8 text-center d-flex align-items-center justify-content-center">
                         <nav class="header__menu">
                             <ul>
-                                <li class="active"><a href="/MainController">Trang chủ</a></li>
+                                <li class="active"><a href="">Trang chủ</a></li>
                                 <li><a href="policy/IntroduceShop.jsp">Giới thiệu</a></li>
                                 <li><a href="#">Sản phẩm </a>
                                     <ul class="header__menu__dropdown">

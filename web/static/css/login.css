@@ -137,7 +137,7 @@ p.agileits2 {
 input#UserID,input#email,input#password,input#password2 {
     width:320px;
     height:50px;
-    padding:0 15px;
+    padding:0;
     color:#fff;
     font-size:17px;
     font-weight:200;
@@ -207,9 +207,10 @@ button.register {
 }
 
 .forgot{
-    margin-left: 105px;
-    margin-top: 20px;
-    margin-bottom: 20px;
+    width: 320px;
+    padding: 0;
+    text-align: right;
+    margin: 0 auto;
 }
 
 .forgot a {

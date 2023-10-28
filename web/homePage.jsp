@@ -160,41 +160,71 @@
                             </div>
                         </div>
                     </div>
-                    <div class="row featured__filter">
+                    <div class="container-swiper">
+                  
+                    <div class="swiper-button-prev"  style="top: 190px;left: -60px;"></div>
+                    <div class="swiper-button-next" style="top: 190px;right: -60px;"></div>
+                    <div class="row featured__filter swiper">
                         <% if (request.getAttribute("ERROR") != null) {%>
                         <p> Không tìm thấy kết quả </p>
 
                         <% } else {%> 
-                        <c:set var="listS" value="${requestScope.listS}" />
-                        <c:forEach items="${listS}" var="x">
-                            <c:if test="${x.status eq '1'}">
-                                <div class="col-lg-3 col-md-4 col-sm-6">
-                                    <div class="featured__item " data-aos="fade-up">
-                                        <div class="featured__item__pic set-bg">
-                                            <img src="${x.image}" alt="">
+                         <div class="swiper-wrapper">
+                  
+                            <c:set var="listS" value="${requestScope.listS}" />
+                            <c:forEach items="${listS}" var="x">
+                                <c:if test="${x.status eq '1'}">
+                                    <div class="col-lg-3 col-md-4 col-sm-6 swiper-slide">
+                                        <div class="featured__item " data-aos="fade-up">
+                                            <div class="featured__item__pic set-bg">
+                                                <img src="${x.image}" alt="">
 
-                                            <ul class="featured__item__pic__hover">
-                                                <!-- ảnh sản phẩm -->
-                                                <li><a href="WishlistServlet?id=${x.cageID}&type=home"><i class="fa fa-heart"></i></a></li>
-                                                <li><a href="CartController?id=${x.cageID}&quantity=1&type=home"><i class="fa fa-shopping-cart"></i></a></li>
-                                                <li><a href="ProductDetail?id=${x.cageID}"><i class="fa-solid fa-circle-info"></i></a></li>
-                                            </ul>
-                                        </div>
+                                                <ul class="featured__item__pic__hover">
+                                                    <!-- ảnh sản phẩm -->
+                                                    <li><a href="WishlistServlet?id=${x.cageID}&type=home"><i class="fa fa-heart"></i></a></li>
+                                                    <li><a href="CartController?id=${x.cageID}&quantity=1&type=home"><i class="fa fa-shopping-cart"></i></a></li>
+                                                    <li><a href="ProductDetail?id=${x.cageID}"><i class="fa-solid fa-circle-info"></i></a></li>
+                                                </ul>
+                                            </div>
 
-                                        <div class="featured__item__text">
-                                            <h6><a href="#" title="View Product">${x.cageName}</a></h6>
-                                            <h5>${x.priceNew} VNĐ</h5>
+                                            <div class="featured__item__text">
+                                                <h6><a href="#" title="View Product">${x.cageName}</a></h6>
+                                                <h5>${x.priceNew} VNĐ</h5>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                            </c:if>
-                        </c:forEach>
+                                </c:if>
+                            </c:forEach>
+                            
+                            
+                        </div>
+                          </div>
+
+                        <!-- If we need navigation buttons -->
+                   
+                      
                         <% }%>
                     </div>
 
                 </div>
             </section>
+            <!-- Slider main container -->
+            <%-- <div class="swiper">
+            <!-- Additional required wrapper -->
+                <div class="swiper-wrapper">
+                    <!-- Slides -->
+                    <div class="swiper-slide">Slide 1</div>
+                    <div class="swiper-slide">Slide 2</div>
+                    <div class="swiper-slide">Slide 3</div>
+                    
+                </div>
 
+                <!-- If we need navigation buttons -->
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-button-next"></div>
+            </div> --%>
+
+    
             <!-- end featured -->
             <!-- start blog -->
             <section class="from-blog spad">
@@ -249,7 +279,7 @@
             <!-- end item -->
 
 
-            <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+         
             <script src="static/js/index.js"></script>
             <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
             <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
@@ -260,6 +290,29 @@
                 $('.carousel').carousel({
                     interval: 5000
                 })
+
+                 new Swiper('.swiper', {
+                    direction: 'horizontal',
+                    loop: true,
+                    spaceBetween: 24,
+                    slidesPerView: 4,
+
+                    // If we need pagination
+                    pagination: {
+                        el: '.swiper-pagination',
+                    },
+
+                    // Navigation arrows
+                    navigation: {
+                        nextEl: '.swiper-button-next',
+                        prevEl: '.swiper-button-prev',
+                    },
+
+                    // And if we need scrollbar
+                    scrollbar: {
+                        el: '.swiper-scrollbar',
+                    },
+                });
             </script>
     </body>
 </html>

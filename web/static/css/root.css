@@ -1,18 +1,38 @@
 @keyframes FadeIn {
+  0% {
+    opacity: 0;
+  }
 
-    0% {
-        opacity: 0;
-    }
-    
-    100% {
-        opacity: 1;
-    }
+  100% {
+    opacity: 1;
+  }
 }
 
 .fade-in {
-    animation: FadeIn 0.3s ease-in-out;
+  animation: FadeIn 0.3s ease-in-out;
 }
 
 .dashboard__sider {
-	min-height: calc(100vh - 70px);
+  min-height: calc(100vh - 70px);
+}
+
+.swiper {
+  height: 480px;
+}
+
+.dashboard__container_admin {
+  position: relative;
+}
+
+.dashboard__container_admin > aside {
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  height: 100%;
+}
+
+.carousel-item {
+  background-repeat: no-repeat;
+  background-size: cover;
 }

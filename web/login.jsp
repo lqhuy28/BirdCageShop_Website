@@ -42,10 +42,11 @@
                     <div class="forgot">
                         <a href="#"> Quên mật khẩu?</a>
                     </div>
+                    
+                    <button type="submit" name="action" class="register" value="Login"> Đăng nhập </button>
                     <div class="error_message">
                         ${requestScope.ERROR}
                     </div>
-                    <button type="submit" name="action" class="register" value="Login"> Đăng nhập </button>
                 </form>
                 <div class="noLogin">
                     Chưa có tài khoản? <a href="register.jsp">Đăng ký</a>

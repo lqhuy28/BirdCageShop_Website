@@ -25,6 +25,7 @@ public class LoginController extends HttpServlet {
     private static final String DASHBOARD = "dashboard.jsp";
     private static final String US = "User";
     private static final String AD = "Admin";
+    private static final String T = "1";
    protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
@@ -38,11 +39,12 @@ public class LoginController extends HttpServlet {
                 request.setAttribute("ERROR", "Tên đăng nhập hoặc mật khẩu không đúng !");
             } else {
                 String roleID = loginUser.getRoleID();
+                String status = loginUser.getStatus();
                 HttpSession session = request.getSession();
                 if (AD.equals(roleID)) {
                     session.setAttribute("LOGIN_USER", loginUser);
                     url = DASHBOARD;
-                } else if (US.equals(roleID)) {
+                } else if (US.equals(roleID) && T.equalsIgnoreCase(status)) {
                     session.setAttribute("LOGIN_USER", loginUser);
                     url = HOMEPAGE;
                 } else {

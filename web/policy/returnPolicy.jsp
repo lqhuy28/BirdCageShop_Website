@@ -12,7 +12,8 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Document</title>
-        <link rel="stylesheet" href="../static/bootstrap/css/bootstrap.min.css">
+        <link rel="stylesheet" href="../static/bootstrap/css/bootstrap.min.css"/>
+        <link rel="stylesheet" href="../static/css/index.css"/>
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
 
         <!-- font awesome cnd link -->
@@ -24,7 +25,7 @@
     <body>
         <!-- start header -->
        <div class="content">
-        <jsp:include page="header.jsp" />
+       <jsp:include page="../header.jsp" />
         <!-- end header -->
  <!-- start main -->
    <div class="row row-main">

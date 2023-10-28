@@ -65,7 +65,7 @@ public class OrderController extends HttpServlet {
         OrderDAO od = new OrderDAO();
         try {
             String orderId = request.getParameter("orderId");
-            od.deleteOrder(orderId);
+            od.changeOrderStatus(orderId);
             HttpSession session = request.getSession();
             User u = (User) session.getAttribute("LOGIN_USER");
 

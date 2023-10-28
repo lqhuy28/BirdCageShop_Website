@@ -31,6 +31,7 @@
                     <thead>
                         <tr>
                             <th class="text-center">Mã đơn hàng</th>
+                            <th class="text-center">Loại lồng</th>
                             <th class="text-center">Ngày đặt hàng</th>
                             <th class="text-center">Số điện thoại</th>
                             <th class="text-center">Địa chỉ</th>
@@ -46,14 +47,17 @@
                         %>
                         <tr>
                             <td class="text-center text-lg text-medium"><%=o.getOrderID()%></td>
+                            <td class="text-center text-lg text-medium"><%=o.getCageName()%></td>
                             <td class="text-center text-lg text-medium"><%=o.getOrderDate()%></td>   
                             <td class="text-center text-lg text-medium"><%=o.getPhone()%></td>
                             <td class="text-center text-lg text-medium"><%=o.getAddress()%></td>
                             <td class="text-center text-lg text-medium"><%=o.getShipCost()%></td>
                             <td class="text-center text-lg text-medium"><%=o.getTotal()%></td>
-                            <td class="text-center text-lg text-medium"><%=o.isStatus() ? "Đã thanh toán" : "Chưa thanh toán"%></td>
-                            <td class="text-center text-lg text-medium"><a href="DetailOrder?orderId=<%=o.getOrderID()%>"><i class="fa-solid fa-eye" style="color: red;"></i></a></td>
+                            <td class="text-center text-lg text-medium"><%=o.isStatus() ? "Chưa thanh toán" : "Đã hủy"%></td>
+                            <td class="text-center text-lg text-medium"><a href="DetailOrder?orderId=<%=o.getOrderID()%>&cageId=<%=o.getCageID()%>"><i class="fa-solid fa-eye" style="color: red;"></i></a></td>
+                            <% if(o.isStatus()==true){%>
                             <td class="text-center text-lg text-medium"><a href="OrderController?orderId=<%=o.getOrderID()%>">Hủy Đơn Hàng</a></td>
+                            <% } %>
                         </tr>
                         <% }%>
                     </tbody>

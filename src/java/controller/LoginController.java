@@ -58,7 +58,10 @@ public class LoginController extends HttpServlet {
 //            response.sendRedirect(url);
             if(url == HOMEPAGE ){
                 response.sendRedirect("MainController");
-            }else{
+            }else if(url==DASHBOARD){
+                response.sendRedirect("DashboardController");
+            }
+            else{
                 request.getRequestDispatcher(url).forward(request, response);
             }
             

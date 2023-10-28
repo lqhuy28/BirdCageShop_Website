@@ -148,11 +148,11 @@
                                         <th scope="col">STT</th>
                                         <th scope="col">Tên đăng nhập</th>
                                         <th scope="col">Tên người dùng</th>
-                                        <th scope="col">Mật khẩu</th>
                                         <th scope="col">Số điện thoại</th>
                                         <th scope="col">Email</th>
                                         <th scope="col">Địa chỉ</th>
                                         <th scope="col">Chức vụ</th>
+                                        <th scope="col">Trạng thái</th>
                                         <th scope="col">Chức năng</th>
                                     </tr>
                                 </thead>
@@ -162,11 +162,11 @@
                                             <td><%= count++%></td>
                                             <td>${x.userID}</td>
                                             <td>${x.fullName}</td>
-                                            <td>${x.password}</td>
                                             <td>${x.phone}</td>
                                             <td>${x.email}</td>
                                             <td>${x.address}</td>
                                             <td>${x.roleID}</td>
+                                            <td>${x.status}</td>
                                             <td>
                                                 <div class="btn-group">
                                                     <a href="updateUser?userID=${x.userID}" class="btn btn-success"><i class="fa-solid fa-file-pen"></i></a>

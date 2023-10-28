@@ -48,6 +48,9 @@
                     <div class="form-control agileinfo">	
                         <input type="password" class="lock" name="password" placeholder="Mật khẩu" id="password" required="">
                     </div>	
+                    <div class="error_message">
+                        <%=userError.getPasswordError()%>
+                    </div>
 
                     <div class="form-control agileinfo">	
                         <input type="password" class="lock" name="confirm" placeholder="Nhập lại mật khẩu" id="password" required="">

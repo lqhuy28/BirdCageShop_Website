@@ -1,0 +1,101 @@
+/*
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css to edit this template
+*/
+/* 
+    Created on : Oct 28, 2023, 2:32:38 AM
+    Author     : QUANG HUY
+*/
+h2 {
+    text-align: center;
+    color: #333;
+    padding: 20px 0px;
+}
+
+/* Style for the product container */
+.container {
+    margin: 20px;
+}
+
+
+
+.col-md-5{
+    border: 1px solid gray;
+    padding: auto;
+    margin-left: 110px;
+    padding: 20px 20px;
+
+}
+
+/* Style for the product details */
+.pro-img-details {
+    text-align: center;
+}
+
+/* Style for the product title */
+.pro-d-title {
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+    text-align: center;
+}
+
+/* Style for the rating and price container */
+.rate-container {
+    text-align: center;
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Style for the star rating */
+.star-rating {
+    font-size: 20px;
+    color: gold;
+}
+
+/* Style for the product description */
+.detail-price {
+    text-align: center;
+}
+
+/* Style for the old and current prices */
+.amount-old {
+    text-decoration: line-through;
+    color: #888;
+}
+
+.pro-price {
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+}
+
+/* Style for the product description */
+p {
+    font-size: 16px;
+    color: #333;
+}
+
+/* Style for the table */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    border: 1px solid #333;
+    margin-top: 10px;
+}
+
+/* Style for table headers */
+th {
+    background-color: #333;
+    color: white;
+    text-align: center;
+
+}
+
+/* Style for table cells */
+td {
+    padding: 5px;
+    text-align: center;
+}

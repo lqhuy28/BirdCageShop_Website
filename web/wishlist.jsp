@@ -12,11 +12,18 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Sản phẩm yêu thích</title>
+        <link rel="stylesheet" href="static/bootstrap/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.0.2/css/bootstrap.min.css">
+        <!-- font awesome cnd link -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+        <!-- css link -->
         <link rel="stylesheet" href="static/css/wishlist.css">
         <link rel="stylesheet" href="static/css/root.css">
 
     </head>
     <body class="fade-in">
+        <jsp:include page="header.jsp"/>
         <div class="cart-wrap">
             <div class="container">
                 <div class="row">
@@ -65,5 +72,6 @@
                 </div>
             </div>
         </div>
+        <jsp:include page="footer.jsp"/>
     </body>
 </html>

@@ -4,6 +4,9 @@
     Author     : HOANGDUC
 --%>
 
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
+
 <%@page import="model.Wishlist"%>
 <%@page import="model.Cart"%>
 <%@page import="java.util.List"%>
@@ -88,10 +91,9 @@
                                 <li><a href="policy/IntroduceShop.jsp">Giới thiệu</a></li>
                                 <li><a href="#">Sản phẩm </a>
                                     <ul class="header__menu__dropdown">
-                                        <li><a href="">Lồng chim gỗ</a></li>
-                                        <li><a href="">Lồng chim gỗ trắc</a></li>
-                                        <li><a href="">Lồng chim gỗ hương</a></li>
-                                        <li><a href="">Lồng chim Làm từ Tre </a></li>
+                                        <c:forEach items ="${listCC}" var ="o">
+                                        <li><a href="category?cid=${o.categoryID}">${o.categoryName}</a></li>
+                                        </c:forEach>
                                     </ul>
                                 </li>
                                 <li><a href="">Blog</a></li>

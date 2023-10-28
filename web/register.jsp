@@ -63,7 +63,10 @@
                     </div> 
                     <div class="form-control agileinfo">	
                         <input type="number" class="lock" name="phone" placeholder="Số điện thoại" id="password" required="">
-                    </div>	
+                    </div>
+                    <div class="error_message">
+                        <%=userError.getPhoneError()%>
+                    </div> 
 
                     <div class="form-control agileinfo">	
                         <input type="text" class="lock" name="email" placeholder="Email" id="password" required="">
@@ -80,6 +83,9 @@
                     </div> 
                     <div class="form-control agileinfo">	
                         <input type="text" class="lock" name="roleID" value="User" hidden="" readonly="">
+                    </div>
+                    <div class="form-control agileinfo">	
+                        <input type="text" class="lock" name="status" value="1" hidden="" readonly="">
                     </div>
 
                     <button type="submit" name="action" class="register" value="Register"> Đăng ký </button>

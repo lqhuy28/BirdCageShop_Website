@@ -184,7 +184,7 @@ public class UserDAO {
                 ptm.setString(5, user.getEmail());
                 ptm.setString(6, user.getAddress());
                 ptm.setString(7, user.getRoleID());
-                ptm.setString(7, user.getStatus());
+                ptm.setString(8, user.getStatus());
                 check = ptm.executeUpdate() > 0 ? true : false;
             }
         } catch (Exception e) {

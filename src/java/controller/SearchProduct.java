@@ -25,8 +25,8 @@ import model.ProductDTO;
 @WebServlet(name = "SearchProduct", urlPatterns = {"/search"})
 public class SearchProduct extends HttpServlet {
 
-    private static final String ERROR = "homePage.jsp";
-    private static final String SUCCESS = "homePage.jsp";
+    private static final String ERROR = "category.jsp";
+    private static final String SUCCESS = "category.jsp";
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {

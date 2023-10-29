@@ -24,59 +24,59 @@
     </head>
     <body class="fade-in">
         <jsp:include page="header.jsp"/>
-        <div class="cart-wrap">
-            <div class="container">
-                <div class="row">
-                    <div>
-                        <%
-                            List<Wishlist> wishlist = (List<Wishlist>) session.getAttribute("wishlist");
-                        %>
-                        <div class="container mt-3">
-                            <h2>Danh sách yêu thích </h2>
-                            <% if (wishlist == null) { %>
-                            <div class="cart__container">
-                                Danh sách yêu thích không có sản phẩm
-                            </div>
-                            <% } %>
-                        </div>
-                        <div class="padding-bottom-3x my-3 container cart__container" >
-            <!-- Shopping Cart-->
-            <div class="table-responsive shopping-cart">
-                <table class="table">
-                    <thead>
-                        <tr>
-                            <th>Sản phẩm</th>
-                            <th class="text-center">Đơn giá</th>
-                            <th class="text-center">Tình trạng </th>
-                            <th class="text-center"><a class="btn btn-sm btn-outline-danger" href="RemoveCart?action=deleteAll">Xóa tất cả</a></th>
-                        </tr>
-                    </thead>
-                                <tbody>
-                                    <% if (wishlist != null) {
-                                            for (Wishlist w : wishlist) {
-                                    %>
-                                    <tr>
-                                        <td>
-                                            <div class="product-item">
-                                                <a class="product-thumb" href="#"><img src="<%= w.getImage()%>" alt="Product"></a>
-                                                <div class="product-info">
-                                                    <h4 class="product-title"><a href="#"><%= w.getCageName()%></a></h4><span><em>Mã: </em>id</span>
-                                                </div>
-                                            </div>
-                                        </td>
-                                        <td class="text-center text-lg text-medium"><%=w.getPrice()%></td>
-                                        <td class="text-center text-lg text-medium"><span>Còn hàng</span></td>
-                                        <td class="text-center text-lg text-medium"><i class="fa fa-shopping-cart"></i></td>
-                                    </tr>
-                                    <% }
-                                        }%>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
+
+        <div>
+            <%
+                List<Wishlist> wishlist = (List<Wishlist>) session.getAttribute("wishlist");
+            %>
+            <div class="container mt-3">
+                <h2>Danh sách yêu thích </h2>
+                <% if (wishlist == null) { %>
+                <div class="cart__container">
+                    Danh sách yêu thích trống
+                </div>
+                <% } %>
+            </div>
+            <% if (wishlist != null) { %>
+            <div class="padding-bottom-3x my-3 container cart__container" >
+                <!-- Shopping Cart-->
+                <div class="table-responsive shopping-cart">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Sản phẩm</th>
+                                <th class="text-center">Đơn giá</th>
+                                <th class="text-center">Tình trạng </th>
+                                <th class="text-center">Chức năng</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <% if (wishlist != null) {
+                                    for (Wishlist w : wishlist) {
+                            %>
+                            <tr>
+                                <td>
+                                    <div class="product-item">
+                                        <a class="product-thumb" href="#"><img src="<%= w.getImage()%>" alt="Product"></a>
+                                        <div class="product-info">
+                                            <h4 class="product-title"><a href="#"><%= w.getCageName()%></a></h4><span><em>Mã: </em><%= w.getCageId()%></span>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td class="text-center text-lg text-medium"><%=w.getPrice()%></td>
+                                <td class="text-center text-lg text-medium"><span>Còn hàng</span></td>
+                                <td class="text-center">
+                                    <a class="remove-from-cart" href="#"><i class="fa fa-shopping-cart"></i></a>
+                                </td>                            
+                            </tr>
+                            <% }
+                                    }%>
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </div>
+        <% }%>
         <jsp:include page="footer.jsp"/>
     </body>
 </html>

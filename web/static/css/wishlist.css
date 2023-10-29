@@ -73,7 +73,7 @@ h2 {
 .wishlist-table .remove-from-cart,
 .order-table .remove-from-cart {
   display: inline-block;
-  color: #ff5252;
+  color: #FFC107;
   font-size: 18px;
   line-height: 1;
   text-decoration: none;

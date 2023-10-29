@@ -30,114 +30,115 @@
                              Thiết kế lồng chim theo yêu cầu 
                         </h3>
                     </div>
-                    <div class="col-md-6 ">
-                        
-                        <form action="OrderRequest" method="post">
-                            <div class="selectcage add-material">
-                                <strong class='form-title '>Chọn Loại Lồng:</strong>
-                                <select class="form-control" name="cageType" id="cageType">
-                                    <option value="" selected disabled>Loại lồng...</option>
-                                    <option value="CageType1">Lồng tre</option>
-                                    <option value="CageType2">Lồng sắt</option>
-                                    <option value="CageType3">Lồng gỗ</option>
-                                </select>
-                                <div class="materialSuggestion mt-3" id="materialSuggestion" style="display: none;">
-                                    <strong>Gợi ý số liệu thiết kế:</strong>
-                                    <ul id="suggestedMaterials" class="mt-2"></ul>
-                                </div>
-                            </div>
-                            <div class="quantitycage mt-3 add-material">
-                                    <strong class="form-title">Số lượng lồng cần thiết kế: </strong>
-                                    <div class="detail-quantity ">
-                                                <button type="button" id="add-quantity">
-                                                    <i class="fa fa-plus" aria-hidden="true"></i>
-                                                </button>
-                                                <input class="form-control" type="number" value="1" name="cageQuantity" id="cageQuantity" required />
-                                                <button type="button" id="minus-quantity">
-                                                    <i class="fa fa-minus" aria-hidden="true"></i>
-                                                </button>
-                                    </div>
-                            </div>
-                            <div class="mt-3 add-material">
-                                <h5  class="form-title">CUNG CẤP NGUYÊN LIỆU</h5> 
-                                <div class="selectmate">
-                                    <strong>Chọn Nguyên Liệu:</strong>
-                                    <select class="form-control mt-2" name="material" id="material">
-                                        <option value="" selected disabled>Nguyên liệu...</option>
-                                        <% for (Material m : list) {
-                                                int price = (int) m.getPrice();
-                                        %> 
-                                        <option value="<%=m.getMaterialName()%>-<%=price%>">
-                                            <%=m.getMaterialName()%> - <span id="materialPrice"><%=price%></span> VND</option>
-                                            <% }%>
+                    <form action="OrderRequest" method="post">
+                        <div class="row">
+                        <div class="col-md-6 ">
+                                <div class="selectcage add-material">
+                                    <strong class='form-title '>Chọn Loại Lồng:</strong>
+                                    <select class="form-control" name="cageType" id="cageType">
+                                        <option value="" selected disabled>Loại lồng...</option>
+                                        <option value="CageType1">Lồng tre</option>
+                                        <option value="CageType2">Lồng sắt</option>
+                                        <option value="CageType3">Lồng gỗ</option>
                                     </select>
-                                </div>
-                                <div class="quantitymate mt-3">
-                                    <strong>Số lượng:</strong>
-                                     <div class="detail-quantity mt-2 ">
-                                                <button type="button" id="me-add-quantity">
-                                                    <i class="fa fa-plus" aria-hidden="true"></i>
-                                                </button>
-                                                <input class="form-control" type="number" value="1" name="quantity" id="quantity" required />
-                                                <button type="button" id="me-minus-quantity">
-                                                    <i class="fa fa-minus" aria-hidden="true"></i>
-                                                </button>
+                                    <div class="materialSuggestion mt-3" id="materialSuggestion" style="display: none;">
+                                        <strong>Gợi ý số liệu thiết kế:</strong>
+                                        <ul id="suggestedMaterials" class="mt-2"></ul>
                                     </div>
-                                   
                                 </div>
-                                <div class="mt-3 button-addmate">
-                                    <button id="add" class="btn btn-danger">
-                                    <i class="fa fa-plus" aria-hidden="true"></i>
-                                    Thêm Nguyên Liệu</button>
+                                <div class="quantitycage mt-3 add-material">
+                                        <strong class="form-title">Số lượng lồng cần thiết kế: </strong>
+                                        <div class="detail-quantity ">
+                                                    <button type="button" id="add-quantity">
+                                                        <i class="fa fa-plus" aria-hidden="true"></i>
+                                                    </button>
+                                                    <input class="form-control" type="number" value="1" name="cageQuantity" id="cageQuantity" required />
+                                                    <button type="button" id="minus-quantity">
+                                                        <i class="fa fa-minus" aria-hidden="true"></i>
+                                                    </button>
+                                        </div>
                                 </div>
-                            </div>
-                    </div>
-                    
+                                <div class="mt-3 add-material">
+                                    <h5  class="form-title">CUNG CẤP NGUYÊN LIỆU</h5> 
+                                    <div class="selectmate">
+                                        <strong>Chọn Nguyên Liệu:</strong>
+                                        <select class="form-control mt-2" name="material" id="material">
+                                            <option value="" selected disabled>Nguyên liệu...</option>
+                                            <% for (Material m : list) {
+                                                    int price = (int) m.getPrice();
+                                            %> 
+                                            <option value="<%=m.getMaterialName()%>-<%=price%>">
+                                                <%=m.getMaterialName()%> - <span id="materialPrice"><%=price%></span> VND</option>
+                                                <% }%>
+                                        </select>
+                                    </div>
+                                    <div class="quantitymate mt-3">
+                                        <strong>Số lượng:</strong>
+                                         <div class="detail-quantity mt-2 ">
+                                                    <button type="button" id="me-add-quantity">
+                                                        <i class="fa fa-plus" aria-hidden="true"></i>
+                                                    </button>
+                                                    <input class="form-control" type="number" value="1" name="quantity" id="quantity" required />
+                                                    <button type="button" id="me-minus-quantity">
+                                                        <i class="fa fa-minus" aria-hidden="true"></i>
+                                                    </button>
+                                        </div>
 
-                    <div class="col-md-6 ">
-                        <div class="material">
-                            <div class="form-title">
-                               TÓM TẮT ĐƠN HÀNG
-                            </div>
-                            <div class="mat-tab">
-                                <table class="table table-bordered">
-                                    <thead>
-                                        <tr>
-                                            <th>Tên nguyên liệu</th>
-                                            <th>Số lượng</th>
-                                            <th>Thành tiền </th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                    </tbody>
-                                </table>
-                            </div>
-                            <div class="note">
-                                <strong>Ghi chú:</strong>
-                                <textarea class="form-control" type="text" name="description" placeholder="Nhập ghi chú của bạn" rows="4" id="des" required></textarea>
-                            </div>
-                            <div class="checkout">
-                                <p class="checkout-item">
-                                    <span class="money">Tiền công:</span>
-                                    <span>
-                                        <span id="ship">100000</span> VND
-                                    </span>
-                                </p>
-                                <p class="checkout-item">
-                                    <span class="money">Thành tiền:</span> 
-                                    <span>
-                                        <span id="total"></span> VND
-                                    </span>
-                                </p>
-                            </div>
+                                    </div>
+                                    <div class="mt-3 button-addmate">
+                                        <button id="add" class="btn btn-danger">
+                                        <i class="fa fa-plus" aria-hidden="true"></i>
+                                        Thêm Nguyên Liệu</button>
+                                    </div>
+                                </div>
+                        </div>
 
-                            <input type="hidden" id="totalPrice" name="totalPrice">
-                            <input type="hidden" id="shipCost" name="shipCost">
 
-                            <div class="sendrequest">  
-                                <button type="submit" id="checkout" class="btn btn-success ">
-                                <i class="fa fa-check" aria-hidden="true"></i>
-                                Gửi yêu cầu</button>
+                        <div class="col-md-6 ">
+                            <div class="material">
+                                <div class="form-title">
+                                   TÓM TẮT ĐƠN HÀNG
+                                </div>
+                                <div class="mat-tab">
+                                    <table class="table table-bordered">
+                                        <thead>
+                                            <tr>
+                                                <th>Tên nguyên liệu</th>
+                                                <th>Số lượng</th>
+                                                <th>Thành tiền </th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div class="note">
+                                    <strong>Ghi chú:</strong>
+                                    <textarea class="form-control" type="text" name="description" placeholder="Nhập ghi chú của bạn" rows="4" id="des" required></textarea>
+                                </div>
+                                <div class="checkout">
+                                    <p class="checkout-item">
+                                        <span class="money">Tiền công:</span>
+                                        <span>
+                                            <span id="ship">100000</span> VND
+                                        </span>
+                                    </p>
+                                    <p class="checkout-item">
+                                        <span class="money">Thành tiền:</span> 
+                                        <span>
+                                            <span id="total"></span> VND
+                                        </span>
+                                    </p>
+                                </div>
+
+                                <input type="hidden" id="totalPrice" name="totalPrice">
+                                <input type="hidden" id="shipCost" name="shipCost">
+
+                                <div class="sendrequest">  
+                                    <button type="submit" id="checkout" class="btn btn-success ">
+                                    <i class="fa fa-check" aria-hidden="true"></i>
+                                    Gửi yêu cầu</button>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -195,50 +196,58 @@
             });
 
             checkoutBtn.addEventListener('click', function () {
+                let msg = "";
                 document.querySelectorAll('table td:first-child').forEach(item => {
                     if (item.textContent === "móc") {
                         const hangerQuantity = parseInt(item.parentNode.querySelector('td:nth-child(2)').textContent);
-                        //console.log(""+"---"+);
-                        console.log(parseInt(document.getElementById("span1").textContent));
                         if (hangerQuantity < parseInt(document.getElementById("span1").textContent)) {
-                            alert("Số móc phải đạt tối thiểu!");
-                            event.preventDefault();
+//                            alert("Số móc phải đạt tối thiểu!");
+                            msg += "móc ";
+//                            event.preventDefault();
                         }
                     } else if (item.textContent === "trụ") {
                         const hangerQuantity = parseInt(item.parentNode.querySelector('td:nth-child(2)').textContent);
                         if (hangerQuantity < parseInt(document.getElementById("span2").textContent)) {
-                            alert("Số trụ phải đạt tối thiểu!");
-                            event.preventDefault();
+//                            alert("Số trụ phải đạt tối thiểu!");
+                            msg += "trụ ";
+//                            event.preventDefault();
                         }
                     } else if (item.textContent === "nan") {
                         const hangerQuantity = parseInt(item.parentNode.querySelector('td:nth-child(2)').textContent);
                         if (hangerQuantity < parseInt(document.getElementById("span3").textContent)) {
-                            alert("Số nan phải đạt tối thiểu!");
-                            event.preventDefault();
+//                            alert("Số nan phải đạt tối thiểu!");
+                            msg += "nan ";
+//                            event.preventDefault();
                         }
                     } else if (item.textContent === "đáy") {
                         const hangerQuantity = parseInt(item.parentNode.querySelector('td:nth-child(2)').textContent);
                         if (hangerQuantity < parseInt(document.getElementById("span4").textContent)) {
-                            alert("Số đáy phải đạt tối thiểu!");
-                            event.preventDefault();
+//                            alert("Số đáy phải đạt tối thiểu!");
+                            msg += "đáy ";
+//                            event.preventDefault();
                         }
-                    } else if (item.textContent === "cửa") {
+                    } else if (item.textContent === "cửa") { 
                         const hangerQuantity = parseInt(item.parentNode.querySelector('td:nth-child(2)').textContent);
                         if (hangerQuantity < parseInt(document.getElementById("span5").textContent)) {
-                            alert("Số cửa phải đạt tối thiểu!");
-                            event.preventDefault();
+//                            alert("Số cửa phải đạt tối thiểu!");
+                            msg += "cửa ";
+//                            event.preventDefault();
                         }
                     } else if (item.textContent === "cốc") {
                         const hangerQuantity = parseInt(item.parentNode.querySelector('td:nth-child(2)').textContent);
                         if (hangerQuantity < parseInt(document.getElementById("span6").textContent)) {
-                            alert("Số cốc phải đạt tối thiểu!");
-                            event.preventDefault();
+//                            alert("Số cốc phải đạt tối thiểu!");
+                            msg += "cốc ";
+//                            event.preventDefault();
                         }
                     }
                 });
-                console.log(quantityChange.value);
+                if(msg !== ""){
+                    alert(msg + ": not enough quantity");
+                    event.preventDefault();
+                }
                 if (quantityChange.value === null) {
-                    alert("Missing Cage Quantity");
+                    alert("Vui lòng cung cấp số lượng lồng!");
                     event.preventDefault();
                 }
             });
@@ -264,11 +273,26 @@
                     existingRow.querySelector('td:last-child').textContent = total;
                 } else {
                     const total = quantity * price;
+                    let matName = "";
+                    if(material==="trụ"){
+                        matName="tru";
+                    }else if(material==="móc"){
+                        matName="moc";
+                    }else if(material==="đáy"){
+                        matName="day";
+                    }else if(material==="cửa"){
+                        matName="cua";
+                    }else if(material==="nan"){
+                        matName="nan";
+                    }else if(material==="cốc"){
+                        matName="coc";
+                    }
                     tableBody.innerHTML += "<tr>" +
                             "<td>" + material + "</td>" +
                             "<td>" + quantity + "</td>" +
                             "<td>" + total + "</td>" +
-                            "</tr>";
+                            "</tr>"+
+                            "<input type="+"hidden"+" name="+matName+" value="+quantity+">";
                 }
                 calculateTotal();
             });
@@ -330,8 +354,6 @@
                     quantityInput3.value = parseInt(quantityInput3.value) - 1;
                 }
             });
-
-
         </script>
     </body>
 </html>

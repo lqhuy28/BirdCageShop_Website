@@ -35,7 +35,7 @@
             <h2>Giỏ hàng</h2>
             <% if (cart == null) { %>
             <div class="cart__container">
-                Giỏ hàng trống
+                < GIỎ HÀNG TRỐNG >
             </div>
             <% } %>
         </div>

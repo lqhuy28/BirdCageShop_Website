@@ -301,5 +301,8 @@ h2 {
 }
 
 .cart__container {
-  min-height: calc(100vh - 564px);
+    min-height: calc(100vh - 564px);
+    text-align: center;
+    color: red;
+    font-weight: bold;
 }

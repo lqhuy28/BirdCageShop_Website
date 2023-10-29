@@ -49,12 +49,12 @@
                                 <div class="quantitycage mt-3 add-material">
                                         <strong class="form-title">Số lượng lồng cần thiết kế: </strong>
                                         <div class="detail-quantity ">
-                                                    <button type="button" id="add-quantity">
-                                                        <i class="fa fa-plus" aria-hidden="true"></i>
-                                                    </button>
-                                                    <input class="form-control" type="number" value="1" name="cageQuantity" id="cageQuantity" required />
                                                     <button type="button" id="minus-quantity">
                                                         <i class="fa fa-minus" aria-hidden="true"></i>
+                                                    </button>
+                                                    <input class="form-control" type="number" value="1" name="cageQuantity" id="cageQuantity" required />
+                                                    <button type="button" id="add-quantity">
+                                                        <i class="fa fa-plus" aria-hidden="true"></i>
                                                     </button>
                                         </div>
                                 </div>
@@ -75,12 +75,12 @@
                                     <div class="quantitymate mt-3">
                                         <strong>Số lượng:</strong>
                                          <div class="detail-quantity mt-2 ">
-                                                    <button type="button" id="me-add-quantity">
-                                                        <i class="fa fa-plus" aria-hidden="true"></i>
-                                                    </button>
-                                                    <input class="form-control" type="number" value="1" name="quantity" id="quantity" required />
                                                     <button type="button" id="me-minus-quantity">
                                                         <i class="fa fa-minus" aria-hidden="true"></i>
+                                                    </button>
+                                                    <input class="form-control" type="number" value="1" name="quantity" id="quantity" required />
+                                                    <button type="button" id="me-add-quantity">
+                                                        <i class="fa fa-plus" aria-hidden="true"></i>
                                                     </button>
                                         </div>
 

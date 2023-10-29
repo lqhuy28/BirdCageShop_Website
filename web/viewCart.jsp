@@ -66,7 +66,6 @@
 
                                     String formattedPrice = nf.format(price);
                                     String formattedTotalPrice = nf.format(totalPrice);
-
                                     total += totalPrice;
                         %>
                         <tr>
@@ -81,13 +80,13 @@
                             <td class="text-center text-lg text-medium  ">
                                 <div class="detail-quantity-container ">
                                     <div class="detail-quantity">
-                                        <button type="button" id="add-quantity">
-                                            <i class="fa fa-plus" aria-hidden="true"></i>
+                                       <button type="button" id="minus-quantity">
+                                            <i class="fa fa-minus" aria-hidden="true"></i>
                                         </button>
                                         <input class="form-control" type="number" value="<%= item.getQuantity()%>" name="quantity" id="numberInput" required="">
                                         <input type="hidden" id="id" name="id" value="<%= item.getCageID()%>">
-                                        <button type="button" id="minus-quantity">
-                                            <i class="fa fa-minus" aria-hidden="true"></i>
+                                         <button type="button" id="add-quantity">
+                                            <i class="fa fa-plus" aria-hidden="true"></i>
                                         </button>
                                     </div>
 
@@ -134,14 +133,14 @@
                 quantityInput2.value = parseInt(quantityInput2.value) + 1;
                 var event = new Event('change');
                 quantityInput2.dispatchEvent(event);
-                window.location.href = "ReloadCart?id="+id.value+"&quantity="+quantityInput2.value;
+                window.location.href = "ReloadCart?id=" + id.value + "&quantity=" + quantityInput2.value;
             });
             minusQuantityBtn.addEventListener('click', function () {
                 if (parseInt(quantityInput2.value) > 1) {
                     quantityInput2.value = parseInt(quantityInput2.value) - 1;
                     var event = new Event('change');
                     quantityInput2.dispatchEvent(event);
-                    window.location.href = "ReloadCart?id="+id.value+"&quantity="+quantityInput2.value;
+                    window.location.href = "ReloadCart?id=" + id.value + "&quantity=" + quantityInput2.value;
                 }
             });
         </script>

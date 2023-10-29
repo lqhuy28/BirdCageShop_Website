@@ -126,17 +126,17 @@ public class OrderRequest extends HttpServlet {
             od.insertOrder(orderID, u.getUserID(), u.getPhone(), u.getAddress(), orderDate, "1", "", shipCost, totalPrice);
 
             for (Material material : list) {
-                if (material.getMaterialName().equals("trụ")) {
+                if (material.getMaterialName().equals("trụ")) {
                     dao.insertMaterialRequest(cageID, material.getMaterialID(), pillar, "");
-                } else if (material.getMaterialName().equals("móc")) {
+                } else if (material.getMaterialName().equals("móc")) {
                     dao.insertMaterialRequest(cageID, material.getMaterialID(), hanger, "");
                 } else if (material.getMaterialName().equals("nan")) {
                     dao.insertMaterialRequest(cageID, material.getMaterialID(), spokes, "");
-                } else if (material.getMaterialName().equals("đáy")) {
+                } else if (material.getMaterialName().equals("đáy")) {
                     dao.insertMaterialRequest(cageID, material.getMaterialID(), bottom, "");
-                } else if (material.getMaterialName().equals("cửa")) {
+                } else if (material.getMaterialName().equals("cửa")) {
                     dao.insertMaterialRequest(cageID, material.getMaterialID(), door, "");
-                } else if (material.getMaterialName().equals("cốc")) {
+                } else if (material.getMaterialName().equals("cốc")) {
                     dao.insertMaterialRequest(cageID, material.getMaterialID(), cup, "");
                 }
             }

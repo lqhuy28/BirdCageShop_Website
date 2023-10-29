@@ -47,7 +47,7 @@
                                     <a href="#"><i class="fa fa-brands fa-telegram" ></i></i></a>
                                 </div>
                                 <div class="header__top__right__language">
-                                    <div>English</div>
+                                    <div>Tiếng Việt</div>
                                     <span class="arrow_carrot-down"></span>
                                     <ul>
                                         <li><a href="#">Tiếng Việt</a></li>

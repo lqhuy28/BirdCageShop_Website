@@ -43,17 +43,17 @@
 
                             <ul>
                                 <h6>VỀ CỬA HÀNG</h6>
-                                <li><a href="#">Trang chủ</a></li>
-                                <li><a href="policy/IntroduceShop.jsp">Giới thiệu</a></li>
-                                <li><a href="#">Liên hệ</a></li>
-                                <li><a href="#">Tin tức</a></li>
+                                <li><i class="fa fa-light fa-forward fa-xs" style="color: #000000;"></i> <a href="MainController">Trang chủ</a></li>
+                                <li><i class="fa fa-light fa-forward fa-xs" style="color: #000000;"></i> <a href="policy/IntroduceShop.jsp">Giới thiệu</a></li>
+                                <li><i class="fa fa-light fa-forward fa-xs" style="color: #000000;"></i> <a href="#">Liên hệ</a></li>
+                                <li><i class="fa fa-light fa-forward fa-xs" style="color: #000000;"></i> <a href="#">Tin tức</a></li>
                             </ul>
                             <h6>CHÍNH SÁCH CHUNG</h6>
                             <ul>
-                                <li><a href="policy/generalPolicy.jsp">Chính Sách Chung </a></li>
-                                <li><a href="policy/buyPolicy.jsp">Chính Sách Mua Hàng</a></li>
-                                <li><a href="policy/returnPolicy.jsp">Chính Sách Đổi Trả</a></li>
-                                <li><a href="policy/privacyPolicy.jsp">Chính Sách Bảo Mật</a></li>
+                                <li><i class="fa fa-light fa-forward fa-xs" style="color: #000000;"></i> <a href="policy/generalPolicy.jsp">Chính Sách Chung </a></li>
+                                <li><i class="fa fa-light fa-forward fa-xs" style="color: #000000;"></i> <a href="policy/buyPolicy.jsp">Chính Sách Mua Hàng</a></li>
+                                <li><i class="fa fa-light fa-forward fa-xs" style="color: #000000;"></i> <a href="policy/returnPolicy.jsp">Chính Sách Đổi Trả</a></li>
+                                <li><i class="fa fa-light fa-forward fa-xs" style="color: #000000;"></i> <a href="policy/privacyPolicy.jsp">Chính Sách Bảo Mật</a></li>
 
                             </ul>
                         </div>

@@ -45,8 +45,8 @@
                         <div class="col-lg-9">
                             <div class="hero__search">
                                 <div class="hero__search__form">
-                                    <form action="#">
-                                        <input type="text" placeholder="Tìm kiếm sản phẩm..." fdprocessedid="5py24">
+                                    <form action="search" method="GET">
+                                        <input type="text" name="search" placeholder="Tìm kiếm sản phẩm..." fdprocessedid="5py24">
                                         <button type="submit" class="site-btn" fdprocessedid="6hi3um">SEARCH</button>
                                     </form>
                                 </div>

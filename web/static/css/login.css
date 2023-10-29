@@ -39,7 +39,7 @@ a {
 }/* text align left */
 .txt-center {
     text-align:center;
-    /*-- W3Layouts --*/	
+    /*-- W3Layouts --*/
 }/* text align center */
 .float-rt {
     float:right;
@@ -56,16 +56,16 @@ a {
 .pos-absolute {
     position:absolute;
 }/* Position Absolute */
-.vertical-base {	
+.vertical-base {
     vertical-align:baseline;
 }/* vertical align baseline */
-.vertical-top {	
+.vertical-top {
     vertical-align:top;
 }/* vertical align top */
-nav.vertical ul li {	
+nav.vertical ul li {
     display:block;
 }/* vertical menu */
-nav.horizontal ul li {	
+nav.horizontal ul li {
     display: inline-block;
 }/* horizontal menu */
 img {
@@ -90,7 +90,7 @@ h1.w3ls {
     color:#fff;
     padding:40px 0;
     text-align:center;
-    /*-- w3layouts --*/ 
+    /*-- w3layouts --*/
     text-transform:uppercase;
     font-weight: bolder;
 }
@@ -142,7 +142,7 @@ input#UserID,input#email,input#password,input#password2 {
     font-size:17px;
     font-weight:200;
     background-color:transparent;
-    /*-- w3layouts --*/ 
+    /*-- w3layouts --*/
     border-bottom:5px solid #fff;
     border-top-color:transparent;
     border-left-color:transparent;
@@ -158,27 +158,27 @@ input#UserID:focus,input#email:focus,input#password:focus,input#password2:focus,
 }
 input::-webkit-input-placeholder {
     color: #fff !important;
-} 
+}
 input:-moz-placeholder { /* Firefox 18- */
-    color: #fff !important;  
-} 
+    color: #fff !important;
+}
 input::-moz-placeholder {  /* Firefox 19+ */
-    color: #fff !important;  
-} 
-input:-ms-input-placeholder {  
-    color: #fff !important;  
+    color: #fff !important;
+}
+input:-ms-input-placeholder {
+    color: #fff !important;
 }
 input:hover::-webkit-input-placeholder {
     color: #3970b0 !important;
-} 
+}
 input:hover:-moz-placeholder { /* Firefox 18- */
-    color:	#3970b0 !important;  
-} 
+    color:	#3970b0 !important;
+}
 input:hover::-moz-placeholder {  /* Firefox 19+ */
-    color: #3970b0 !important;  
-} 
-input:hover:-ms-input-placeholder {  
-    color: #3970b0 !important;  
+    color: #3970b0 !important;
+}
+input:hover:-ms-input-placeholder {
+    color: #3970b0 !important;
 }
 button.register {
     width: 335px;
@@ -215,7 +215,7 @@ button.register {
 }
 
 .forgot a {
-    color: white; 
+    color: white;
     font-size: 15px;
 
 }
@@ -295,19 +295,27 @@ ul.social-agileinfo li a i.fa:hover {
 }
 
 @-webkit-keyframes spin {
-    0% { -webkit-transform: rotate(0deg); }
-    100% { -webkit-transform: rotate(360deg); }
+    0% {
+        -webkit-transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(360deg);
+    }
 }
 
 @keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
 }
 
 /*-- responsive design --*/
 @media (max-width:1600px) {
     h2.agileits1 {
-        padding: 225px 0 15px;	
+        padding: 225px 0 15px;
     }
 }
 
@@ -495,3 +503,93 @@ ul.social-agileinfo li a i.fa:hover {
     }
 }
 
+
+/* toast */
+
+#success-message {
+    position: fixed;
+    top: 32px;
+    right: 20px;
+    z-index: 999999;
+    animation: slideInRight 0.5s ease, slideOutRight 0.5s ease 5s forwards;
+
+}
+
+.toast {
+    display: flex;
+    align-items: center;
+    background-color: #fff;
+    border-radius: 2px;
+    padding: 20px 0;
+    min-width: 400px;
+    max-width: 450px;
+    border-left: 4px solid;
+    box-shadow: 0 5px 8px rgba(0, 0, 0, 0.08);
+    transition: all linear 0.3s;
+}
+
+@keyframes slideInRight {
+    from {
+        opacity: 0;
+        transform: translateX(100%);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideOutRight {
+    from {
+        opacity: 1;
+        transform: translateX(0);
+    }
+    to {
+        opacity: 0;
+        transform: translateX(100%);
+    }
+}
+
+.toast--success {
+    border-color: #47d864;
+}
+
+.toast--success .toast__icon {
+    color: #47d864;
+}
+
+.toast + .toast {
+    margin-top: 24px;
+}
+
+.toast__icon {
+    font-size: 24px;
+}
+
+.toast__icon,
+.toast__close {
+    padding: 0 16px;
+}
+
+.toast__body {
+    flex-grow: 1;
+}
+
+.toast__title {
+    font-size: 16px;
+    font-weight: 600;
+    color: #333;
+}
+
+.toast__msg {
+    font-size: 14px;
+    color: #888;
+    margin-top: 6px;
+    line-height: 1.5;
+}
+
+.toast__close {
+    font-size: 20px;
+    color: rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+}

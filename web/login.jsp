@@ -27,10 +27,22 @@
     <body class="fade-in">
         <!-- Kiểm tra và hiển thị thông báo nếu có -->
         <c:if test="${not empty requestScope.SUCCESS_MESSAGE}">
-            <div style="color: green;">
-                ${requestScope.SUCCESS_MESSAGE}
+            <div id="success-message">
+            <div class="toast toast--success">
+                <div class="toast__icon">
+                    <i class="fas fa-solid fa-circle-check" style="color: #1eff00;"></i>
+                </div>
+                <div class="toast__body">
+                    <h3 class="toast__title">Thành công</h3>
+                    <p class="toast__msg">${requestScope.SUCCESS_MESSAGE}</p>
+                </div>
+                <div class="toast__close">
+                    <i class="fas fa-times"></i>
+                </div>   
             </div>
+        </div>
         </c:if>
+
         <h1 class="w3ls">ĐĂNG NHẬP</h1>
         <div class="content-w3ls">
             <div class="content-agile1">
@@ -67,6 +79,18 @@
             </div>
             <div class="clear"></div>
         </div>
+        <script>
+            // Lấy thẻ div thành công bằng ID
+            var successMessage = document.getElementById('success-message');
 
+            // Nếu thẻ tồn tại, thực hiện hiệu ứng
+            if (successMessage) {
+                // Thiết lập thời gian 5 giây (5000 mili giây) cho hiển thị
+                setTimeout(function () {
+                    // Ẩn thẻ div
+                    successMessage.style.display = 'none';
+                }, 5000);
+            }
+        </script>
     </body>
 </html>

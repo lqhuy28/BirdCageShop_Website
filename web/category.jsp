@@ -62,18 +62,12 @@
                             </div>
 
                             <section class="">
-                                <div class="container-swiper">
-
-                                    <div class="swiper-button-prev"  style="top: 190px;left: -60px;"></div>
-                                    <div class="swiper-button-next" style="top: 190px;right: -60px;"></div>
-                                    <div class="row featured__filter swiper">
-
-                                        <div class="swiper-wrapper">
-
-                                            <c:set var="listS" value="${requestScope.listS}" />
+                                <div class="container">
+                                    <div class="row featured__filter">
+                                           <c:set var="listS" value="${requestScope.listS}" />
                                             <c:forEach items="${listS}" var="x">
                                                 <c:if test="${x.status eq '1'}">
-                                                    <div class="col-lg-3 col-md-4 col-sm-6 swiper-slide">
+                                                    <div class="col-lg-3 col-md-4 col-sm-6">
                                                         <div class="featured__item " data-aos="fade-up">
                                                             <div class="featured__item__pic set-bg">
                                                                 <img src="${x.image}" alt="">
@@ -94,20 +88,12 @@
                                                     </div>
                                                 </c:if>
                                             </c:forEach>
-
-
                                         </div>
-                                    </div>
-
-                                    <!-- If we need navigation buttons -->
-
-
-
+                                    </div>  
                                 </div>
                             </section>
                         </div>
-                    </div>
-            </section>
+                   
             <!-- end hero -->
 
             <jsp:include page="footer.jsp" />

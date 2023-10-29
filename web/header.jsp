@@ -56,7 +56,7 @@
                                 </div>
                                 <div class="header__top__right__auth">
                                     <% if (session.getAttribute("LOGIN_USER") == null) { %>
-                                    <a href="login.jsp"><i class="fa fa-user"></i> Login</a>  
+                                    <a href="login.jsp"><i class="fa fa-user"></i> Đăng nhập</a>  
                                     <% } else { %>
                                     <nav class="header__menu">
                                         <ul>

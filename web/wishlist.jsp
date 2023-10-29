@@ -31,37 +31,42 @@
                         <%
                             List<Wishlist> wishlist = (List<Wishlist>) session.getAttribute("wishlist");
                         %>
-                        <div>Danh sách yêu thích</div>
-                        <div>
-                            <table border="1">
-                                <thead>
-                                    <tr>
-                                        <th>Tên sản phẩm</th>
-                                        <th>Giá</th>
-                                        <th>Tình trạng hàng</th>
-                                        <th>Chức năng</th>
-                                    </tr>
-                                </thead>
+                        <div class="container mt-3">
+                            <h2>Danh sách yêu thích </h2>
+                            <% if (wishlist == null) { %>
+                            <div class="cart__container">
+                                Danh sách yêu thích không có sản phẩm
+                            </div>
+                            <% } %>
+                        </div>
+                        <div class="padding-bottom-3x my-3 container cart__container" >
+            <!-- Shopping Cart-->
+            <div class="table-responsive shopping-cart">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Sản phẩm</th>
+                            <th class="text-center">Đơn giá</th>
+                            <th class="text-center">Tình trạng </th>
+                            <th class="text-center"><a class="btn btn-sm btn-outline-danger" href="RemoveCart?action=deleteAll">Xóa tất cả</a></th>
+                        </tr>
+                    </thead>
                                 <tbody>
                                     <% if (wishlist != null) {
                                             for (Wishlist w : wishlist) {
                                     %>
                                     <tr>
                                         <td>
-                                            <div>
-                                                <a>
-                                                    <div>
-                                                        <img src="<%=w.getImage()%>" style="width: 20%" alt="">
-                                                    </div>
-                                                    <div>
-                                                        <%=w.getCageName()%>
-                                                    </div>
-                                                </a>
+                                            <div class="product-item">
+                                                <a class="product-thumb" href="#"><img src="<%= w.getImage()%>" alt="Product"></a>
+                                                <div class="product-info">
+                                                    <h4 class="product-title"><a href="#"><%= w.getCageName()%></a></h4><span><em>Mã: </em>id</span>
+                                                </div>
                                             </div>
                                         </td>
-                                        <td><%=w.getPrice()%></td>
-                                        <td><span>Còn hàng</span></td>
-                                        <td><a href="#">Thêm vào giỏ hàng</a></td>
+                                        <td class="text-center text-lg text-medium"><%=w.getPrice()%></td>
+                                        <td class="text-center text-lg text-medium"><span>Còn hàng</span></td>
+                                        <td class="text-center text-lg text-medium"><i class="fa fa-shopping-cart"></i></td>
                                     </tr>
                                     <% }
                                         }%>

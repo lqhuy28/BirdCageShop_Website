@@ -184,6 +184,7 @@
                                         <tr>
                                             <th class="text-center">Mã đơn hàng</th>
                                             <th class="text-center">Ngày đặt hàng</th>
+                                            <th class="text-center">Người dùng</th>
                                             <th class="text-center">Số điện thoại</th>
                                             <th class="text-center">Địa chỉ</th>
                                             <th class="text-center">Phí Ship</th>
@@ -199,11 +200,12 @@
                                             <tr>
                                                 <td class="text-center text-lg text-medium"><%=o.getOrderID()%></td>
                                                 <td class="text-center text-lg text-medium"><%=o.getOrderDate()%></td>   
+                                                <td class="text-center text-lg text-medium"><%=o.getUserID()%></td>   
                                                 <td class="text-center text-lg text-medium"><%=o.getPhone()%></td>
                                                 <td class="text-center text-lg text-medium"><%=o.getAddress()%></td>
                                                 <td class="text-center text-lg text-medium"><%=o.getShipCost()%></td>
                                                 <td class="text-center text-lg text-medium"><%=o.getTotal()%></td>
-                                                <td class="text-center text-lg text-medium"><%=o.isStatus() ? "Đã thanh toán" : "Chưa thanh toán"%></td>
+                                                <td class="text-center text-lg text-medium"><%=o.isStatus() ? "Đã hủy" : "Chưa thanh toán"%></td>
                                                 <td class="text-center text-lg text-medium"><a href="DetailOrder?orderId=<%=o.getOrderID()%>"><i class="fa-solid fa-eye" style="color: red;"></i></a></td>
                                             </tr>
 

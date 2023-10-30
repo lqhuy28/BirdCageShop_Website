@@ -1,0 +1,64 @@
+.success__order {
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 80vh;
+    margin: 0;
+}
+
+.logo__success i {
+    font-size: 4em; /* Đặt kích thước mong muốn, ví dụ: 3em */
+    color: #00ff04;
+}
+
+.title__success {
+    margin-top: 30px;
+    margin-bottom: -5px;
+}
+.title__success h2{
+    font-weight: bolder;
+}
+.order__id{
+    margin-top: 10px;
+}
+
+.table__success table {
+    width: 100%;
+    margin-top: 20px;
+    border-collapse: collapse;
+    border: 1px;
+}
+
+.table__success th{
+    background-color: aliceblue;
+}
+
+.table__success th, td {
+    padding: 15px 40px;
+    text-align: center;
+}
+.contact__success{
+    text-align: center;
+    padding-top: 20px;
+    font-weight: bolder;
+}
+.buton__success{
+    padding: 10px;
+    margin: 10px;
+}
+
+.buton__success .btn-success{
+    padding: 10px 10px;
+    border-radius: 15px;
+    margin: 0px 5px;
+    font-weight: bold;
+}
+
+.buton__success .btn-warning{
+    padding: 10px 10px;
+    border-radius: 15px;
+    margin: 0px 5px;
+    font-weight: bold;
+}

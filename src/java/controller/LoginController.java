@@ -36,8 +36,7 @@ public class LoginController extends HttpServlet {
             String password = request.getParameter("password");
             UserDAO dao = new UserDAO();
             User loginUser = dao.checkLogin(userID, password);
-            String roleID = loginUser.getRoleID();
-                String status = loginUser.getStatus();
+            
             if (loginUser != null) {
                 // Đăng nhập thành công
                 HttpSession session = request.getSession();
@@ -45,6 +44,8 @@ public class LoginController extends HttpServlet {
                 
                 // Đặt thông báo thành công vào session
                 session.setAttribute("SUCCESS_MESSAGE", "Đăng nhập thành công!");
+                String roleID = loginUser.getRoleID();
+                String status = loginUser.getStatus();
 
                 if (AD.equals(roleID)) {
                     // Gửi redirect đến trang dashboard.jsp
@@ -57,10 +58,12 @@ public class LoginController extends HttpServlet {
                 } else {
                     // Xử lý khi tài khoản không hợp lệ
                     request.setAttribute("ERROR", "Tài khoản của bạn không được hỗ trợ!");
+                    request.getRequestDispatcher(LOGIN_PAGE).forward(request, response);
                 }
             } else {
                 // Xử lý khi đăng nhập không thành công
                 request.setAttribute("ERROR", "Tên đăng nhập hoặc mật khẩu không đúng !");
+                request.getRequestDispatcher(LOGIN_PAGE).forward(request, response);
             }
         } catch (Exception e) {
             log("Error at LoginController: " + e.toString());

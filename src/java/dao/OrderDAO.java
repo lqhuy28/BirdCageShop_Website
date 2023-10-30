@@ -198,4 +198,29 @@ public class OrderDAO {
         } catch (Exception e) {
         }
     }
+
+    public List<Order> getOrder(Date orderDate) {
+        List<Order> list = new ArrayList<>();
+        String query = "select o.OrderID, o.UserID, o.Phone, o.Address,o.OrderDate,o.ShippingCod, o.Total, o.OrderStatus from tblOrders o\n" +
+"                where o.OrderDate = ?";
+        
+        try {
+            conn = new DBUtils().getConnection();
+            ps = conn.prepareStatement(query);
+            ps.setDate(1, orderDate);
+            rs = ps.executeQuery();
+            while (rs.next()) {
+                list.add(new Order(rs.getString(1),
+                        rs.getString(2),
+                        rs.getString(3),
+                        rs.getString(4),
+                        rs.getDate(5),
+                        rs.getDouble(6),
+                        rs.getDouble(7),
+                        rs.getBoolean(8)));
+            }
+            ps.executeUpdate();
+        } catch (Exception e) {
+        }
+        return list;}
 }

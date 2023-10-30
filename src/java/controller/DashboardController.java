@@ -51,7 +51,9 @@ public class DashboardController extends HttpServlet {
              request.setAttribute("countuser", countUser);
              request.setAttribute("countorder", countOrder);
              request.setAttribute("countorderprice", countOrderPrice);
-             List<Order> list = orderdao.getOrder();
+             java.util.Date currentDate = new java.util.Date();
+             java.sql.Date orderDate = new java.sql.Date(currentDate.getTime());
+             List<Order> list = orderdao.getOrder(orderDate);
              request.setAttribute("listOrder", list);
              request.getRequestDispatcher("dashboard.jsp").forward(request, response);
              }else{

@@ -9,6 +9,7 @@ import dao.UserDAO;
 import model.User;
 import java.io.IOException;
 import java.io.PrintWriter;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -21,8 +22,8 @@ import javax.servlet.http.HttpSession;
  */
 public class LoginController extends HttpServlet {
     private static final String LOGIN_PAGE = "login.jsp";
-    private static final String HOMEPAGE = "homePage.jsp";
-    private static final String DASHBOARD = "dashboard.jsp";
+    private static final String HOMEPAGE = "MainController";
+    private static final String DASHBOARD = "DashboardController";
     private static final String US = "User";
     private static final String AD = "Admin";
     private static final String T = "1";
@@ -35,37 +36,36 @@ public class LoginController extends HttpServlet {
             String password = request.getParameter("password");
             UserDAO dao = new UserDAO();
             User loginUser = dao.checkLogin(userID, password);
-            if (loginUser == null) {
-                request.setAttribute("ERROR", "Tên đăng nhập hoặc mật khẩu không đúng !");
-            } else {
-                String roleID = loginUser.getRoleID();
+            String roleID = loginUser.getRoleID();
                 String status = loginUser.getStatus();
+            if (loginUser != null) {
+                // Đăng nhập thành công
                 HttpSession session = request.getSession();
+                session.setAttribute("LOGIN_USER", loginUser);
+                
+                // Đặt thông báo thành công vào session
+                session.setAttribute("SUCCESS_MESSAGE", "Đăng nhập thành công!");
+
                 if (AD.equals(roleID)) {
-                    session.setAttribute("LOGIN_USER", loginUser);
-                    url = DASHBOARD;
+                    // Gửi redirect đến trang dashboard.jsp
+                    response.sendRedirect(DASHBOARD);
+                    return; // Tránh chạy các câu lệnh tiếp theo
                 } else if (US.equals(roleID) && T.equalsIgnoreCase(status)) {
-                    session.setAttribute("LOGIN_USER", loginUser);
-                    url = HOMEPAGE;
+                    // Gửi redirect đến trang homePage.jsp
+                    response.sendRedirect(HOMEPAGE);
+                    return; // Tránh chạy các câu lệnh tiếp theo
                 } else {
-                    request.setAttribute("ERROR", "Tài khoản của bạn không được hỗ trợ !");
+                    // Xử lý khi tài khoản không hợp lệ
+                    request.setAttribute("ERROR", "Tài khoản của bạn không được hỗ trợ!");
                 }
-                        
+            } else {
+                // Xử lý khi đăng nhập không thành công
+                request.setAttribute("ERROR", "Tên đăng nhập hoặc mật khẩu không đúng !");
             }
         } catch (Exception e) {
             log("Error at LoginController: " + e.toString());
-        } finally {
-//            response.sendRedirect(url);
-            if(url == HOMEPAGE ){
-                response.sendRedirect("MainController");
-            }else if(url==DASHBOARD){
-                response.sendRedirect("DashboardController");
-            }
-            else{
-                request.getRequestDispatcher(url).forward(request, response);
-            }
-            
-        }
+            request.setAttribute("ERROR", "Đã xảy ra lỗi khi đăng nhập!");
+        } 
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

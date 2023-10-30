@@ -1,4 +1,5 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%-- 
     Document   : dashboard
     Created on : Sep 16, 2023, 12:16:34 AM
@@ -20,6 +21,13 @@
         <link rel="stylesheet" href="static/css/root.css">
     </head>
     <body class="fade-in">
+        <!-- Kiểm tra và hiển thị thông báo thành công nếu có -->
+    <c:if test="${not empty sessionScope.SUCCESS_MESSAGE}">
+        <div style="color: green;">
+            ${sessionScope.SUCCESS_MESSAGE}
+        </div>
+    </c:if>
+
         <header>
 
             <div class="logo">

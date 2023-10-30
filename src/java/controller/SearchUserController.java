@@ -37,11 +37,15 @@ public class SearchUserController extends HttpServlet {
             String search = request.getParameter("search");
             UserDAO dao = new UserDAO();
             List<User> list = dao.SearchUser(search);
-        if (list.isEmpty()) {
-            request.setAttribute("ERROR", "User is not found!");
-        }else {
-                session.setAttribute("listU", list);
-                url = SUCCESS;
+            boolean userFound = true;
+            for (User u : list) {
+                if (!userFound) {
+                    request.setAttribute("ERROR", "User is not found!");
+                    userFound = false;
+                } else {
+                    request.setAttribute("listU", list);
+                    url = SUCCESS;
+                }
             }
         } catch (Exception e) {
             log("Error at SearchController: " + e.toString());

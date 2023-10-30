@@ -4,15 +4,18 @@
  */
 package controller;
 
+import dao.OrderDAO;
 import dao.UserDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import model.Order;
 import model.User;
 
 /**
@@ -42,11 +45,14 @@ public class DashboardController extends HttpServlet {
              int countCage = dao.CountCage();
              int countUser = dao.CountUser();
              int countOrder = dao.CountOrder();
+             OrderDAO orderdao = new OrderDAO();
              double countOrderPrice = dao.CountOrderPrice();
              request.setAttribute("countcage", countCage);
              request.setAttribute("countuser", countUser);
              request.setAttribute("countorder", countOrder);
              request.setAttribute("countorderprice", countOrderPrice);
+             List<Order> list = orderdao.getOrder();
+             request.setAttribute("listOrder", list);
              request.getRequestDispatcher("dashboard.jsp").forward(request, response);
              }else{
                 response.sendRedirect("login.jsp");

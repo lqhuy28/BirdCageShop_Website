@@ -1,6 +1,7 @@
 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>   
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -25,6 +26,12 @@
     </head>
     <body class="fade-in">
         <!-- header -->
+         <!-- Kiểm tra và hiển thị thông báo thành công nếu có -->
+    <c:if test="${not empty sessionScope.SUCCESS_MESSAGE}">
+        <div style="color: green;">
+            ${sessionScope.SUCCESS_MESSAGE}
+        </div>
+    </c:if>
 
         <div class="content">
             <!-- Sử dụng thẻ jsp:include để bao gồm header và footer -->

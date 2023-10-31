@@ -205,7 +205,7 @@
                                                 <td class="text-center text-lg text-medium"><%=o.getAddress()%></td>
                                                 <td class="text-center text-lg text-medium"><%=o.getShipCost()%></td>
                                                 <td class="text-center text-lg text-medium"><%=o.getTotal()%></td>
-                                                <td class="text-center text-lg text-medium"><%=o.isStatus() ? "Đã hủy" : "Chưa thanh toán"%></td>
+                                                <td class="text-center text-lg text-medium"><%=o.isStatus() ? "Chưa thanh toán" : "Đã hủy"%></td>
                                                 <td class="text-center text-lg text-medium"><a href="DetailOrder?orderId=<%=o.getOrderID()%>"><i class="fa-solid fa-eye" style="color: red;"></i></a></td>
                                             </tr>
 

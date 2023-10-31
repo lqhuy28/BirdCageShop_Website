@@ -42,6 +42,9 @@
                                 </ul>
                             </div>
                         </div>
+
+
+
                         <div class="col-lg-9">
                             <div class="hero__search">
                                 <div class="hero__search__form">
@@ -64,43 +67,61 @@
                             <section class="">
                                 <div class="container">
                                     <div class="row featured__filter">
-                                           <c:set var="listS" value="${requestScope.listS}" />
-                                            <c:forEach items="${listS}" var="x">
-                                                <c:if test="${x.status eq '1'}">
-                                                    <div class="col-lg-3 col-md-4 col-sm-6">
-                                                        <div class="featured__item " data-aos="fade-up">
-                                                            <div class="featured__item__pic set-bg">
-                                                                <img src="${x.image}" alt="">
+                                        <c:set var="listS" value="${requestScope.listS}" />
+                                        <c:forEach items="${listS}" var="x">
+                                            <c:if test="${x.status eq '1'}">
+                                                <div class="col-lg-3 col-md-4 col-sm-6">
+                                                    <div class="featured__item " data-aos="fade-up">
+                                                        <div class="featured__item__pic set-bg">
+                                                            <img src="${x.image}" alt="">
 
-                                                                <ul class="featured__item__pic__hover">
-                                                                    <!-- ảnh sản phẩm -->
-                                                                    <li><a href="WishlistServlet?id=${x.cageID}&type=home"><i class="fa fa-heart"></i></a></li>
-                                                                    <li><a href="CartController?id=${x.cageID}&quantity=1&type=home"><i class="fa fa-shopping-cart"></i></a></li>
-                                                                    <li><a href="ProductDetail?id=${x.cageID}"><i class="fa-solid fa-circle-info"></i></a></li>
-                                                                </ul>
-                                                            </div>
+                                                            <ul class="featured__item__pic__hover">
+                                                                <!-- ảnh sản phẩm -->
+                                                                <li><a href="WishlistServlet?id=${x.cageID}&type=home"><i class="fa fa-heart"></i></a></li>
+                                                                <li><a href="CartController?id=${x.cageID}&quantity=1&type=home"><i class="fa fa-shopping-cart"></i></a></li>
+                                                                <li><a href="ProductDetail?id=${x.cageID}"><i class="fa-solid fa-circle-info"></i></a></li>
+                                                            </ul>
+                                                        </div>
 
-                                                            <div class="featured__item__text">
-                                                                <h6><a href="#" title="View Product">${x.cageName}</a></h6>
-                                                                <h5>${x.priceNew} VNĐ</h5>
-                                                            </div>
+                                                        <div class="featured__item__text">
+                                                            <h6><a href="#" title="View Product">${x.cageName}</a></h6>
+                                                            <h5>${x.priceNew} VNĐ</h5>
                                                         </div>
                                                     </div>
-                                                </c:if>
-                                            </c:forEach>
-                                        </div>
-                                    </div>  
-                                </div>
-                            </section>
+                                                </div>
+                                            </c:if>
+                                        </c:forEach>
+                                    </div>
+                                </div>  
                         </div>
-                   
-            <!-- end hero -->
 
-            <jsp:include page="footer.jsp" />
-            <!-- end item -->
+                        <div class="hero__categories">
+                            <i class="fa fa-bars"></i>
+                            <span>LỌC THEO KHOẢNG GIÁ</span>
+                        </div>
+                        <div> <form method="post" action="category">
+
+                                <input type="checkbox" name="FilterPrice" value="0-500000" />Từ 0 - 500.000đ
+                                <br>
+                                <input type="checkbox" name="FilterPrice" value="500000-1000000" />Từ 500.000đ - 1.000.000đ
+                                <br>
+                                <input type="checkbox" name="FilterPrice" value="1000000-5000000" />1.000.000đ - 5.000.000đ
+                                <br>
+                                <input type="checkbox" name="FilterPrice" value="5000000-100000000" />Lớn hơn 5.000.000đ
+                                <br>
+                                <input type="submit" value="Tìm kiếm" />
+                            </form>
+                        </div>
+                        </section>
+                    </div>
+
+                    <!-- end hero -->
+
+                    <jsp:include page="footer.jsp" />
+                    <!-- end item -->
 
 
-            <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
-            <script src="static/js/index.js"></script>
-    </body>
-</html>
+                    <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+                    <script src="static/js/index.js"></script>
+                    </body>
+                    </html>

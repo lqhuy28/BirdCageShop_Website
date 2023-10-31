@@ -26,12 +26,12 @@
     </head>
     <body class="fade-in">
         <!-- header -->
-         <!-- Kiểm tra và hiển thị thông báo thành công nếu có -->
-    <c:if test="${not empty sessionScope.SUCCESS_MESSAGE}">
-        <div style="color: green;">
-            ${sessionScope.SUCCESS_MESSAGE}
-        </div>
-    </c:if>
+        <!-- Kiểm tra và hiển thị thông báo thành công nếu có -->
+        <c:if test="${not empty sessionScope.SUCCESS_MESSAGE}">
+            <div style="color: green;">
+                ${sessionScope.SUCCESS_MESSAGE}
+            </div>
+        </c:if>
 
         <div class="content">
             <!-- Sử dụng thẻ jsp:include để bao gồm header và footer -->
@@ -125,95 +125,194 @@
                     <div class="row">
                         <div class="col-lg-12">
                             <div class="section-title">
-                                <h2>SẢN PHẨM BÁN CHẠY</h2>
-                            </div>
-                            <div class="featured__controls">
-                                <ul>
-                                    <li >Lồng chim Khuyên </li>
-                                    <li >Lồng chim Chào mào </li>
-                                    <li >Lồng chim Sâu  </li>
-                                </ul>
+                                <h2> PHỤ KIỆN LỒNG CHIM </h2>
                             </div>
                         </div>
                     </div>
-                    <div class="row featured__filter">
-                        <div class="col-lg-3 col-md-4 col-sm-6 mix oranges fresh-meat">
-                            <div class="featured__item" data-aos="fade-up">
-                                <div class="featured__item__pic set-bg">
-                                    <img src="static/img/logobia.png" alt="">
+                    <div class="container-swiper">
+                        <div class="row featured__filter swiper">
+                            <% if (request.getAttribute("ERROR") != null) {%>
+                            <p> Không tìm thấy kết quả </p>
 
-                                    <ul class="featured__item__pic__hover">
-                                        <!-- ảnh sản phẩm -->
-                                        <li><a href="#"><i class="fa fa-heart"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-retweet"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
-                                    </ul>
-                                </div>
-                                <div class="featured__item__text">
-                                    <h6><a href="#">Tên sản phẩm</a></h6>
-                                    <h5>Giá sản phẩm</h5>
-                                </div>
-                            </div>
+                            <% } else {%> 
+                            <div class="swiper-wrapper">
+
+                                <c:set var="listS" value="${requestScope.listS}" />
+                                <c:forEach items="${listS}" var="x">
+                                    <c:if test="${x.status eq '1'}">
+                                        <div class="col-lg-3 col-md-4 col-sm-6 swiper-slide">
+                                            <div class="featured__item " data-aos="fade-up">
+                                                <div class="featured__item__pic set-bg">
+                                                    <img src="${x.image}" alt="">
+
+                                                    <ul class="featured__item__pic__hover">
+                                                        <!-- ảnh sản phẩm -->
+                                                        <li><a href="WishlistServlet?id=${x.cageID}&type=home"><i class="fa fa-heart"></i></a></li>
+                                                        <li><a href="CartController?id=${x.cageID}&quantity=1&type=home"><i class="fa fa-shopping-cart"></i></a></li>
+                                                        <li><a href="ProductDetail?id=${x.cageID}"><i class="fa-solid fa-circle-info"></i></a></li>
+                                                    </ul>
+                                                </div>
+                                                <div class="featured__item__text">
+                                                    <h6><strong><a href="#" title="View Product">${x.cageName}</a></strong></h6>
+                                                    <div>
+                                                        <span class="amount-old">${x.priceOld} VNĐ</span> 
+                                                    </div>
+                                                    <span class="pro-price"> ${x.priceNew} VNĐ</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </c:if>
+                                </c:forEach>
+                            </div>        
+                            <% }%>
                         </div>
                     </div>
-                </div>
             </section>
             <section class="featured spad">
                 <div class="container">
                     <div class="row">
                         <div class="col-lg-12">
                             <div class="section-title">
-                                <h2>DANH SÁCH SẢN PHẨM </h2>
+                                <h2> LỒNG CHIM CHÀO MÀO  </h2>
                             </div>
                         </div>
                     </div>
                     <div class="container-swiper">
-                  
-                    <div class="swiper-button-prev"  style="top: 190px;left: -60px;"></div>
-                    <div class="swiper-button-next" style="top: 190px;right: -60px;"></div>
-                    <div class="row featured__filter swiper">
-                        <% if (request.getAttribute("ERROR") != null) {%>
-                        <p> Không tìm thấy kết quả </p>
+                        <div class="row featured__filter swiper">
+                            <% if (request.getAttribute("ERROR") != null) {%>
+                            <p> Không tìm thấy kết quả </p>
 
-                        <% } else {%> 
-                         <div class="swiper-wrapper">
-                  
-                            <c:set var="listS" value="${requestScope.listS}" />
-                            <c:forEach items="${listS}" var="x">
-                                <c:if test="${x.status eq '1'}">
-                                    <div class="col-lg-3 col-md-4 col-sm-6 swiper-slide">
-                                        <div class="featured__item " data-aos="fade-up">
-                                            <div class="featured__item__pic set-bg">
-                                                <img src="${x.image}" alt="">
+                            <% } else {%> 
+                            <div class="swiper-wrapper">
 
-                                                <ul class="featured__item__pic__hover">
-                                                    <!-- ảnh sản phẩm -->
-                                                    <li><a href="WishlistServlet?id=${x.cageID}&type=home"><i class="fa fa-heart"></i></a></li>
-                                                    <li><a href="CartController?id=${x.cageID}&quantity=1&type=home"><i class="fa fa-shopping-cart"></i></a></li>
-                                                    <li><a href="ProductDetail?id=${x.cageID}"><i class="fa-solid fa-circle-info"></i></a></li>
-                                                </ul>
-                                            </div>
+                                <c:set var="listS" value="${requestScope.listS}" />
+                                <c:forEach items="${listS}" var="x">
+                                    <c:if test="${x.status eq '1'}">
+                                        <div class="col-lg-3 col-md-4 col-sm-6 swiper-slide">
+                                            <div class="featured__item " data-aos="fade-up">
+                                                <div class="featured__item__pic set-bg">
+                                                    <img src="${x.image}" alt="">
 
-                                            <div class="featured__item__text">
-                                                <h6><a href="#" title="View Product">${x.cageName}</a></h6>
-                                                <h5>${x.priceNew} VNĐ</h5>
+                                                    <ul class="featured__item__pic__hover">
+                                                        <!-- ảnh sản phẩm -->
+                                                        <li><a href="WishlistServlet?id=${x.cageID}&type=home"><i class="fa fa-heart"></i></a></li>
+                                                        <li><a href="CartController?id=${x.cageID}&quantity=1&type=home"><i class="fa fa-shopping-cart"></i></a></li>
+                                                        <li><a href="ProductDetail?id=${x.cageID}"><i class="fa-solid fa-circle-info"></i></a></li>
+                                                    </ul>
+                                                </div>
+                                                <div class="featured__item__text">
+                                                    <h6><strong><a href="#" title="View Product">${x.cageName}</a></strong></h6>
+                                                    <div>
+                                                        <span class="amount-old">${x.priceOld} VNĐ</span> 
+                                                    </div>
+                                                    <span class="pro-price"> ${x.priceNew} VNĐ</span>
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
-                                </c:if>
-                            </c:forEach>
-                            
-                            
+                                    </c:if>
+                                </c:forEach>
+                            </div>        
+                            <% }%>
                         </div>
-                          </div>
-
-                        <!-- If we need navigation buttons -->
-                   
-                      
-                        <% }%>
                     </div>
+            </section>
+            <section class="featured spad">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="section-title">
+                                <h2>LỒNG CU GÁY  </h2>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="container-swiper">
 
-                </div>
+                        <div class="row featured__filter swiper">
+                            <% if (request.getAttribute("ERROR") != null) {%>
+                            <p> Không tìm thấy kết quả </p>
+
+                            <% } else {%> 
+                            <div class="swiper-wrapper">
+
+                                <c:set var="listS" value="${requestScope.listS}" />
+                                <c:forEach items="${listS}" var="x">
+                                    <c:if test="${x.status eq '1'}">
+                                        <div class="col-lg-3 col-md-4 col-sm-6 swiper-slide">
+                                            <div class="featured__item " data-aos="fade-up">
+                                                <div class="featured__item__pic set-bg">
+                                                    <img src="${x.image}" alt="">
+
+                                                    <ul class="featured__item__pic__hover">
+                                                        <!-- ảnh sản phẩm -->
+                                                        <li><a href="WishlistServlet?id=${x.cageID}&type=home"><i class="fa fa-heart"></i></a></li>
+                                                        <li><a href="CartController?id=${x.cageID}&quantity=1&type=home"><i class="fa fa-shopping-cart"></i></a></li>
+                                                        <li><a href="ProductDetail?id=${x.cageID}"><i class="fa-solid fa-circle-info"></i></a></li>
+                                                    </ul>
+                                                </div>
+
+                                                <div class="featured__item__text">
+                                                    <h6><strong><a href="#" title="View Product">${x.cageName}</a></strong></h6>
+                                                    <div>
+                                                        <span class="amount-old">${x.priceOld} VNĐ</span> 
+                                                    </div>
+                                                    <span class="pro-price"> ${x.priceNew} VNĐ</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </c:if>
+                                </c:forEach>
+                            </div>        
+                            <% }%>
+                        </div>
+                    </div>
+            </section>
+            <section class="featured spad">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="section-title">
+                                <h2> LỒNG CU GÁY   </h2>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="container-swiper">
+                        <div class="row featured__filter swiper">
+                            <% if (request.getAttribute("ERROR") != null) {%>
+                            <p> Không tìm thấy kết quả </p>
+
+                            <% } else {%> 
+                            <div class="swiper-wrapper">
+
+                                <c:set var="listS" value="${requestScope.listS}" />
+                                <c:forEach items="${listS}" var="x">
+                                    <c:if test="${x.status eq '1'}">
+                                        <div class="col-lg-3 col-md-4 col-sm-6 swiper-slide">
+                                            <div class="featured__item " data-aos="fade-up">
+                                                <div class="featured__item__pic set-bg">
+                                                    <img src="${x.image}" alt="">
+
+                                                    <ul class="featured__item__pic__hover">
+                                                        <!-- ảnh sản phẩm -->
+                                                        <li><a href="WishlistServlet?id=${x.cageID}&type=home"><i class="fa fa-heart"></i></a></li>
+                                                        <li><a href="CartController?id=${x.cageID}&quantity=1&type=home"><i class="fa fa-shopping-cart"></i></a></li>
+                                                        <li><a href="ProductDetail?id=${x.cageID}"><i class="fa-solid fa-circle-info"></i></a></li>
+                                                    </ul>
+                                                </div>
+                                                <div class="featured__item__text">
+                                                    <h6><strong><a href="#" title="View Product">${x.cageName}</a></strong></h6>
+                                                    <div>
+                                                        <span class="amount-old">${x.priceOld} VNĐ</span> 
+                                                    </div>
+                                                    <span class="pro-price"> ${x.priceNew} VNĐ</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </c:if>
+                                </c:forEach>
+                            </div>        
+                            <% }%>
+                        </div>
+                    </div>
             </section>
             <!-- Slider main container -->
             <%-- <div class="swiper">
@@ -231,7 +330,7 @@
                 <div class="swiper-button-next"></div>
             </div> --%>
 
-    
+
             <!-- end featured -->
             <!-- start blog -->
             <section class="from-blog spad">
@@ -286,8 +385,8 @@
             <!-- end item -->
 
 
-         
-            <script src="static/js/index.js"></script>
+
+            <!--            <script src="static/js/index.js"></script>-->
             <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
             <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
             <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
@@ -297,8 +396,7 @@
                 $('.carousel').carousel({
                     interval: 5000
                 })
-
-                 new Swiper('.swiper', {
+                new Swiper('.swiper', {
                     direction: 'horizontal',
                     loop: true,
                     spaceBetween: 24,
@@ -320,6 +418,7 @@
                         el: '.swiper-scrollbar',
                     },
                 });
+
             </script>
     </body>
 </html>

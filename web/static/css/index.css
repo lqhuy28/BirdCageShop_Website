@@ -550,15 +550,6 @@ ol {
     color: #ffffff;
 }
 
-/*.hero__categories__all:after {
-        position: absolute;
-        right: 18px;
-        top: 9px;
-        content: "3";
-        font-family: "ElegantIcons";
-        font-size: 18px;
-        color: #ffffff;
-}*/
 
 .hero__categories ul {
     border: 1px solid #ebebeb;
@@ -1163,4 +1154,16 @@ ol {
 
 .container-swiper {
     position: relative;
+}
+
+.amount-old {
+    font-size: 18px;
+    padding-right: 10px;
+    color: #999;
+    text-decoration: line-through;
+}
+.pro-price {
+    font-size: 24px;
+    color: #e74c3c;
+    font-weight: bold;
 }

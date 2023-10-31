@@ -50,6 +50,30 @@ public class ProductDAO {
         return list;
     }
 
+    public List<ProductDTO> getAllProductDTOExcept(String ID) {
+        List<ProductDTO> list = new ArrayList<>();
+        String query = "select * from tblCage where CageID <> ?";
+        try {
+            conn = new DBUtils().getConnection();
+            ps = conn.prepareStatement(query);
+            ps.setString(1, ID);
+            rs = ps.executeQuery();
+            while (rs.next()) {
+                list.add(new ProductDTO(rs.getString(1),
+                        rs.getString(2),
+                        rs.getString(3),
+                        rs.getString(4),
+                        rs.getDouble(5),
+                        rs.getDouble(6),
+                        rs.getString(7),
+                        rs.getInt(8),
+                        rs.getString(9)));
+            }
+        } catch (Exception e) {
+        }
+        return list;
+    }
+    
     public List<ProductDTO> getProductByCategoryID(String cid) {
         List<ProductDTO> list = new ArrayList<>();
         String query = "select * from tblCage\n"
@@ -75,6 +99,8 @@ public class ProductDAO {
         return list;
     }
 
+    
+    
     public List<Category> getAllCategory() {
         List<Category> listC = new ArrayList<>();
         String query = "select * from tblCategory";
@@ -277,4 +303,29 @@ public class ProductDAO {
         }
     }
 
+    public List<ProductDTO> getProductByPriceRange(double minPrice, double maxPrice){
+        List<ProductDTO> filterProduct = new ArrayList<>();
+        String query = "SELECT * FROM tblCage WHERE PriceNew >= ? AND PriceNew <= ? AND Quantity > 0";
+        try {
+            conn = new DBUtils().getConnection();
+            ps = conn.prepareStatement(query);
+            ps.setDouble(1, minPrice);
+            ps.setDouble(2, maxPrice);
+            rs = ps.executeQuery();
+            while (rs.next()) {
+                filterProduct.add(new ProductDTO(rs.getString(1),
+                        rs.getString(2),
+                        rs.getString(3),
+                        rs.getString(4),
+                        rs.getDouble(5),
+                        rs.getDouble(6),
+                        rs.getString(7),
+                        rs.getInt(8),
+                        rs.getString(9)));
+            }
+        } catch (Exception e) {
+        }
+        return filterProduct;
+    }
+    
 }

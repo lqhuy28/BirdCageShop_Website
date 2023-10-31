@@ -21,7 +21,7 @@
         <!-- css link -->
         <link rel="stylesheet" href="static/css/detail.css">
         <link rel="stylesheet" href="static/css/root.css">
-              <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet"/>
+        <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet"/>
         <title>Document</title>
     </head>
     <body class="fade-in">
@@ -48,27 +48,27 @@
                                 </h4>
                                 <div class="rate-container">
                                     <div class="rate-avg">
-                                    3.9
+                                        3.9
                                     </div>
                                     <div class="star-rating">
                                         <span>★★★★☆</span>
                                     </div>
                                     <div>
-                                    20 đánh giá
+                                        20 đánh giá
                                     </div>
                                 </div>
-                                 <div class="m-bot15 detail-price mt-3 ">
-                                     <span class="amount-old"><%=product.getPriceOld()%> VNĐ</span>  
-                                     <span class="pro-price"> <%=product.getPriceNew()%> VNĐ</span>
+                                <div class="m-bot15 detail-price mt-3 ">
+                                    <span class="amount-old"><%=product.getPriceOld()%> VNĐ</span>  
+                                    <span class="pro-price"> <%=product.getPriceNew()%> VNĐ</span>
                                 </div>    
                                 <p class="mt-2">
                                     <strong>Mô tả sản phẩm: </strong>
-                                    <div><%=product.getCageDetails()%>
-                                    </div>
+                                <div><%=product.getCageDetails()%>
+                                </div>
                                 </p>
                                 <div class="product_meta">
                                 </div>
-                                                     
+
                                 <form action="CartController" method="post" class="mt-3" id="buynow">
                                     <div class="form-group mt-3 detail-quantity-container">
                                         <label for="quantity">Số lượng</label>
@@ -83,27 +83,42 @@
                                         </div>
                                         <span id="quantityAvailable" class="mt-1"><%=product.getQuantity()%> sản phẩm sẳn có sẳn</span>
                                     </div>
-                                  
                                 </form>
                                 <span hidden="true" id="quantityCart"><%=quantityCart%></span>
+
                                 <form action="CartController" method="get" id="addcart">
                                     <input type="hidden" value="" name="quantity" id="hiddenInput">
                                     <input type="hidden" value="<%=product.getCageID()%>" name="id">
-                                   
+                                </form>
+                                
+                                <form action="ProductExcept" method="get" id="compare">
+                                    
+                                    <input type="hidden" value="<%=product.getCageID()%>" name="id1">
                                 </form>
 
                                 <div class="buy-btn-group">
-                               
-                                        <button type="submit" id="checkout" name="id" form="buynow" value="<%=product.getCageID()%>" class="btn  action-btn btn-round btn-danger"> 
+
+                                    <button type="submit" id="checkout" name="id" 
+                                            form="buynow" value="<%=product.getCageID()%>" 
+                                            class="btn  action-btn btn-round btn-danger"> 
                                         <i class="fa fa-credit-card" aria-hidden="true"></i>
-                                        Mua ngay</button>
-                                    
-                                     <button id="addCart" type="submit"
-                                     form="addcart" 
-                                      class="btn  action-btn btn-round btn-warning">
+                                        Mua ngay
+                                    </button>
+
+                                    <button id="addCart" type="submit"
+                                            form="addcart" 
+                                            class="btn  action-btn btn-round btn-warning">
                                         <i class="fa fa-shopping-cart"></i>
                                         Thêm vào giỏ hàng
                                     </button>
+
+                                    <button type="submit" id="compare"
+                                            form="compare" 
+                                            class="btn  action-btn btn-round btn-warning">
+                                        <i class="fa fa-shopping-cart"></i>
+                                        So sánh
+                                    </button>
+
                                 </div>
                             </div>
                         </div>
@@ -134,12 +149,12 @@
                     </table>
                 </div>     
             </div>
-           <div class="table-responsive"  data-aos="fade-up">
-                   <div class="feedback-section">
+            <div class="table-responsive"  data-aos="fade-up">
+                <div class="feedback-section">
                     <h4 class="pro-d-title">
                         <strong>Đánh giá sản phẩm</strong>
                     </h4>                
-        
+
                     <div class="feedback-item">
                         <div class="feedback-header">
                             <div class="feedback-user">
@@ -153,11 +168,11 @@
                             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam in consectetur leo. Sed eget tincidunt ligula. Nunc vehicula vel erat sit amet vestibulum.
                         </div>
                     </div>
-      
-            </div>
-        </div>
 
-         <section class="from-blog spad">
+                </div>
+            </div>
+
+            <section class="from-blog spad">
                 <div class="container">
                     <div class="row">
                         <div class="col-lg-12">
@@ -203,7 +218,7 @@
                     </div>
                 </div>
             </section>
-        <jsp:include page="footer.jsp" />
+            <jsp:include page="footer.jsp" />
     </body>
     <script>
         const checkoutItem = document.getElementById("checkout");
@@ -273,11 +288,11 @@
 //            window.location = '/ProductDetail';
 //        });
     </script>
-            <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
-                AOS.init();
-                $('.carousel').carousel({
-                    interval: 5000
-                })
+        AOS.init();
+        $('.carousel').carousel({
+            interval: 5000
+        })
     </script>
 </html>

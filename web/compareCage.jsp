@@ -4,6 +4,11 @@
     Author     : QUANG HUY
 --%>
 
+<%@page import="java.util.List"%>
+<%@page import="model.CageMaterial"%>
+<%@page import="model.ProductDTO"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -15,16 +20,23 @@
         <title>So sánh sản phẩm</title>
     </head>
     <body>
+        <%
+            ProductDTO product1 = (ProductDTO) request.getAttribute("product1");
+            ProductDTO product2 = (ProductDTO) request.getAttribute("product2");
+            List<CageMaterial> cm1 = (List<CageMaterial>) request.getAttribute("cageMaterial1");
+            List<CageMaterial> cm2 = (List<CageMaterial>) request.getAttribute("cageMaterial2");
+        %>
         <h2>So sánh lồng chim</h2>
         <div class="container">
             <div class="row">
                 <div class="col-md-5">
                     <div class="pro-img-details">
-                        <img src="static/img/blog1.png" alt="" style="width: 30%;">
+                        <img src="<%=product1.getImage()%>" alt="" style="width: 30%;">
                     </div>
                     <h4 class="pro-d-title">
-                        <strong>Lồng chào mào</strong>
+                        <strong><%=product1.getCageName()%></strong>
                     </h4>
+                    <!-- Hiển thị thông tin sản phẩm -->
                     <div class="rate-container">
                         <div class="rate-avg">
                             3.9
@@ -37,17 +49,15 @@
                         </div>
                     </div>
                     <div class="m-bot15 detail-price mt-3 ">
-                        <span class="amount-old">20,000 VNĐ</span>  
-                        <span class="pro-price">50,000 VNĐ</span>
-                    </div>    
+                        <span class="amount-old"><%=product1.getPriceOld()%> VNĐ</span>  
+                        <span class="pro-price"><%=product1.getPriceNew()%> VNĐ</span>
+                    </div> 
                     <p class="mt-2">
                         <strong>Mô tả sản phẩm: </strong>
-                    <div>
-                        lồng đẹp 123
-                    </div>
+                    <div><%=product1.getCageDetails()%></div>
                     </p>
                     <h4>Nguyên liệu lồng chim</h4>
-
+                    <!-- Hiển thị nguyên liệu lồng chim từ cageMaterial1 -->
                     <table border="1">
                         <thead>
                             <tr>
@@ -56,21 +66,26 @@
                             </tr>
                         </thead>
                         <tbody>
+                            <%
+                                for (CageMaterial c : cm1) {
+                            %>
                             <tr>
-                                <td>1</td>
-                                <td>2</td>
+                                <td class="text-center text-lg text-medium"><%=c.getMaterialName()%></td>
+                                <td class="text-center text-lg text-medium"><%=c.getQuantity()%></td>
                             </tr>
+                            <% }%>
                         </tbody>
-                    </table>      
+                    </table>
                 </div>
 
                 <div class="col-md-5">
                     <div class="pro-img-details">
-                        <img src="static/img/blog1.png" alt="" style="width: 30%;">
+                        <img src="<%=product2.getImage()%>" alt="" style="width: 30%;">
                     </div>
                     <h4 class="pro-d-title">
-                        <strong>Lồng chào mào</strong>
+                        <strong><%=product2.getCageName()%></strong>
                     </h4>
+                    <!-- Hiển thị thông tin sản phẩm -->
                     <div class="rate-container">
                         <div class="rate-avg">
                             3.9
@@ -83,17 +98,15 @@
                         </div>
                     </div>
                     <div class="m-bot15 detail-price mt-3 ">
-                        <span class="amount-old">20,000 VNĐ</span>  
-                        <span class="pro-price">50,000 VNĐ</span>
-                    </div>    
+                        <span class="amount-old"><%=product2.getPriceOld()%> VNĐ</span>  
+                        <span class="pro-price"><%=product2.getPriceNew()%> VNĐ</span>
+                    </div> 
                     <p class="mt-2">
                         <strong>Mô tả sản phẩm: </strong>
-                    <div>
-                        lồng đẹp 123
-                    </div>
+                    <div><%=product2.getCageDetails()%></div>
                     </p>
                     <h4>Nguyên liệu lồng chim</h4>
-
+                    <!-- Hiển thị nguyên liệu lồng chim từ cageMaterial1 -->
                     <table border="1">
                         <thead>
                             <tr>
@@ -102,14 +115,21 @@
                             </tr>
                         </thead>
                         <tbody>
+                            <%
+                                for (CageMaterial c : cm2) {
+                            %>
                             <tr>
-                                <td>1</td>
-                                <td>2</td>
+                                <td class="text-center text-lg text-medium"><%=c.getMaterialName()%></td>
+                                <td class="text-center text-lg text-medium"><%=c.getQuantity()%></td>
                             </tr>
+                            <% }%>
                         </tbody>
-                    </table>      
+                    </table>
                 </div>
             </div>
         </div>
+        <form action="MainController" method="GET">
+            <input type="submit" value="Homepage" />
+        </form>
     </body>
 </html>

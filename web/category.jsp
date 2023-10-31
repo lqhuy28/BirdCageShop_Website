@@ -42,23 +42,25 @@
                                 </ul>
                             </div>
                             </br>
-                            <div>
+                            <div style="margin-left: 30px" >
                                 <div class="hero__categories">
-                                    <i class="fa fa-bars"></i>
-                                    <span>LỌC THEO KHOẢNG GIÁ</span>
+                                    <h5>LỌC THEO KHOẢNG GIÁ</h5>
                                 </div>
                                 <div> 
-                                    <form method="post" action="category">
-
-                                        <input type="checkbox" name="FilterPrice" value="0-500000" />Từ 0 - 500.000đ
-                                        <br>
-                                        <input type="checkbox" name="FilterPrice" value="500000-1000000" />Từ 500.000đ - 1.000.000đ
-                                        <br>
-                                        <input type="checkbox" name="FilterPrice" value="1000000-5000000" />1.000.000đ - 5.000.000đ
-                                        <br>
-                                        <input type="checkbox" name="FilterPrice" value="5000000-100000000" />Lớn hơn 5.000.000đ
-                                        <br>
-                                        <input type="submit" value="Tìm kiếm" />
+                                    <form method="post" action="category" class="filter-form">
+                                        <label>
+                                            <input type="checkbox" name="FilterPrice" value="0-500000" />Từ 0 - 500.000đ
+                                        </label>
+                                        <label>
+                                            <input type="checkbox" name="FilterPrice" value="500000-1000000" />Từ 500.000đ - 1.000.000đ
+                                        </label>
+                                        <label>
+                                            <input type="checkbox" name="FilterPrice" value="1000000-5000000" />1.000.000đ - 5.000.000đ
+                                        </label>
+                                        <label>
+                                            <input type="checkbox" name="FilterPrice" value="5000000-100000000" />Lớn hơn 5.000.000đ
+                                        </label>
+                                        <button type="submit" class="site-btn" >Tìm kiếm</button>
                                     </form>
                                 </div>
                             </div>
@@ -117,7 +119,7 @@
                     </div>
                 </div>
                 <!-- end hero -->
-
+                </br>
                 <jsp:include page="footer.jsp" />
                 <!-- end item -->
 

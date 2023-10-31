@@ -7,6 +7,19 @@ and open the template in the editor.
     Created on : Sep 22, 2023, 10:26:03 PM
     Author     : HOANGDUC
 */
+.filter-form {
+  flex-wrap: wrap;
+}
+
+.filter-form label {
+  display: flex;
+  align-items: center;
+  margin-right: 20px;
+}
+
+.filter-form input[type="checkbox"] {
+  margin-right: 10px;
+}
 
 html,
 body {
@@ -564,7 +577,7 @@ ol {
 
 .hero__categories ul li a {
     text-decoration: none;
-    font-size: 16px;
+    font-size: 18px;
     color: #1c1c1c;
     line-height: 39px;
     display: block;

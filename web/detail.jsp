@@ -114,7 +114,7 @@
 
                                     <button type="submit" id="compare"
                                             form="compare" 
-                                            class="btn  action-btn btn-round btn-warning">
+                                            class="btn  action-btn btn-round btn-success">
                                         <i class="fa fa-shopping-cart"></i>
                                         So sánh
                                     </button>
@@ -218,8 +218,9 @@
                     </div>
                 </div>
             </section>
-            <jsp:include page="footer.jsp" />
+           
     </body>
+     <jsp:include page="footer.jsp" />
     <script>
         const checkoutItem = document.getElementById("checkout");
         const addCartItem = document.getElementById("addCart");

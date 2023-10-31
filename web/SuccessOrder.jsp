@@ -48,19 +48,8 @@
                             <td class="text-center">Lồng chim vành khuyên</td>
                             <td class="text-center">x3</td>
                             <td class="text-center">3.000.000 VND</td>
-                        </tr>
-                        <tr>
-                            <td class="text-center">20-1-2022</td>
-                            <td class="text-center">Lồng chim vành khuyên</td>
-                            <td class="text-center">x3</td>
-                            <td class="text-center">3.000.000 VND</td>
-                        </tr>
-                        <tr>
-                            <td class="text-center">20-1-2022</td>
-                            <td class="text-center">Lồng chim vành khuyên</td>
-                            <td class="text-center">x3</td>
-                            <td class="text-center">3.000.000 VND</td>
-                        </tr>
+                       tr>
+             
                     </tbody>
                 </table>
             </div>  
@@ -69,7 +58,7 @@
                 <div>Mọi thắc mắc xin vui lòng liên hệ hotline: <strong>0123 456 789</strong></div>
             </div>
             <div class="buton__success">
-                <button class="btn btn-success "><i class="fa-solid fa-house" style="color: #ffffff;"></i> Trở về trang chủ</button>
+                <button class="btn btn-success " href="Maincontroller"><i class="fa-solid fa-house" style="color: #ffffff;"></i> Trở về trang chủ</button>
                 <button class="btn btn btn-warning btn-action"><i class="fa-solid fa-cart-shopping" style="color: #000000;"></i> Mua thêm sản phẩm</button>
             </div>
         </div>

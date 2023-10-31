@@ -332,9 +332,7 @@ body {
   gap: 8px;
 }
 
-.rate-avg {
-  color: #fc5959;
-  font-size: 18px;
-  font-weight: 600;
-  text-decoration: underline;
+
+.compare{
+    margin-left: 100px;
 }

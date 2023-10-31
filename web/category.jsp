@@ -41,10 +41,28 @@
                                         </c:forEach>
                                 </ul>
                             </div>
+                            </br>
+                            <div>
+                                <div class="hero__categories">
+                                    <i class="fa fa-bars"></i>
+                                    <span>LỌC THEO KHOẢNG GIÁ</span>
+                                </div>
+                                <div> 
+                                    <form method="post" action="category">
+
+                                        <input type="checkbox" name="FilterPrice" value="0-500000" />Từ 0 - 500.000đ
+                                        <br>
+                                        <input type="checkbox" name="FilterPrice" value="500000-1000000" />Từ 500.000đ - 1.000.000đ
+                                        <br>
+                                        <input type="checkbox" name="FilterPrice" value="1000000-5000000" />1.000.000đ - 5.000.000đ
+                                        <br>
+                                        <input type="checkbox" name="FilterPrice" value="5000000-100000000" />Lớn hơn 5.000.000đ
+                                        <br>
+                                        <input type="submit" value="Tìm kiếm" />
+                                    </form>
+                                </div>
+                            </div>
                         </div>
-
-
-
                         <div class="col-lg-9">
                             <div class="hero__search">
                                 <div class="hero__search__form">
@@ -92,36 +110,20 @@
                                             </c:if>
                                         </c:forEach>
                                     </div>
-                                </div>  
+                                </div> 
+                            </section>
                         </div>
 
-                        <div class="hero__categories">
-                            <i class="fa fa-bars"></i>
-                            <span>LỌC THEO KHOẢNG GIÁ</span>
-                        </div>
-                        <div> <form method="post" action="category">
-
-                                <input type="checkbox" name="FilterPrice" value="0-500000" />Từ 0 - 500.000đ
-                                <br>
-                                <input type="checkbox" name="FilterPrice" value="500000-1000000" />Từ 500.000đ - 1.000.000đ
-                                <br>
-                                <input type="checkbox" name="FilterPrice" value="1000000-5000000" />1.000.000đ - 5.000.000đ
-                                <br>
-                                <input type="checkbox" name="FilterPrice" value="5000000-100000000" />Lớn hơn 5.000.000đ
-                                <br>
-                                <input type="submit" value="Tìm kiếm" />
-                            </form>
-                        </div>
-                        </section>
                     </div>
+                </div>
+                <!-- end hero -->
 
-                    <!-- end hero -->
+                <jsp:include page="footer.jsp" />
+                <!-- end item -->
 
-                    <jsp:include page="footer.jsp" />
-                    <!-- end item -->
+            </section>
+            <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+            <script src="static/js/index.js"></script>
 
-
-                    <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
-                    <script src="static/js/index.js"></script>
-                    </body>
-                    </html>
+    </body>
+</html>

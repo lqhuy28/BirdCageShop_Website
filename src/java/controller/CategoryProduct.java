@@ -72,7 +72,18 @@ public class CategoryProduct extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+//        processRequest(request, response);
+//        String CategoryID = request.getParameter("cid");
+        String price = request.getParameter("FilterPrice");
+        String[] priceS = price.split("-");
+        ProductDAO dao = new ProductDAO();
+        List<ProductDTO> list = dao.getProductByPriceRange(Double.parseDouble(priceS[0]),Double.parseDouble(priceS[1]));
+        List<Category> listC = dao.getAllCategory();
+
+        request.setAttribute("listS", list);
+        request.setAttribute("listCC", listC);
+        request.getRequestDispatcher("category.jsp").
+                forward(request, response);
     }
 
     /**

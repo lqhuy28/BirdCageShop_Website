@@ -167,7 +167,30 @@ public class OrderDAO {
         }
         return list;
     }
-
+public List<Order> getOrderByID(String orderId) {
+        List<Order> list = new ArrayList<>();
+        String query = "select o.OrderID, o.UserID, o.Phone, o.Address,o.OrderDate,o.ShippingCod, o.Total, o.OrderStatus from tblOrders o\n" +
+"                where orderID like ?";
+        try {
+            conn = new DBUtils().getConnection();
+            ps = conn.prepareStatement(query);
+            ps.setString(1, orderId);
+            rs = ps.executeQuery();
+            while (rs.next()) {
+                list.add(new Order(rs.getString(1),
+                        rs.getString(2),
+                        rs.getString(3),
+                        rs.getString(4),
+                        rs.getDate(5),
+                        rs.getDouble(6),
+                        rs.getDouble(7),
+                        rs.getBoolean(8)));
+            }
+            ps.executeUpdate();
+        } catch (Exception e) {
+        }
+        return list;
+    }
     public void deleteOrder(String orderId) {
         String query = "delete from tblOrderDetails where OrderID = ?\n"
                 + "  delete from tblOrders where OrderID = ?";

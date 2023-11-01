@@ -14,6 +14,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import model.CageMaterial;
+import model.Order;
 import model.OrderDetail;
 
 /**
@@ -63,9 +64,11 @@ public class DetailOrder extends HttpServlet {
             throws ServletException, IOException {
         String orderId = request.getParameter("orderId");
         String cageId = request.getParameter("cageId");
-        OrderDAO od = new OrderDAO();
-        List<OrderDetail> ls = od.getOrderDetailById(orderId);
-        List<CageMaterial> lm = od.getMaterialByCageId(cageId);
+        OrderDAO dao = new OrderDAO();
+        List<Order> listOrder = dao.getOrderByID(orderId);
+        List<OrderDetail> ls = dao.getOrderDetailById(orderId);
+        List<CageMaterial> lm = dao.getMaterialByCageId(cageId);
+        request.setAttribute("listOrder", listOrder);
         request.setAttribute("lm", lm);
         request.setAttribute("ls", ls);
         request.getRequestDispatcher("detailOrder.jsp").forward(request, response);

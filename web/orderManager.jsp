@@ -4,8 +4,10 @@
     Author     : QUANG HUY
 --%>
 
+<%@page import="dao.OrderDAO"%>
 <%@page import="model.Order"%>
 <%@page import="java.util.List"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -104,23 +106,37 @@
                     <div class="row">
                         <div class="col-md-12">
                             <div class="breadcrumb">
-                                <a href="orderManager.jsp"><b>Danh sách đơn hàng</b></a>
+                                <a href="OrderManager"><b>Danh sách đơn hàng</b></a>
                             </div>
                             <div id="clock"></div>
                         </div>
                     </div>
+                    <%
+            String search = request.getParameter("search");
+            if(search == null){
+                search = "";
+            }
+        %> 
+                    <%
+            OrderDAO dao = new OrderDAO();
+            List<Order> listOrder = (List<Order>) request.getAttribute("listOrder");
+            if (listOrder == null) {
+                listOrder = dao.searchOrder("");
+                request.setAttribute("listOrder", listOrder);
+            }
+        %>
                     <div class="container">
 
                         <div class="error_message">
                             ${requestScope.ERROR}
                         </div>
                         <div class="search-container">
-                            <form action="searchUser" method="POST" class="form-inline">
+                            <form action="OrderManager" method="POST" class="form-inline">
                                 <div class="form-group">
-                                    <input type="text" value="#" placeholder="Search..."  class="form-control" name="search" id="search" />
+                                    <input type="text" value="<%=search%>" placeholder="Search..."  class="form-control" name="search" id="search" />
                                 </div>
                                 <button type="submit" class="fa fa-solid fa-magnifying-glass" name="action" value="Search"></button>
-                                <% List<Order> listOrder = (List<Order>) request.getAttribute("listOrder"); %>
+
                             </form>
                         </div>
                         <table class="table">
@@ -138,19 +154,18 @@
                             </thead>
 
                             <tbody>
-                                <% for (Order o : listOrder) {
-                                %>
+                                <c:forEach items="${listOrder}" var="o">
                                 <tr>
-                                    <td class="text-center text-lg text-medium"><%=o.getOrderID()%></td>
-                                    <td class="text-center text-lg text-medium"><%=o.getUserID()%></td>
-                                    <td class="text-center text-lg text-medium"><%=o.getPhone()%></td>
-                                    <td class="text-center text-lg text-medium"><%=o.getAddress()%></td>
-                                    <td class="text-center text-lg text-medium"><%=o.getOrderDate()%></td>   
-                                    <td class="text-center text-lg text-medium"><%=o.getShipCost()%></td>
-                                    <td class="text-center text-lg text-medium"><%=o.getTotal()%></td>
+                                    <td class="text-center text-lg text-medium">${o.orderID}</td>
+                                    <td class="text-center text-lg text-medium">${o.userID}</td>
+                                    <td class="text-center text-lg text-medium">${o.phone}</td>
+                                    <td class="text-center text-lg text-medium">${o.address}</td>
+                                    <td class="text-center text-lg text-medium">${o.orderDate}</td>   
+                                    <td class="text-center text-lg text-medium">${o.shipCost}</td>
+                                    <td class="text-center text-lg text-medium">${o.total}</td>
                                     <td class="text-center text-lg text-medium"><a href="#" class="round-button"><i class="fa-solid fa-eye" style="color: white;"></i></a></td>
                                 </tr>
-                                <% }%>
+                                </c:forEach>
                             </tbody>
                         </table>
                          <nav aria-label="Page navigation example">

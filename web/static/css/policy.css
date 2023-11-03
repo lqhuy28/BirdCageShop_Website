@@ -86,9 +86,9 @@ h1 {
 }
 
 .row-main {
-  padding: 80px 200px;
+  padding: 200px 200px 80px 200px;
   min-height: 550px;
-  background-color: rgb(247, 243, 234);
+  background-color: #F5F5FA;
 }
 
 h2 {

@@ -1,7 +1,7 @@
 <%-- 
     Document   : test1
     Created on : Oct 7, 2023, 12:44:33 AM
-    Author     : QUANG HUY
+    Author     : HOANGDUC
 --%>
 
 <%@page import="model.User"%>
@@ -15,16 +15,16 @@
         <link rel="stylesheet" href="static/css/checkout.css">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+        
         <link rel="stylesheet" href="static/css/root.css">
         <title>Trang thanh toán</title>
     </head>
     <body class="fade-in ">
         <jsp:include page="header.jsp"/>
-        <div class="sm-container">
+        <div class="sm-container mainCheckout">
             <div class="container">
                 <h3 class="title">
                     <i class="fa-solid fa-shopping-cart"></i>
@@ -77,7 +77,7 @@
                                 </div>
                                 <div class="form-group form-check">
                                      <label class="beauty-checkbox">
-                                        <input  class="form-check-input" type="checkbox" id="paypal" name="paymentMethod" value="paypal">
+                                        <input  class="form-check-input" type="checkbox" id="paypal" name="paymentMethod" value="vnpay">
                                         <span class="checkmark"></span>
                                     </label>
                                     <label  class="check-label "><span for="paypal">VNPAY</span></label><br>

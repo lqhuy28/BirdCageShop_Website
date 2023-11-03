@@ -52,7 +52,7 @@ public class ProductDAO {
 
     public List<ProductDTO> getAllProductDTOExcept(String ID) {
         List<ProductDTO> list = new ArrayList<>();
-        String query = "select * from tblCage where CageID <> ?";
+        String query = "select * from tblCage where CageID <> ? and Quantity > 0 ";
         try {
             conn = new DBUtils().getConnection();
             ps = conn.prepareStatement(query);

@@ -1,0 +1,132 @@
+/*
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css to edit this template
+*/
+/* 
+    Created on : Nov 2, 2023, 10:16:58 AM
+    Author     : HOANGDUC
+*/
+body{
+    background: #F5F5FA;
+}
+.maindetail{
+    padding-top: 200px;
+}
+.cRRvpz {
+    display: flex;
+    margin: 10px 0px 20px;
+}
+.gQjSfs .content {
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(255, 255, 255);
+    padding: 10px;
+    border-radius: 4px;
+    height: 100%;
+}
+.cRRvpz .name {
+    color: rgb(36, 36, 36);
+    font-weight: bold;
+}
+.cRRvpz p {
+    margin: 5px 0px 0px;
+}
+.gQjSfs .title {
+    font-size: 13px;
+    text-transform: uppercase;
+    margin: 0px 0px 15px;
+    color: rgb(36, 36, 36);
+}
+.OEUxZ {
+    font-size: 13px;
+    color: rgb(36, 36, 36);
+    line-height: 1.5;
+}
+.cRRvpz > div:first-child {
+    margin-left: 0px;
+}
+.cRRvpz > div {
+    width: 100%;
+    margin: 0px 5px;
+}
+OEUxZ .created-date {
+    display: flex;
+    align-items: flex-end;
+    flex-direction: column;
+}
+.Nbknf{
+    background-color: #FFFFFF;
+    width: 100%;
+    
+}
+.Nbknf thead tr th {
+    display: table-cell;
+    padding: 10px 15px;
+    border-top: none;
+    min-width: 100px;
+    position: relative;
+    background: 0px 0px;
+    background-color: #3B3B3B;
+    color: white;
+    font-size: 15px;
+    font-weight: 400;
+    border-bottom: 1px solid rgb(244, 244, 244);
+    text-align: left;
+}
+.Nbknf tbody tr td .product-item {
+    display: flex;
+}
+.Nbknf tbody tr td .product-item img {
+    width: 100px;
+    height: 100px;
+    margin-right: 15px;
+}
+.Nbknf tbody tr td .product-item .product-info .product-name {
+    font-size: 14px;
+    color: rgb(36, 36, 36);
+    text-decoration: none;
+}
+.Nbknf tbody tr td {
+    border: none;
+    position: relative;
+    display: table-cell;
+    padding: 20px 15px;
+    color: rgb(36, 36, 36);
+    vertical-align: top;
+}
+.Nbknf tfoot tr td span {
+    color: rgb(120, 120, 120);
+    font-size: 14px;
+}
+.Nbknf tfoot tr td {
+    text-align: right;
+    display: table-cell;
+    padding: 5px 20px;
+    max-width: 550px;
+    min-width: 125px;
+    color: rgb(36, 36, 36);
+}
+.Nbknf tfoot tr:first-child td {
+    padding-top: 30px;
+}
+.Nbknf tfoot tr td .sum {
+    color: rgb(255, 59, 39);
+    font-size: 18px;
+}
+.hdcnUR {
+    color: rgb(11, 116, 229);
+    text-decoration: underline;
+    font-size: 14px;
+    line-height: 20px;
+    cursor: pointer;
+}
+tbody:hover{
+    background-color:#EDFEF3;
+}
+.mat-tab{
+    background-color: white;
+}
+.table-bordered th{
+    color: white;
+    background-color: #3B3B3B;
+}

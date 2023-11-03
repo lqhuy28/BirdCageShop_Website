@@ -1,6 +1,9 @@
 select.form-control:not([size]):not([multiple]) {
   height: 44px;
 }
+.mainWishlist{
+    padding-top: 200px;
+}
 select.form-control {
   padding-right: 38px;
   background-position: center right 17px;
@@ -302,4 +305,6 @@ h2 {
 
 .cart__container {
   min-height: calc(100vh - 564px);
+    color: red;
+    font-weight: bold;
 }

@@ -3,7 +3,7 @@
     Created on : Sep 21, 2023, 5:45:14 PM
     Author     : Acer
 --%>
-
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <%@page import="dao.ProductDAO"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page import="java.util.List"%>
@@ -38,7 +38,7 @@
                             <img src="static/img/admin1.png" width="200px">
                             <div>
                                 <p>
-                                    <b>${sessionScope.LOGIN_USER.fullName}</b>
+                                    <b>${sessionScope.LOGIN_USER.fullName}</b>  
                                     <br>Chào mừng bạn quay trở lại
                                 </p>
                             </div>
@@ -51,7 +51,7 @@
                                         <i class="fa-solid fa-network-wired" style="color: #ffffff;"></i>
                                     </div>
                                     <div class="title">
-                                        <a class="nav-link" href="dashboard.jsp"><span>Bảng điều khiển</span></a>
+                                        <a class="nav-link" href="DashboardController"><span>Bảng điều khiển</span></a>
                                     </div>
                             </li>
                             <li class="nav-item">
@@ -60,7 +60,7 @@
                                         <i class="fa-solid fa-users" style="color: #ffffff;"></i>
                                     </div>
                                     <div class="title">
-                                        <a class="nav-link" href="userManager.jsp"><span>Quản lí khách hàng</span></a>
+                                        <a class="nav-link" href="searchUser"><span>Quản lí khách hàng</span></a>
                                     </div>
                                 </div>
                             </li>
@@ -72,7 +72,7 @@
                                     </div>
 
                                     <div class="title">
-                                        <a class="nav-link" href="ShowProduct.jsp"><span>Quản lí sản phẩm</span></a>
+                                        <a class="nav-link" href="load"><span>Quản lí sản phẩm</span></a>
                                     </div>
                                 </div>
                             </li>
@@ -94,7 +94,7 @@
                                         <i class="fa-solid fa-comments" style="color: #ffffff;"></i>                            
                                     </div>
                                     <div class="title">
-                                        <a class="nav-link" href="#"><span>Kiểm tra phản hồi</span></a>
+                                        <a class="nav-link" href="FeedbackManager"><span>Kiểm tra phản hồi</span></a>
                                     </div>
                                 </div>
                             </li>
@@ -127,7 +127,7 @@
                         <div class="add">
 
                             <div class="search-container">
-                                <form action="search" method="POST" class="form-inline">
+                                <form action="SearchProductDashboard" method="POST" class="form-inline">
                                     <div class="form-group">
                                         <input type="text" name="search" class="form-control"/>
                                     </div>
@@ -138,6 +138,9 @@
                                 <a href="AddProduct.jsp">Tạo sản phẩm</a>  
                             </div>
                         </div>
+                        <% if (request.getAttribute("ERROR") != null) {%>
+                        <p> Không tìm thấy kết quả </p>
+                        <% } else {%>
                         <c:set var="listS" value="${requestScope.listS}" />
                         <c:if test="${not empty listS}">
                             <table class="table">
@@ -163,8 +166,8 @@
                                         <td>${x.categoryID}</td>
                                         <td>${x.cageName}</td>
                                         <td>${x.cageDetails}</td>
-                                        <td>${x.priceNew}</td>
-                                        <td>${x.priceOld}</td>
+                                        <td><fmt:formatNumber value="${x.priceNew}" pattern="###,###"/> VNĐ</td>
+                                        <td><fmt:formatNumber value="${x.priceOld}" pattern="###,###"/> VNĐ</td>
                                         <td><img src="${x.image}" style="width: 100px; height: auto;"></td>
                                         <td>${x.quantity}</td>
                                         <td>${x.status}</td>
@@ -194,6 +197,7 @@
                                 </ul>
                             </nav>
                         </c:if>
+                        <% }%>
                     </div>
                 </main>
             </div>

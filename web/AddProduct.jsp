@@ -47,6 +47,7 @@
                                 <div class="title">
                                     <a class="nav-link" href="dashboard.jsp"><span>  Bảng điều khiển</span></a>
                                 </div>
+                            </div>
                         </li>
                         <li class="nav-item">
                             <div class="icon-integration">
@@ -95,6 +96,7 @@
 
                     </ul>
                 </aside>
+
                 <main class="col-md-10">
                     <div class="row">
                         <div class="col-md-12">
@@ -172,9 +174,7 @@
                                         <input type="text" name="Status">
                                     </td>
                                 </tr>
-
-
-
+                                
                                 <tr>
                                     <td></td>
                                     <td><button type="submit">Tạo sản phẩm</button></td>
@@ -183,5 +183,6 @@
                         </form>
                     </div>
                 </main>
-                </body>
-                </html>
+            </div>
+    </body>
+</html>

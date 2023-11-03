@@ -1,5 +1,7 @@
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -42,25 +44,35 @@
                                 </ul>
                             </div>
                             </br>
-                            <div style="margin-left: 30px" >
-                                <div class="hero__categories">
-                                    <h5>LỌC THEO KHOẢNG GIÁ</h5>
+                            <div class="filter__cage">
+                                <div class="filter__cagetitle">
+                                    <h5><i class="fa-solid fa-filter"></i>LỌC SẢN PHẨM</h5>
                                 </div>
-                                <div> 
+                                <div class="filter__check">
                                     <form method="post" action="category" class="filter-form">
-                                        <label>
-                                            <input type="checkbox" name="FilterPrice" value="0-500000" />Từ 0 - 500.000đ
+                                        <label class="custom-checkbox">
+                                            <input type="checkbox" name="FilterPrice" value="0-500000" />
+                                            <span class="checkmark"></span>
+                                            Từ 0 - 500,000đ
                                         </label>
-                                        <label>
-                                            <input type="checkbox" name="FilterPrice" value="500000-1000000" />Từ 500.000đ - 1.000.000đ
+                                        <label class="custom-checkbox">
+                                            <input type="checkbox" name="FilterPrice" value="500000-1000000" />
+                                            <span class="checkmark"></span>
+                                            Từ 500,000đ - 1,000,000đ
                                         </label>
-                                        <label>
-                                            <input type="checkbox" name="FilterPrice" value="1000000-5000000" />1.000.000đ - 5.000.000đ
+                                        <label class="custom-checkbox">
+                                            <input type="checkbox" name="FilterPrice" value="1000000-5000000" />
+                                            <span class="checkmark"></span>
+                                            Từ 1,000,000đ - 5,000,000đ
                                         </label>
-                                        <label>
-                                            <input type="checkbox" name="FilterPrice" value="5000000-100000000" />Lớn hơn 5.000.000đ
+                                        <label class="custom-checkbox">
+                                            <input type="checkbox" name="FilterPrice" value="5000000-100000000" />
+                                            <span class="checkmark"></span>
+                                            Lớn hơn 5,000,000đ
                                         </label>
-                                        <button type="submit" class="site-btn" >Tìm kiếm</button>
+                                        <div class="filter__but">
+                                            <button type="submit" class="site-btn">LỌC</button>
+                                        </div>
                                     </form>
                                 </div>
                             </div>
@@ -70,7 +82,7 @@
                                 <div class="hero__search__form">
                                     <form action="search" method="GET">
                                         <input type="text" name="search" placeholder="Tìm kiếm sản phẩm..." fdprocessedid="5py24">
-                                        <button type="submit" class="site-btn" fdprocessedid="6hi3um">SEARCH</button>
+                                        <button type="submit" class="site-btn" fdprocessedid="6hi3um">TÌM KIẾM</button>
                                     </form>
                                 </div>
                                 <div class="hero__search__phone">
@@ -87,6 +99,9 @@
                             <section class="">
                                 <div class="container">
                                     <div class="row featured__filter">
+                                        <% if (request.getAttribute("ERROR") != null) {%>
+                                        <p> Không tìm thấy kết quả </p>
+                                        <% } else {%> 
                                         <c:set var="listS" value="${requestScope.listS}" />
                                         <c:forEach items="${listS}" var="x">
                                             <c:if test="${x.status eq '1'}">
@@ -105,13 +120,15 @@
 
                                                         <div class="featured__item__text">
                                                             <h6><a href="#" title="View Product">${x.cageName}</a></h6>
-                                                            <h5>${x.priceNew} VNĐ</h5>
+                                                            <h5><fmt:formatNumber value="${x.priceNew}" pattern="###,###"/> VNĐ</h5>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </c:if>
                                         </c:forEach>
+                                        <% }%>
                                     </div>
+
                                 </div> 
                             </section>
                         </div>
@@ -126,6 +143,20 @@
             </section>
             <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
             <script src="static/js/index.js"></script>
+            <script>
+                document.addEventListener("DOMContentLoaded", function () {
+                    const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+                    checkboxes.forEach(function (checkbox) {
+                        checkbox.addEventListener("change", function () {
+                            checkboxes.forEach(function (cb) {
+                                if (cb !== checkbox) {
+                                    cb.checked = false;
+                                }
+                            });
+                        });
+                    });
+                });
 
+            </script>
     </body>
 </html>

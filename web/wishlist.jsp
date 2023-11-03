@@ -66,7 +66,7 @@
                                 <td class="text-center text-lg text-medium"><fmt:formatNumber value="<%=w.getPrice()%>" pattern="###,###"/> VNĐ</td>
                                 <td class="text-center text-lg text-medium"><span>Còn hàng</span></td>
                                 <td class="text-center">
-                                    <a class="remove-from-cart" href="#"><i class="fa fa-shopping-cart"></i></a>
+                                    <a class="remove-from-cart" href="CartController?id=<%=w.getCageId()%>&quantity=1&type=home"><i class="fa fa-shopping-cart"></i></a>
                                 </td>                            
                             </tr>
                             <% }

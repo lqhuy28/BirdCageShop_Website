@@ -59,7 +59,7 @@
                         <input type="password" class="lock" name="password" placeholder="Mật khẩu" id="password" required="">
                     </div>	
                     <div class="forgot">
-                        <a href="#"> Quên mật khẩu?</a>
+                        <a href="ForgotPassword"> Quên mật khẩu?</a>
                     </div>
 
                     <button type="submit" name="action" class="register" value="Login"> Đăng nhập </button>

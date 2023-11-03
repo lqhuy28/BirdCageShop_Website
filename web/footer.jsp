@@ -50,10 +50,10 @@
                             </ul>
                             <h6>CHÍNH SÁCH CHUNG</h6>
                             <ul>
-                                <li><i class="fa fa-light fa-forward fa-xs" style="color: #000000;"></i> <a href="policy/generalPolicy.jsp">Chính Sách Chung </a></li>
-                                <li><i class="fa fa-light fa-forward fa-xs" style="color: #000000;"></i> <a href="policy/buyPolicy.jsp">Chính Sách Mua Hàng</a></li>
-                                <li><i class="fa fa-light fa-forward fa-xs" style="color: #000000;"></i> <a href="policy/returnPolicy.jsp">Chính Sách Đổi Trả</a></li>
-                                <li><i class="fa fa-light fa-forward fa-xs" style="color: #000000;"></i> <a href="policy/privacyPolicy.jsp">Chính Sách Bảo Mật</a></li>
+                                <li><i class="fa fa-light fa-forward fa-xs" style="color: #000000;"></i> <a href="generalPolicy">Chính Sách Chung </a></li>
+                                <li><i class="fa fa-light fa-forward fa-xs" style="color: #000000;"></i> <a href="BuyPolicy">Chính Sách Mua Hàng</a></li>
+                                <li><i class="fa fa-light fa-forward fa-xs" style="color: #000000;"></i> <a href="ReturnPolicy">Chính Sách Đổi Trả</a></li>
+                                <li><i class="fa fa-light fa-forward fa-xs" style="color: #000000;"></i> <a href="PrivacyPolicy.jsp">Chính Sách Bảo Mật</a></li>
 
                             </ul>
                         </div>

@@ -25,7 +25,7 @@ public class ProductDAO {
     PreparedStatement ps = null;
     ResultSet rs = null;
 
-    private static final String SearchProduct = "select * from tblCage where CageName like ?";
+    private static final String SearchProduct = "select * from tblCage where CageName like ? AND Quantity > 0";
 
     public List<ProductDTO> getAllProductDTO() {
         List<ProductDTO> list = new ArrayList<>();
@@ -77,7 +77,7 @@ public class ProductDAO {
     public List<ProductDTO> getProductByCategoryID(String cid) {
         List<ProductDTO> list = new ArrayList<>();
         String query = "select * from tblCage\n"
-                + "where CategoryID = ?";
+                + "where CategoryID = ? AND Quantity > 0";
         try {
             conn = new DBUtils().getConnection();
             ps = conn.prepareStatement(query);
@@ -103,10 +103,11 @@ public class ProductDAO {
     
     public List<Category> getAllCategory() {
         List<Category> listC = new ArrayList<>();
-        String query = "select * from tblCategory";
+        String query = "select * from tblCategory WHERE CategoryName <> ?";
         try {
             conn = new DBUtils().getConnection();
             ps = conn.prepareStatement(query);
+            ps.setString(1, "Lồng Yêu Cầu");
             rs = ps.executeQuery();
             while (rs.next()) {
                 listC.add(new Category(rs.getString(1),

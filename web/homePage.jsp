@@ -1,4 +1,8 @@
 
+<%@page import="java.text.DecimalFormat"%>
+<%@page import="java.util.List"%>
+<%@page import="model.Category"%>
+<%@page import="model.ProductDTO"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>   
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
@@ -43,277 +47,147 @@
             <section class="hero  ">
                 <div class="container">
                     <div class="row">
-                        <div class="col-lg-3">
-                            <div class="hero__categories">
-                                <div class="hero__categories__all">
-                                    <i class="fa fa-bars"></i>
-                                    <span>PHÂN LOẠI SẢN PHẨM</span>
-                                </div>
-                                <ul>
-                                    <c:forEach items ="${listCC}" var ="o">
-                                        <li><a href="category?cid=${o.categoryID}">${o.categoryName}</a></li>
-                                        </c:forEach>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="col-lg-9">
-                            <div class="hero__search">
-                                <div class="hero__search__form">
-                                    <form action="search" method="GET">
-                                        <input type="text" name="search" placeholder="Tìm kiếm sản phẩm..." fdprocessedid="5py24">
-                                        <button type="submit" class="site-btn" fdprocessedid="6hi3um">SEARCH</button>
-                                    </form>
-                                </div>
-                                <div class="hero__search__phone">
-                                    <div class="hero__search__phone__icon">
-                                        <i class="fa fa-phone"></i>
+                        <div class="row">
+                            <div class="col-lg-3">
+                                <div class="hero__categories">
+                                    <div class="hero__categories__all">
+                                        <i class="fa fa-bars"></i>
+                                        <span>PHÂN LOẠI SẢN PHẨM</span>
                                     </div>
-                                    <div class="hero__search__phone__text">
-                                        <h5>+84 85.999.999</h5>
-                                        <span>Hỗ trợ 24/7</span>
-                                    </div>
+                                    <ul>
+                                        <c:forEach items ="${listCC}" var ="o">
+                                            <li><a href="category?cid=${o.categoryID}">${o.categoryName}</a></li>
+                                            </c:forEach>
+                                    </ul>
                                 </div>
                             </div>
-                            <div class="hero__item set-bg" >
-                                <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-
-                                    <div class="carousel-inner">
-                                        <div class="carousel-item active" style="background-image: url(https://c4.wallpaperflare.com/wallpaper/404/390/382/cages-cityscape-window-digital-art-wallpaper-preview.jpg);">
-                                            <div class="hero__text" >
-                                                <span>BIRD CAGE 3</span>
-                                                <h2>Lồng chim <br>số 1 Việt Nam </h2>
-                                                <p>Lồng chim luôn có sẳn để hỗ trợ khạch hàng</p>
-                                                <a href="#" class="primary-btn">SHOP NOW</a>
-                                            </div>
+                            <div class="col-lg-9">
+                                <div class="hero__search">
+                                    <div class="hero__search__form">
+                                        <form action="search" method="GET">
+                                            <input type="text" name="search" placeholder="Tìm kiếm sản phẩm..." fdprocessedid="5py24">
+                                            <button type="submit" class="site-btn" fdprocessedid="6hi3um">TÌM KIẾM</button>
+                                        </form>
+                                    </div>
+                                    <div class="hero__search__phone">
+                                        <div class="hero__search__phone__icon">
+                                            <i class="fa fa-phone"></i>
                                         </div>
-                                        <div class="carousel-item" style="background-image: url(https://images.unsplash.com/photo-1680971661953-476b0c800faa?auto=format&fit=crop&q=80&w=1976&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D);">
-                                            <div class="hero__text" >
-                                                <span>BIRD CAGE 1</span>
-                                                <h2>Lồng chim <br>số 1 Việt Nam </h2>
-                                                <p>Lồng chim luôn có sẳn để hỗ trợ khạch hàng</p>
-                                                <a href="#" class="primary-btn">SHOP NOW</a>
-                                            </div>
-                                        </div>
-                                        <div class="carousel-item"  style="background-image: url(https://images.unsplash.com/photo-1540818767417-e2437dc12c3d?auto=format&fit=crop&q=80&w=2070&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D);"> 
-                                            <div class="hero__text">
-                                                <span>BIRD CAGE 2</span>
-                                                <h2>Lồng chim <br>số 1 Việt Nam </h2>
-                                                <p>Lồng chim luôn có sẳn để hỗ trợ khạch hàng</p>
-                                                <a href="#" class="primary-btn">SHOP NOW</a>
-                                            </div>
+                                        <div class="hero__search__phone__text">
+                                            <h5>+84 85.999.999</h5>
+                                            <span>Hỗ trợ 24/7</span>
                                         </div>
                                     </div>
-                                    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-                                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                                        <span class="sr-only">Previous</span>
-                                    </a>
-                                    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-                                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                                        <span class="sr-only">Next</span>
-                                    </a>
                                 </div>
+                                <div class="hero__item set-bg" >
+                                    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
 
+                                        <div class="carousel-inner">
+                                            <div class="carousel-item active" style="background-image: url(https://c4.wallpaperflare.com/wallpaper/404/390/382/cages-cityscape-window-digital-art-wallpaper-preview.jpg);">
+                                                <div class="hero__text" >
+                                                    <span>BIRD CAGE 3</span>
+                                                    <h2>Lồng chim <br>số 1 Việt Nam </h2>
+                                                    <p>Lồng chim luôn có sẵn để hỗ trợ khách hàng</p>
+                                                    <a href="#" class="primary-btn">MUA NGAY</a>
+                                                </div>
+                                            </div>
+                                            <div class="carousel-item" style="background-image: url(https://images.unsplash.com/photo-1680971661953-476b0c800faa?auto=format&fit=crop&q=80&w=1976&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D);">
+                                                <div class="hero__text" >
+                                                    <span>BIRD CAGE 1</span>
+                                                    <h2>Lồng chim <br>số 1 Việt Nam </h2>
+                                                    <p>Lồng chim luôn có sẵn để hỗ trợ khách hàng</p>
+                                                    <a href="#" class="primary-btn">MUA NGAY</a>
+                                                </div>
+                                            </div>
+                                            <div class="carousel-item"  style="background-image: url(https://images.unsplash.com/photo-1540818767417-e2437dc12c3d?auto=format&fit=crop&q=80&w=2070&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D);"> 
+                                                <div class="hero__text">
+                                                    <span>BIRD CAGE 2</span>
+                                                    <h2>Lồng chim <br>số 1 Việt Nam </h2>
+                                                    <p>Lồng chim luôn có sẵn để hỗ trợ khách hàng</p>
+                                                    <a href="#" class="primary-btn"> MUA NGAY</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                            <span class="sr-only">Previous</span>
+                                        </a>
+                                        <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                            <span class="sr-only">Next</span>
+                                        </a>
+                                    </div>
+
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
             </section>
             <!-- end hero -->
             <!-- start featured -->
+            <%!
+                public String formatCurrency(double amount) {
+                    DecimalFormat decimalFormat = new DecimalFormat("#,###");
+                    return decimalFormat.format(amount) + " VNĐ";
+                }
+            %>
+            <% List<Category> listC = (List<Category>) request.getAttribute("listCC");
+                int i = 1;
+                for (Category c : listC) {
+                    List<ProductDTO> listP = (List<ProductDTO>) request.getAttribute("listS" + i);
+
+
+            %>
             <section class="featured spad">
                 <div class="container">
                     <div class="row">
                         <div class="col-lg-12">
                             <div class="section-title">
-                                <h2> PHỤ KIỆN LỒNG CHIM </h2>
+                                <h2> <%=c.getCategoryName()%> </h2>
                             </div>
                         </div>
                     </div>
                     <div class="container-swiper">
                         <div class="row featured__filter swiper">
-                            <% if (request.getAttribute("ERROR") != null) {%>
-                            <p> Không tìm thấy kết quả </p>
 
-                            <% } else {%> 
                             <div class="swiper-wrapper">
 
-                                <c:set var="listS" value="${requestScope.listS}" />
-                                <c:forEach items="${listS}" var="x">
-                                    <c:if test="${x.status eq '1'}">
-                                        <div class="col-lg-3 col-md-4 col-sm-6 swiper-slide">
-                                            <div class="featured__item " data-aos="fade-up">
-                                                <div class="featured__item__pic set-bg">
-                                                    <img src="${x.image}" alt="">
+                                <% for (ProductDTO p : listP) {
+                                        if (p.getStatus().equals("1")) {
+                                %>
 
-                                                    <ul class="featured__item__pic__hover">
-                                                        <!-- ảnh sản phẩm -->
-                                                        <li><a href="WishlistServlet?id=${x.cageID}&type=home"><i class="fa fa-heart"></i></a></li>
-                                                        <li><a href="CartController?id=${x.cageID}&quantity=1&type=home"><i class="fa fa-shopping-cart"></i></a></li>
-                                                        <li><a href="ProductDetail?id=${x.cageID}"><i class="fa-solid fa-circle-info"></i></a></li>
-                                                    </ul>
-                                                </div>
-                                                <div class="featured__item__text">
-                                                    <h6><strong><a href="#" title="View Product">${x.cageName}</a></strong></h6>
-                                                    <div>
-                                                        <span class="amount-old">${x.priceOld} VNĐ</span> 
-                                                    </div>
-                                                    <span class="pro-price"> ${x.priceNew} VNĐ</span>
-                                                </div>
-                                            </div>
+                                <div class="col-lg-3 col-md-4 col-sm-6 swiper-slide">
+                                    <div class="featured__item " data-aos="fade-up">
+                                        <div class="featured__item__pic set-bg">
+                                            <img src="<%=p.getImage()%>" alt="">
+
+                                            <ul class="featured__item__pic__hover">
+                                                <!-- ảnh sản phẩm -->
+                                                <li><a href="WishlistServlet?id=<%=p.getCageID()%>&type=home"><i class="fa fa-heart"></i></a></li>
+                                                <li><a href="CartController?id=<%=p.getCageID()%>&quantity=1&type=home"><i class="fa fa-shopping-cart"></i></a></li>
+                                                <li><a href="ProductDetail?id=<%=p.getCageID()%>"><i class="fa-solid fa-circle-info"></i></a></li>
+                                            </ul>
                                         </div>
-                                    </c:if>
-                                </c:forEach>
+                                        <div class="featured__item__text">
+                                            <h6><strong><a href="#" title="View Product"><%=p.getCageName()%></a></strong></h6>
+                                            <div>
+                                                <span class="amount-old"><%= formatCurrency(p.getPriceOld())%></span> 
+                                            </div>
+                                            <span class="pro-price"><%= formatCurrency(p.getPriceNew())%></span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <% }
+                                        } %>
                             </div>        
-                            <% }%>
+
                         </div>
                     </div>
             </section>
-            <section class="featured spad">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-lg-12">
-                            <div class="section-title">
-                                <h2> LỒNG CHIM CHÀO MÀO  </h2>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="container-swiper">
-                        <div class="row featured__filter swiper">
-                            <% if (request.getAttribute("ERROR") != null) {%>
-                            <p> Không tìm thấy kết quả </p>
-
-                            <% } else {%> 
-                            <div class="swiper-wrapper">
-
-                                <c:set var="listS" value="${requestScope.listS}" />
-                                <c:forEach items="${listS}" var="x">
-                                    <c:if test="${x.status eq '1'}">
-                                        <div class="col-lg-3 col-md-4 col-sm-6 swiper-slide">
-                                            <div class="featured__item " data-aos="fade-up">
-                                                <div class="featured__item__pic set-bg">
-                                                    <img src="${x.image}" alt="">
-
-                                                    <ul class="featured__item__pic__hover">
-                                                        <!-- ảnh sản phẩm -->
-                                                        <li><a href="WishlistServlet?id=${x.cageID}&type=home"><i class="fa fa-heart"></i></a></li>
-                                                        <li><a href="CartController?id=${x.cageID}&quantity=1&type=home"><i class="fa fa-shopping-cart"></i></a></li>
-                                                        <li><a href="ProductDetail?id=${x.cageID}"><i class="fa-solid fa-circle-info"></i></a></li>
-                                                    </ul>
-                                                </div>
-                                                <div class="featured__item__text">
-                                                    <h6><strong><a href="#" title="View Product">${x.cageName}</a></strong></h6>
-                                                    <div>
-                                                        <span class="amount-old">${x.priceOld} VNĐ</span> 
-                                                    </div>
-                                                    <span class="pro-price"> ${x.priceNew} VNĐ</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </c:if>
-                                </c:forEach>
-                            </div>        
-                            <% }%>
-                        </div>
-                    </div>
-            </section>
-            <section class="featured spad">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-lg-12">
-                            <div class="section-title">
-                                <h2>LỒNG CU GÁY  </h2>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="container-swiper">
-
-                        <div class="row featured__filter swiper">
-                            <% if (request.getAttribute("ERROR") != null) {%>
-                            <p> Không tìm thấy kết quả </p>
-
-                            <% } else {%> 
-                            <div class="swiper-wrapper">
-
-                                <c:set var="listS" value="${requestScope.listS}" />
-                                <c:forEach items="${listS}" var="x">
-                                    <c:if test="${x.status eq '1'}">
-                                        <div class="col-lg-3 col-md-4 col-sm-6 swiper-slide">
-                                            <div class="featured__item " data-aos="fade-up">
-                                                <div class="featured__item__pic set-bg">
-                                                    <img src="${x.image}" alt="">
-
-                                                    <ul class="featured__item__pic__hover">
-                                                        <!-- ảnh sản phẩm -->
-                                                        <li><a href="WishlistServlet?id=${x.cageID}&type=home"><i class="fa fa-heart"></i></a></li>
-                                                        <li><a href="CartController?id=${x.cageID}&quantity=1&type=home"><i class="fa fa-shopping-cart"></i></a></li>
-                                                        <li><a href="ProductDetail?id=${x.cageID}"><i class="fa-solid fa-circle-info"></i></a></li>
-                                                    </ul>
-                                                </div>
-
-                                                <div class="featured__item__text">
-                                                    <h6><strong><a href="#" title="View Product">${x.cageName}</a></strong></h6>
-                                                    <div>
-                                                        <span class="amount-old">${x.priceOld} VNĐ</span> 
-                                                    </div>
-                                                    <span class="pro-price"> ${x.priceNew} VNĐ</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </c:if>
-                                </c:forEach>
-                            </div>        
-                            <% }%>
-                        </div>
-                    </div>
-            </section>
-            <section class="featured spad">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-lg-12">
-                            <div class="section-title">
-                                <h2> LỒNG CU GÁY   </h2>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="container-swiper">
-                        <div class="row featured__filter swiper">
-                            <% if (request.getAttribute("ERROR") != null) {%>
-                            <p> Không tìm thấy kết quả </p>
-
-                            <% } else {%> 
-                            <div class="swiper-wrapper">
-
-                                <c:set var="listS" value="${requestScope.listS}" />
-                                <c:forEach items="${listS}" var="x">
-                                    <c:if test="${x.status eq '1'}">
-                                        <div class="col-lg-3 col-md-4 col-sm-6 swiper-slide">
-                                            <div class="featured__item " data-aos="fade-up">
-                                                <div class="featured__item__pic set-bg">
-                                                    <img src="${x.image}" alt="">
-
-                                                    <ul class="featured__item__pic__hover">
-                                                        <!-- ảnh sản phẩm -->
-                                                        <li><a href="WishlistServlet?id=${x.cageID}&type=home"><i class="fa fa-heart"></i></a></li>
-                                                        <li><a href="CartController?id=${x.cageID}&quantity=1&type=home"><i class="fa fa-shopping-cart"></i></a></li>
-                                                        <li><a href="ProductDetail?id=${x.cageID}"><i class="fa-solid fa-circle-info"></i></a></li>
-                                                    </ul>
-                                                </div>
-                                                <div class="featured__item__text">
-                                                    <h6><strong><a href="#" title="View Product">${x.cageName}</a></strong></h6>
-                                                    <div>
-                                                        <span class="amount-old">${x.priceOld} VNĐ</span> 
-                                                    </div>
-                                                    <span class="pro-price"> ${x.priceNew} VNĐ</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </c:if>
-                                </c:forEach>
-                            </div>        
-                            <% }%>
-                        </div>
-                    </div>
-            </section>
+            <%
+                    i++;
+                }%>
             <!-- Slider main container -->
             <%-- <div class="swiper">
             <!-- Additional required wrapper -->
@@ -333,7 +207,7 @@
 
             <!-- end featured -->
             <!-- start blog -->
-            <section class="from-blog spad">
+            <section class="from-blog spad" id="blog">
                 <div class="container">
                     <div class="row">
                         <div class="col-lg-12">

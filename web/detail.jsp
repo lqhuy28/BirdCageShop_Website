@@ -4,6 +4,10 @@
     Author     : HOANGDUC
 --%>
 
+
+<%@page import="java.text.DecimalFormat"%>
+<%@page import="model.User"%>
+<%@page import="model.FeedBack"%>
 <%@page import="model.CageMaterial"%>
 <%@page import="model.Cart"%>
 <%@page import="java.util.List"%>
@@ -23,16 +27,46 @@
         <link rel="stylesheet" href="static/css/root.css">
         <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet"/>
         <title>Document</title>
+        <style>
+            .stars {
+                display: inline-block;
+            }
+
+            .star {
+                color: gray; /* Màu tối cho tất cả các sao */
+                font-size: 2em;
+                cursor: pointer;
+            }
+
+            .starD {
+                color: yellow; /* Màu tối cho tất cả các sao */
+                font-size: 1em;
+                cursor: pointer;
+            }
+
+            .star.checked {
+                color: yellow; /* Màu sáng cho các sao được chọn */
+            }
+        </style>
     </head>
     <body class="fade-in">
         <%
             ProductDTO product = (ProductDTO) request.getAttribute("product");
             int quantityCart = (int) session.getAttribute("quantityCart");
             List<CageMaterial> cm = (List<CageMaterial>) request.getAttribute("cageMaterial");
+            List<FeedBack> lF = (List<FeedBack>) request.getAttribute("feedback");
+            User user = (User) session.getAttribute("LOGIN_USER");
+            String userId = (String) request.getAttribute("userIDFeedback");
         %>
         <jsp:include page="header.jsp" />
         <div class="container bootdey">
             <div class="col-md-12">
+                <%!
+                    public String formatCurrency(double amount) {
+                        DecimalFormat decimalFormat = new DecimalFormat("#,###");
+                        return decimalFormat.format(amount) + " VNĐ";
+                    }
+                %>
                 <section class="panel">
                     <div class="panel-body">
                         <div class="col-md-6">
@@ -58,8 +92,8 @@
                                     </div>
                                 </div>
                                 <div class="m-bot15 detail-price mt-3 ">
-                                    <span class="amount-old"><%=product.getPriceOld()%> VNĐ</span>  
-                                    <span class="pro-price"> <%=product.getPriceNew()%> VNĐ</span>
+                                    <span class="amount-old"><%= formatCurrency(product.getPriceOld())%></span>  
+                                    <span class="pro-price" style="font-size: 35px"><%= formatCurrency(product.getPriceNew())%></span>
                                 </div>    
                                 <p class="mt-2">
                                     <strong>Mô tả sản phẩm: </strong>
@@ -83,19 +117,17 @@
                                         </div>
                                         <span id="quantityAvailable" class="mt-1"><%=product.getQuantity()%> sản phẩm sẳn có sẳn</span>
                                     </div>
+
                                 </form>
                                 <span hidden="true" id="quantityCart"><%=quantityCart%></span>
-
                                 <form action="CartController" method="get" id="addcart">
                                     <input type="hidden" value="" name="quantity" id="hiddenInput">
                                     <input type="hidden" value="<%=product.getCageID()%>" name="id">
                                 </form>
-                                
                                 <form action="ProductExcept" method="get" id="compare">
-                                    
+
                                     <input type="hidden" value="<%=product.getCageID()%>" name="id1">
                                 </form>
-
                                 <div class="buy-btn-group">
 
                                     <button type="submit" id="checkout" name="id" 
@@ -115,10 +147,9 @@
                                     <button type="submit" id="compare"
                                             form="compare" 
                                             class="btn  action-btn btn-round btn-success">
-                                        <i class="fa fa-shopping-cart"></i>
+                                        <i class="fa-solid fa-code-compare"></i>
                                         So sánh
                                     </button>
-
                                 </div>
                             </div>
                         </div>
@@ -149,25 +180,56 @@
                     </table>
                 </div>     
             </div>
+
             <div class="table-responsive"  data-aos="fade-up">
                 <div class="feedback-section">
                     <h4 class="pro-d-title">
                         <strong>Đánh giá sản phẩm</strong>
-                    </h4>                
-
+                    </h4>   
+                    <% for (FeedBack f : lF) {%>
                     <div class="feedback-item">
+                        <p><%=f.getFeedbackDate()%></p>
                         <div class="feedback-header">
                             <div class="feedback-user">
-                                John Doe
+                                <%=f.getFullName()%>
                             </div>
+
                             <div class="star-rating">
-                                <span>★★★★☆</span>
+                                <div class="stars">
+                                    <% int rate = Integer.parseInt(f.getRating()); %>
+                                    <% for (int i = 0; i < rate; i++) {
+                                    %>
+                                    <span class="starD">&#9733;</span>
+                                    <% }%>
+                                </div>
                             </div>
                         </div>
                         <div class="feedback-content">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam in consectetur leo. Sed eget tincidunt ligula. Nunc vehicula vel erat sit amet vestibulum.
+                            <%=f.getComment()%>
                         </div>
                     </div>
+                    <% }%>
+                    <%
+                        int check = 0;
+                        if(userId!=null){
+                        if (user.getUserID().equals(userId)) {
+                            check = 1;
+                        }}%>
+
+                    <% if (check == 1) {%>
+                    <form action="FeedbackController" method="post">
+                        <div class="stars">
+                            <span class="star" onclick="rate(1)">&#9733;</span>
+                            <span class="star" onclick="rate(2)">&#9733;</span>
+                            <span class="star" onclick="rate(3)">&#9733;</span>
+                            <span class="star" onclick="rate(4)">&#9733;</span>
+                            <span class="star" onclick="rate(5)">&#9733;</span>
+                        </div>
+                        <input type="hidden" value="<%=product.getCageID()%>" name="id">
+                        <input type="hidden" value="0" name="rate" id="rate">
+                        <input type="text" value="" name="feedback"><input type="submit" value="Gửi phản hồi">
+                    </form>
+                    <% }%>
 
                 </div>
             </div>
@@ -218,9 +280,8 @@
                     </div>
                 </div>
             </section>
-           
     </body>
-     <jsp:include page="footer.jsp" />
+    <jsp:include page="footer.jsp" />
     <script>
         const checkoutItem = document.getElementById("checkout");
         const addCartItem = document.getElementById("addCart");
@@ -295,5 +356,23 @@
         $('.carousel').carousel({
             interval: 5000
         })
+    </script>
+    <script>
+        var currentRating = 0;
+
+        function rate(stars) {
+            currentRating = stars;
+            document.getElementById('rate').value = currentRating;
+
+            // Đặt màu sáng cho các sao được chọn
+            for (var i = 1; i <= 5; i++) {
+                var starElement = document.getElementsByClassName('star')[i - 1];
+                if (i <= stars) {
+                    starElement.classList.add('checked');
+                } else {
+                    starElement.classList.remove('checked');
+                }
+            }
+        }
     </script>
 </html>

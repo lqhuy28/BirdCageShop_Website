@@ -4,13 +4,18 @@
  */
 package controller;
 
+import dao.OrderDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import model.Order;
+import model.OrderDetail;
+import model.OrderSuccess;
 
 /**
  *
@@ -57,7 +62,14 @@ public class SuccessOrder extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        request.getRequestDispatcher("checkout.jsp").
+        request.setCharacterEncoding("UTF-8");
+        response.setCharacterEncoding("UTF-8");
+        OrderDAO od = new OrderDAO();
+        String orderId= request.getParameter("orderId");
+        List<OrderSuccess> o = od.getOrderDetailSuccessById(orderId);
+        request.setAttribute("orderId", orderId);
+        request.setAttribute("listOrder", o);
+        request.getRequestDispatcher("SuccessOrder.jsp").
                 forward(request, response);       
     }
 

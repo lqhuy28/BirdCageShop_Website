@@ -25,7 +25,7 @@ public class ChangeProfile extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        
+
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -40,6 +40,8 @@ public class ChangeProfile extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        request.setCharacterEncoding("UTF-8");
+        response.setCharacterEncoding("UTF-8");
         String userID = request.getParameter("userID");
         UserDAO dao = new UserDAO();
         User user = dao.getUserByuserID(userID);
@@ -58,6 +60,8 @@ public class ChangeProfile extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        request.setCharacterEncoding("UTF-8");
+        response.setCharacterEncoding("UTF-8");
         try {
             String userID = request.getParameter("userID");
             String fullName = request.getParameter("fullName");
@@ -68,7 +72,7 @@ public class ChangeProfile extends HttpServlet {
             String roleID = request.getParameter("roleID");
             UserDAO dao = new UserDAO();
             dao.updateUser(userID, fullName, password, phone, email, address, roleID);
-            response.sendRedirect("homePage.jsp");
+            response.sendRedirect("MainController");
         } catch (Exception e) {
         }
     }

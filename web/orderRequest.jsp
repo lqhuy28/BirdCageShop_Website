@@ -202,35 +202,35 @@
                         const hangerQuantity = parseInt(item.parentNode.querySelector('td:nth-child(2)').textContent);
                         if (hangerQuantity < parseInt(document.getElementById("span1").textContent)) {
 //                            alert("Số móc phải đạt tối thiểu!");
-                            msg += "móc ";
+                            msg += "móc, ";
 //                            event.preventDefault();
                         }
                     } else if (item.textContent === "trụ") {
                         const hangerQuantity = parseInt(item.parentNode.querySelector('td:nth-child(2)').textContent);
                         if (hangerQuantity < parseInt(document.getElementById("span2").textContent)) {
 //                            alert("Số trụ phải đạt tối thiểu!");
-                            msg += "trụ ";
+                            msg += "trụ, ";
 //                            event.preventDefault();
                         }
                     } else if (item.textContent === "nan") {
                         const hangerQuantity = parseInt(item.parentNode.querySelector('td:nth-child(2)').textContent);
                         if (hangerQuantity < parseInt(document.getElementById("span3").textContent)) {
 //                            alert("Số nan phải đạt tối thiểu!");
-                            msg += "nan ";
+                            msg += "nan, ";
 //                            event.preventDefault();
                         }
                     } else if (item.textContent === "đáy") {
                         const hangerQuantity = parseInt(item.parentNode.querySelector('td:nth-child(2)').textContent);
                         if (hangerQuantity < parseInt(document.getElementById("span4").textContent)) {
 //                            alert("Số đáy phải đạt tối thiểu!");
-                            msg += "đáy ";
+                            msg += "đáy, ";
 //                            event.preventDefault();
                         }
                     } else if (item.textContent === "cửa") { 
                         const hangerQuantity = parseInt(item.parentNode.querySelector('td:nth-child(2)').textContent);
                         if (hangerQuantity < parseInt(document.getElementById("span5").textContent)) {
 //                            alert("Số cửa phải đạt tối thiểu!");
-                            msg += "cửa ";
+                            msg += "cửa, ";
 //                            event.preventDefault();
                         }
                     } else if (item.textContent === "cốc") {
@@ -243,7 +243,7 @@
                     }
                 });
                 if(msg !== ""){
-                    alert(msg + ": not enough quantity");
+                    alert(msg + ": không đủ số lượng!");
                     event.preventDefault();
                 }
                 if (quantityChange.value === null) {
@@ -270,6 +270,21 @@
                     const newQuantity = existingQuantity + parseInt(quantity);
                     existingRow.querySelector('td:nth-child(2)').textContent = newQuantity;
                     const total = newQuantity * price;
+                    let matName = "";
+                    if(existingRow.querySelector('td:nth-child(1)').textContent==="trụ"){
+                        matName="tru";
+                    }else if(existingRow.querySelector('td:nth-child(1)').textContent==="móc"){
+                        matName="moc";
+                    }else if(existingRow.querySelector('td:nth-child(1)').textContent==="đáy"){
+                        matName="day";
+                    }else if(existingRow.querySelector('td:nth-child(1)').textContent==="cửa"){
+                        matName="cua";
+                    }else if(existingRow.querySelector('td:nth-child(1)').textContent==="nan"){
+                        matName="nan";
+                    }else if(existingRow.querySelector('td:nth-child(1)').textContent==="cốc"){
+                        matName="coc";
+                    }
+                    document.getElementById(matName).value = newQuantity;
                     existingRow.querySelector('td:last-child').textContent = total;
                 } else {
                     const total = quantity * price;
@@ -292,7 +307,7 @@
                             "<td>" + quantity + "</td>" +
                             "<td>" + total + "</td>" +
                             "</tr>"+
-                            "<input type="+"hidden"+" name="+matName+" value="+quantity+">";
+                            "<input id="+matName+" type="+"hidden"+" name="+matName+" value="+quantity+">";
                 }
                 calculateTotal();
             });

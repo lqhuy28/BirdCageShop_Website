@@ -106,7 +106,7 @@
                     <div class="row">
                         <div class="col-md-12">
                             <div class="breadcrumb">
-                                <a href="ShowProduct.jsp"><b>Danh sách sản phẩm</b></a>
+                                <a href="load"><b>Danh sách sản phẩm</b></a>
                             </div>
                             <div id="clock"></div>
                         </div>
@@ -135,7 +135,7 @@
                                 </form>
                             </div>
                             <div class="addpro">
-                                <a href="AddProduct.jsp">Tạo sản phẩm</a>  
+                                <a href="add">Tạo sản phẩm</a>  
                             </div>
                         </div>
                         <% if (request.getAttribute("ERROR") != null) {%>

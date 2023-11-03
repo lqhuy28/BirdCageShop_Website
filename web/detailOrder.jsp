@@ -3,7 +3,7 @@
     Created on : Oct 18, 2023, 2:10:07 AM
     Author     : HOANGDUC
 --%>
-
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <%@page import="model.CageMaterial"%>
 <%@page import="model.OrderDetail"%>
 <%@page import="java.util.List"%>
@@ -43,7 +43,7 @@
                     <div class="content">
                         <span> Giao Tiết Kiệm</span></p>
                         <p>Được giao bởi BirdCage Shop</p>
-                        <p>Phí vận chuyển: <%=o.getShipCost()%></p>
+                        <p>Phí vận chuyển: <fmt:formatNumber value="<%=o.getShipCost()%>" pattern="###,###"/> VNĐ</p>
                     </div>
                 </div>
 
@@ -77,10 +77,10 @@
                             </div>
                         </div>
                     </td>
-                    <td class="price "><%=o.getPrice()%> ₫</td>
+                    <td class="price "><fmt:formatNumber value="<%=o.getPrice()%>" pattern="###,###"/> VNĐ</td>
                     <td class="quantity"><%=o.getQuantity()%></td>
-                    <td class="discount-amount">0 ₫</td>
-                    <td class="raw-total"><%=o.getPrice() * o.getQuantity()%> ₫</td>
+                    <td class="discount-amount">0 VNĐ</td>
+                    <td class="raw-total"><fmt:formatNumber value="<%=o.getPrice() * o.getQuantity()%>" pattern="###,###"/> VNĐ</td>
                 </tr>
 
             </tbody>
@@ -93,17 +93,17 @@
         %>
                 <tr>
                     <td colspan="4"><span>Thành tiền</span></td>
-                    <td><%=d.getPrice()*d.getQuantity()%> ₫</td>
+                    <td><fmt:formatNumber value="<%=d.getPrice()*d.getQuantity()%>" pattern="###,###"/> VNĐ</td>
                 </tr>
                 <% } %>
                 <tr>
                     <td colspan="4"><span>Phí khác</span></td>
-                    <td><%=o.getShipCost()%> ₫</td>
+                    <td><fmt:formatNumber value="<%=o.getShipCost()%>" pattern="###,###"/> VNĐ</td>
                 </tr>
 
                 <tr>
                     <td colspan="4"><span>Tổng cộng</span></td>
-                    <td><span class="sum"><%=o.getTotal() %> ₫</span></td>
+                    <td><span class="sum"><fmt:formatNumber value="<%=o.getTotal() %>" pattern="###,###"/> VNĐ</span></td>
                 </tr>
 
             </tfoot>

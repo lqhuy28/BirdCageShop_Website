@@ -55,7 +55,7 @@
                             <td class="text-center"><%=od.getOrderDate()%></td>
                             <td class="text-center"><%=od.getCageName()%></td>
                             <td class="text-center">x<%=od.getQuantity()%></td>
-                            <td class="text-center"><fmt:formatNumber value="<%=od.getPrice()*od.getQuantity()+od.getShipcod()%>" pattern="###,###"/> VNĐ</td>
+                            <td class="text-center"><fmt:formatNumber value="<%=od.getPrice()*od.getQuantity()%>" pattern="###,###"/> VNĐ</td>
                        <tr>
              <% } %>
                     </tbody>

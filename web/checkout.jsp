@@ -3,7 +3,7 @@
     Created on : Oct 7, 2023, 12:44:33 AM
     Author     : HOANGDUC
 --%>
-
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <%@page import="model.User"%>
 <%@page import="model.Cart"%>
 <%@page import="java.util.List"%>
@@ -18,7 +18,7 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-        
+
         <link rel="stylesheet" href="static/css/root.css">
         <title>Trang thanh toán</title>
     </head>
@@ -76,7 +76,7 @@
                                     <label  class="check-label "><span for="cash">Thanh toán khi nhận hàng</span></label><br>
                                 </div>
                                 <div class="form-group form-check">
-                                     <label class="beauty-checkbox">
+                                    <label class="beauty-checkbox">
                                         <input  class="form-check-input" type="checkbox" id="paypal" name="paymentMethod" value="vnpay">
                                         <span class="checkmark"></span>
                                     </label>
@@ -108,11 +108,11 @@
                                         %>
                                         <div class="price-item">
                                             <div class="price-item-name">
-                                            <span><%= item.getQuantity()%></span>
-                                            x
-                                            <span><%= item.getCageName()%></span>
+                                                <span><%= item.getQuantity()%></span>
+                                                x
+                                                <span><%= item.getCageName()%></span>
                                             </div>
-                                            <span class="price-item-total"><%= (item.getPrice() * item.getQuantity())%> VNĐ</span>
+                                            <span class="price-item-total"><fmt:formatNumber value="<%= (item.getPrice() * item.getQuantity())%>" pattern="###,###"/> VNĐ</span>
                                         </div>
                                         <%
                                             }
@@ -149,7 +149,7 @@
                             </div>
                         </div>
                     </div>
-                  
+
                 </div>
 
             </div>
@@ -182,9 +182,9 @@
             const feeElement = document.getElementById('shipping-fee-value');
             const total = totalElement.innerText;
             const select = document.getElementById('shippingMethod');
-            
+
             document.getElementById("shipCost").value = 30000;
-            
+
             if (select.value === 'standard') {
                 // option standard được chọn
                 let totalNumber = parseInt(total);

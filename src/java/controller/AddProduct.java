@@ -62,6 +62,8 @@ public class AddProduct extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        request.setCharacterEncoding("UTF-8");
+        response.setCharacterEncoding("UTF-8");
         ProductDAO dao = new ProductDAO();
         
         request.getRequestDispatcher("AddProduct.jsp").
@@ -80,6 +82,8 @@ public class AddProduct extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        request.setCharacterEncoding("UTF-8");
+        response.setCharacterEncoding("UTF-8");
         //processRequest(request, response);
         String sCageID = request.getParameter("CageID");
         String sCategoryID = request.getParameter("CategoryID");

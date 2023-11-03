@@ -36,6 +36,8 @@ public class DashboardController extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        request.setCharacterEncoding("UTF-8");
+        response.setCharacterEncoding("UTF-8");
         response.setContentType("text/html;charset=UTF-8");
         try {
             HttpSession session = request.getSession();
@@ -45,12 +47,12 @@ public class DashboardController extends HttpServlet {
              int countCage = dao.CountCage();
              int countUser = dao.CountUser();
              int countOrder = dao.CountOrder();
-             OrderDAO orderdao = new OrderDAO();
              double countOrderPrice = dao.CountOrderPrice();
              request.setAttribute("countcage", countCage);
              request.setAttribute("countuser", countUser);
              request.setAttribute("countorder", countOrder);
              request.setAttribute("countorderprice", countOrderPrice);
+             OrderDAO orderdao = new OrderDAO();
              java.util.Date currentDate = new java.util.Date();
              java.sql.Date orderDate = new java.sql.Date(currentDate.getTime());
              List<Order> list = orderdao.getOrder(orderDate);

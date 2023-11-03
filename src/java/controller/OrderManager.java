@@ -27,25 +27,25 @@ public class OrderManager extends HttpServlet {
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        request.setCharacterEncoding("UTF-8");
+        response.setCharacterEncoding("UTF-8");
         response.setContentType("text/html;charset=UTF-8");
         String url = ERROR;
         request.setCharacterEncoding("UTF-8");
         try {
             String search = request.getParameter("search");
+            if (search != null && !search.isEmpty()) {
             OrderDAO dao = new OrderDAO();
             List<Order> list = dao.searchOrder(search);
-                if (list.isEmpty()) {
-                request.setAttribute("ERROR", "Order is not found!");
+            if (list.isEmpty()) {
+                request.setAttribute("ERROR", "Không tìm thấy đơn hàng!");
             } else {
                 request.setAttribute("listOrder", list);
                 url = SUCCESS;
             }
-           
-            
-
-            
+            }
         } catch (Exception e) {
-        }finally{
+        } finally {
             request.getRequestDispatcher(url).forward(request, response);
         }
 

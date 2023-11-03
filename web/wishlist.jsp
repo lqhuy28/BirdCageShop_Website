@@ -25,7 +25,7 @@
     <body class="fade-in">
         <jsp:include page="header.jsp"/>
 
-        <div>
+        <div class="mainWishlist">
             <%
                 List<Wishlist> wishlist = (List<Wishlist>) session.getAttribute("wishlist");
             %>
@@ -33,7 +33,7 @@
                 <h2>Danh sách yêu thích </h2>
                 <% if (wishlist == null) { %>
                 <div class="cart__container">
-                    Danh sách yêu thích trống
+                   < Danh sách yêu thích trống >
                 </div>
                 <% } %>
             </div>

@@ -5,10 +5,113 @@
  */
 package dao;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.util.ArrayList;
+import java.util.List;
+import model.CageMaterial;
+import model.FeedBack;
+import utils.DBUtils;
+
 /**
  *
  * @author QUANHONG
  */
 public class FeedBackDAO {
-    
+
+    Connection conn = null;
+    PreparedStatement ps = null;
+    ResultSet rs = null;
+
+    public List<FeedBack> getFeedbackByCageId(String cageId) {
+        List<FeedBack> list = new ArrayList<>();
+        String query = "select * from tblFeedback f inner join tblOrderDetails od on od.OrderID = f.OrderID where od.CageID = ?";
+
+        try {
+            conn = new DBUtils().getConnection();
+            ps = conn.prepareStatement(query);
+            ps.setString(1, cageId);
+            rs = ps.executeQuery();
+            while (rs.next()) {
+                list.add(new FeedBack(rs.getInt(1),rs.getDate(2), rs.getString(3),
+                        rs.getString(4), rs.getString(5), rs.getString(6), rs.getString(7)));
+            }
+            ps.executeUpdate();
+        } catch (Exception e) {
+        }
+        return list;
+    }
+
+    public String getOrderByCageId(String pid, String userID) {
+        String userId = "";
+        String query = "select top(1) o.UserID from tblOrders o inner join tblOrderDetails od on od.OrderID = o.OrderID where od.CageID = ? and o.UserID = ? order by o.OrderDate desc";
+
+        try {
+            conn = new DBUtils().getConnection();
+            ps = conn.prepareStatement(query);
+            ps.setString(1, pid);
+            ps.setString(2, userID);
+            rs = ps.executeQuery();
+            while (rs.next()) {
+                userId = rs.getString(1);
+            }
+            ps.executeUpdate();
+        } catch (Exception e) {
+        }
+        return userId;
+    }
+
+    public void createFeedbackByUserId(FeedBack f) {
+        String query = "insert into tblFeedback\n"
+                + "values(?,?,?,?,?,?)";
+        try {
+            conn = new DBUtils().getConnection();
+            ps = conn.prepareStatement(query);
+            ps.setDate(1, f.getFeedbackDate());
+            ps.setString(2, f.getUserID());
+            ps.setString(3, f.getOrderId());
+            ps.setString(4, f.getFullName());
+            ps.setString(5, f.getRating());
+            ps.setString(6, f.getComment());
+            ps.executeUpdate();
+        } catch (Exception e) {
+        }
+    }
+
+    public String getOrdeIdrByCageId(String id) {
+        String orderId = "";
+        String query = "select top(1) o.OrderID from tblOrders o inner join tblOrderDetails od on od.OrderID = o.OrderID where od.CageID = ? order by o.OrderDate desc";
+
+        try {
+            conn = new DBUtils().getConnection();
+            ps = conn.prepareStatement(query);
+            ps.setString(1, id);
+            rs = ps.executeQuery();
+            while (rs.next()) {
+                orderId = rs.getString(1);
+            }
+            ps.executeUpdate();
+        } catch (Exception e) {
+        }
+        return orderId;
+    }
+
+    public List<FeedBack> getAllFeedback() {
+        List<FeedBack> list = new ArrayList<>();
+        String query = "select * from tblFeedback";
+
+        try {
+            conn = new DBUtils().getConnection();
+            ps = conn.prepareStatement(query);
+            rs = ps.executeQuery();
+            while (rs.next()) {
+                list.add(new FeedBack(rs.getInt(1),rs.getDate(2), rs.getString(3),
+                        rs.getString(4), rs.getString(5), rs.getString(6), rs.getString(7)));
+            }
+            ps.executeUpdate();
+        } catch (Exception e) {
+        }
+        return list;
+    }
 }

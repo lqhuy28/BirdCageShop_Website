@@ -3,7 +3,8 @@
     Created on : Oct 17, 2023, 12:55:58 AM
     Author     : QUANG HUY
 --%>
-
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@page import="dao.FeedBackDAO"%>
 <%@page import="model.FeedBack"%>
 <%@page import="model.Order"%>
 <%@page import="java.util.List"%>
@@ -102,25 +103,39 @@
                     <div class="row">
                         <div class="col-md-12">
                             <div class="breadcrumb">
-                                <a href="orderManager.jsp"><b>Danh sách đơn hàng</b></a>
+                                <a href="OrderManager"><b>Danh sách đơn hàng</b></a>
                             </div>
                             <div id="clock"></div>
                         </div>
                     </div>
                     <div class="container">
 
-                        <div class="error_message">
-                            ${requestScope.ERROR}
-                        </div>
+                        <%
+                            String search = request.getParameter("search");
+                            if (search == null) {
+                                search = "";
+                            }
+                        %>    
+
+                        <%
+                            FeedBackDAO dao = new FeedBackDAO();
+                            List<FeedBack> listU = (List<FeedBack>) request.getAttribute("listF");
+                            if (listU == null) {
+                                listU = dao.searchFeedback("");
+                                request.setAttribute("listF", listU);
+                            }
+                        %>
                         <div class="search-container">
-                            <form action="searchUser" method="POST" class="form-inline">
+                            <form action="SearchFeedBack" method="POST" class="form-inline">
                                 <div class="form-group">
-                                    <input type="text" value="#" placeholder="Search..."  class="form-control" name="search" id="search" />
+                                    <input type="text" value="<%=search%>" placeholder="Search..."  class="form-control" name="search" id="search" />
                                 </div>
                                 <button type="submit" class="fa fa-solid fa-magnifying-glass" name="action" value="Search"></button>
-                                <% List<FeedBack> listF = (List<FeedBack>) request.getAttribute("listFeedback"); %>
                             </form>
                         </div>
+                            <% if (request.getAttribute("ERROR") != null) {%>
+                        <p><%= request.getAttribute("ERROR")%></p>
+                        <% } else {%>
                         <table class="table">
                             <thead>
                                 <tr>
@@ -132,16 +147,15 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <% for (FeedBack f : listF) {
-                                %>
+                                <c:forEach items="${listF}" var="x">
                                 <tr>
-                                    <td class="text-center text-lg text-medium"><%=f.getFullName()%></td>
-                                    <td class="text-center text-lg text-medium"><%=f.getRating()%></td>
-                                    <td class="text-center text-lg text-medium"><%=f.getUserID()%></td>
-                                    <td class="text-center text-lg text-medium"><%=f.getOrderId()%></td>
-                                    <td class="text-center text-lg text-medium"><%=f.getFeedbackDate()%></td>   
+                                    <td class="text-center text-lg text-medium">${x.fullName}</td>
+                                    <td class="text-center text-lg text-medium">${x.rating}</td>
+                                    <td class="text-center text-lg text-medium">${x.userID}</td>
+                                    <td class="text-center text-lg text-medium">${x.orderId}</td>
+                                    <td class="text-center text-lg text-medium">${x.feedbackDate}</td>   
                                 </tr>
-                                <% }%>
+                                </c:forEach>
                             </tbody>
                         </table>
                          <nav aria-label="Page navigation example">
@@ -154,6 +168,7 @@
                                 </ul>
                             </nav>
                     </div>
+                            <% } %>
                 </main>
             </div>
     </body>

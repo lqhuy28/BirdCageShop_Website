@@ -6,6 +6,7 @@
 package dao;
 
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
@@ -110,6 +111,29 @@ public class FeedBackDAO {
                         rs.getString(4), rs.getString(5), rs.getString(6), rs.getString(7)));
             }
             ps.executeUpdate();
+        } catch (Exception e) {
+        }
+        return list;
+    }
+    public List<FeedBack> searchFeedback(String search){
+        List<FeedBack> list = new ArrayList<>();
+        String query = "select * from tblFeedback where fullName like ? or userID like ?";
+        try {
+            conn = new DBUtils().getConnection();
+            ps = conn.prepareStatement(query);
+            ps.setString(1, "%" + search + "%");
+            ps.setString(2, "%" + search + "%");
+            rs = ps.executeQuery();
+            while(rs.next()){
+                int feedbackId = rs.getInt("feedbackID");
+                Date feedbackDate = rs.getDate("feedbackDate");
+                String userID = rs.getString("userID");
+                String orderId = rs.getString("orderId");
+                String fullName = rs.getString("fullName");
+                String rating = rs.getString("rating");
+                String comment = rs.getString("comment");
+                list.add(new FeedBack(feedbackId, feedbackDate, userID, orderId, fullName, rating, comment));
+            }
         } catch (Exception e) {
         }
         return list;

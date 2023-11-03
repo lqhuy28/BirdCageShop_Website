@@ -29,20 +29,23 @@ public class SearchUserController extends HttpServlet {
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        request.setCharacterEncoding("UTF-8");
+        response.setCharacterEncoding("UTF-8");
         response.setContentType("text/html;charset=UTF-8");
-        HttpSession session = request.getSession();
         String url = ERROR;
         request.setCharacterEncoding("UTF-8");
         try {
             String search = request.getParameter("search");
-            UserDAO dao = new UserDAO();
-            List<User> list = dao.SearchUser(search);
+            if (search != null && !search.isEmpty()) {
+                UserDAO dao = new UserDAO();
+                List<User> list = dao.SearchUser(search);
                 if (list.isEmpty()) {
-                    request.setAttribute("ERROR", "User is not found!");
+                    request.setAttribute("ERROR", "Không tìm thấy kết quả");
                 } else {
                     request.setAttribute("listU", list);
                     url = SUCCESS;
                 }
+            }
         } catch (Exception e) {
             log("Error at SearchController: " + e.toString());
         } finally {

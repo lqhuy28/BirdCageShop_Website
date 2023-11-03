@@ -8,24 +8,33 @@ and open the template in the editor.
     Author     : HOANGDUC
 */
 .filter-form {
-  flex-wrap: wrap;
+    flex-wrap: wrap;
 }
 
 .filter-form label {
-  display: flex;
-  align-items: center;
-  margin-right: 20px;
+    display: flex;
+    align-items: center;
+    margin-right: 20px;
+    font-size: 17px;
 }
 
 .filter-form input[type="checkbox"] {
-  margin-right: 10px;
+    margin-right: 10px;
 }
 
 html,
 body {
     height: 100%;
     font-family: Arial, sans-serif;
+    background: #F0F6DC;
 }
+.header{
+    position: fixed;
+    z-index: 999999;
+    Top : 0;
+    Right : 0;
+    Left : 0;
+}   
 
 h1,
 h2,
@@ -421,6 +430,7 @@ ol {
 .header__menu ul li .header__menu__dropdown li:hover > a {
     background-color: #7fad39;
     color: #000000;
+    text-decoration: none;
 }
 
 .header__menu ul li .header__menu__dropdown li a {
@@ -533,8 +543,7 @@ ol {
 -----------------------*/
 
 .hero {
-    padding-bottom: 50px;
-    padding-top: 50px;
+    padding-top: 200px;
 }
 
 .hero.hero-normal {
@@ -563,16 +572,18 @@ ol {
     color: #ffffff;
 }
 
-
+.hero__categories{
+    background-color: white;
+}
 .hero__categories ul {
     border: 1px solid #ebebeb;
-    padding-left: 40px;
     padding-top: 10px;
-    padding-bottom: 12px;
+    padding-bottom: 40px;
 }
 
 .hero__categories ul li {
     list-style: none;
+    padding-left: 40px;
 }
 
 .hero__categories ul li a {
@@ -582,7 +593,10 @@ ol {
     line-height: 39px;
     display: block;
 }
-
+.hero__categories ul li:hover {
+    background-color: #7fad39;
+    color: #000000;
+}
 .hero__search {
     overflow: hidden;
     margin-bottom: 30px;
@@ -625,7 +639,7 @@ ol {
 }
 
 .hero__search__form form input {
-    width: 70%;
+    width: 100%;
     border: none;
     height: 48px;
     font-size: 16px;
@@ -896,6 +910,7 @@ ol {
 .featured__item__text h6 a {
     text-decoration: none;
     color: #252525;
+    font-size: 22px;
 }
 
 .featured__item__text h5 {
@@ -1038,7 +1053,7 @@ ol {
 }
 /*--------------------------------- Responsive Media Quaries -----------------------------*/
 
-@media only screen and (min-width: 1200px) {
+@media only screen and (min-width: 1000px) {
     .container {
         max-width: 1440px;
     }
@@ -1056,11 +1071,6 @@ ol {
     .hero__categories__all {
         padding: 10px 25px 10px 20px;
     }
-
-    .hero__categories ul {
-        padding-left: 20px;
-    }
-
     .latest-product__slider.owl-carousel .owl-nav {
         right: 0;
     }
@@ -1153,13 +1163,20 @@ ol {
 .blog__item__text {
     font-size: 24px;
     padding: 24px 0px;
+
 }
 
 .blog__item__text a {
     color: #000;
     text-decoration: none;
+    font-weight: 700;
+    font-size: 20px;
 }
 
+.blog__item__text p{
+    margin-top: 10px;
+    color: black;
+}
 .swiper-button-prev {
     left: 0;
     top: 50%;
@@ -1179,4 +1196,86 @@ ol {
     font-size: 24px;
     color: #e74c3c;
     font-weight: bold;
+}
+
+/*filter*/
+.filter__cage{
+    border: 1px solid #EEEEEE;
+    font-family: Arial, sans-serif;
+}
+
+.filter__cagetitle{
+    font-weight: bolder;
+    background-color: #7fad39;
+    padding: 12px;
+}
+
+.filter__cagetitle h5{
+    font-size: 16px;
+    font-weight: 700;
+    color: #ffffff;
+    margin-left: 25px;
+}
+
+.filter__cagetitle i{
+    margin: 0px 10px 0px 0px;
+}
+.filter__check{
+    padding: 15px 20px;
+}
+
+
+.custom-checkbox {
+    display: block;
+    position: relative;
+    padding-left: 30px;
+    margin-bottom: 10px;
+    cursor: pointer;
+    user-select: none;
+}
+
+.custom-checkbox input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 20px;
+    width: 20px;
+    background-color: #d3facd;
+    border: 1px solid #7fad39;
+}
+
+.custom-checkbox input:checked ~ .checkmark {
+    background-color: #7fad39;
+}
+
+.checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+.custom-checkbox input:checked ~ .checkmark:after {
+    display: block;
+}
+
+.custom-checkbox .checkmark:after {
+    left: 7px;
+    top: 3px;
+    width: 6px;
+    height: 12px;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    transform: rotate(45deg);
+}
+filter__but{
+    text-align: center;
+}
+.filter__but button{
+    padding: 10px 20px;
 }

@@ -30,7 +30,12 @@
             <div class="header__top">
                 <div class="container">
                     <div class="row">
-                        <div class="col-lg-6 col-md-6 d-flex justify-content-start align-items-center">
+                        <div class="col-2">
+                        <div class="header__logo">
+                            <a href="MainController"><img src="/Fall2023SWP391_NET1703_Group6/static/img/logoheada.png" alt=""></a>
+                        </div>
+                    </div>
+                        <div class="col-lg-5 col-md-5 d-flex justify-content-start align-items-center">
                             <div class="header__top__left p-0 py-4">
                                 <ul>
                                     <li><i class="fa fa-envelope"></i> birdcage@gmail.com</li>
@@ -38,7 +43,7 @@
                                 </ul>
                             </div>
                         </div>
-                        <div class="col-lg-6 col-md-6  d-flex justify-content-end align-items-center">
+                        <div class="col-lg-5 col-md-5  d-flex justify-content-end align-items-center">
                             <div class="header__top__right">
                                 <div class="header__top__right__social">
                                     <a href="#"><i class="fa fa-brands fa-facebook"></i></a>
@@ -77,18 +82,13 @@
                     </div>
                 </div>
             </div>
-            <div class="container-menu">
+            <div class="">
                 <div class="row px-3">
-                    <div class="col-2">
-                        <div class="header__logo">
-                            <a href="MainController"><img src="/Fall2023SWP391_NET1703_Group6/static/img/logoheada.png" alt=""></a>
-                        </div>
-                    </div>
-                    <div class="col-8 text-center d-flex align-items-center justify-content-center">
+                    <div class="col-10 text-center d-flex align-items-center justify-content-center">
                         <nav class="header__menu">
                             <ul>
                                 <li class="active"><a href="MainController">Trang chủ</a></li>
-                                <li><a href="policy/IntroduceShop.jsp">Giới thiệu</a></li>
+                                <li><a href="IntroduceShop">Giới thiệu</a></li>
                                 <li><a href="#">Sản phẩm </a>
                                     <ul class="header__menu__dropdown">
                                         <c:forEach items ="${listCC}" var ="o">
@@ -96,13 +96,21 @@
                                         </c:forEach>
                                     </ul>
                                 </li>
-                                <li><a href="">Blog</a></li>
+                                <li><a href="#blog" >Blog</a></li>
                                 <li><a href="OrderRequest">Đặt lồng theo yêu cầu</a></li>
+                                <li><a href="#">Chính sách </a>
+                                    <ul class="header__menu__dropdown">
+                                        <li><a href="generalPolicy">Chính sách chung</a></li>
+                                        <li><a href="BuyPolicy">Chính sách mua hàng</a></li>
+                                        <li><a href="ReturnPolicy">Chính sách đổi trả</a></li>
+                                        <li><a href="PrivacyPolicy">Chính sách bảo mật</a></li>
+                                    </ul>
+                                </li>
                                 <li><a href="">Liên hệ</a></li>
                             </ul>
                         </nav>
                     </div>
-                    <div class="col-2 d-flex align-items-center justify-content-end">
+                    <div class="col-2 d-flex align-items-center justify-content-center">
                         <div class="header__cart">
                             <%
                                 List<Cart> cart = (List<Cart>) session.getAttribute("cart");

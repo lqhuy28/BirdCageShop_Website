@@ -34,6 +34,8 @@ public class CategoryProduct extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        request.setCharacterEncoding("UTF-8");
+        response.setCharacterEncoding("UTF-8");
         response.setContentType("text/html;charset=UTF-8");
         String CategoryID = request.getParameter("cid");
         ProductDAO dao = new ProductDAO();
@@ -72,6 +74,8 @@ public class CategoryProduct extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        request.setCharacterEncoding("UTF-8");
+        response.setCharacterEncoding("UTF-8");
 //        processRequest(request, response);
 //        String CategoryID = request.getParameter("cid");
         String price = request.getParameter("FilterPrice");

@@ -14,6 +14,7 @@ import model.CageMaterial;
 import model.Material;
 import model.Order;
 import model.OrderDetail;
+import model.OrderSuccess;
 import model.ProductDTO;
 import utils.DBUtils;
 
@@ -104,7 +105,7 @@ public class OrderDAO {
         }
         return list;
     }
-    
+
     public List<CageMaterial> getMaterialByCageId(String cageId) {
         List<CageMaterial> list = new ArrayList<>();
         String query = "select m.MaterialName, cm.Quantity from tblCageMaterial cm inner join tblMaterial m on cm.MaterialID = m.MaterialID where cm.CageID = ?";
@@ -167,10 +168,11 @@ public class OrderDAO {
         }
         return list;
     }
-public List<Order> getOrderByID(String orderId) {
+
+    public List<Order> getOrderByID(String orderId) {
         List<Order> list = new ArrayList<>();
-        String query = "select o.OrderID, o.UserID, o.Phone, o.Address,o.OrderDate,o.ShippingCod, o.Total, o.OrderStatus from tblOrders o\n" +
-"                where orderID like ?";
+        String query = "select o.OrderID, o.UserID, o.Phone, o.Address,o.OrderDate,o.ShippingCod, o.Total, o.OrderStatus from tblOrders o\n"
+                + "                where orderID like ?";
         try {
             conn = new DBUtils().getConnection();
             ps = conn.prepareStatement(query);
@@ -191,6 +193,27 @@ public List<Order> getOrderByID(String orderId) {
         }
         return list;
     }
+
+    public List<OrderSuccess> getOrderDetailSuccessById(String orderId) {
+        List<OrderSuccess> list = new ArrayList<>();
+        String query = "SELECT od.OrderID, o.OrderDate, od.CageName,od.Quantity,od.Price,o.ShippingCod\n"
+                + "FROM tblOrderDetails od inner join tblCage c on c.CageID = od.CageID\n"
+                + "inner join tblOrders o on o.OrderID = od.OrderID\n"
+                + "where od.OrderID = ?";
+        try {
+            conn = new DBUtils().getConnection();
+            ps = conn.prepareStatement(query);
+            ps.setString(1, orderId);
+            rs = ps.executeQuery();
+            while (rs.next()) {
+                list.add(new OrderSuccess(rs.getString(1), rs.getString(3), rs.getDate(2), rs.getInt(4), rs.getDouble(5), rs.getDouble(6)));
+            }
+            ps.executeUpdate();
+        } catch (Exception e) {
+        }
+        return list;
+    }
+
     public void deleteOrder(String orderId) {
         String query = "delete from tblOrderDetails where OrderID = ?\n"
                 + "  delete from tblOrders where OrderID = ?";
@@ -224,9 +247,9 @@ public List<Order> getOrderByID(String orderId) {
 
     public List<Order> getOrder(Date orderDate) {
         List<Order> list = new ArrayList<>();
-        String query = "select o.OrderID, o.UserID, o.Phone, o.Address,o.OrderDate,o.ShippingCod, o.Total, o.OrderStatus from tblOrders o\n" +
-"                where o.OrderDate = ?";
-        
+        String query = "select o.OrderID, o.UserID, o.Phone, o.Address,o.OrderDate,o.ShippingCod, o.Total, o.OrderStatus from tblOrders o\n"
+                + "                where o.OrderDate = ?";
+
         try {
             conn = new DBUtils().getConnection();
             ps = conn.prepareStatement(query);
@@ -247,26 +270,27 @@ public List<Order> getOrderByID(String orderId) {
         }
         return list;
     }
-     public List<Order> searchOrder(String search){
+
+    public List<Order> searchOrder(String search) {
         List<Order> list = new ArrayList<>();
-        String query = "select o.OrderID, o.UserID, o.Phone, o.Address,o.OrderDate,o.ShippingCod, o.Total, o.OrderStatus from tblOrders o\n" +
-"                where orderID like ?";
+        String query = "select o.OrderID, o.UserID, o.Phone, o.Address,o.OrderDate,o.ShippingCod, o.Total, o.OrderStatus from tblOrders o\n"
+                + "                where orderID like ?";
         try {
             conn = new DBUtils().getConnection();
-            if(conn!=null){
+            if (conn != null) {
                 ps = conn.prepareStatement(query);
                 ps.setString(1, "%" + search + "%");
                 rs = ps.executeQuery();
                 while (rs.next()) {
-                list.add(new Order(rs.getString(1),
-                        rs.getString(2),
-                        rs.getString(3),
-                        rs.getString(4),
-                        rs.getDate(5),
-                        rs.getDouble(6),
-                        rs.getDouble(7),
-                        rs.getBoolean(8)));
-            }
+                    list.add(new Order(rs.getString(1),
+                            rs.getString(2),
+                            rs.getString(3),
+                            rs.getString(4),
+                            rs.getDate(5),
+                            rs.getDouble(6),
+                            rs.getDouble(7),
+                            rs.getBoolean(8)));
+                }
             }
         } catch (Exception e) {
         }

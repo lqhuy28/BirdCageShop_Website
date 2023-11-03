@@ -114,7 +114,7 @@
                     <div class="row">
                         <div class="col-md-12">
                             <div class="breadcrumb">
-                                <a href="dashboard.jsp"><b>Bảng điều khiển</b></a>
+                                <a href="DashboardController"><b>Bảng điều khiển</b></a>
                             </div>
 
                             <div id="clock"></div>

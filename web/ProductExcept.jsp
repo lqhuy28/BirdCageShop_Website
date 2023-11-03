@@ -3,6 +3,7 @@
     Created on : Oct 31, 2023, 3:03:33 AM
     Author     : Acer
 --%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -38,11 +39,9 @@
                     </div>
                 </div>
                 <div class="container-swiper">
-
                     <div class="swiper-button-prev"  style="top: 190px;left: -60px;"></div>
                     <div class="swiper-button-next" style="top: 190px;right: -60px;"></div>
                     <div class="row featured__filter swiper">
-
                         <div class="swiper-wrapper">
                             <% String id1 = (String)request.getAttribute("id1"); %>
                             <c:set var="listS" value="${requestScope.listS}" />
@@ -55,29 +54,23 @@
 
                                                 <ul class="featured__item__pic__hover">
                                                     <!-- ảnh sản phẩm -->
-                                                    <li><a href="CompareCage?id1=<%=id1%>&id2=${x.cageID}"><i class="fa-solid fa-circle-info"></i></a></li>
+                                                    <li><a href="CompareCage?id1=<%=id1%>&id2=${x.cageID}"><i class="fa-solid fa-code-compare"></i></i></a></li>
                                                 </ul>
                                             </div>
-
                                             <div class="featured__item__text">
-                                                <h6><a href="#" title="View Product">${x.cageName}</a></h6>
-                                                <h5>${x.priceNew} VNĐ</h5>
-                                            </div>
+                                                    <h6><strong><a href="#" title="View Product">${x.cageName}</a></strong></h6>
+                                                    <div>
+                                                        <span class="amount-old"><fmt:formatNumber value="${x.priceOld}" pattern="###,###"/> VNĐ</span> 
+                                                    </div>
+                                                    <span class="pro-price"><fmt:formatNumber value="${x.priceNew}" pattern="###,###"/> VNĐ</span>
+                                                </div>
                                         </div>
                                     </div>
                                 </c:if>
                             </c:forEach>
-
-
                         </div>
                     </div>
-
-                    <!-- If we need navigation buttons -->
-
-
-
                 </div>
-
             </div>
         </section>
         <jsp:include page="footer.jsp" />

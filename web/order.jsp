@@ -36,10 +36,10 @@
                                 <th class="text-center">Ngày đặt hàng</th>
                                 <th class="text-center">Số điện thoại</th>
                                 <th class="text-center">Địa chỉ</th>
-                                <th class="text-center">Phí Ship</th>
+                                <th class="text-center">Phí khác</th>
                                 <th class="text-center">Tổng Tiền</th>
                                 <th class="text-center">Tình Trạng</th>
-                                <th class="text-center">Chi tiết</th>
+                                <th class="text-center">Chi tiết 1</th>
                                 <th class="text-center">Chi tiết 2</th>
                             </tr>
                         </thead>

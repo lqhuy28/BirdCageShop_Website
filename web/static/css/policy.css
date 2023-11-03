@@ -8,68 +8,70 @@ and open the template in the editor.
     Author     : HOANGDUC
 */
 body {
-  font-family: Arial, sans-serif;
-  margin: 0;
-  padding: 0;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: #F0F6DC;
+
 }
 
 .logo img {
-  margin-left: 50px;
-  width: 180px;
-  height: auto;
+    margin-left: 50px;
+    width: 180px;
+    height: auto;
 }
 
 .search {
-  display: flex;
-  align-items: center;
-  margin-right: 50px;
-  position: relative;
+    display: flex;
+    align-items: center;
+    margin-right: 50px;
+    position: relative;
 }
 
 .search input[type="text"] {
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  width: 500px;
-  font-size: 15px;
-  vertical-align: middle;
-  /* Đặt căn chỉnh theo chiều dọc giữa */
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 500px;
+    font-size: 15px;
+    vertical-align: middle;
+    /* Đặt căn chỉnh theo chiều dọc giữa */
 }
 
 .search button {
-  top: 0;
-  right: 0;
-  position: absolute;
-  cursor: pointer;
-  padding: 5px 10px;
-  margin: 3px 5px;
-  border: none;
-  border-radius: 5px;
-  background-color: #f7462e;
-  color: white;
-  cursor: pointer;
-  font-size: 18px;
-  vertical-align: middle;
-  /* Đặt căn chỉnh theo chiều dọc giữa */
+    top: 0;
+    right: 0;
+    position: absolute;
+    cursor: pointer;
+    padding: 5px 10px;
+    margin: 3px 5px;
+    border: none;
+    border-radius: 5px;
+    background-color: #f7462e;
+    color: white;
+    cursor: pointer;
+    font-size: 18px;
+    vertical-align: middle;
+    /* Đặt căn chỉnh theo chiều dọc giữa */
 }
 
 .search button:hover {
-  background-color: rgb(227, 93, 75);
+    background-color: rgb(227, 93, 75);
 }
 
 .login a {
-  background-color: #F7462E;
-  text-decoration: none;
-  padding: 9px 15px;
-  border: 1px solid white;
-  border-radius: 5px;
-  color: white;
-  margin-right: 50px;
+    background-color: #F7462E;
+    text-decoration: none;
+    padding: 9px 15px;
+    border: 1px solid white;
+    border-radius: 5px;
+    color: white;
+    margin-right: 50px;
 }
 
 .login a:hover {
-  background-color: rgb(227, 93, 75);
-  color: white;
+    background-color: rgb(227, 93, 75);
+    color: white;
 }
 
 /* start main */
@@ -77,29 +79,29 @@ body {
 h1,
 h2,
 h3 {
-  color: #f7462e;
+    color: #f7462e;
 }
 
 h1 {
-  font-size: 30px;
-  padding-bottom: 10px;
+    font-size: 30px;
+    padding-bottom: 10px;
 }
 
 .row-main {
-  padding: 200px 200px 80px 200px;
-  min-height: 550px;
-  background-color: #F5F5FA;
+    padding: 50px 200px 50px 200px;
+    min-height: 550px;
+    background-color: #F5F5FA;
 }
 
 h2 {
-  font-size: 1.6em;
-  line-height: 1.3;
-  margin: 10px;
-  container: auto;
+    font-size: 1.6em;
+    line-height: 1.3;
+    margin: 10px;
+    container: auto;
 }
 
 /* end main */
 
 .logo-main {
-  width: 100%;
+    width: 100%;
 }

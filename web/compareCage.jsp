@@ -44,7 +44,7 @@
                         <!-- Hiển thị thông tin sản phẩm -->
                         <div class="rate-container">
                             <div class="rate-avg">
-                                3
+                                3.0
                             </div>
                             <div class="star-rating">
                                 <span>★★★☆☆</span>

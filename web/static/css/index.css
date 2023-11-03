@@ -8,18 +8,18 @@ and open the template in the editor.
     Author     : HOANGDUC
 */
 .filter-form {
-    flex-wrap: wrap;
+  flex-wrap: wrap;
 }
 
 .filter-form label {
-    display: flex;
-    align-items: center;
-    margin-right: 20px;
-    font-size: 17px;
+  display: flex;
+  align-items: center;
+  margin-right: 20px;
+  font-size: 17px;
 }
 
 .filter-form input[type="checkbox"] {
-    margin-right: 10px;
+  margin-right: 10px;
 }
 
 html,
@@ -28,13 +28,6 @@ body {
     font-family: Arial, sans-serif;
     background: #F0F6DC;
 }
-.header{
-    position: fixed;
-    z-index: 999999;
-    Top : 0;
-    Right : 0;
-    Left : 0;
-}   
 
 h1,
 h2,
@@ -543,7 +536,8 @@ ol {
 -----------------------*/
 
 .hero {
-    padding-top: 200px;
+    padding-bottom: 50px;
+    padding-top: 50px;
 }
 
 .hero.hero-normal {
@@ -578,7 +572,7 @@ ol {
 .hero__categories ul {
     border: 1px solid #ebebeb;
     padding-top: 10px;
-    padding-bottom: 40px;
+    padding-bottom: 12px;
 }
 
 .hero__categories ul li {
@@ -1163,7 +1157,6 @@ ol {
 .blog__item__text {
     font-size: 24px;
     padding: 24px 0px;
-
 }
 
 .blog__item__text a {
@@ -1211,7 +1204,7 @@ ol {
 }
 
 .filter__cagetitle h5{
-    font-size: 16px;
+        font-size: 16px;
     font-weight: 700;
     color: #ffffff;
     margin-left: 25px;

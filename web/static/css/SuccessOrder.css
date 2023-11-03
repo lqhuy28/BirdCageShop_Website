@@ -6,7 +6,7 @@
     justify-content: center;
     height: 80vh;
     margin: 0;
-    padding-top: 200px;
+    padding-top: 20px;
 }
 
 .logo__success i {
@@ -34,6 +34,9 @@
 
 .table__success th{
     background-color: aliceblue;
+}
+.table__success td{
+    background-color: white;
 }
 
 .table__success th, td {

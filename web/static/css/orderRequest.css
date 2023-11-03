@@ -1,160 +1,160 @@
 .main {
-  background: white;
-  font-family: "Arial", sans-serif;
-  padding: 200px 50px 50px 50px;
+    background: #F0F6DC;
+    font-family: "Arial", sans-serif;
+    padding: 50px 50px 50px 50px;
 }
 .title-main {
-  text-align: center;
+    text-align: center;
 }
 
 .sm-container {
-  max-width: 1200px;
-  margin: 0 auto;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
 .title-main h3 {
-  font-weight: bold;
-  text-transform: uppercase;
+    font-weight: bold;
+    text-transform: uppercase;
 }
 
 .add-material {
-  background: #f5f5f5;
-  padding: 20px;
-  margin-top: 20px;
+    background: #f5f5f5;
+    padding: 20px;
+    margin-top: 20px;
 }
 
 .form-title {
-  font-size: 24px;
-  text-transform: uppercase;
-  color: #25241e;
-  font-weight: bold;
-  margin-bottom: 16px;
+    font-size: 24px;
+    text-transform: uppercase;
+    color: #25241e;
+    font-weight: bold;
+    margin-bottom: 16px;
 }
 
 /* Chọn loại lồng */
 .selectcage {
-  display: flex;
-  flex-direction: column;
-  align-items: start;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
 }
 .selectcage select {
-  width: 100%;
-  border-radius: 0;
+    width: 100%;
+    border-radius: 0;
 }
 /* SỐ LƯỢNG LỒNG CẦN THIẾT KẾ */
 .quantitycage {
-  display: flex;
-  flex-direction: column;
-  padding-bottom: 10px;
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 10px;
 }
 
 .quantitycage input {
-  width: 50px;
-  border-radius: 20px;
+    width: 50px;
+    border-radius: 20px;
 }
 
 .titlemat h5 {
-  font-weight: bold;
-  padding-top: 20px;
-  padding-bottom: 10px;
+    font-weight: bold;
+    padding-top: 20px;
+    padding-bottom: 10px;
 }
 /* CHỌN NGUYÊN LIỆU */
 .selectmate {
-  display: flex;
-  flex-direction: column;
+    display: flex;
+    flex-direction: column;
 }
 .selectmate select {
-  width: 100%;
-  border-radius: 0;
+    width: 100%;
+    border-radius: 0;
 }
 
 /* Số lượng material */
 .quantitymate {
-  display: flex;
+    display: flex;
 
-  flex-direction: column;
+    flex-direction: column;
 }
 
 /* button-addmate */
 .button-addmate button {
-  border-radius: 0;
+    border-radius: 0;
 }
 
 .mat-tab-title h5 {
-  font-weight: bold;
-  padding-bottom: 10px;
+    font-weight: bold;
+    padding-bottom: 10px;
 }
 .mat-tab thead {
-  background-color: #f5f5f5;
+    background-color: #f5f5f5;
 }
 
 .note textarea {
-  margin: 10px 0px;
+    margin: 10px 0px;
 }
 .checkout {
-  padding-top: 10px;
+    padding-top: 10px;
 }
 
 .checkout p {
-  color: black;
+    color: black;
 }
 
 .money {
-  font-weight: bold;
+    font-weight: bold;
 }
 .sendrequest {
 }
 
 .sendrequest button {
-  border-radius: 0;
+    border-radius: 0;
 }
 
 .material {
-  background: white;
-  border-radius: 12px;
-  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.3);
-  margin-top: 20px;
-  padding: 20px;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.3);
+    margin-top: 20px;
+    padding: 20px;
 }
 
 .detail-quantity {
-  display: flex;
-  align-items: center;
-  width: 170px;
+    display: flex;
+    align-items: center;
+    width: 170px;
 }
 
 .detail-quantity input {
-  padding: 0px 20px 0 35px;
-  height: 40px;
-  width: 100%;
-  text-align: center;
-  display: inline-block;
-  border: 1px solid #ccc;
-  background: #fff;
-  border-radius: 0;
+    padding: 0px 20px 0 35px;
+    height: 40px;
+    width: 100%;
+    text-align: center;
+    display: inline-block;
+    border: 1px solid #ccc;
+    background: #fff;
+    border-radius: 0;
 }
 
 .detail-quantity button {
-  width: 40px;
-  height: 40px;
-  flex-shrink: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border: 1px solid #ccc;
-  background: #fff;
+    width: 40px;
+    height: 40px;
+    flex-shrink: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #ccc;
+    background: #fff;
 }
 
 #suggestedMaterials {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  grid-gap: 8px;
-  list-style: none;
-  padding: 0;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 8px;
+    list-style: none;
+    padding: 0;
 }
 
 .checkout-item {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }

@@ -138,7 +138,7 @@ h5 {
 .sm-container {
   max-width: 1200px;
   margin: 0 auto;
-  padding-top: 40px;
+  padding-top: 200px;
   padding-bottom: 40px;
 }
 
@@ -269,8 +269,8 @@ h5 {
 
 /* Style the checkmark/indicator */
 .beauty-checkbox .checkmark:after {
-  left: 9px;
-  top: 5px;
+  left: 6px;
+  top: 3px;
   width: 7px;
   height: 10px;
   border: solid white;

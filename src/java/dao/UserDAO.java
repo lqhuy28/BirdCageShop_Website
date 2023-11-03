@@ -130,6 +130,21 @@ public class UserDAO {
             e.printStackTrace();
         }
     }
+    
+    public void updatePasswordByEmail(String password,String email){
+        Connection conn = null;
+        PreparedStatement ptm = null;
+        String sql = "UPDATE tblUsers set password=? WHERE email=?";
+        try {
+            conn = DBUtils.getConnection();
+            ptm = conn.prepareStatement(sql);
+            ptm.setString(1, password);
+            ptm.setString(2, email);
+            ptm.executeUpdate();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 
     public User checkLogin(String userID, String password) throws SQLException {
         User user = null;

@@ -60,6 +60,8 @@ public class ProductExcept extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        request.setCharacterEncoding("UTF-8");
+        response.setCharacterEncoding("UTF-8");
 //        processRequest(request, response);
           String ID = request.getParameter("id1");
           ProductDAO dao = new ProductDAO();
@@ -81,6 +83,8 @@ public class ProductExcept extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        request.setCharacterEncoding("UTF-8");
+        response.setCharacterEncoding("UTF-8");
         processRequest(request, response);
     }
 

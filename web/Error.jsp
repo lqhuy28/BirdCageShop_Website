@@ -17,9 +17,8 @@
         <div class="notfound-404">
             <h1>404</h1>
         </div>
-        <h2>we are sorry, but the page you requested was not found</h2>
-        <a href="homePage.jsp" class="home-btn">Go Home</a>
-        <a href="#" class="contact-btn">Contact us</a>
+        <h2>Chúng tôi xin lỗi, nhưng trang bạn yêu cầu không được tìm thấy</h2>
+        <a href="MainController" class="home-btn">Quay lại trang chủ</a>
     </div>
     </body>
 </html>

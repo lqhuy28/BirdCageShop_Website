@@ -3,7 +3,7 @@
     Created on : Sep 24, 2023, 5:33:51 PM
     Author     : QUANG HUY
 --%>
-
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <%@page import="model.Wishlist"%>
 <%@page import="java.util.List"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -63,7 +63,7 @@
                                         </div>
                                     </div>
                                 </td>
-                                <td class="text-center text-lg text-medium"><%=w.getPrice()%></td>
+                                <td class="text-center text-lg text-medium"><fmt:formatNumber value="<%=w.getPrice()%>" pattern="###,###"/> VNĐ</td>
                                 <td class="text-center text-lg text-medium"><span>Còn hàng</span></td>
                                 <td class="text-center">
                                     <a class="remove-from-cart" href="#"><i class="fa fa-shopping-cart"></i></a>

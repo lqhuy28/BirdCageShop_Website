@@ -3,7 +3,9 @@
     Created on : Sep 21, 2023, 5:45:14 PM
     Author     : Acer
 --%>
-
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+<%@page import="model.OrderSuccess"%>
+<%@page import="model.OrderDetail"%>
 <%@page import="dao.ProductDAO"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page import="java.util.List"%>
@@ -29,9 +31,11 @@
             <div class="title__success">  
                 <h2>Đặt hàng thành công</h2>
             </div>
+            <% String orderId = (String)request.getAttribute("orderId"); %>
             <div class="order__id">
-                Mã giao dịch: SA123 
+                Mã giao dịch: <%=orderId%>
             </div>
+            <% List<OrderSuccess> ls = (List<OrderSuccess>)request.getAttribute("listOrder"); %>
             <div class="table__success">
                 <table class="table table-hover">
                     <thead>
@@ -43,13 +47,17 @@
                         </tr>
                     </thead>
                     <tbody>
+                        <% for (OrderSuccess od : ls) {
+                                
+                            
+                        %>
                         <tr>
-                            <td class="text-center">20-1-2022</td>
-                            <td class="text-center">Lồng chim vành khuyên</td>
-                            <td class="text-center">x3</td>
-                            <td class="text-center">3.000.000 VND</td>
-                       tr>
-             
+                            <td class="text-center"><%=od.getOrderDate()%></td>
+                            <td class="text-center"><%=od.getCageName()%></td>
+                            <td class="text-center">x<%=od.getQuantity()%></td>
+                            <td class="text-center"><fmt:formatNumber value="<%=od.getPrice()*od.getQuantity()+od.getShipcod()%>" pattern="###,###"/> VNĐ</td>
+                       <tr>
+             <% } %>
                     </tbody>
                 </table>
             </div>  
@@ -58,8 +66,7 @@
                 <div>Mọi thắc mắc xin vui lòng liên hệ hotline: <strong>0123 456 789</strong></div>
             </div>
             <div class="buton__success">
-                <button class="btn btn-success " href="Maincontroller"><i class="fa-solid fa-house" style="color: #ffffff;"></i> Trở về trang chủ</button>
-                <button class="btn btn btn-warning btn-action"><i class="fa-solid fa-cart-shopping" style="color: #000000;"></i> Mua thêm sản phẩm</button>
+                <a class="btn btn-success " href="MainController"><i class="fa-solid fa-house" style="color: #ffffff;"></i> Trở về trang chủ</a>
             </div>
         </div>
         <jsp:include page="footer.jsp"/>

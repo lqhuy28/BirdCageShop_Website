@@ -3,7 +3,7 @@
     Created on : Oct 17, 2023, 12:55:58 AM
     Author     : QUANG HUY
 --%>
-
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <%@page import="dao.OrderDAO"%>
 <%@page import="model.Order"%>
 <%@page import="java.util.List"%>
@@ -31,7 +31,7 @@
         </header>
         <div class="bodya">
             <div class="row">
-                 <div class="col-md-2">
+                <div class="col-md-2">
                     <aside class=" dashboard__sider" >
                         <div class="admin">
                             <img src="static/img/admin1.png" width="200px">
@@ -50,7 +50,7 @@
                                         <i class="fa-solid fa-network-wired" style="color: #ffffff;"></i>
                                     </div>
                                     <div class="title">
-                                        <a class="nav-link" href="dashboard.jsp"><span>Bảng điều khiển</span></a>
+                                        <a class="nav-link" href="DashboardController"><span>Bảng điều khiển</span></a>
                                     </div>
                             </li>
                             <li class="nav-item">
@@ -59,7 +59,7 @@
                                         <i class="fa-solid fa-users" style="color: #ffffff;"></i>
                                     </div>
                                     <div class="title">
-                                        <a class="nav-link" href="userManager.jsp"><span>Quản lí khách hàng</span></a>
+                                        <a class="nav-link" href="searchUser"><span>Quản lí khách hàng</span></a>
                                     </div>
                                 </div>
                             </li>
@@ -71,7 +71,7 @@
                                     </div>
 
                                     <div class="title">
-                                        <a class="nav-link" href="ShowProduct.jsp"><span>Quản lí sản phẩm</span></a>
+                                        <a class="nav-link" href="load"><span>Quản lí sản phẩm</span></a>
                                     </div>
                                 </div>
                             </li>
@@ -93,7 +93,7 @@
                                         <i class="fa-solid fa-comments" style="color: #ffffff;"></i>                            
                                     </div>
                                     <div class="title">
-                                        <a class="nav-link" href="#"><span>Kiểm tra phản hồi</span></a>
+                                        <a class="nav-link" href="FeedbackManager"><span>Kiểm tra phản hồi</span></a>
                                     </div>
                                 </div>
                             </li>
@@ -112,24 +112,22 @@
                         </div>
                     </div>
                     <%
-            String search = request.getParameter("search");
-            if(search == null){
-                search = "";
-            }
-        %> 
+                        String search = request.getParameter("search");
+                        if (search == null) {
+                            search = "";
+                        }
+                    %> 
                     <%
-            OrderDAO dao = new OrderDAO();
-            List<Order> listOrder = (List<Order>) request.getAttribute("listOrder");
-            if (listOrder == null) {
-                listOrder = dao.searchOrder("");
-                request.setAttribute("listOrder", listOrder);
-            }
-        %>
+                        OrderDAO dao = new OrderDAO();
+                        List<Order> listOrder = (List<Order>) request.getAttribute("listOrder");
+                        if (listOrder == null) {
+                            listOrder = dao.searchOrder("");
+                            request.setAttribute("listOrder", listOrder);
+                        }
+                    %>
                     <div class="container">
 
-                        <div class="error_message">
-                            ${requestScope.ERROR}
-                        </div>
+
                         <div class="search-container">
                             <form action="OrderManager" method="POST" class="form-inline">
                                 <div class="form-group">
@@ -139,6 +137,9 @@
 
                             </form>
                         </div>
+                        <% if (request.getAttribute("ERROR") != null) {%>
+                        <p><%= request.getAttribute("ERROR")%></p>
+                        <% } else {%>
                         <table class="table">
                             <thead>
                                 <tr>
@@ -155,28 +156,29 @@
 
                             <tbody>
                                 <c:forEach items="${listOrder}" var="o">
-                                <tr>
-                                    <td class="text-center text-lg text-medium">${o.orderID}</td>
-                                    <td class="text-center text-lg text-medium">${o.userID}</td>
-                                    <td class="text-center text-lg text-medium">${o.phone}</td>
-                                    <td class="text-center text-lg text-medium">${o.address}</td>
-                                    <td class="text-center text-lg text-medium">${o.orderDate}</td>   
-                                    <td class="text-center text-lg text-medium">${o.shipCost}</td>
-                                    <td class="text-center text-lg text-medium">${o.total}</td>
-                                    <td class="text-center text-lg text-medium"><a href="#" class="round-button"><i class="fa-solid fa-eye" style="color: white;"></i></a></td>
-                                </tr>
+                                    <tr>
+                                        <td class="text-center text-lg text-medium">${o.orderID}</td>
+                                        <td class="text-center text-lg text-medium">${o.userID}</td>
+                                        <td class="text-center text-lg text-medium">${o.phone}</td>
+                                        <td class="text-center text-lg text-medium">${o.address}</td>
+                                        <td class="text-center text-lg text-medium">${o.orderDate}</td>   
+                                        <td class="text-center text-lg text-medium"><fmt:formatNumber value="${o.shipCost}" pattern="###,###"/> VNĐ</td>
+                                        <td class="text-center text-lg text-medium"><fmt:formatNumber value="${o.total}" pattern="###,###"/> VNĐ</td>
+                                        <td class="text-center text-lg text-medium"><a href="DetailOrder?orderId=${o.orderID}" class="round-button"><i class="fa-solid fa-eye" style="color: white;"></i></a></td>
+                                    </tr>
                                 </c:forEach>
                             </tbody>
                         </table>
-                         <nav aria-label="Page navigation example">
-                                <ul class="pagination">
-                                    <li class="page-item"><a class="page-link" href="#">Previous</a></li>
-                                    <li class="page-item"><a class="page-link" href="#">1</a></li>
-                                    <li class="page-item"><a class="page-link" href="#">2</a></li>
-                                    <li class="page-item"><a class="page-link" href="#">3</a></li>
-                                    <li class="page-item"><a class="page-link" href="#">Next</a></li>
-                                </ul>
-                            </nav>
+                        <nav aria-label="Page navigation example">
+                            <ul class="pagination">
+                                <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+                                <li class="page-item"><a class="page-link" href="#">1</a></li>
+                                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                <li class="page-item"><a class="page-link" href="#">Next</a></li>
+                            </ul>
+                        </nav>
+                        <% }%>
                     </div>
                 </main>
             </div>

@@ -32,7 +32,7 @@
         </header>
         <div class="bodya">
             <div class="row">
-               <div class="col-md-2">
+                <div class="col-md-2">
                     <aside class=" dashboard__sider" >
                         <div class="admin">
                             <img src="static/img/admin1.png" width="200px">
@@ -51,7 +51,7 @@
                                         <i class="fa-solid fa-network-wired" style="color: #ffffff;"></i>
                                     </div>
                                     <div class="title">
-                                        <a class="nav-link" href="dashboard.jsp"><span>Bảng điều khiển</span></a>
+                                        <a class="nav-link" href="DashboardController"><span>Bảng điều khiển</span></a>
                                     </div>
                             </li>
                             <li class="nav-item">
@@ -60,7 +60,7 @@
                                         <i class="fa-solid fa-users" style="color: #ffffff;"></i>
                                     </div>
                                     <div class="title">
-                                        <a class="nav-link" href="userManager.jsp"><span>Quản lí khách hàng</span></a>
+                                        <a class="nav-link" href="searchUser"><span>Quản lí khách hàng</span></a>
                                     </div>
                                 </div>
                             </li>
@@ -72,7 +72,7 @@
                                     </div>
 
                                     <div class="title">
-                                        <a class="nav-link" href="ShowProduct.jsp"><span>Quản lí sản phẩm</span></a>
+                                        <a class="nav-link" href="load"><span>Quản lí sản phẩm</span></a>
                                     </div>
                                 </div>
                             </li>
@@ -94,7 +94,7 @@
                                         <i class="fa-solid fa-comments" style="color: #ffffff;"></i>                            
                                     </div>
                                     <div class="title">
-                                        <a class="nav-link" href="#"><span>Kiểm tra phản hồi</span></a>
+                                        <a class="nav-link" href="FeedbackManager"><span>Kiểm tra phản hồi</span></a>
                                     </div>
                                 </div>
                             </li>
@@ -113,34 +113,36 @@
                         </div>
                     </div>
                     <div class="container">
-         
-        <%
-            String search = request.getParameter("search");
-            if(search == null){
-                search = "";
-            }
-        %>    
-        
-        <%
-            UserDAO dao = new UserDAO();
-            List<User> listU = (List<User>) request.getAttribute("listU");
-            if (listU == null) {
-                listU = dao.SearchUser("");
-                request.setAttribute("listU", listU);
-            }
-        %>
-        <div class="error_message">
-                                ${requestScope.ERROR}
-                            </div>
-                            <div class="search-container">
-                                <form action="searchUser" method="POST" class="form-inline">
-                                    <div class="form-group">
-                                        <input type="text" value="<%=search%>" placeholder="Search by userID or fullName"  class="form-control" name="search" id="search" />
-                                    </div>
-                                    <button type="submit" class="fa fa-solid fa-magnifying-glass" name="action" value="Search"></button>
-                                </form>
-                            </div>
+
+                        <%
+                            String search = request.getParameter("search");
+                            if (search == null) {
+                                search = "";
+                            }
+                        %>    
+
+                        <%
+                            UserDAO dao = new UserDAO();
+                            List<User> listU = (List<User>) request.getAttribute("listU");
+                            if (listU == null) {
+                                listU = dao.SearchUser("");
+                                request.setAttribute("listU", listU);
+                            }
+                        %>
+
+                        <div class="search-container">
+                            <form action="searchUser" method="POST" class="form-inline">
+                                <div class="form-group">
+                                    <input type="text" value="<%=search%>" placeholder="Search by userID or fullName"  class="form-control" name="search" id="search" />
+                                </div>
+                                <button type="submit" class="fa fa-solid fa-magnifying-glass" name="action" value="Search"></button>
+                            </form>
+                        </div>
+                        <% if (request.getAttribute("ERROR") != null) {%>
+                        <p><%= request.getAttribute("ERROR")%></p>
+                        <% } else {%>
                         <% int count = 1;%>
+                        <c:set var="listU" value="${requestScope.listU}" />
                         <c:if test="${not empty listU}">
                             <table class="table">
                                 <thead>
@@ -156,28 +158,28 @@
                                         <th scope="col">Chức năng</th>
                                     </tr>
                                 </thead>
-                                <tbody>
-                                    <c:forEach items="${listU}" var="x">
-                                        <tr>
-                                            <td><%= count++%></td>
-                                            <td>${x.userID}</td>
-                                            <td>${x.fullName}</td>
-                                            <td>${x.phone}</td>
-                                            <td>${x.email}</td>
-                                            <td>${x.address}</td>
-                                            <td>${x.roleID}</td>
-                                            <td>${x.status}</td>
-                                            <td>
-                                                <div class="btn-group">
-                                                    <a href="updateUser?userID=${x.userID}" class="btn btn-success"><i class="fa-solid fa-file-pen"></i></a>
-                                                    <a href="deleteUser?userID=${x.userID}" class="btn btn-danger"><i class="fa-solid fa-trash"></i></a>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                    </c:forEach>
-                                </tbody>
+
+                                <c:forEach items="${listU}" var="x">
+                                    <tr>
+                                        <td><%= count++%></td>
+                                        <td>${x.userID}</td>
+                                        <td>${x.fullName}</td>
+                                        <td>${x.phone}</td>
+                                        <td>${x.email}</td>
+                                        <td>${x.address}</td>
+                                        <td>${x.roleID}</td>
+                                        <td>${x.status}</td>
+                                        <td>
+                                            <div class="btn-group">
+                                                <a href="updateUser?userID=${x.userID}" class="btn btn-success"><i class="fa-solid fa-file-pen"></i></a>
+                                                <a href="deleteUser?userID=${x.userID}" class="btn btn-danger"><i class="fa-solid fa-trash"></i></a>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </c:forEach>
+
                             </table>
-                             <nav aria-label="Page navigation example">
+                            <nav aria-label="Page navigation example">
                                 <ul class="pagination">
                                     <li class="page-item"><a class="page-link" href="#">Previous</a></li>
                                     <li class="page-item"><a class="page-link" href="#">1</a></li>
@@ -187,8 +189,10 @@
                                 </ul>
                             </nav>
                         </c:if>
+                        <% }%>
                     </div>
                 </main>
             </div>
+        </div>
     </body>
 </html>

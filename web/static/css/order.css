@@ -10,6 +10,12 @@ body{margin-top:20px;}
 select.form-control:not([size]):not([multiple]) {
     height: 44px;
 }
+.mainOder{
+    padding-top: 200px;
+}
+.mb-1{
+    padding-bottom: 60px;
+}
 select.form-control {
     padding-right: 38px;
     background-position: center right 17px;

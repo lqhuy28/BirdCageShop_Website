@@ -41,7 +41,7 @@ public class DetailOrder extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet DetailOrder</title>");            
+            out.println("<title>Servlet DetailOrder</title>");
             out.println("</head>");
             out.println("<body>");
             out.println("<h1>Servlet DetailOrder at " + request.getContextPath() + "</h1>");
@@ -62,6 +62,8 @@ public class DetailOrder extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        request.setCharacterEncoding("UTF-8");
+        response.setCharacterEncoding("UTF-8");
         String orderId = request.getParameter("orderId");
         String cageId = request.getParameter("cageId");
         OrderDAO dao = new OrderDAO();

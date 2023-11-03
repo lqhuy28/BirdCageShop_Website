@@ -60,6 +60,8 @@ public class ReloadCart extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        request.setCharacterEncoding("UTF-8");
+        response.setCharacterEncoding("UTF-8");
         HttpSession session = request.getSession();
         String id = request.getParameter("id");
         int quantity = Integer.parseInt(request.getParameter("quantity"));

@@ -64,6 +64,8 @@ public class RemoveCart extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        request.setCharacterEncoding("UTF-8");
+        response.setCharacterEncoding("UTF-8");
         HttpSession session = request.getSession();
         List<Cart> cart = new ArrayList<>(); ;
         try {

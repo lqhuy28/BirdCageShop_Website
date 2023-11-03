@@ -60,6 +60,8 @@ public class MainController extends HttpServlet {
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        request.setCharacterEncoding("UTF-8");
+        response.setCharacterEncoding("UTF-8");
         response.setContentType("text/html;charset=UTF-8");
         String url = HOMEPAGE;
         UserDAO dao = new UserDAO();
@@ -99,13 +101,18 @@ public class MainController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        request.setCharacterEncoding("UTF-8");
+        response.setCharacterEncoding("UTF-8");
         ProductDAO dao = new ProductDAO();
         String action = request.getParameter("action");
         if (action == null) {
-            List<ProductDTO> list = dao.getAllProductDTO();
             List<Category> listC = dao.getAllCategory();
-
-            request.setAttribute("listS", list);
+            int i =1;
+            for (Category category : listC) {
+                List<ProductDTO> list = dao.getProductByCategoryID(category.getCategoryID());
+                request.setAttribute("listS"+i, list);
+                i++;
+            }
             request.setAttribute("listCC", listC);
 
             request.getRequestDispatcher("homePage.jsp").
@@ -128,6 +135,8 @@ public class MainController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        request.setCharacterEncoding("UTF-8");
+        response.setCharacterEncoding("UTF-8");
         processRequest(request, response);
     }
 

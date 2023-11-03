@@ -18,6 +18,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import model.Material;
+import model.OrderSuccess;
 import model.User;
 
 /**
@@ -65,6 +66,8 @@ public class OrderRequest extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        request.setCharacterEncoding("UTF-8");
+        response.setCharacterEncoding("UTF-8");
         MaterialDAO dao = new MaterialDAO();
         List<Material> list = dao.getAllMaterial();
         request.setAttribute("listM", list);
@@ -83,6 +86,8 @@ public class OrderRequest extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        request.setCharacterEncoding("UTF-8");
+        response.setCharacterEncoding("UTF-8");
         try {
             int pillar = Integer.parseInt(request.getParameter("tru"));
             int hanger = Integer.parseInt(request.getParameter("moc"));
@@ -141,6 +146,9 @@ public class OrderRequest extends HttpServlet {
                 }
             }
             od.insertOrderDetail(orderID, cageID, "Lồng yêu cầu", totalPrice, cageQuantity);
+            List<OrderSuccess> o = od.getOrderDetailSuccessById(orderID);
+            request.setAttribute("listOrder", o);
+            request.setAttribute("orderId", orderID);
             //dao.insertMaterialRequest(cageID, "4", pillar, description);
             request.getRequestDispatcher("SuccessOrder.jsp").
                     forward(request, response);

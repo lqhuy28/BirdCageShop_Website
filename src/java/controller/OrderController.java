@@ -62,6 +62,8 @@ public class OrderController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        request.setCharacterEncoding("UTF-8");
+        response.setCharacterEncoding("UTF-8");
         OrderDAO od = new OrderDAO();
         try {
             String orderId = request.getParameter("orderId");
@@ -76,7 +78,6 @@ public class OrderController extends HttpServlet {
         } catch (Exception e) {
             HttpSession session = request.getSession();
             User u = (User) session.getAttribute("LOGIN_USER");
-
             List<Order> list = od.getOrder(u.getUserID());
             request.setAttribute("listOrder", list);
             request.getRequestDispatcher("order.jsp").

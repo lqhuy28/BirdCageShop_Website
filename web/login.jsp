@@ -68,7 +68,7 @@
                     </div>
                 </form>
                 <div class="noLogin">
-                    Chưa có tài khoản? <a href="register.jsp">Đăng ký</a>
+                    Chưa có tài khoản? <a href="RegistrationController">Đăng ký</a>
                 </div> 
                 <p class="wthree w3l">--------- HOẶC ---------</p>
                 <ul class="social-agileinfo wthree2">

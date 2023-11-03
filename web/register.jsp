@@ -94,7 +94,7 @@
                     <button type="submit" name="action" class="register" value="Register"> Đăng ký </button>
                 </form>
                 <div class="noLogin">
-                    Đã có tài khoản? <a href="login.jsp">Đăng nhập</a>
+                    Đã có tài khoản? <a href="MainController?action=LoginPage">Đăng nhập</a>
                 </div> 
             </div>
             <div class="clear"></div>

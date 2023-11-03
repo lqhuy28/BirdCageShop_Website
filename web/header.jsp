@@ -61,7 +61,7 @@
                                 </div>
                                 <div class="header__top__right__auth">
                                     <% if (session.getAttribute("LOGIN_USER") == null) { %>
-                                    <a href="login.jsp"><i class="fa fa-user"></i> Đăng nhập</a>  
+                                    <a href="MainController?action=LoginPage"><i class="fa fa-user"></i> Đăng nhập</a>  
                                     <% } else { %>
                                     <nav class="header__menu">
                                         <ul>
@@ -122,7 +122,7 @@
                             %>
                             <ul>
                                 <li><a href="WishlistServlet"><i class="fa fa-heart"></i> <span><%= wlSize%></span></a></li>
-                                <li><a href="viewCart.jsp"><i class="fa fa-shopping-bag"></i> <span><%= cartSize%></span></a></li>
+                                <li><a href="MainController?action=ViewCart"><i class="fa fa-shopping-bag"></i> <span><%= cartSize%></span></a></li>
                             </ul>
                         </div>
                     </div>

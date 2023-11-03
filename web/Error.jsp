@@ -18,7 +18,7 @@
             <h1>404</h1>
         </div>
         <h2>we are sorry, but the page you requested was not found</h2>
-        <a href="homePage.jsp" class="home-btn">Go Home</a>
+        <a href="MainController" class="home-btn">Go Home</a>
         <a href="#" class="contact-btn">Contact us</a>
     </div>
     </body>

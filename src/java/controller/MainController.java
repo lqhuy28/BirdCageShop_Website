@@ -30,6 +30,9 @@ public class MainController extends HttpServlet {
     private static final String LOGIN_CONTROLLER = "LoginController";
     private static final String LOGINPAGE = "LoginPage";
     private static final String LOGIN_PAGE = "login.jsp";
+    
+    private static final String VIEWCART = "ViewCart";
+    private static final String VIEWCART_PAGE = "viewCart.jsp";
 
     private static final String SEARCHUSER = "Search";
     private static final String SEARCHUSER_CONTROLLLER = "SearchUserController";
@@ -81,8 +84,9 @@ public class MainController extends HttpServlet {
                 url = LOGOUT_CONTROLLER;
             } else if (LOGINPAGE.equals(action)) {
                 url = LOGIN_PAGE;
+            } else if (VIEWCART.equals(action)) {
+                url = VIEWCART_PAGE;
             }
-
         } catch (Exception e) {
         } finally {
             request.getRequestDispatcher(url).forward(request, response);

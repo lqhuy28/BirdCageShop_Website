@@ -31,7 +31,8 @@
             List<Cart> cart = (List<Cart>) session.getAttribute("cart");
 
         %>
-        <div class="container mt-3">
+        <div class="container mainCard">
+            <div class=" mt-3">
             <h2>Giỏ hàng</h2>
             <% if (cart == null) { %>
             <div class="cart__container">
@@ -41,7 +42,7 @@
         </div>
 
         <% if (cart != null) { %>
-        <div class="padding-bottom-3x my-3 container cart__container" >
+        <div class="padding-bottom-3x my-3  cart__container" >
             <!-- Shopping Cart-->
             <div class="table-responsive shopping-cart">
                 <table class="table">
@@ -57,6 +58,7 @@
                     <tbody>
                         <%
                             double total = 0.0;
+                            int count = 0;
                             if (cart != null) {
                                 NumberFormat nf = NumberFormat.getNumberInstance(Locale.US);
 
@@ -80,12 +82,12 @@
                             <td class="text-center text-lg text-medium  ">
                                 <div class="detail-quantity-container ">
                                     <div class="detail-quantity">
-                                       <button type="button" id="minus-quantity">
+                                        <button type="button" id="minus-quantity<%=count%>">
                                             <i class="fa fa-minus" aria-hidden="true"></i>
                                         </button>
-                                        <input class="form-control" type="number" value="<%= item.getQuantity()%>" name="quantity" id="numberInput" required="">
-                                        <input type="hidden" id="id" name="id" value="<%= item.getCageID()%>">
-                                         <button type="button" id="add-quantity">
+                                        <input class="form-control" type="number" value="<%= item.getQuantity()%>" name="quantity" id="numberInput<%=count%>" required="">
+                                        <input type="hidden" id="id<%=count%>" name="id" value="<%= item.getCageID()%>">
+                                        <button type="button" id="add-quantity<%=count%>">
                                             <i class="fa fa-plus" aria-hidden="true"></i>
                                         </button>
                                     </div>
@@ -99,8 +101,10 @@
                             </td>
                         </tr>
                         <%
+                                count++;
                             }
                         %>
+                    <input type="hidden" id="count" name="id" value="<%=count%>">
                     </tbody>
                 </table>
             </div>
@@ -123,26 +127,33 @@
 
         </div>
         <% }%>
+        </div>
         <jsp:include page="footer.jsp" />
         <script>
-            const addQuantityBtn = document.getElementById('add-quantity');
-            const minusQuantityBtn = document.getElementById('minus-quantity');
-            const quantityInput2 = document.getElementById('numberInput');
-            const id = document.getElementById('id');
-            addQuantityBtn.addEventListener('click', function () {
-                quantityInput2.value = parseInt(quantityInput2.value) + 1;
+            <% if (cart != null) { %>
+            <% for (int i = 0; i < cart.size(); i++) {%>
+            const addQuantityBtn<%=i%> = document.getElementById('add-quantity<%=i%>');
+            const minusQuantityBtn<%=i%> = document.getElementById('minus-quantity<%=i%>');
+            const quantityInput<%=i%> = document.getElementById('numberInput<%=i%>');
+            const id<%=i%> = document.getElementById('id<%=i%>');
+
+            addQuantityBtn<%=i%>.addEventListener('click', function () {
+                quantityInput<%=i%>.value = parseInt(quantityInput<%=i%>.value) + 1;
                 var event = new Event('change');
-                quantityInput2.dispatchEvent(event);
-                window.location.href = "ReloadCart?id=" + id.value + "&quantity=" + quantityInput2.value;
+                quantityInput<%=i%>.dispatchEvent(event);
+                window.location.href = "ReloadCart?id=" + id<%=i%>.value + "&quantity=" + quantityInput<%=i%>.value;
             });
-            minusQuantityBtn.addEventListener('click', function () {
-                if (parseInt(quantityInput2.value) > 1) {
-                    quantityInput2.value = parseInt(quantityInput2.value) - 1;
+
+            minusQuantityBtn<%=i%>.addEventListener('click', function () {
+                if (parseInt(quantityInput<%=i%>.value) > 1) {
+                    quantityInput<%=i%>.value = parseInt(quantityInput<%=i%>.value) - 1;
                     var event = new Event('change');
-                    quantityInput2.dispatchEvent(event);
-                    window.location.href = "ReloadCart?id=" + id.value + "&quantity=" + quantityInput2.value;
+                    quantityInput<%=i%>.dispatchEvent(event);
+                    window.location.href = "ReloadCart?id=" + id<%=i%>.value + "&quantity=" + quantityInput<%=i%>.value;
                 }
             });
+            <% } %>
+            <% }%>
         </script>
     </body>
 </html>

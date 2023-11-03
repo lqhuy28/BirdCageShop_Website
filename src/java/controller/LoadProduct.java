@@ -27,6 +27,8 @@ public class LoadProduct extends HttpServlet {
     
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        request.setCharacterEncoding("UTF-8");
+        response.setCharacterEncoding("UTF-8");
         response.setContentType("text/html;charset=UTF-8");
         ProductDAO dao = new ProductDAO();
         
@@ -36,7 +38,7 @@ public class LoadProduct extends HttpServlet {
         request.setAttribute("listS", list);
         request.setAttribute("listCC", listC);
         
-        request.getRequestDispatcher("homePage.jsp").
+        request.getRequestDispatcher("ShowProduct.jsp").
                 forward(request, response);
     }
 
@@ -44,6 +46,8 @@ public class LoadProduct extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        request.setCharacterEncoding("UTF-8");
+        response.setCharacterEncoding("UTF-8");
         
         ProductDAO dao = new ProductDAO();
         
@@ -53,7 +57,7 @@ public class LoadProduct extends HttpServlet {
         request.setAttribute("listS", list);
         request.setAttribute("listCC", listC);
         
-        request.getRequestDispatcher("homePage.jsp").
+        request.getRequestDispatcher("ShowProduct.jsp").
                 forward(request, response);
     }
 

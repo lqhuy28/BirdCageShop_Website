@@ -4,6 +4,7 @@
  */
 package controller;
 
+import dao.FeedBackDAO;
 import dao.MaterialDAO;
 import dao.OrderDAO;
 import dao.ProductDAO;
@@ -18,7 +19,9 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import model.CageMaterial;
 import model.Cart;
+import model.FeedBack;
 import model.ProductDTO;
+import model.User;
 
 /**
  *
@@ -65,6 +68,8 @@ public class ProductDetail extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        request.setCharacterEncoding("UTF-8");
+        response.setCharacterEncoding("UTF-8");
         ProductDAO dao = new ProductDAO();
         String pid = request.getParameter("id");
         ProductDTO product = dao.getProductByID(pid);
@@ -84,7 +89,14 @@ public class ProductDetail extends HttpServlet {
         }
         }
         session.setAttribute("quantityCart", quantityCart);
-        
+        FeedBackDAO fbd = new FeedBackDAO();
+        List<FeedBack> lf = fbd.getFeedbackByCageId(pid);
+        request.setAttribute("feedback", lf);
+        User u = (User)session.getAttribute("LOGIN_USER");
+        if(u!=null){
+        String userID = fbd.getOrderByCageId(pid,u.getUserID());
+        request.setAttribute("userIDFeedback", userID);
+        }
         request.getRequestDispatcher("detail.jsp").
                 forward(request, response);
     }

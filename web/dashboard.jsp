@@ -5,7 +5,7 @@
     Created on : Sep 16, 2023, 12:16:34 AM
     Author     : QUANG HUY
 --%>
-
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <%@page import="model.Order"%>
 <%@page import="java.util.List"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -69,7 +69,7 @@
                                     <i class="fa fa-solid fa-users" style="color: #ffffff;"></i>
                                 </div>
                                 <div class="title">
-                                    <a class="nav-link" href="userManager.jsp"><span>Quản lí khách hàng</span></a>
+                                    <a class="nav-link" href="searchUser"><span>Quản lí khách hàng</span></a>
                                 </div>
                             </div>
                         </li>
@@ -81,7 +81,7 @@
                                 </div>
 
                                 <div class="title">
-                                    <a class="nav-link" href ="ShowProduct.jsp"><span>Quản lí sản phẩm</span></a>
+                                    <a class="nav-link" href ="load"><span>Quản lí sản phẩm</span></a>
                                 </div>
                             </div>
                         </li>
@@ -92,7 +92,7 @@
                                     <i class="fa-solid fa-cart-shopping" style="color: #ffffff;"></i>                            
                                 </div>
                                 <div class="title">
-                                    <a class="nav-link" href="orderManager.jsp"><span>Quản lí đơn hàng</span></a>
+                                    <a class="nav-link" href="OrderManager"><span>Quản lí đơn hàng</span></a>
                                 </div>
                             </div>
                         </li>
@@ -103,7 +103,7 @@
                                     <i class="fa-solid fa-comments" style="color: #ffffff;"></i>                            
                                 </div>
                                 <div class="title">
-                                    <a class="nav-link" href="#"><span>Kiểm tra phản hồi</span></a>
+                                    <a class="nav-link" href="FeedbackManager"><span>Kiểm tra phản hồi</span></a>
                                 </div>
                             </div>
                         </li>
@@ -167,7 +167,7 @@
                                 </div>
                                 <div>
                                     <h4>Tổng doanh thu</h4>
-                                    <p><b>${requestScope.countorderprice} VNĐ</b></p>
+                                    <p><b><fmt:formatNumber value="${requestScope.countorderprice}" pattern="###,###"/> VNĐ</b></p>
                                     <hr>
                                     <p>Tổng doanh thu của cửa hàng.</p>
                                 </div>
@@ -203,8 +203,8 @@
                                                 <td class="text-center text-lg text-medium"><%=o.getUserID()%></td>   
                                                 <td class="text-center text-lg text-medium"><%=o.getPhone()%></td>
                                                 <td class="text-center text-lg text-medium"><%=o.getAddress()%></td>
-                                                <td class="text-center text-lg text-medium"><%=o.getShipCost()%></td>
-                                                <td class="text-center text-lg text-medium"><%=o.getTotal()%></td>
+                                                <td class="text-center text-lg text-medium"><fmt:formatNumber value="<%=o.getShipCost()%>" pattern="###,###"/> VNĐ</td>
+                                                <td class="text-center text-lg text-medium"><fmt:formatNumber value="<%=o.getTotal()%>" pattern="###,###"/> VNĐ</td>
                                                 <td class="text-center text-lg text-medium"><%=o.isStatus() ? "Chưa thanh toán" : "Đã hủy"%></td>
                                                 <td class="text-center text-lg text-medium"><a href="DetailOrder?orderId=<%=o.getOrderID()%>"><i class="fa-solid fa-eye" style="color: red;"></i></a></td>
                                             </tr>

@@ -72,7 +72,7 @@
                     </div> 
 
                     <div class="form-control agileinfo">	
-                        <input type="text" class="lock" name="email" placeholder="Email" id="password" required="">
+                        <input type="email" class="lock" name="email" placeholder="Email" id="password" required="">
                     </div>
                     <div class="error_message">
                         <%=userError.getEmailError()%>

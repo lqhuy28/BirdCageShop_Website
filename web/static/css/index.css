@@ -28,6 +28,13 @@ body {
     font-family: Arial, sans-serif;
     background: #F0F6DC;
 }
+.header{
+    position: fixed;
+    z-index: 999999;
+    Top : 0;
+    Right : 0;
+    Left : 0;
+}   
 
 h1,
 h2,
@@ -536,8 +543,8 @@ ol {
 -----------------------*/
 
 .hero {
-    padding-bottom: 50px;
-    padding-top: 50px;
+
+    padding-top: 200px;
 }
 
 .hero.hero-normal {
@@ -784,9 +791,11 @@ ol {
 /*--------------------
   Featured
 -----------------------*/
+.mainExcept{
+    padding-top: 200px;
+}
 .featured {
-    padding-top: 80px;
-    padding-bottom: 40px;
+    padding-top: 100px;
 }
 .featured__controls {
     text-align: center;

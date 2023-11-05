@@ -27,27 +27,6 @@
         <link rel="stylesheet" href="static/css/root.css">
         <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet"/>
         <title>Document</title>
-        <style>
-            .stars {
-                display: inline-block;
-            }
-
-            .star {
-                color: gray; /* Màu tối cho tất cả các sao */
-                font-size: 2em;
-                cursor: pointer;
-            }
-
-            .starD {
-                color: yellow; /* Màu tối cho tất cả các sao */
-                font-size: 1em;
-                cursor: pointer;
-            }
-
-            .star.checked {
-                color: yellow; /* Màu sáng cho các sao được chọn */
-            }
-        </style>
     </head>
     <body class="fade-in">
         <%

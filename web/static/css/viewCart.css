@@ -2,7 +2,7 @@ select.form-control:not([size]):not([multiple]) {
     height: 44px;
 }
 .mainCard{
-    padding-top: 0px;
+    padding-top: 200px;
 }
 select.form-control {
     padding-right: 38px;

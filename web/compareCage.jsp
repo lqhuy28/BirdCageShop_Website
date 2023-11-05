@@ -29,7 +29,6 @@
             List<CageMaterial> cm1 = (List<CageMaterial>) request.getAttribute("cageMaterial1");
             List<CageMaterial> cm2 = (List<CageMaterial>) request.getAttribute("cageMaterial2");
         %>
-        </br>
         <h2><strong><i class="fa-solid fa-code-compare"></i> So sánh lồng chim</strong></h2>
         <div class="container">
             <div class="row">

@@ -29,7 +29,8 @@
     </head>
     <body>
         <jsp:include page="header.jsp" />
-        <section class="featured spad">
+        <div class="mainExcept">
+            <section class="featured spad ">
             <div class="container">
                 <div class="row">
                     <div class="col-lg-12">
@@ -73,6 +74,7 @@
                 </div>
             </div>
         </section>
+        </div>
         <jsp:include page="footer.jsp" />
     </body>
     <script src="static/js/index.js"></script>

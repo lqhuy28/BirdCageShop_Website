@@ -58,7 +58,7 @@ public class RegistrationController extends HttpServlet {
                 checkValidation = false;
             }
             if (phone.length() > 10 || phone.length() < 10) {
-                userError.setPasswordError("Số điện thoại phải 10 chữ số");
+                userError.setPhoneError("Số điện thoại phải 10 chữ số");
                 checkValidation = false;
             }
             if (!password.equals(confirm)) {
@@ -73,11 +73,11 @@ public class RegistrationController extends HttpServlet {
                 boolean checkLogin = dao.insert(user);
                 if (checkLogin) {
                     request.setAttribute("SUCCESS_MESSAGE", "Đăng ký tài khoản thành công!");
-                    RequestDispatcher dispatcher = request.getRequestDispatcher("login.jsp");
+                    RequestDispatcher dispatcher = request.getRequestDispatcher("MainController?action=LoginPage");
                     dispatcher.forward(request, response);
                 }
             } else {
-                request.setAttribute("USER_ERROR", userError);
+                request.setAttribute("USER_ERROR", userError);  
             }
 
         } catch (Exception e) {

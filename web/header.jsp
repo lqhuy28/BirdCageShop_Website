@@ -84,12 +84,12 @@
             </div>
             <div class="">
                 <div class="row px-3">
-                    <div class="col-10 text-center d-flex align-items-center justify-content-center">
-                        <nav class="header__menu">
+                    <div class="col-9">
+                        <nav class="header__menu head__aaa">
                             <ul>
                                 <li class="active"><a href="MainController">Trang chủ</a></li>
                                 <li><a href="IntroduceShop">Giới thiệu</a></li>
-                                <li><a href="#">Sản phẩm </a>
+                                <li><a href="search?search=">Sản phẩm </a>
                                     <ul class="header__menu__dropdown">
                                         <c:forEach items ="${listCC}" var ="o">
                                         <li><a href="category?cid=${o.categoryID}">${o.categoryName}</a></li>
@@ -110,7 +110,7 @@
                             </ul>
                         </nav>
                     </div>
-                    <div class="col-2 d-flex align-items-center justify-content-center">
+                    <div class="col-2">
                         <div class="header__cart">
                             <%
                                 List<Cart> cart = (List<Cart>) session.getAttribute("cart");
@@ -121,8 +121,8 @@
                                 int wlSize = (w != null) ? w.size() : 0;
                             %>
                             <ul>
-                                <li><a href="WishlistServlet"><i class="fa fa-heart"></i> <span><%= wlSize%></span></a></li>
-                                <li><a href="MainController?action=ViewCart"><i class="fa fa-shopping-bag"></i> <span><%= cartSize%></span></a></li>
+                                <li><a href="WishlistServlet"><i class="fa fa-heart fa-lg"></i> <span><%= wlSize%></span></a></li>
+                                <li><a href="MainController?action=ViewCart"><i class="fa fa-shopping-bag fa-lg"></i> <span><%= cartSize%></span></a></li>
                             </ul>
                         </div>
                     </div>

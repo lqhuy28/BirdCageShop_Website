@@ -33,7 +33,7 @@
         %>
         <div class="container mainCard">
             <div class=" mt-3">
-            <h2>Giỏ hàng</h2>
+            <h2><i class="fa-solid fa-cart-shopping"></i> GIỎ HÀNG</h2>
             <% if (cart == null) { %>
             <div class="cart__container">
                 < GIỎ HÀNG TRỐNG >

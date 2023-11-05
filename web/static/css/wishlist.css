@@ -2,7 +2,8 @@ select.form-control:not([size]):not([multiple]) {
   height: 44px;
 }
 .mainWishlist{
-    padding-top: 200px;
+    padding-top: 180px;
+    padding-bottom: 20px;
 }
 select.form-control {
   padding-right: 38px;
@@ -27,8 +28,10 @@ select.form-control {
   appearance: none;
 }
 
-h2 {
+.mt-3 h2 {
   padding: 20px 0;
+  text-align: center;
+  font-weight: 600;
 }
 
 .shopping-cart,
@@ -178,6 +181,41 @@ h2 {
   margin-left: 6px;
   font-weight: 500;
 }
+
+.shopping-cart{
+    padding: 20px ;
+}
+.shopping-cart th{
+    background-color: aliceblue;
+}
+
+/* Đổi màu và background cho class add-from-cart */
+a.add-from-cart {
+  color: black; /* Màu chữ màu vàng */
+  background-color: yellow; /* Màu nền khi di chuột vào */
+  padding: 10px 10px;
+  border-radius: 10px;
+  margin-right: 2px;
+}
+
+/* Đổi màu và background cho class remove-from-cart */
+a.remove-cart {
+  color: black; /* Màu chữ màu đỏ */
+  background-color: red; /* Màu nền khi di chuột vào */
+  padding: 10px 10px;
+  border-radius: 10px;
+  margin-left: 2px;
+}
+
+/* Để đảm bảo rằng màu và background chỉ áp dụng khi di chuột vào */
+a.add-from-cart:hover {
+  color: red; /* Màu chữ khi di chuột vào */
+}
+
+a.remove-cart:hover {
+  color: white; /* Màu chữ khi di chuột vào */
+}
+
 
 .wishlist-table .product-item .product-thumb {
   display: table-cell !important;

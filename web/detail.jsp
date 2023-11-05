@@ -163,7 +163,7 @@
             <div class="table-responsive"  data-aos="fade-up">
                 <div class="feedback-section">
                     <h4 class="pro-d-title">
-                        <strong>Đánh giá sản phẩm</strong>
+                        <strong><i class="fa-solid fa-comment"></i> Đánh giá sản phẩm</strong>
                     </h4>   
                     <% for (FeedBack f : lF) {%>
                     <div class="feedback-item">

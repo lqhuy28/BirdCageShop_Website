@@ -72,7 +72,6 @@
                 </div> 
                 <p class="wthree w3l">--------- HOẶC ---------</p>
                 <ul class="social-agileinfo wthree2">
-                    <li><a href="#"><i class="fa fa-brands fa-facebook"></i></a></li>
                     <li><a href="https://accounts.google.com/o/oauth2/auth?scope=profile&redirect_uri=http://localhost:8080/Fall2023SWP391_NET1703_Group6/LoginGoogleController&response_type=code
                            &client_id=242838873945-fafllo7gm5ups4aejqla1t4mievr9kov.apps.googleusercontent.com&approval_prompt=force"><i class="fa fa-brands fa-google-plus"></i></a></li>
                 </ul>

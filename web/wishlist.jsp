@@ -30,7 +30,7 @@
                 List<Wishlist> wishlist = (List<Wishlist>) session.getAttribute("wishlist");
             %>
             <div class="container mt-3">
-                <h2>Danh sách yêu thích </h2>
+                <h2><i class="fa-solid fa-heart"></i> DANH SÁCH YÊU THÍCH </h2>
                 <% if (wishlist == null) { %>
                 <div class="cart__container">
                     < Danh sách yêu thích trống >
@@ -66,8 +66,8 @@
                                 <td class="text-center text-lg text-medium"><fmt:formatNumber value="<%=w.getPrice()%>" pattern="###,###"/> VNĐ</td>
                                 <td class="text-center text-lg text-medium"><span>Còn hàng</span></td>
                                 <td class="text-center">
-                                    <a class="remove-from-cart" href="CartController?id=<%=w.getCageId()%>&quantity=1&type=home"><i class="fa fa-shopping-cart"></i></a>
-                                    <a class="remove-from-cart" href="RemoveWishlist?id=<%=w.getCageId()%>" data-toggle="tooltip" title="" data-original-title="Remove item"><i class="fa fa-trash"></i></a>
+                                    <a class="add-from-cart" href="CartController?id=<%=w.getCageId()%>&quantity=1&type=home"><i class="fa fa-shopping-cart"></i></a>
+                                    <a class="remove-cart" href="RemoveWishlist?id=<%=w.getCageId()%>" data-toggle="tooltip" title="" data-original-title="Remove item"><i class="fa fa-trash "></i></a>
 
                                 </td>                            
                             </tr>

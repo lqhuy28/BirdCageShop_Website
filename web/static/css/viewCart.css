@@ -2,7 +2,7 @@ select.form-control:not([size]):not([multiple]) {
     height: 44px;
 }
 .mainCard{
-    padding-top: 200px;
+    padding-top: 180px;
 }
 select.form-control {
     padding-right: 38px;
@@ -27,8 +27,10 @@ select.form-control {
     appearance: none;
 }
 
-h2 {
-    padding: 20px 0;
+.mainCard h2 {
+    padding: 10px 0;
+    text-align: center;
+    font-weight: 600;
 }
 
 .shopping-cart,
@@ -308,6 +310,7 @@ h2 {
     color: red;
     font-weight: bold;
     background: white;
+    padding:30px 30px;
 }
 .table thead{
     background-color: aliceblue;

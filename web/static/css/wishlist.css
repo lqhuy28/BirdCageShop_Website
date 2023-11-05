@@ -2,7 +2,7 @@ select.form-control:not([size]):not([multiple]) {
   height: 44px;
 }
 .mainWishlist{
-    padding-top: 30px;
+    padding-top: 200px;
 }
 select.form-control {
   padding-right: 38px;
@@ -307,4 +307,5 @@ h2 {
   min-height: calc(100vh - 564px);
     color: red;
     font-weight: bold;
+    background: white;
 }

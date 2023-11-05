@@ -307,4 +307,9 @@ h2 {
     min-height: calc(100vh - 564px);
     color: red;
     font-weight: bold;
+    background: white;
+}
+.table thead{
+    background-color: aliceblue;
+    padding-right: 20px;
 }

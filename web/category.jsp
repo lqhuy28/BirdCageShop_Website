@@ -117,9 +117,18 @@
                                                                 <li><a href="ProductDetail?id=${x.cageID}"><i class="fa-solid fa-circle-info"></i></a></li>
                                                             </ul>
                                                         </div>
-
                                                         <div class="featured__item__text">
-                                                            <h6><strong><a href="#" title="View Product">${x.cageName}</a></strong></h6>
+                                                            <h6><strong><a href="#" title="View Product">
+                                                                        <c:choose>
+                                                                            <c:when test="${fn:length(x.cageName) > 13}">
+                                                                                <c:set var="shortCageName" value="${fn:substring(x.cageName, 0, 13)}" />
+                                                                                ${shortCageName}...
+                                                                            </c:when>
+                                                                            <c:otherwise>
+                                                                                ${x.cageName}
+                                                                            </c:otherwise>
+                                                                        </c:choose>
+                                                                    </a></strong></h6>
                                                             <div>
                                                                 <span class="amount-old"><fmt:formatNumber value="${x.priceOld}" pattern="###,###"/> VNĐ</span> 
                                                             </div>

@@ -44,7 +44,7 @@
                             <ul>
                                 <h6>VỀ CỬA HÀNG</h6>
                                 <li><i class="fa fa-light fa-forward fa-xs" style="color: #000000;"></i> <a href="MainController">Trang chủ</a></li>
-                                <li><i class="fa fa-light fa-forward fa-xs" style="color: #000000;"></i> <a href="policy/IntroduceShop.jsp">Giới thiệu</a></li>
+                                <li><i class="fa fa-light fa-forward fa-xs" style="color: #000000;"></i> <a href="IntroduceShop">Giới thiệu</a></li>
                                 <li><i class="fa fa-light fa-forward fa-xs" style="color: #000000;"></i> <a href="#">Liên hệ</a></li>
                                 <li><i class="fa fa-light fa-forward fa-xs" style="color: #000000;"></i> <a href="#">Tin tức</a></li>
                             </ul>
@@ -53,7 +53,7 @@
                                 <li><i class="fa fa-light fa-forward fa-xs" style="color: #000000;"></i> <a href="generalPolicy">Chính Sách Chung </a></li>
                                 <li><i class="fa fa-light fa-forward fa-xs" style="color: #000000;"></i> <a href="BuyPolicy">Chính Sách Mua Hàng</a></li>
                                 <li><i class="fa fa-light fa-forward fa-xs" style="color: #000000;"></i> <a href="ReturnPolicy">Chính Sách Đổi Trả</a></li>
-                                <li><i class="fa fa-light fa-forward fa-xs" style="color: #000000;"></i> <a href="PrivacyPolicy.jsp">Chính Sách Bảo Mật</a></li>
+                                <li><i class="fa fa-light fa-forward fa-xs" style="color: #000000;"></i> <a href="PrivacyPolicy">Chính Sách Bảo Mật</a></li>
 
                             </ul>
                         </div>

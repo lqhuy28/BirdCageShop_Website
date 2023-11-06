@@ -83,7 +83,7 @@
                     <div class="row">
                         <div class="col-md-12">
                             <div class="breadcrumb">
-                                <a href="orderManager.jsp"><b>Danh sách đơn hàng</b></a>
+                                <a href="ManagerOrderManager"><b>Danh sách đơn hàng</b></a>
                             </div>
                             <div id="clock"></div>
                         </div>

@@ -107,7 +107,7 @@
                     <div class="row">
                         <div class="col-md-12">
                             <div class="breadcrumb">
-                                <a href="userManager.jsp"><b>Danh sách người dùng</b></a>
+                                <a href="searchUser"><b>Danh sách người dùng</b></a>
                             </div>
                             <div id="clock"></div>
                         </div>

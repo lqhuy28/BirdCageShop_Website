@@ -101,7 +101,7 @@
                     <div class="row">
                         <div class="col-md-12">
                             <div class="breadcrumb">
-                                <a href="UpdateProduct.jsp"><b>Cập nhật sản phẩm</b></a>
+                                <a href="#"><b>Cập nhật sản phẩm</b></a>
                             </div>
                             <div id="clock"></div>
                         </div>

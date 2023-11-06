@@ -46,7 +46,7 @@
                                     <i class="fa-solid fa-network-wired" style="color: #ffffff;"></i>
                                 </div>
                                 <div class="title">
-                                    <a class="nav-link" href="dashboard.jsp"><span>   Bảng điều khiển</span></a>
+                                    <a class="nav-link" href="DashboardController"><span>   Bảng điều khiển</span></a>
                                 </div>
                         </li>
                         <li class="nav-item">
@@ -55,7 +55,7 @@
                                     <i class="fa fa-solid fa-users" style="color: #ffffff;"></i>
                                 </div>
                                 <div class="title">
-                                    <a class="nav-link" href="userManager.jsp"><span>Quản lí khách hàng</span></a>
+                                    <a class="nav-link" href="searchUser"><span>Quản lí khách hàng</span></a>
                                 </div>
                             </div>
                         </li>
@@ -67,7 +67,7 @@
                                 </div>
 
                                 <div class="title">
-                                    <a class="nav-link" href="ShowProduct.jsp"><span>Quản lí sản phẩm</span></a>
+                                    <a class="nav-link" href="load"><span>Quản lí sản phẩm</span></a>
                                 </div>
                             </div>
                         </li>
@@ -89,7 +89,7 @@
                                     <i class="fa-solid fa-comments" style="color: #ffffff;"></i>                            
                                 </div>
                                 <div class="title">
-                                    <a class="nav-link" href="#"><span>Kiểm tra phản hồi</span></a>
+                                    <a class="nav-link" href="FeedbackManager"><span>Kiểm tra phản hồi</span></a>
                                 </div>
                             </div>
                         </li>
@@ -101,7 +101,7 @@
                     <div class="row">
                         <div class="col-md-12">
                             <div class="breadcrumb">
-                                <a href="updateUser.jsp"><b>Cập nhật thông tin người dùng</b></a>
+                                <a href="#"><b>Cập nhật thông tin người dùng</b></a>
                             </div>
                             <div id="clock"></div>
                         </div>

@@ -88,7 +88,7 @@
                     <div class="row">
                         <div class="col-md-12">
                             <div class="breadcrumb">
-                                <a href="ShowProduct.jsp"><b>Danh sách sản phẩm</b></a>
+                                <a href="DashboardManager"><b>Danh sách sản phẩm</b></a>
                             </div>
                             <div id="clock"></div>
                         </div>

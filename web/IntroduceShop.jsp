@@ -58,7 +58,7 @@
 
                                     <p><strong>GIỚI THIỆU</strong></p>
                                     <h2>VỀ CHÚNG TÔI</h2>
-                                    <p style="text-align: justify;"><span style="color: #282828;"><a style="color: #282828;" href="../homePage.jsp"><b>BIRDCAGE</b></a>&nbsp;</span>là nhà phân phối các sản phẩm lồng chim, phụ kiện lồng chim chính hãng từ các thương hiệu làng nghề thủ công mỹ nghệ hàng đầu Việt Nam. Tự tin khẳng định chất lượng phục vụ với đội ngũ nhân viên năng động, chuyên nghiệp có khả năng am hiểu nhu cầu khách hàng cùng như thái độ phục vụ tận tụy.</p>
+                                    <p style="text-align: justify;"><span style="color: #282828;"><a style="color: #282828;" href="MainController"><b>BIRDCAGE</b></a>&nbsp;</span>là nhà phân phối các sản phẩm lồng chim, phụ kiện lồng chim chính hãng từ các thương hiệu làng nghề thủ công mỹ nghệ hàng đầu Việt Nam. Tự tin khẳng định chất lượng phục vụ với đội ngũ nhân viên năng động, chuyên nghiệp có khả năng am hiểu nhu cầu khách hàng cùng như thái độ phục vụ tận tụy.</p>
                                 </div>
                             </div>
 

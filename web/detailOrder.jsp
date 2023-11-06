@@ -43,7 +43,7 @@
                     <div class="content">
                         <span> Giao Tiết Kiệm</span></p>
                         <p>Được giao bởi BirdCage Shop</p>
-                        <p>Phí vận chuyển: <fmt:formatNumber value="<%=o.getShipCost()%>" pattern="###,###"/> VNĐ</p>
+                        <p>Phí khác (Bao gồm phí vận chuyển): <fmt:formatNumber value="<%=o.getShipCost()%>" pattern="###,###"/> VNĐ</p>
                     </div>
                 </div>
 

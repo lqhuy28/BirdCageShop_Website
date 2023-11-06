@@ -27,12 +27,12 @@
                     <div class="title-main">
                         <h3>  
                             <i class="fa fa-ticket" aria-hidden="true"></i>
-                             Thiết kế lồng chim theo yêu cầu 
+                            Thiết kế lồng chim theo yêu cầu 
                         </h3>
                     </div>
                     <form action="OrderRequest" method="post">
                         <div class="row">
-                        <div class="col-md-6 ">
+                            <div class="col-md-6 ">
                                 <div class="selectcage add-material">
                                     <strong class='form-title '>Chọn Loại Lồng:</strong>
                                     <select class="form-control" name="cageType" id="cageType">
@@ -47,16 +47,16 @@
                                     </div>
                                 </div>
                                 <div class="quantitycage mt-3 add-material">
-                                        <strong class="form-title">Số lượng lồng cần thiết kế: </strong>
-                                        <div class="detail-quantity ">
-                                                    <button type="button" id="minus-quantity">
-                                                        <i class="fa fa-minus" aria-hidden="true"></i>
-                                                    </button>
-                                                    <input class="form-control" type="number" value="1" name="cageQuantity" id="cageQuantity" required />
-                                                    <button type="button" id="add-quantity">
-                                                        <i class="fa fa-plus" aria-hidden="true"></i>
-                                                    </button>
-                                        </div>
+                                    <strong class="form-title">Số lượng lồng cần thiết kế: </strong>
+                                    <div class="detail-quantity ">
+                                        <button type="button" id="minus-quantity">
+                                            <i class="fa fa-minus" aria-hidden="true"></i>
+                                        </button>
+                                        <input class="form-control" type="number" value="1" name="cageQuantity" id="cageQuantity" required />
+                                        <button type="button" id="add-quantity">
+                                            <i class="fa fa-plus" aria-hidden="true"></i>
+                                        </button>
+                                    </div>
                                 </div>
                                 <div class="mt-3 add-material">
                                     <h5  class="form-title">CUNG CẤP NGUYÊN LIỆU</h5> 
@@ -74,74 +74,74 @@
                                     </div>
                                     <div class="quantitymate mt-3">
                                         <strong>Số lượng:</strong>
-                                         <div class="detail-quantity mt-2 ">
-                                                    <button type="button" id="me-minus-quantity">
-                                                        <i class="fa fa-minus" aria-hidden="true"></i>
-                                                    </button>
-                                                    <input class="form-control" type="number" value="1" name="quantity" id="quantity" required />
-                                                    <button type="button" id="me-add-quantity">
-                                                        <i class="fa fa-plus" aria-hidden="true"></i>
-                                                    </button>
+                                        <div class="detail-quantity mt-2 ">
+                                            <button type="button" id="me-minus-quantity">
+                                                <i class="fa fa-minus" aria-hidden="true"></i>
+                                            </button>
+                                            <input class="form-control" type="number" value="1" name="quantity" id="quantity" required />
+                                            <button type="button" id="me-add-quantity">
+                                                <i class="fa fa-plus" aria-hidden="true"></i>
+                                            </button>
                                         </div>
 
                                     </div>
                                     <div class="mt-3 button-addmate">
                                         <button id="add" class="btn btn-danger">
-                                        <i class="fa fa-plus" aria-hidden="true"></i>
-                                        Thêm Nguyên Liệu</button>
+                                            <i class="fa fa-plus" aria-hidden="true"></i>
+                                            Thêm Nguyên Liệu</button>
                                     </div>
                                 </div>
-                        </div>
+                            </div>
 
 
-                        <div class="col-md-6 ">
-                            <div class="material">
-                                <div class="form-title">
-                                   TÓM TẮT ĐƠN HÀNG
-                                </div>
-                                <div class="mat-tab">
-                                    <table class="table table-bordered">
-                                        <thead>
-                                            <tr>
-                                                <th>Tên nguyên liệu</th>
-                                                <th>Số lượng</th>
-                                                <th>Thành tiền </th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                        </tbody>
-                                    </table>
-                                </div>
-                                <div class="note">
-                                    <strong>Ghi chú:</strong>
-                                    <textarea class="form-control" type="text" name="description" placeholder="Nhập ghi chú của bạn" rows="4" id="des" required></textarea>
-                                </div>
-                                <div class="checkout">
-                                    <p class="checkout-item">
-                                        <span class="money">Tiền công:</span>
-                                        <span>
-                                            <span id="ship">100000</span> VND
-                                        </span>
-                                    </p>
-                                    <p class="checkout-item">
-                                        <span class="money">Thành tiền:</span> 
-                                        <span>
-                                            <span id="total"></span> VND
-                                        </span>
-                                    </p>
-                                </div>
+                            <div class="col-md-6 ">
+                                <div class="material">
+                                    <div class="form-title">
+                                        TÓM TẮT ĐƠN HÀNG
+                                    </div>
+                                    <div class="mat-tab">
+                                        <table class="table table-bordered">
+                                            <thead>
+                                                <tr>
+                                                    <th>Tên nguyên liệu</th>
+                                                    <th>Số lượng</th>
+                                                    <th>Thành tiền </th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <div class="note">
+                                        <strong>Ghi chú:</strong>
+                                        <textarea class="form-control" type="text" name="description" placeholder="Nhập ghi chú của bạn" rows="4" id="des" required></textarea>
+                                    </div>
+                                    <div class="checkout">
+                                        <p class="checkout-item">
+                                            <span class="money">Tiền công:</span>
+                                            <span>
+                                                <span id="ship">100000</span> VND
+                                            </span>
+                                        </p>
+                                        <p class="checkout-item">
+                                            <span class="money">Thành tiền:</span> 
+                                            <span>
+                                                <span id="total"></span> VND
+                                            </span>
+                                        </p>
+                                    </div>
 
-                                <input type="hidden" id="totalPrice" name="totalPrice">
-                                <input type="hidden" id="shipCost" name="shipCost">
+                                    <input type="hidden" id="totalPrice" name="totalPrice">
+                                    <input type="hidden" id="shipCost" name="shipCost">
 
-                                <div class="sendrequest">  
-                                    <button type="submit" id="checkout" class="btn btn-success ">
-                                    <i class="fa fa-check" aria-hidden="true"></i>
-                                    Gửi yêu cầu</button>
+                                    <div class="sendrequest">  
+                                        <button type="submit" id="checkout" class="btn btn-success ">
+                                            <i class="fa fa-check" aria-hidden="true"></i>
+                                            Gửi yêu cầu</button>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
                     </form>
 
                 </div>
@@ -170,6 +170,29 @@
                 CageType3: [{mat: "Số lượng móc: ", quan: 2}, {mat: "Số lượng trụ: ", quan: 3}, {mat: "Số lượng nan: ", quan: 30}, {mat: "Số lượng đáy: ", quan: 2}, {mat: "Số lượng cửa: ", quan: 2}, {mat: "Số lượng cốc: ", quan: 2}]
             };
 
+
+            const selectedCageType = cageTypeSelect.value;
+            let count = 1;
+            if (suggestedMaterials[selectedCageType]) {
+                suggestedMaterials[selectedCageType].forEach(material => {
+                    const li = document.createElement('li');
+                    const liId = "li" + count;
+                    const spanId = "span" + count;
+                    li.id = liId;
+                    const span = document.createElement('span');
+                    span.id = spanId;
+                    span.textContent = material.quan;
+                    li.textContent = material.mat;
+                    li.appendChild(span);
+                    suggestedMaterialsList.appendChild(li);
+                    count += 1;
+                });
+                materialSuggestionDiv.style.display = 'block';
+            } else {
+                materialSuggestionDiv.style.display = 'none';
+            }
+
+
             cageTypeSelect.addEventListener('change', function () {
                 suggestedMaterialsList.innerHTML = '';
 
@@ -197,7 +220,9 @@
 
             checkoutBtn.addEventListener('click', function () {
                 let msg = "";
+                let count = 0;
                 document.querySelectorAll('table td:first-child').forEach(item => {
+                    count = count + 1;
                     if (item.textContent === "móc") {
                         const hangerQuantity = parseInt(item.parentNode.querySelector('td:nth-child(2)').textContent);
                         if (hangerQuantity < parseInt(document.getElementById("span1").textContent)) {
@@ -226,7 +251,7 @@
                             msg += "đáy, ";
 //                            event.preventDefault();
                         }
-                    } else if (item.textContent === "cửa") { 
+                    } else if (item.textContent === "cửa") {
                         const hangerQuantity = parseInt(item.parentNode.querySelector('td:nth-child(2)').textContent);
                         if (hangerQuantity < parseInt(document.getElementById("span5").textContent)) {
 //                            alert("Số cửa phải đạt tối thiểu!");
@@ -242,8 +267,12 @@
                         }
                     }
                 });
-                if(msg !== ""){
+                if (msg !== "") {
                     alert(msg + ": không đủ số lượng!");
+                    event.preventDefault();
+                }
+                if(count<6){
+                    alert("Chưa đủ nguyên liệu của lồng");
                     event.preventDefault();
                 }
                 if (quantityChange.value === null) {
@@ -271,43 +300,43 @@
                     existingRow.querySelector('td:nth-child(2)').textContent = newQuantity;
                     const total = newQuantity * price;
                     let matName = "";
-                    if(existingRow.querySelector('td:nth-child(1)').textContent==="trụ"){
-                        matName="tru";
-                    }else if(existingRow.querySelector('td:nth-child(1)').textContent==="móc"){
-                        matName="moc";
-                    }else if(existingRow.querySelector('td:nth-child(1)').textContent==="đáy"){
-                        matName="day";
-                    }else if(existingRow.querySelector('td:nth-child(1)').textContent==="cửa"){
-                        matName="cua";
-                    }else if(existingRow.querySelector('td:nth-child(1)').textContent==="nan"){
-                        matName="nan";
-                    }else if(existingRow.querySelector('td:nth-child(1)').textContent==="cốc"){
-                        matName="coc";
+                    if (existingRow.querySelector('td:nth-child(1)').textContent === "trụ") {
+                        matName = "tru";
+                    } else if (existingRow.querySelector('td:nth-child(1)').textContent === "móc") {
+                        matName = "moc";
+                    } else if (existingRow.querySelector('td:nth-child(1)').textContent === "đáy") {
+                        matName = "day";
+                    } else if (existingRow.querySelector('td:nth-child(1)').textContent === "cửa") {
+                        matName = "cua";
+                    } else if (existingRow.querySelector('td:nth-child(1)').textContent === "nan") {
+                        matName = "nan";
+                    } else if (existingRow.querySelector('td:nth-child(1)').textContent === "cốc") {
+                        matName = "coc";
                     }
                     document.getElementById(matName).value = newQuantity;
                     existingRow.querySelector('td:last-child').textContent = total;
                 } else {
                     const total = quantity * price;
                     let matName = "";
-                    if(material==="trụ"){
-                        matName="tru";
-                    }else if(material==="móc"){
-                        matName="moc";
-                    }else if(material==="đáy"){
-                        matName="day";
-                    }else if(material==="cửa"){
-                        matName="cua";
-                    }else if(material==="nan"){
-                        matName="nan";
-                    }else if(material==="cốc"){
-                        matName="coc";
+                    if (material === "trụ") {
+                        matName = "tru";
+                    } else if (material === "móc") {
+                        matName = "moc";
+                    } else if (material === "đáy") {
+                        matName = "day";
+                    } else if (material === "cửa") {
+                        matName = "cua";
+                    } else if (material === "nan") {
+                        matName = "nan";
+                    } else if (material === "cốc") {
+                        matName = "coc";
                     }
                     tableBody.innerHTML += "<tr>" +
                             "<td>" + material + "</td>" +
                             "<td>" + quantity + "</td>" +
                             "<td>" + total + "</td>" +
-                            "</tr>"+
-                            "<input id="+matName+" type="+"hidden"+" name="+matName+" value="+quantity+">";
+                            "</tr>" +
+                            "<input id=" + matName + " type=" + "hidden" + " name=" + matName + " value=" + quantity + ">";
                 }
                 calculateTotal();
             });
@@ -340,7 +369,7 @@
             }
         </script>
         <script>
-            
+
             // quantity control button
             const addQuantityBtn = document.getElementById('add-quantity');
             const minusQuantityBtn = document.getElementById('minus-quantity');

@@ -77,6 +77,11 @@ public class RegistrationController extends HttpServlet {
                     dispatcher.forward(request, response);
                 }
             } else {
+                request.setAttribute("userID", userID);
+                request.setAttribute("fullName", fullName);
+                request.setAttribute("phone", phone);
+                request.setAttribute("email", email);
+                request.setAttribute("address", address);
                 request.setAttribute("USER_ERROR", userError);  
             }
 

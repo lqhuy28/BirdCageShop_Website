@@ -40,10 +40,10 @@
                         }
                     %> 
                     <div class="form-control w3layouts"> 
-                        <input type="text" id="UserID" name="userID" placeholder="Tên đăng nhập" required="">
+                        <input type="text" id="UserID" name="userID" placeholder="Tên đăng nhập" required="" value="<%= (request.getAttribute("userID") != null) ? request.getAttribute("userID") : "" %>">
                     </div>
                     <div class="error_message">
-                        <%=userError.getUserIDError()%>
+                        <%= (request.getAttribute("USER_ERROR") != null) ? ((UserError)request.getAttribute("USER_ERROR")).getUserIDError() : "" %>
                     </div> 
                     <div class="form-control agileinfo">	
                         <input type="password" class="lock" name="password" placeholder="Mật khẩu" id="password" required="">
@@ -59,30 +59,30 @@
                         <%=userError.getConfirmError()%>
                     </div> 
                     <div class="form-control agileinfo">	
-                        <input type="text" class="lock" name="fullName" placeholder="Họ và tên" id="password" required="">
+                        <input type="text" class="lock" name="fullName" placeholder="Họ và tên" id="password" required="" value="<%= (request.getAttribute("fullName") != null) ? request.getAttribute("fullName") : "" %>">
                     </div>
                     <div class="error_message">
-                        <%=userError.getFullNameError()%>
+                        <%= (request.getAttribute("USER_ERROR") != null) ? ((UserError)request.getAttribute("USER_ERROR")).getFullNameError() : "" %>
                     </div> 
                     <div class="form-control agileinfo">	
-                        <input type="number" class="lock" name="phone" placeholder="Số điện thoại" id="password" required="">
+                        <input type="number" class="lock" name="phone" placeholder="Số điện thoại" id="password" required="" value="<%= (request.getAttribute("phone") != null) ? request.getAttribute("phone") : "" %>">
                     </div>
                     <div class="error_message">
-                        <%=userError.getPhoneError()%>
-                    </div> 
-
-                    <div class="form-control agileinfo">	
-                        <input type="email" class="lock" name="email" placeholder="Email" id="password" required="">
-                    </div>
-                    <div class="error_message">
-                        <%=userError.getEmailError()%>
+                        <%= (request.getAttribute("USER_ERROR") != null) ? ((UserError)request.getAttribute("USER_ERROR")).getPhoneError() : "" %>
                     </div> 
 
                     <div class="form-control agileinfo">	
-                        <input type="text" class="lock" name="address" placeholder="Địa chỉ" id="password" required="">
+                        <input type="email" class="lock" name="email" placeholder="Email" id="password" required=""  value="<%= (request.getAttribute("email") != null) ? request.getAttribute("email") : "" %>">
                     </div>
                     <div class="error_message">
-                        <%=userError.getAddressError()%>
+                        <%= (request.getAttribute("USER_ERROR") != null) ? ((UserError)request.getAttribute("USER_ERROR")).getEmailError() : "" %>
+                    </div> 
+
+                    <div class="form-control agileinfo">	
+                        <input type="text" class="lock" name="address" placeholder="Địa chỉ" id="password" required="" value="<%= (request.getAttribute("address") != null) ? request.getAttribute("address") : "" %>">
+                    </div>
+                    <div class="error_message">
+                         <%= (request.getAttribute("USER_ERROR") != null) ? ((UserError)request.getAttribute("USER_ERROR")).getAddressError() : "" %>
                     </div> 
                     <div class="form-control agileinfo">	
                         <input type="text" class="lock" name="roleID" value="User" hidden="" readonly="">

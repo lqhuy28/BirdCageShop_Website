@@ -33,8 +33,7 @@
             </div>
             <div class="container mt-2 mb-3">
                 <div class="row form__container">
-
-                    <div class="col-md-6 ">
+                    <div class="col-md-6 check__left">
                         <form action="CheckoutController" method="post" id="myForm">
                             <%
                                 User u = (User) session.getAttribute("LOGIN_USER");

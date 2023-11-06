@@ -259,7 +259,8 @@
                     </div>
                 </div>
             </section>
-            <jsp:include page="footer.jsp" />
+        </div>
+        <jsp:include page="footer.jsp" />
     </body>
     <script>
         const checkoutItem = document.getElementById("checkout");

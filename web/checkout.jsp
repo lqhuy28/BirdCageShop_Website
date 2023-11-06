@@ -33,7 +33,8 @@
             </div>
             <div class="container mt-2 mb-3">
                 <div class="row form__container">
-                    <div class="col-md-6 check__left">
+
+                    <div class="col-md-6 ">
                         <form action="CheckoutController" method="post" id="myForm">
                             <%
                                 User u = (User) session.getAttribute("LOGIN_USER");
@@ -146,6 +147,9 @@
                                     <span class=" button-text">Thanh toán</span>
                                 </button>
                             </div>
+                            <div class="error_message">
+                                ${requestScope.ERROR}
+                            </div>
                         </div>
                     </div>
 
@@ -153,6 +157,7 @@
 
             </div>
         </div>
+
 
         <jsp:include page="footer.jsp"/>               
         <script>

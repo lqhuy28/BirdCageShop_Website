@@ -97,7 +97,6 @@ public class CheckoutController extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
-    
     public String createSHA256Signature(String data) {
         try {
             MessageDigest digest = MessageDigest.getInstance("SHA-256");
@@ -165,10 +164,10 @@ public class CheckoutController extends HttpServlet {
 
             String redirectUrl = "http://sandbox.vnpayment.vn/paymentv2/vpcpay.html";
             // Tạo URL thanh toán
-            String paymentUrl = redirectUrl + "?vnp_Version=2.0.0&vnp_TmnCode=" + merchantId + "&vnp_Amount=" + amount +
-                            "&vnp_Command=pay&vnp_CreateDate=" + timestamp + "&vnp_CurrCode=VND&vnp_IpAddr=" + ipAddress +
-                            "&vnp_Locale=vn&vnp_OrderInfo=Thanh+toan+don+hang&vnp_OrderType=billpayment&vnp_ReturnUrl=" + returnUrl +
-                            "&vnp_TxnRef=" + orderId + "&vnp_SecureHashType=SHA256&vnp_SecureHash=" + signature;
+            String paymentUrl = redirectUrl + "?vnp_Version=2.0.0&vnp_TmnCode=" + merchantId + "&vnp_Amount=" + amount
+                    + "&vnp_Command=pay&vnp_CreateDate=" + timestamp + "&vnp_CurrCode=VND&vnp_IpAddr=" + ipAddress
+                    + "&vnp_Locale=vn&vnp_OrderInfo=Thanh+toan+don+hang&vnp_OrderType=billpayment&vnp_ReturnUrl=" + returnUrl
+                    + "&vnp_TxnRef=" + orderId + "&vnp_SecureHashType=SHA256&vnp_SecureHash=" + signature;
             response.sendRedirect(paymentUrl);
         } else {
             HttpSession session = request.getSession();
@@ -188,25 +187,34 @@ public class CheckoutController extends HttpServlet {
             }
             String orderID = new String(text);
             User u = (User) session.getAttribute("LOGIN_USER");
-            od.insertOrder(orderID, u.getUserID(), phone, address, orderDate, "1", "", shipCost, totalPrice);
+            if(u==null){
+                request.getRequestDispatcher("login.jsp").
+                            forward(request, response);
+            }
             List<Cart> cart;
             cart = (List<Cart>) session.getAttribute("cart");
-            int check =0;
+            int check = 0;
+            String cageError = "";
             for (Cart item : cart) {
-                od.insertOrderDetail(orderID, item.getCageID(), item.getCageName(), item.getPrice(), item.getQuantity());
                 ProductDTO p = pd.getProductByID(item.getCageID());
                 int quantity = p.getQuantity() - item.getQuantity();
                 if (quantity < 0) {
-                    request.getRequestDispatcher("Error.jsp").
-                            forward(request, response);
-                } else {
-                    pd.updateQuantityProduct(item.getCageID(), quantity);
-                    session.removeAttribute("cart");
                     check =1;
+                    cageError += p.getCageName() +" , ";
                 }
             }
             if(check==1){
-            response.sendRedirect("SuccessOrder?orderId="+orderID);
+                    request.setAttribute("ERROR", cageError + ": vượt quá số lượng có sẵn");
+                    request.getRequestDispatcher("checkout.jsp").
+                            forward(request, response);
+                }
+            if(check==0){
+            od.insertOrder(orderID, u.getUserID(), phone, address, orderDate, "1", "", shipCost, totalPrice);
+            for (Cart item : cart) {
+                od.insertOrderDetail(orderID, item.getCageID(), item.getCageName(), item.getPrice(), item.getQuantity());
+            }
+            session.removeAttribute("cart");
+            response.sendRedirect("SuccessOrder?orderId=" + orderID);
             }
         }
     }

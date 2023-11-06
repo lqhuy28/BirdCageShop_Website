@@ -13,6 +13,7 @@ import java.util.ArrayList;
 import java.util.List;
 import model.CageMaterial;
 import model.FeedBack;
+import model.Reponse;
 import utils.DBUtils;
 
 /**
@@ -78,6 +79,39 @@ public class FeedBackDAO {
             ps.executeUpdate();
         } catch (Exception e) {
         }
+    }
+    
+    public void createReplyFeedbackByUserId(int idF, String userId, String reply, Date date) {
+        String query = "insert into Response\n"
+                + "values(?,?,?,?)";
+        try {
+            conn = new DBUtils().getConnection();
+            ps = conn.prepareStatement(query);
+            ps.setInt(1, idF);
+            ps.setString(2, userId);
+            ps.setString(3, reply);
+            ps.setDate(4, date);
+            ps.executeUpdate();
+        } catch (Exception e) {
+        }
+    }
+    
+    public List<Reponse> getReplyFeedbackByCageId() {
+        List<Reponse> list = new ArrayList<>();
+        String query = "select r.FeedbackID, u.FullName, r.Comment, r.FeedbackDate from Response r inner join tblUsers u on u.UserID = r.UserID";
+
+        try {
+            conn = new DBUtils().getConnection();
+            ps = conn.prepareStatement(query);
+            rs = ps.executeQuery();
+            while (rs.next()) {
+                list.add(new Reponse(rs.getInt(1),rs.getString(2), rs.getString(3),
+                        rs.getDate(4)));
+            }
+            ps.executeUpdate();
+        } catch (Exception e) {
+        }
+        return list;
     }
 
     public String getOrdeIdrByCageId(String id) {

@@ -5,6 +5,7 @@
 --%>
 
 
+<%@page import="model.Reponse"%>
 <%@page import="java.text.DecimalFormat"%>
 <%@page import="model.User"%>
 <%@page import="model.FeedBack"%>
@@ -34,6 +35,7 @@
             int quantityCart = (int) session.getAttribute("quantityCart");
             List<CageMaterial> cm = (List<CageMaterial>) request.getAttribute("cageMaterial");
             List<FeedBack> lF = (List<FeedBack>) request.getAttribute("feedback");
+            List<Reponse> lR = (List<Reponse>) request.getAttribute("reply");
             User user = (User) session.getAttribute("LOGIN_USER");
             String userId = (String) request.getAttribute("userIDFeedback");
         %>
@@ -59,15 +61,36 @@
                                 <h4 class="pro-d-title">
                                     <strong><%=product.getCageName()%> </strong>
                                 </h4>
+                                <%
+                                    double avg = 0.0;
+                                    int totalRate = 0;
+                                    int count = 0;
+                                    long rateFloor = 0;
+                                    if (lF.size() > 0) {
+                                        for (FeedBack f : lF) {
+                                            int rate = Integer.parseInt(f.getRating());
+                                            totalRate += rate;
+                                            count++;
+                                        }
+                                        avg = totalRate / count;
+                                        rateFloor = Math.round(avg);
+                                    }
+
+                                %>
                                 <div class="rate-container">
                                     <div class="rate-avg">
-                                        3.9
+                                        <%=avg%>
                                     </div>
-                                    <div class="star-rating">
-                                        <span>★★★★☆</span>
-                                    </div>
+                                    <% for (int i = 0; i < rateFloor; i++) {
+                                    %>
+                                    <span class="starD">&#9733;</span>
+                                    <% }%>
+                                    <% for (int i = 0; i < 5 - rateFloor; i++) {
+                                    %>
+                                    <span class="starD">☆</span>
+                                    <% }%>
                                     <div>
-                                        20 đánh giá
+                                        <%=count%> đánh giá
                                     </div>
                                 </div>
                                 <div class="m-bot15 detail-price mt-3 ">
@@ -158,13 +181,13 @@
                     </table>
                 </div>     
             </div>
-
+            <% for (FeedBack f : lF) {%>
             <div class="table-responsive"  data-aos="fade-up">
                 <div class="feedback-section">
                     <h4 class="pro-d-title">
                         <strong><i class="fa-solid fa-comment"></i> Đánh giá sản phẩm</strong>
                     </h4>   
-                    <% for (FeedBack f : lF) {%>
+
                     <div class="feedback-item">
                         <p><%=f.getFeedbackDate()%></p>
                         <div class="feedback-header">
@@ -185,17 +208,45 @@
                         <div class="feedback-content">
                             <%=f.getComment()%>
                         </div>
+
                     </div>
+                    <% for (Reponse r : lR) {
+                            if (r.getFeedbackId() == f.getFeedbackId()) {
+                    %> 
+                    <div class="feedback-reply-item">
+                        <p><%=r.getDate()%></p>
+                        <div class="feedback-header">
+                            <div class="feedback-user">
+                                <%=r.getName()%>
+                            </div>
+                        </div>
+                        <div class="feedback-content">
+                            <%=r.getComment()%>
+                        </div>
+                    </div>
+                    <% }
+                        }%>
+                    <form action="ResponseController" method="post" id="replyForm<%=f.getFeedbackId()%>" style="display:none;">
+                        <input type="hidden" value="<%=f.getFeedbackId()%>" name="idF">
+                        <input type="hidden" value="<%=product.getCageID()%>" name="id">
+                        <input type="text" value="" name="reply">
+                        <input type="submit" value="Gửi phản hồi">                            
+                    </form>
+                    <% if (user != null) {%>
+                    <button class="reply-button" onclick="toggleReplyForm(<%=f.getFeedbackId()%>)">Trả lời</button>
+                    <% } %>
                     <% }%>
                     <%
                         int check = 0;
-                        if (userId != null) {
+                        if (userId
+                                != null) {
                             if (user.getUserID().equals(userId)) {
                                 check = 1;
                             }
                         }%>
 
-                    <% if (check == 1) {%>
+                    <% if (check
+                                == 1) {%>
                     <form action="FeedbackController" method="post">
                         <div class="stars">
                             <span class="star" onclick="rate(1)">&#9733;</span>
@@ -259,9 +310,8 @@
                     </div>
                 </div>
             </section>
-        </div>
-        <jsp:include page="footer.jsp" />
     </body>
+    <jsp:include page="footer.jsp" />
     <script>
         const checkoutItem = document.getElementById("checkout");
         const addCartItem = document.getElementById("addCart");
@@ -335,7 +385,7 @@
         AOS.init();
         $('.carousel').carousel({
             interval: 5000
-        })
+        });
     </script>
     <script>
         var currentRating = 0;
@@ -354,5 +404,19 @@
                 }
             }
         }
+    </script>
+    <script>
+        function toggleReplyForm(commentId) {
+            console.log(commentId);
+            var replyForm = document.getElementById("replyForm" + commentId);
+            if (replyForm.style.display === "none") {
+                console.log(replyForm.style.display);
+                replyForm.style.display = "block";
+            } else {
+                console.log(replyForm.style.display);
+                replyForm.style.display = "none";
+            }
+        }
+
     </script>
 </html>

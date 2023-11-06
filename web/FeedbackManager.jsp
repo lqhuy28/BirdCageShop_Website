@@ -31,7 +31,7 @@
         </header>
         <div class="bodya">
             <div class="row">
-                 <div class="col-md-2">
+                <div class="col-md-2">
                     <aside class=" dashboard__sider" >
                         <div class="admin">
                             <img src="static/img/admin1.png" width="200px">
@@ -133,7 +133,7 @@
                                 <button type="submit" class="fa fa-solid fa-magnifying-glass" name="action" value="Search"></button>
                             </form>
                         </div>
-                            <% if (request.getAttribute("ERROR") != null) {%>
+                        <% if (request.getAttribute("ERROR") != null) {%>
                         <p><%= request.getAttribute("ERROR")%></p>
                         <% } else {%>
                         <table class="table">
@@ -144,31 +144,33 @@
                                     <th class="text-center">Mã người dùng</th>
                                     <th class="text-center">Mã đơn hàng</th>
                                     <th class="text-center">Ngày đánh giá</th>
+                                    <th class="text-center">Bình luận</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <c:forEach items="${listF}" var="x">
-                                <tr>
-                                    <td class="text-center text-lg text-medium">${x.fullName}</td>
-                                    <td class="text-center text-lg text-medium">${x.rating}</td>
-                                    <td class="text-center text-lg text-medium">${x.userID}</td>
-                                    <td class="text-center text-lg text-medium">${x.orderId}</td>
-                                    <td class="text-center text-lg text-medium">${x.feedbackDate}</td>   
-                                </tr>
+                                    <tr>
+                                        <td class="text-center text-lg text-medium">${x.fullName}</td>
+                                        <td class="text-center text-lg text-medium">${x.rating}</td>
+                                        <td class="text-center text-lg text-medium">${x.userID}</td>
+                                        <td class="text-center text-lg text-medium">${x.orderId}</td>
+                                        <td class="text-center text-lg text-medium">${x.feedbackDate}</td>  
+                                        <td class="text-center text-lg text-medium">${x.comment}</td>   
+                                    </tr>
                                 </c:forEach>
                             </tbody>
                         </table>
-                         <nav aria-label="Page navigation example">
-                                <ul class="pagination">
-                                    <li class="page-item"><a class="page-link" href="#">Previous</a></li>
-                                    <li class="page-item"><a class="page-link" href="#">1</a></li>
-                                    <li class="page-item"><a class="page-link" href="#">2</a></li>
-                                    <li class="page-item"><a class="page-link" href="#">3</a></li>
-                                    <li class="page-item"><a class="page-link" href="#">Next</a></li>
-                                </ul>
-                            </nav>
+                        <nav aria-label="Page navigation example">
+                            <ul class="pagination">
+                                <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+                                <li class="page-item"><a class="page-link" href="#">1</a></li>
+                                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                <li class="page-item"><a class="page-link" href="#">Next</a></li>
+                            </ul>
+                        </nav>
                     </div>
-                            <% } %>
+                    <% }%>
                 </main>
             </div>
     </body>

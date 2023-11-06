@@ -5,31 +5,21 @@
 package controller;
 
 import dao.FeedBackDAO;
-import dao.MaterialDAO;
-import dao.OrderDAO;
-import dao.ProductDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
-import model.CageMaterial;
-import model.Cart;
-import model.FeedBack;
-import model.ProductDTO;
-import model.Reponse;
 import model.User;
 
 /**
  *
  * @author trand
  */
-@WebServlet(name = "ProductDetail", urlPatterns = {"/ProductDetail"})
-public class ProductDetail extends HttpServlet {
+@WebServlet(name = "ResponseController", urlPatterns = {"/ResponseController"})
+public class ResponseController extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -48,10 +38,10 @@ public class ProductDetail extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet ProductDetail</title>");
+            out.println("<title>Servlet ResponseController</title>");            
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet ProductDetail at " + request.getContextPath() + "</h1>");
+            out.println("<h1>Servlet ResponseController at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }
@@ -69,39 +59,7 @@ public class ProductDetail extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        request.setCharacterEncoding("UTF-8");
-        response.setCharacterEncoding("UTF-8");
-        ProductDAO dao = new ProductDAO();
-        String pid = request.getParameter("id");
-        ProductDTO product = dao.getProductByID(pid);
-        request.setAttribute("product", product);
-        MaterialDAO md = new MaterialDAO();
-        List<CageMaterial> cm = md.getCageMaterialByID(pid);
-        request.setAttribute("cageMaterial", cm);
-        HttpSession session = request.getSession();
-        List<Cart> cart;
-        int quantityCart = 0;
-        cart = (List<Cart>) session.getAttribute("cart");
-        if(cart != null){
-        for (Cart item : cart) {
-            if(item.getCageID().equals(product.getCageID())){
-                quantityCart = item.getQuantity();
-            }
-        }
-        }
-        session.setAttribute("quantityCart", quantityCart);
-        FeedBackDAO fbd = new FeedBackDAO();
-        List<FeedBack> lf = fbd.getFeedbackByCageId(pid);
-        request.setAttribute("feedback", lf);
-        User u = (User)session.getAttribute("LOGIN_USER");
-        if(u!=null){
-        String userID = fbd.getOrderByCageId(pid,u.getUserID());
-        request.setAttribute("userIDFeedback", userID);
-        }
-        List<Reponse> lr = fbd.getReplyFeedbackByCageId();
-        request.setAttribute("reply", lr);
-        request.getRequestDispatcher("detail.jsp").
-                forward(request, response);
+        processRequest(request, response);
     }
 
     /**
@@ -115,7 +73,17 @@ public class ProductDetail extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
+        request.setCharacterEncoding("UTF-8");
+        response.setCharacterEncoding("UTF-8");
+        String id = request.getParameter("id");
+        int idF = Integer.parseInt(request.getParameter("idF"));
+        String reply = request.getParameter("reply");
+        java.util.Date currentDate = new java.util.Date();
+        java.sql.Date feedbackDate = new java.sql.Date(currentDate.getTime());
+        User u = (User) request.getSession().getAttribute("LOGIN_USER");
+        FeedBackDAO fbd = new FeedBackDAO();
+        fbd.createReplyFeedbackByUserId(idF, u.getUserID(), reply, feedbackDate);
+        response.sendRedirect("ProductDetail?id=" + id);
     }
 
     /**

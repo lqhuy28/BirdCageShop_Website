@@ -82,7 +82,7 @@
                     </div>
                 </div>
             </div>
-            <div class="">
+            <div class="headerMenu">
                 <div class="row px-3">
                     <div class="col-9">
                         <nav class="header__menu head__aaa">

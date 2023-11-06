@@ -26,7 +26,7 @@ html,
 body {
     height: 100%;
     font-family: Arial, sans-serif;
-    background: #F0F6DC;
+    background: #F7F7F7;
 }
 .header{
     position: fixed;
@@ -34,6 +34,7 @@ body {
     Top : 0;
     Right : 0;
     Left : 0;
+    
 }   
 
 h1,
@@ -391,6 +392,9 @@ ol {
 
 .header__logo a {
     display: inline-block;
+}
+.headerMenu{
+      box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
 }
 
 .header__menu {
@@ -918,7 +922,7 @@ ol {
 }
 
 .featured__item__text h5 {
-    color: #252525;
+    color: red;
     font-weight: 700;
     font-size: 20px;
 }

@@ -33,24 +33,24 @@
                 <h3 style="text-align: center;"><strong>Chính Sách Đổi Trả</strong></h3></br>
                 <p><span style="font-weight: 400;"> ! Birdcage sẽ thực hiện việc đổi/trả hàng và hoàn tiền cho khách
                         hàng trong những trường hợp sau.</span></p>
-                <h4><b>1. Sản phẩm Birdcage giao không đúng đơn đặt hàng</b></h4>
-                <p><span style="font-weight: 400;">Bạn nghĩ rằng sản phẩm giao cho bạn không đúng với đơn đặt hàng? Hãy
+                        <h4><b>1. Sản phẩm Birdcage giao không đúng đơn đặt hàng</b></h4></br>
+                <p><span style="font-weight: 400; line-height: 36px;">Bạn nghĩ rằng sản phẩm giao cho bạn không đúng với đơn đặt hàng? Hãy
                         liên hệ với chúng tôi càng sớm càng tốt, hệ thống của chúng tôi sẽ kiểm tra nếu hàng của bạn bị
                         gửi nhầm. Trong trường hợp đó, chúng tôi sẽ thay thế đúng mặt hàng bạn yêu cầu (khi có
                         hàng).</span></p>
-                <h4><b>2. Sản phẩm mua rồi nhưng không ưng ý</b></h4>
+                <h4><b>2. Sản phẩm mua rồi nhưng không ưng ý</b></h4></br>
                 <p><span style="font-weight: 400;">Người mua có thể trả hàng khi không vừa ý trong vòng 3 ngày kể từ
                         ngày nhận hàng, chúng tôi</span> <span style="font-weight: 400;">sẽ đổi sản phẩm cho
                         khách.</span></p>
                 <p><span style="font-weight: 400;">Tiền vận chuyển lắp đặt quý khách phải tự trả. </span></p>
-                <h4><b>3. Sản phẩm mua bị lỗi</b></h4>
+                <h4><b>3. Sản phẩm mua bị lỗi</b></h4></br>
                 <p><span style="font-weight: 400;">Quý khách vui lòng kiểm tra sản phẩm trước khi thanh toán. Trong
                         trường hợp sản phẩm bị hư hại trong quá trình vận chuyển, quý khách vui lòng từ chối và gửi lại
                         sản phẩm cho chúng tôi</span></p>
                 <p><span style="font-weight: 400;">Trong thời hạn bảo hành sản phẩm hư hỏng nhiều lần quý khách được đổi
                         hoặc trả máy khách miễn phí với sản phẩm đồng giá hoặc bù thêm tiền khi đổi sản phẩm có giá trị
                         cao hơn .</span></p>
-                <h4><b>4. Điều kiện đổi trả</b></h4>
+                <h4><b>4. Điều kiện đổi trả</b></h4></br>
                 <p><i><span style="font-weight: 400;">Điều kiện về thời gian đổi trả</span></i><span
                         style="font-weight: 400;">: trong vòng 3 ngày kể từ khi nhận được hàng.</span></p>
                 <p><i><span style="font-weight: 400;">Điều kiện về sản phẩm</span></i><span

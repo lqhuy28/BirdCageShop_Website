@@ -32,8 +32,8 @@
                 <div class="col-inner container">
                     <h3 style="text-align: center;"><strong>Chính Sách Chung</strong></h3></br>
                     <h4><b>Quyền và trách nhiệm của người bán sản phẩm</b></h4></br>
-                    <ul>
-                        <li style="font-weight: 400;" aria-level="1"><span style="font-weight: 400;">Cung cấp đúng sản phẩm
+                    <ul style="line-height: 36px; font-size: 18px">
+                        <li style="font-weight: 400; " aria-level="1"><span style="font-weight: 400;">Cung cấp đúng sản phẩm
                                 mà
                                 khách hàng đã lựa chọn, có trách nhiệm tư vấn đầy đủ các tính năng, cách sử dụng, giá…và các
                                 yêu
@@ -59,9 +59,9 @@
                                 các quy định của pháp luật Việt Nam. Chúng tôi có đầy đủ các loại giấy tờ pháp lý theo quy
                                 định
                                 của pháp luật.</span></li>
-                    </ul>
-                    <h4><b>Quyền và trách nhiệm của người mua sản phẩm</b></h4>
-                    <ul>
+                    </ul></br>
+                    <h4><b>Quyền và trách nhiệm của người mua sản phẩm</b></h4></br>
+                    <ul style="line-height: 36px; font-size: 18px;">
                         <li style="font-weight: 400;" aria-level="1"><span style="font-weight: 400;">Cung cấp đầy đủ các
                                 thông
                                 tin về nhu cầu, điều kiện sử dụng, điều kiện vận chuyển; điều kiện đổi trả; chăm sóc khách

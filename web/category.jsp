@@ -119,7 +119,10 @@
                                                         </div>
 
                                                         <div class="featured__item__text">
-                                                            <h6><a href="#" title="View Product">${x.cageName}</a></h6>
+                                                            <h6><strong><a href="#" title="View Product">${x.cageName}</a></strong></h6>
+                                                            <div>
+                                                                <span class="amount-old">${x.priceOld}</span> 
+                                                            </div>
                                                             <h5><fmt:formatNumber value="${x.priceNew}" pattern="###,###"/> VNĐ</h5>
                                                         </div>
                                                     </div>

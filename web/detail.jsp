@@ -74,11 +74,10 @@
                                     <span class="amount-old"><%= formatCurrency(product.getPriceOld())%></span>  
                                     <span class="pro-price" style="font-size: 35px"><%= formatCurrency(product.getPriceNew())%></span>
                                 </div>    
-                                <p class="mt-2">
+                                <div class="mt-2">
                                     <strong>Mô tả sản phẩm: </strong>
-                                <div><%=product.getCageDetails()%>
+                                    <p ><%=product.getCageDetails()%></p>
                                 </div>
-                                </p>
                                 <div class="product_meta">
                                 </div>
 
@@ -190,10 +189,11 @@
                     <% }%>
                     <%
                         int check = 0;
-                        if(userId!=null){
-                        if (user.getUserID().equals(userId)) {
-                            check = 1;
-                        }}%>
+                        if (userId != null) {
+                            if (user.getUserID().equals(userId)) {
+                                check = 1;
+                            }
+                        }%>
 
                     <% if (check == 1) {%>
                     <form action="FeedbackController" method="post">
@@ -259,8 +259,8 @@
                     </div>
                 </div>
             </section>
+            <jsp:include page="footer.jsp" />
     </body>
-    <jsp:include page="footer.jsp" />
     <script>
         const checkoutItem = document.getElementById("checkout");
         const addCartItem = document.getElementById("addCart");

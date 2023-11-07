@@ -19,8 +19,8 @@ import javax.servlet.http.HttpSession;
  */
 public class LogoutController extends HttpServlet {
 
-   private static final String ERROR = "login.jsp";
-    private static final String SUCCESS = "login.jsp";
+   private static final String ERROR = "MainController?action=LoginPage";
+    private static final String SUCCESS = "MainController?action=LoginPage";
     
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {

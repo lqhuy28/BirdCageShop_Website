@@ -85,17 +85,17 @@
 
             </tbody>
             <% }%>
-            
+
             <% for (Order o : listOrder) {
-        %>
+            %>
             <tfoot>
                 <% for (OrderDetail d : ls) {
-        %>
+                %>
                 <tr>
                     <td colspan="4"><span>Thành tiền</span></td>
-                    <td><fmt:formatNumber value="<%=d.getPrice()*d.getQuantity()%>" pattern="###,###"/> VNĐ</td>
+                    <td><fmt:formatNumber value="<%=d.getPrice() * d.getQuantity()%>" pattern="###,###"/> VNĐ</td>
                 </tr>
-                <% } %>
+                <% }%>
                 <tr>
                     <td colspan="4"><span>Phí khác</span></td>
                     <td><fmt:formatNumber value="<%=o.getShipCost()%>" pattern="###,###"/> VNĐ</td>
@@ -103,15 +103,15 @@
 
                 <tr>
                     <td colspan="4"><span>Tổng cộng</span></td>
-                    <td><span class="sum"><fmt:formatNumber value="<%=o.getTotal() %>" pattern="###,###"/> VNĐ</span></td>
+                    <td><span class="sum"><fmt:formatNumber value="<%=o.getTotal()%>" pattern="###,###"/> VNĐ</span></td>
                 </tr>
 
             </tfoot>
             <% } %>
         </table></br>
-            
+
     </div>
-            <div class="container">
+    <div class="container">
         <% for (OrderDetail o : ls) {
                 if (o.getCageName().equals("Lồng yêu cầu")) {
         %>
@@ -120,16 +120,16 @@
             <table class="table table-bordered">
                 <thead>
                     <tr>
-                        <th>Tên nguyên liệu</th>
-                        <th>Số lượng</th>
+                        <th class="text-center">Tên nguyên liệu</th>
+                        <th class="text-center">Số lượng</th>
                     </tr>
                 </thead>
                 <tbody>
                     <% for (CageMaterial cm : lm) {
                     %>
                     <tr>
-                        <td><%=cm.getMaterialName()%></td>
-                        <td><%=cm.getQuantity()%></td>
+                        <td class="text-center"><%=cm.getMaterialName()%></td>
+                        <td class="text-center"><%=cm.getQuantity()%></td>
                     </tr>
                     <% }%>
                 </tbody>
@@ -138,7 +138,7 @@
         <% }
             }%>
     </div>
-    
+
     <jsp:include page="footer.jsp" />
 </body>
 </html>

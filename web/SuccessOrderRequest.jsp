@@ -26,16 +26,16 @@
 
         <div class="success__order">
             <div class="logo__success">
-                <i class="fa-solid fa-circle-check fa-2xl" style="color: #00ff04;"></i>
+                <i class="fa-solid fa-circle-question fa-2xl" style="color: #fbff00;"></i>         
             </div>  
             <div class="title__success">  
-                <h2>Đặt hàng thành công</h2>
+                <h2>Chờ duyệt đơn</h2>
             </div>
-            <% String orderId = (String)request.getAttribute("orderId"); %>
+            <% String orderId = (String) request.getAttribute("orderId");%>
             <div class="order__id">
                 Mã giao dịch: <%=orderId%>
             </div>
-            <% List<OrderSuccess> ls = (List<OrderSuccess>)request.getAttribute("listOrder"); %>
+            <% List<OrderSuccess> ls = (List<OrderSuccess>) request.getAttribute("listOrder"); %>
             <div class="table__success">
                 <table class="table table-hover">
                     <thead>
@@ -48,16 +48,16 @@
                     </thead>
                     <tbody>
                         <% for (OrderSuccess od : ls) {
-                                
-                            
+
+
                         %>
                         <tr>
                             <td class="text-center"><%=od.getOrderDate()%></td>
                             <td class="text-center"><%=od.getCageName()%></td>
                             <td class="text-center">x<%=od.getQuantity()%></td>
-                            <td class="text-center"><fmt:formatNumber value="<%=od.getPrice()*od.getQuantity()%>" pattern="###,###"/> VNĐ</td>
-                       <tr>
-             <% } %>
+                            <td class="text-center"><fmt:formatNumber value="<%=od.getPrice()%>" pattern="###,###"/> VNĐ</td>
+                        <tr>
+                            <% }%>
                     </tbody>
                 </table>
             </div>  

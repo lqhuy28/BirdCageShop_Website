@@ -54,7 +54,7 @@
                                 <td class="text-center text-lg text-medium"><%=o.getAddress()%></td>
                                 <td class="text-center text-lg text-medium"><fmt:formatNumber value="<%=o.getShipCost()%>" pattern="###,###"/> VNĐ</td>
                                 <td class="text-center text-lg text-medium"><fmt:formatNumber value="<%=o.getTotal()%>" pattern="###,###"/> VNĐ</td>
-                                <td class="text-center text-lg text-medium"><%=o.isStatus() ? "Chưa thanh toán" : "Đã hủy"%></td>
+                                <td class="text-center text-lg text-medium"><%=o.isStatus() ? "Đã duyệt" : "Chờ phản hồi"%></td>
                                 <td class="text-center text-lg text-medium"><a href="DetailOrder?orderId=<%=o.getOrderID()%>&cageId=<%=o.getCageID()%>"><i class="fa-solid fa-eye" style="color: red;"></i></a></td>
                                         <% if (o.isStatus() == true) {%>
                                 <td class="text-center text-lg text-medium"><a href="OrderController?orderId=<%=o.getOrderID()%>">Hủy Đơn Hàng</a></td>

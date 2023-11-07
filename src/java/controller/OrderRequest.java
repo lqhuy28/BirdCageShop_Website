@@ -128,7 +128,7 @@ public class OrderRequest extends HttpServlet {
             User u = (User) session.getAttribute("LOGIN_USER");
             java.util.Date currentDate = new java.util.Date();
             java.sql.Date orderDate = new java.sql.Date(currentDate.getTime());
-            od.insertOrder(orderID, u.getUserID(), u.getPhone(), u.getAddress(), orderDate, "1", "", shipCost, totalPrice);
+            od.insertOrder(orderID, u.getUserID(), u.getPhone(), u.getAddress(), orderDate, "0", "", shipCost, totalPrice);
 
             for (Material material : list) {
                 if (material.getMaterialName().equals("trụ")) {
@@ -150,7 +150,7 @@ public class OrderRequest extends HttpServlet {
             request.setAttribute("listOrder", o);
             request.setAttribute("orderId", orderID);
             //dao.insertMaterialRequest(cageID, "4", pillar, description);
-            request.getRequestDispatcher("SuccessOrder.jsp").
+            request.getRequestDispatcher("SuccessOrderRequest.jsp").
                     forward(request, response);
         } catch (Exception e) {
             request.getRequestDispatcher("Error.jsp").

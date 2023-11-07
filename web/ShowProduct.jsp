@@ -17,6 +17,7 @@
         <link rel="stylesheet" href="static/bootstrap/css/bootstrap.min.css">
         <link rel="stylesheet" href="static/css/showProduct.css">
         <link rel="stylesheet" href="static/css/root.css">
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
         <title>Quản lí sản phẩm</title>
     </head>
     <body class="fade-in">
@@ -143,57 +144,55 @@
                         <% } else {%>
                         <c:set var="listS" value="${requestScope.listS}" />
                         <c:if test="${not empty listS}">
-                            <table class="table">
-                                <thead>
-                                    <tr>
-                                        <th scope="col">Mã sản phẩm</th>
-                                        <th scope="col">Danh mục</th>
-                                        <th scope="col">Tên sản phẩm</th>
-                                        <th scope="col">Thông tin sản phẩm</th>
-                                        <th scope="col">Giá mới</th>
-                                        <th scope="col">Giá cũ</th>
-                                        <th scope="col">Hình ảnh</th>
-                                        <th scope="col">Số lượng</th>
-                                        <th scope="col">Tình trạng</th>
-                                        <th scope="col">Chức năng</th>
+                            <div id="table__paging">
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">Mã sản phẩm</th>
+                                            <th scope="col">Danh mục</th>
+                                            <th scope="col">Tên sản phẩm</th>
+                                            <th scope="col">Thông tin sản phẩm</th>
+                                            <th scope="col">Giá mới</th>
+                                            <th scope="col">Giá cũ</th>
+                                            <th scope="col">Hình ảnh</th>
+                                            <th scope="col">Số lượng</th>
+                                            <th scope="col">Tình trạng</th>
+                                            <th scope="col">Chức năng</th>
 
 
-                                    </tr>
-                                </thead>
-                                <c:forEach items="${listS}" var="x">
-                                    <tr>
-                                        <td>${x.cageID}</td>
-                                        <td>${x.categoryID}</td>
-                                        <td>${x.cageName}</td>
-                                        <td>${x.cageDetails}</td>
-                                        <td><fmt:formatNumber value="${x.priceNew}" pattern="###,###"/> VNĐ</td>
-                                        <td><fmt:formatNumber value="${x.priceOld}" pattern="###,###"/> VNĐ</td>
-                                        <td><img src="${x.image}" style="width: 100px; height: auto;"></td>
-                                        <td>${x.quantity}</td>
-                                        <td>${x.status}</td>
+                                        </tr>
+                                    </thead>
+                                    <c:forEach items="${listS}" var="x">
+                                        <tr>
+                                            <td>${x.cageID}</td>
+                                            <td>${x.categoryID}</td>
+                                            <td>${x.cageName}</td>
+                                            <td>${x.cageDetails}</td>
+                                            <td><fmt:formatNumber value="${x.priceNew}" pattern="###,###"/> VNĐ</td>
+                                            <td><fmt:formatNumber value="${x.priceOld}" pattern="###,###"/> VNĐ</td>
+                                            <td><img src="${x.image}" style="width: 100px; height: auto;"></td>
+                                            <td>${x.quantity}</td>
+                                            <td>${x.status}</td>
 
 
-                                        <td>
-                                            <div class="btn-group">
-                                                <a href="update?sid=${x.cageID}" class="btn btn-success"><i class="fa-solid fa-file-pen"></i></a>
-                                                <a href="delete?sid=${x.cageID}" class="btn btn-danger"><i class="fa-solid fa-trash"></i></a>
-                                                <form action="cart" method="POST">
-                                                    <input type="hidden" name="id" value="${x.cageID}"/>
-                                                    <input type="hidden" name="quantity" value="1"/>
-                                                </form>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                </c:forEach>
+                                            <td>
+                                                <div class="btn-group">
+                                                    <a href="update?sid=${x.cageID}" class="btn btn-success"><i class="fa-solid fa-file-pen"></i></a>
+                                                    <a href="delete?sid=${x.cageID}" class="btn btn-danger"><i class="fa-solid fa-trash"></i></a>
+                                                    <form action="cart" method="POST">
+                                                        <input type="hidden" name="id" value="${x.cageID}"/>
+                                                        <input type="hidden" name="quantity" value="1"/>
+                                                    </form>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </c:forEach>
 
-                            </table>
-                            <nav aria-label="Page navigation example">
-                                <ul class="pagination">
-                                    <li class="page-item"><a class="page-link" href="#">Previous</a></li>
-                                    <li class="page-item"><a class="page-link" href="#">1</a></li>
-                                    <li class="page-item"><a class="page-link" href="#">2</a></li>
-                                    <li class="page-item"><a class="page-link" href="#">3</a></li>
-                                    <li class="page-item"><a class="page-link" href="#">Next</a></li>
+                                </table>
+                            </div>
+                            <nav aria-label="Page navigation">
+                                <ul class="pagination justify-content-center">
+
                                 </ul>
                             </nav>
                         </c:if>
@@ -203,4 +202,44 @@
             </div>
         </div>
     </body>
+    <script>
+        $(document).ready(function () {
+            var itemsPerPage = 5; // Number of items to display per page
+            var $tableContainer = $('#table__paging');
+            var $table = $tableContainer.find('table');
+            var $pagination = $('.pagination');
+
+            var numRows = $table.find('tbody tr').length;
+            var numPages = Math.ceil(numRows / itemsPerPage);
+
+            // Create pagination links
+            for (var i = 1; i <= numPages; i++) {
+                var $li = $('<li class="page-item"><a class="page-link" href="#">' + i + '</a></li>');
+                $li.data('page', i);
+                $pagination.append($li);
+            }
+
+            // Show the first page and highlight its link
+            $table.find('tbody tr:gt(' + (itemsPerPage - 1) + ')').hide();
+            $pagination.find('li:first').addClass('active');
+
+            // Handle pagination link click
+            $pagination.find('li').click(function () {
+                var $this = $(this);
+                var page = $this.data('page');
+
+                // Hide and show the appropriate rows
+                var firstItem = (page - 1) * itemsPerPage;
+                var lastItem = firstItem + itemsPerPage;
+
+                $table.find('tbody tr').hide();
+                $table.find('tbody tr:eq(' + (firstItem) + ')').show();
+                $table.find('tbody tr:gt(' + (firstItem) + '):lt(' + (itemsPerPage - 1) + ')').show();
+
+                // Highlight the clicked link
+                $pagination.find('li').removeClass('active');
+                $this.addClass('active');
+            });
+        });
+    </script>
 </html>

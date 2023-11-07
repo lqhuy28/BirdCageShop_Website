@@ -184,7 +184,7 @@
             <div class="table-responsive"  data-aos="fade-up">
                 <div class="feedback-section">
                     <h4 class="pro-d-title">
-                        <strong><i class="fa-solid fa-comment"></i> Đánh giá sản phẩm</strong>
+                        <strong><i class="fa-solid fa-comment"></i> Khách hàng đánh giá</strong>
                     </h4>   
             <% for (FeedBack f : lF) {%>
 
@@ -233,7 +233,7 @@
                         <input type="submit" value="Gửi phản hồi">                            
                     </form>
                     <% if (user != null) {%>
-                    <button class="reply-button" onclick="toggleReplyForm(<%=f.getFeedbackId()%>)">Trả lời</button>
+                    <span class="reply-button" onclick="toggleReplyForm(<%=f.getFeedbackId()%>)">Trả lời</span>
                     <% } %>
                     <% }%>
                     <%
@@ -244,7 +244,6 @@
                                 check = 1;
                             }
                         }%>
-
                     <% if (check
                                 == 1) {%>
                     <form action="FeedbackController" method="post">
@@ -257,7 +256,7 @@
                         </div>
                         <input type="hidden" value="<%=product.getCageID()%>" name="id">
                         <input type="hidden" value="0" name="rate" id="rate">
-                        <input type="text" value="" name="feedback"><input type="submit" value="Gửi phản hồi">
+                        <input type="text" placeholder="Hãy chia sẽ cảm nhận, đánh giá về sản phẩm này nhé" value="" name="feedback"><input class="phanhoi" type="submit" value="Gửi phản hồi">
                     </form>
                     <% }%>
 

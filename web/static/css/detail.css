@@ -354,5 +354,27 @@ body {
 }
 
 .star.checked {
-    color: yellow; /* Màu sáng cho các sao được chọn */
+    color: #FFC400; /* Màu sáng cho các sao được chọn */
+}
+.reply-button {
+    display: inline-block;
+    margin-right: 10px;
+    background: rgb(255, 255, 255);
+    border: 1px solid rgb(24, 158, 255);
+    font-size: 12px;
+    color: rgb(24, 158, 255);
+    padding: 5px 15px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+.phanhoi{
+    display: inline-block;
+    margin-right: 10px;
+    background: rgb(255, 255, 255);
+    border: 1px solid rgb(24, 158, 255);
+    font-size: 12px;
+    color: rgb(24, 158, 255);
+    padding: 5px 15px;
+    border-radius: 4px;
+    cursor: pointer;
 }

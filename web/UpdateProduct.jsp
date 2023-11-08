@@ -120,21 +120,21 @@
                                 <tr>
                                     <td>Danh mục</td>
                                     <td>
-                                        <input value="${st.categoryID}" type="text" name="CategoryID">
+                                        <input value="${st.categoryID}" type="text" name="CategoryID" required="">
                                     </td>
                                 </tr>
 
                                 <tr>
                                     <td>Tên sản phẩm</td>
                                     <td>
-                                        <input value="${st.cageName}" type="text" name="CageName">
+                                        <input value="${st.cageName}" type="text" name="CageName" required="">
                                     </td>
                                 </tr>
 
                                 <tr>
                                     <td>Thông tin sản phẩm</td>
                                     <td>
-                                        <input value="${st.cageDetails}" type="text" name="CageDetails">
+                                        <input value="${st.cageDetails}" type="text" name="CageDetails" required="">
                                     </td>
                                 </tr>
 
@@ -142,35 +142,35 @@
                                 <tr>
                                     <td>Giá mới</td>
                                     <td>
-                                        <input value=<fmt:formatNumber value="${st.priceNew}" pattern="###,###"/> VNĐ type="text" name="PriceNew">
+                                        <input value=<fmt:formatNumber value="${st.priceNew}" pattern="###,###"/> VNĐ type="text" name="PriceNew" required="">
                                     </td>
                                 </tr>
 
                                 <tr>
                                     <td>Giá cũ</td>
                                     <td>
-                                        <input value=<fmt:formatNumber value="${st.priceOld}" pattern="###,###"/> VNĐ type="text" name="PriceOld">
+                                        <input value=<fmt:formatNumber value="${st.priceOld}" pattern="###,###"/> VNĐ type="text" name="PriceOld" required="">
                                     </td>
                                 </tr>
 
                                 <tr>
                                     <td>Hình ảnh</td>
                                     <td>
-                                        <input value="${st.image}" type="text" src="" name="Image">
+                                        <input value="${st.image}" type="text" src="" name="Image" required="">
                                     </td>
                                 </tr>
 
                                 <tr>
                                     <td>Số lượng</td>
                                     <td>
-                                        <input value="${st.quantity}" type="text" name="Quantity">
+                                        <input value="${st.quantity}" type="text" name="Quantity" required="">
                                     </td>
                                 </tr>
 
                                 <tr>
                                     <td>Tình trạng</td>
                                     <td>
-                                        <input value="${st.status}" type="text" name="Status">
+                                        <input value="${st.status}" type="text" name="Status" required="">
                                     </td>
                                 </tr>
 

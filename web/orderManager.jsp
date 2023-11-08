@@ -18,7 +18,6 @@
         <link rel="stylesheet" href="static/bootstrap/css/bootstrap.min.css">
         <link rel="stylesheet" href="static/css/orderManager.css">
         <link rel="stylesheet" href="static/css/root.css">
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
         <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     </head>
     <body class="fade-in">
@@ -133,7 +132,7 @@
                         <div class="search-container">
                             <form action="OrderManager" method="POST" class="form-inline">
                                 <div class="form-group">
-                                    <input type="text" value="<%=search%>" placeholder="Search..."  class="form-control" name="search" id="search" />
+                                    <input type="text" value="<%=search%>" placeholder="Tìm kiếm..."  class="form-control" name="search" id="search" />
                                 </div>
                                 <button type="submit" class="fa fa-solid fa-magnifying-glass" name="action" value="Search"></button>
 
@@ -142,6 +141,7 @@
                         <% if (request.getAttribute("ERROR") != null) {%>
                         <p><%= request.getAttribute("ERROR")%></p>
                         <% } else {%>
+                        <div id="table__paging">
                         <table class="table">
                             <thead>
                                 <tr>
@@ -171,6 +171,7 @@
                                 </c:forEach>
                             </tbody>
                         </table>
+                            </div>
                         
                         <nav aria-label="Page navigation">
                                 <ul class="pagination justify-content-center">
@@ -185,8 +186,8 @@
     </body>
     <script>
         $(document).ready(function () {
-            var itemsPerPage = 5; // Number of items to display per page
-            var $tableContainer = $('#table-container');
+            var itemsPerPage = 8; // Number of items to display per page
+            var $tableContainer = $('#table__paging');
             var $table = $tableContainer.find('table');
             var $pagination = $('.pagination');
 

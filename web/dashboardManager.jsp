@@ -20,7 +20,7 @@
         <link rel="stylesheet" href="static/bootstrap/css/bootstrap.min.css">
         <link rel="stylesheet" href="static/css/showProduct.css">
         <link rel="stylesheet" href="static/css/root.css">
-                <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
     </head>
     <body class="fade-in">
@@ -113,7 +113,7 @@
                             <div class="search-container">
                                 <form action="SearchProductDashboard" method="POST" class="form-inline">
                                     <div class="form-group">
-                                        <input type="text" name="search" class="form-control"/>
+                                        <input type="text" name="search" placeholder="Tìm kiếm..." class="form-control"/>
                                     </div>
                                     <button type="submit" name="action" value="Search" class="fa fa-solid fa-magnifying-glass"> </button>
                                 </form>
@@ -161,6 +161,7 @@
                                             <td>
                                                 <div class="btn-group">
                                                     <a href="update?sid=${x.cageID}" class="btn btn-success"><i class="fa-solid fa-file-pen"></i></a>
+                                                    <a href="AddMaterial?sid=${x.cageID}" class="btn btn-primary"><i class="fa-solid fa-recycle"></i></a>
                                                     <a href="delete?sid=${x.cageID}" class="btn btn-danger"><i class="fa-solid fa-trash"></i></a>
                                                     <form action="cart" method="POST">
                                                         <input type="hidden" name="id" value="${x.cageID}"/>

@@ -130,7 +130,7 @@
                             <div class="search-container">
                                 <form action="SearchProductDashboard" method="POST" class="form-inline">
                                     <div class="form-group">
-                                        <input type="text" name="search" class="form-control"/>
+                                        <input type="text" placeholder="Tìm kiếm..." name="search" class="form-control"/>
                                     </div>
                                     <button type="submit" name="action" value="Search" class="fa fa-solid fa-magnifying-glass"> </button>
                                 </form>
@@ -177,8 +177,7 @@
 
                                             <td>
                                                 <div class="btn-group">
-                                                    <a href="update?sid=${x.cageID}" class="btn btn-success"><i class="fa-solid fa-file-pen"></i></a>
-                                                    <a href="delete?sid=${x.cageID}" class="btn btn-danger"><i class="fa-solid fa-trash"></i></a>
+                                                    <a href="delete?sid=${x.cageID}" class="btn btn-warning"><i class="fa-solid fa-rotate-right"></i></a>
                                                     <form action="cart" method="POST">
                                                         <input type="hidden" name="id" value="${x.cageID}"/>
                                                         <input type="hidden" name="quantity" value="1"/>

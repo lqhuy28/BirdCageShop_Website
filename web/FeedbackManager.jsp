@@ -18,6 +18,7 @@
         <link rel="stylesheet" href="static/bootstrap/css/bootstrap.min.css">
         <link rel="stylesheet" href="static/css/orderManager.css">
         <link rel="stylesheet" href="static/css/root.css">
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     </head>
     <body class="fade-in">
         <header>
@@ -128,7 +129,7 @@
                         <div class="search-container">
                             <form action="SearchFeedBack" method="POST" class="form-inline">
                                 <div class="form-group">
-                                    <input type="text" value="<%=search%>" placeholder="Search..."  class="form-control" name="search" id="search" />
+                                    <input type="text" value="<%=search%>" placeholder="Tìm kiếm..."  class="form-control" name="search" id="search" />
                                 </div>
                                 <button type="submit" class="fa fa-solid fa-magnifying-glass" name="action" value="Search"></button>
                             </form>
@@ -136,6 +137,7 @@
                         <% if (request.getAttribute("ERROR") != null) {%>
                         <p><%= request.getAttribute("ERROR")%></p>
                         <% } else {%>
+                        <div id="table__paging">
                         <table class="table">
                             <thead>
                                 <tr>
@@ -160,18 +162,55 @@
                                 </c:forEach>
                             </tbody>
                         </table>
-                        <nav aria-label="Page navigation example">
-                            <ul class="pagination">
-                                <li class="page-item"><a class="page-link" href="#">Previous</a></li>
-                                <li class="page-item"><a class="page-link" href="#">1</a></li>
-                                <li class="page-item"><a class="page-link" href="#">2</a></li>
-                                <li class="page-item"><a class="page-link" href="#">3</a></li>
-                                <li class="page-item"><a class="page-link" href="#">Next</a></li>
-                            </ul>
-                        </nav>
+                            </div>
+                        <nav aria-label="Page navigation">
+                                <ul class="pagination justify-content-center">
+
+                                </ul>
+                            </nav>
                     </div>
                     <% }%>
                 </main>
             </div>
+                <script>
+        $(document).ready(function () {
+            var itemsPerPage = 10; // Number of items to display per page
+            var $tableContainer = $('#table__paging');
+            var $table = $tableContainer.find('table');
+            var $pagination = $('.pagination');
+
+            var numRows = $table.find('tbody tr').length;
+            var numPages = Math.ceil(numRows / itemsPerPage);
+
+            // Create pagination links
+            for (var i = 1; i <= numPages; i++) {
+                var $li = $('<li class="page-item"><a class="page-link" href="#">' + i + '</a></li>');
+                $li.data('page', i);
+                $pagination.append($li);
+            }
+
+            // Show the first page and highlight its link
+            $table.find('tbody tr:gt(' + (itemsPerPage - 1) + ')').hide();
+            $pagination.find('li:first').addClass('active');
+
+            // Handle pagination link click
+            $pagination.find('li').click(function () {
+                var $this = $(this);
+                var page = $this.data('page');
+
+                // Hide and show the appropriate rows
+                var firstItem = (page - 1) * itemsPerPage;
+                var lastItem = firstItem + itemsPerPage;
+
+                $table.find('tbody tr').hide();
+                $table.find('tbody tr:eq(' + (firstItem) + ')').show();
+                $table.find('tbody tr:gt(' + (firstItem) + '):lt(' + (itemsPerPage - 1) + ')').show();
+
+                // Highlight the clicked link
+                $pagination.find('li').removeClass('active');
+                $this.addClass('active');
+            });
+        });
+    </script>
     </body>
 </html>

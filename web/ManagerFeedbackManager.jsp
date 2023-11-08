@@ -17,6 +17,7 @@
         <link rel="stylesheet" href="static/bootstrap/css/bootstrap.min.css">
         <link rel="stylesheet" href="static/css/orderManager.css">
         <link rel="stylesheet" href="static/css/root.css">
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     </head>
     <body class="fade-in">
         <header>
@@ -30,7 +31,7 @@
         </header>
         <div class="bodya">
             <div class="row">
-                 <div class="col-md-2">
+                <div class="col-md-2">
                     <aside class=" dashboard__sider" >
                         <div class="admin">
                             <img src="static/img/admin1.png" width="200px">
@@ -102,40 +103,78 @@
                                 <% List<FeedBack> listF = (List<FeedBack>) request.getAttribute("listFeedback"); %>
                             </form>
                         </div>
-                        <table class="table">
-                            <thead>
-                                <tr>
-                                    <th class="text-center">Tên người dùng</th>
-                                    <th class="text-center">Đánh giá</th>
-                                    <th class="text-center">Mã người dùng</th>
-                                    <th class="text-center">Mã đơn hàng</th>
-                                    <th class="text-center">Ngày đánh giá</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <% for (FeedBack f : listF) {
-                                %>
-                                <tr>
-                                    <td class="text-center text-lg text-medium"><%=f.getFullName()%></td>
-                                    <td class="text-center text-lg text-medium"><%=f.getRating()%></td>
-                                    <td class="text-center text-lg text-medium"><%=f.getUserID()%></td>
-                                    <td class="text-center text-lg text-medium"><%=f.getOrderId()%></td>
-                                    <td class="text-center text-lg text-medium"><%=f.getFeedbackDate()%></td>   
-                                </tr>
-                                <% }%>
-                            </tbody>
-                        </table>
-                         <nav aria-label="Page navigation example">
-                                <ul class="pagination">
-                                    <li class="page-item"><a class="page-link" href="#">Previous</a></li>
-                                    <li class="page-item"><a class="page-link" href="#">1</a></li>
-                                    <li class="page-item"><a class="page-link" href="#">2</a></li>
-                                    <li class="page-item"><a class="page-link" href="#">3</a></li>
-                                    <li class="page-item"><a class="page-link" href="#">Next</a></li>
-                                </ul>
-                            </nav>
+                        <div id="table__paging">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th class="text-center">Tên người dùng</th>
+                                        <th class="text-center">Đánh giá</th>
+                                        <th class="text-center">Mã người dùng</th>
+                                        <th class="text-center">Mã đơn hàng</th>
+                                        <th class="text-center">Ngày đánh giá</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <% for (FeedBack f : listF) {
+                                    %>
+                                    <tr>
+                                        <td class="text-center text-lg text-medium"><%=f.getFullName()%></td>
+                                        <td class="text-center text-lg text-medium"><%=f.getRating()%></td>
+                                        <td class="text-center text-lg text-medium"><%=f.getUserID()%></td>
+                                        <td class="text-center text-lg text-medium"><%=f.getOrderId()%></td>
+                                        <td class="text-center text-lg text-medium"><%=f.getFeedbackDate()%></td>   
+                                    </tr>
+                                    <% }%>
+                                </tbody>
+                            </table>
+                        </div>
+                        <nav aria-label="Page navigation">
+                            <ul class="pagination justify-content-center">
+
+                            </ul>
+                        </nav>
                     </div>
                 </main>
             </div>
+            <script>
+                $(document).ready(function () {
+                    var itemsPerPage = 10; // Number of items to display per page
+                    var $tableContainer = $('#table__paging');
+                    var $table = $tableContainer.find('table');
+                    var $pagination = $('.pagination');
+
+                    var numRows = $table.find('tbody tr').length;
+                    var numPages = Math.ceil(numRows / itemsPerPage);
+
+                    // Create pagination links
+                    for (var i = 1; i <= numPages; i++) {
+                        var $li = $('<li class="page-item"><a class="page-link" href="#">' + i + '</a></li>');
+                        $li.data('page', i);
+                        $pagination.append($li);
+                    }
+
+                    // Show the first page and highlight its link
+                    $table.find('tbody tr:gt(' + (itemsPerPage - 1) + ')').hide();
+                    $pagination.find('li:first').addClass('active');
+
+                    // Handle pagination link click
+                    $pagination.find('li').click(function () {
+                        var $this = $(this);
+                        var page = $this.data('page');
+
+                        // Hide and show the appropriate rows
+                        var firstItem = (page - 1) * itemsPerPage;
+                        var lastItem = firstItem + itemsPerPage;
+
+                        $table.find('tbody tr').hide();
+                        $table.find('tbody tr:eq(' + (firstItem) + ')').show();
+                        $table.find('tbody tr:gt(' + (firstItem) + '):lt(' + (itemsPerPage - 1) + ')').show();
+
+                        // Highlight the clicked link
+                        $pagination.find('li').removeClass('active');
+                        $this.addClass('active');
+                    });
+                });
+            </script>
     </body>
 </html>

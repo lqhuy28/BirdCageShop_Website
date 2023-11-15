@@ -71,7 +71,7 @@ public class OrderDAO {
 
     public List<Order> getOrder(String userID) {
         List<Order> list = new ArrayList<>();
-        String query = "select o.OrderID, o.UserID, o.Phone, o.Address,o.OrderDate,o.ShippingCod, o.Total, o.OrderStatus from tblOrders o where o.UserID = ?";
+        String query = "select o.OrderID, o.UserID, o.Phone, o.Address,o.OrderDate,o.ShippingCod, o.Total, o.OrderStatus from tblOrders o where o.UserID = ? ORDER BY o.OrderDate DESC";
         try {
             conn = new DBUtils().getConnection();
             ps = conn.prepareStatement(query);
@@ -125,7 +125,7 @@ public class OrderDAO {
 
     public List<Order> getOrder() {
         List<Order> list = new ArrayList<>();
-        String query = "select o.OrderID, o.UserID, o.Phone, o.Address,o.OrderDate,o.ShippingCod, o.Total, o.OrderStatus from tblOrders o";
+        String query = "select o.OrderID, o.UserID, o.Phone, o.Address,o.OrderDate,o.ShippingCod, o.Total, o.OrderStatus from tblOrders o ORDER BY o.OrderDate DESC";
         try {
             conn = new DBUtils().getConnection();
             ps = conn.prepareStatement(query);

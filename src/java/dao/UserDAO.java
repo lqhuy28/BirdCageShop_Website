@@ -25,7 +25,7 @@ public class UserDAO {
     ResultSet rs = null;
     private static final String UPDATEUSER = "UPDATE tblUsers set fullName=?, password=?, phone=?, email=?, address=?, roleID=? WHERE userID=?";
     private static final String LOGIN = "SELECT FullName, Phone, Email, Address, RoleID, Status FROM tblUsers WHERE UserID=? AND Password=?";
-    private static final String searchUser = "select * from tblUsers where userID like ? or fullname like ?";
+    private static final String searchUser = "select * from tblUsers where (userID like ? or fullname like ?) AND RoleID <> 'Admin' ORDER BY RoleID ASC";
     private static final String listUser = "select * from tblUsers";
     private static final String DELETEUSER = "UPDATE tblUsers \n"
             + "SET Status = CASE\n"

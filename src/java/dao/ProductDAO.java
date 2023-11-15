@@ -29,7 +29,7 @@ public class ProductDAO {
 
     public List<ProductDTO> getAllProductDTO() {
         List<ProductDTO> list = new ArrayList<>();
-        String query = "select * from tblCage where Quantity > 0";
+        String query = "select * from tblCage where Quantity > 0 ORDER BY CategoryID ASC";
         try {
             conn = new DBUtils().getConnection();
             ps = conn.prepareStatement(query);

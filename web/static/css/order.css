@@ -12,6 +12,7 @@ select.form-control:not([size]):not([multiple]) {
 }
 .mainOder{
     padding-top: 200px;
+    padding-bottom: 90px;
 }
 .mb-1{
     padding-bottom: 60px;

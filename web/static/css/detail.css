@@ -348,7 +348,7 @@ body {
 }
 
 .starD {
-    color: yellow; /* Màu tối cho tất cả các sao */
+    color: #ffcc00; /* Màu tối cho tất cả các sao */
     font-size: 1em;
     cursor: pointer;
 }

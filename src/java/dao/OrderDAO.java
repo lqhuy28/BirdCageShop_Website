@@ -273,7 +273,7 @@ public class OrderDAO {
     public List<Order> searchOrder(String search) {
         List<Order> list = new ArrayList<>();
         String query = "select o.OrderID, o.UserID, o.Phone, o.Address,o.OrderDate,o.ShippingCod, o.Total, o.OrderStatus from tblOrders o\n"
-                + "                where orderID like ?";
+                + "                where orderID like ? ORDER BY o.OrderDate DESC ";
         try {
             conn = new DBUtils().getConnection();
             if (conn != null) {

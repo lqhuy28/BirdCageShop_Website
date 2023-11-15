@@ -134,7 +134,7 @@ public class FeedBackDAO {
 
     public List<FeedBack> getAllFeedback() {
         List<FeedBack> list = new ArrayList<>();
-        String query = "select * from tblFeedback";
+        String query = "select * from tblFeedback ORDER BY FeedbackDate ASC";
 
         try {
             conn = new DBUtils().getConnection();

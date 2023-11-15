@@ -125,8 +125,7 @@
 
                             }
                         %>
-                        <div class="add">
-
+                        <div class="add">   
                             <div class="search-container">
                                 <form action="SearchProductDashboard" method="POST" class="form-inline">
                                     <div class="form-group">
@@ -134,9 +133,6 @@
                                     </div>
                                     <button type="submit" name="action" value="Search" class="fa fa-solid fa-magnifying-glass"> </button>
                                 </form>
-                            </div>
-                            <div class="addpro">
-                                <a href="add">Tạo sản phẩm</a>  
                             </div>
                         </div>
                         <% if (request.getAttribute("ERROR") != null) {%>
@@ -177,7 +173,7 @@
 
                                             <td>
                                                 <div class="btn-group">
-                                                    <a href="delete?sid=${x.cageID}" class="btn btn-warning"><i class="fa-solid fa-rotate-right"></i></a>
+                                                    <a href="DeleteProductAdmin?sid=${x.cageID}" class="btn btn-warning"><i class="fa-solid fa-rotate-right"></i></a>
                                                     <form action="cart" method="POST">
                                                         <input type="hidden" name="id" value="${x.cageID}"/>
                                                         <input type="hidden" name="quantity" value="1"/>

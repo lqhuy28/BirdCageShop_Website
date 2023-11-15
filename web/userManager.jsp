@@ -170,7 +170,7 @@
                                         <td>${x.email}</td>
                                         <td>${x.address}</td>
                                         <td>${x.roleID}</td>
-                                        <td>${x.status}</td>
+                                        <td>${x.status}</td>             
                                         <td>
                                             <div class="btn-group">
                                                 <a href="updateUser?userID=${x.userID}" class="btn btn-success"><i class="fa-solid fa-file-pen"></i></a>

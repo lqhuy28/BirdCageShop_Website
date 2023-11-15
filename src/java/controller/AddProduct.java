@@ -96,7 +96,7 @@ public class AddProduct extends HttpServlet {
         String sStatus = request.getParameter("Status");     
         ProductDAO dao = new ProductDAO();
         dao.insertProduct(sCageID, sCategoryID, sCageName, sCageDetails, sPriceNew, sPriceOld, sImage, sQuantity, sStatus);
-        response.sendRedirect("dashboardManager");
+        response.sendRedirect("DashboardManager");
     }
 
     /**

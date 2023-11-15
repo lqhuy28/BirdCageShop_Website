@@ -183,34 +183,39 @@ public class CheckoutController extends HttpServlet {
             }
             String orderID = new String(text);
             User u = (User) session.getAttribute("LOGIN_USER");
-            if(u==null){
+            if (u == null) {
                 request.getRequestDispatcher("login.jsp").
-                            forward(request, response);
+                        forward(request, response);
             }
-            List<Cart> cart;
-            cart = (List<Cart>) session.getAttribute("cart");
-            int check = 0;
-            String cageError = "";
-            for (Cart item : cart) {
-                ProductDTO p = pd.getProductByID(item.getCageID());
-                int quantity = p.getQuantity() - item.getQuantity();
-                if (quantity < 0) {
-                    check =1;
-                    cageError += p.getCageName() +" , ";
+            if (phone.trim().isEmpty() || address.trim().isEmpty()) {
+                request.setAttribute("ERROR", "Vui lòng điền đầy đủ thông tin."); // Thông báo lỗi
+                request.getRequestDispatcher("checkout.jsp").forward(request, response); // Giữ người dùng ở lại trang thanh toán
+            } else {
+                List<Cart> cart;
+                cart = (List<Cart>) session.getAttribute("cart");
+                int check = 0;
+                String cageError = "";
+                for (Cart item : cart) {
+                    ProductDTO p = pd.getProductByID(item.getCageID());
+                    int quantity = p.getQuantity() - item.getQuantity();
+                    if (quantity < 0) {
+                        check = 1;
+                        cageError += p.getCageName() + " , ";
+                    }
                 }
-            }
-            if(check==1){
+                if (check == 1) {
                     request.setAttribute("ERROR", cageError + ": vượt quá số lượng có sẵn");
                     request.getRequestDispatcher("checkout.jsp").
                             forward(request, response);
                 }
-            if(check==0){
-            od.insertOrder(orderID, u.getUserID(), phone, address, orderDate, "1", "", shipCost, totalPrice);
-            for (Cart item : cart) {
-                od.insertOrderDetail(orderID, item.getCageID(), item.getCageName(), item.getPrice(), item.getQuantity());
-            }
-            session.removeAttribute("cart");
-            response.sendRedirect("SuccessOrder?orderId=" + orderID);
+                if (check == 0) {
+                    od.insertOrder(orderID, u.getUserID(), phone, address, orderDate, "1", "", shipCost, totalPrice);
+                    for (Cart item : cart) {
+                        od.insertOrderDetail(orderID, item.getCageID(), item.getCageName(), item.getPrice(), item.getQuantity());
+                    }
+                    session.removeAttribute("cart");
+                    response.sendRedirect("SuccessOrder?orderId=" + orderID);
+                }
             }
         }
     }

@@ -96,6 +96,7 @@
                         <th>Số lượng</th>
                         <th>Giảm giá</th>
                         <th>Thành tiền</th>
+                        <th></th>
                     </tr>
                 </thead>
                 <tbody>
@@ -113,6 +114,7 @@
                         <td class="quantity"><%=o.getQuantity()%></td>
                         <td class="discount-amount">0 VNĐ</td>
                         <td class="raw-total"><fmt:formatNumber value="<%=o.getPrice() * o.getQuantity()%>" pattern="###,###"/> VNĐ</td>
+                        <td><a href="ProductDetail?id=<%=o.getCageID()%>"><i class="fa-solid fa-circle-info" style="color: red;"></i></a></td>
                     </tr>
 
                 </tbody>

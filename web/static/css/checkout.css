@@ -287,3 +287,9 @@ h5 {
 .mainCheckout{
     padding-top: 200px;
 }
+
+.error_message{
+    text-align: center;
+    color: red;
+    padding-top: 10px;
+}

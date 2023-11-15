@@ -9,6 +9,7 @@ package model;
  * @author Admin
  */
 public class OrderDetail {
+    String cageID;
     String cageName;
     int quantity;
     double price;
@@ -17,11 +18,20 @@ public class OrderDetail {
     public OrderDetail() {
     }
 
-    public OrderDetail(String cageName, int quantity, double price, String imageUrl) {
+    public OrderDetail(String cageID, String cageName, int quantity, double price, String imageUrl) {
+        this.cageID = cageID;
         this.cageName = cageName;
         this.quantity = quantity;
         this.price = price;
         this.imageUrl = imageUrl;
+    }
+
+    public String getCageID() {
+        return cageID;
+    }
+
+    public void setCageID(String cageID) {
+        this.cageID = cageID;
     }
 
     public String getCageName() {

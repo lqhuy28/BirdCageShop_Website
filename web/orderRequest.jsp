@@ -52,7 +52,7 @@
                                         <button type="button" id="minus-quantity">
                                             <i class="fa fa-minus" aria-hidden="true"></i>
                                         </button>
-                                        <input class="form-control" type="number" value="1" name="cageQuantity" id="cageQuantity" required />
+                                        <input class="form-control" type="number" value="1" name="cageQuantity" id="cageQuantity" readonly=""/>
                                         <button type="button" id="add-quantity">
                                             <i class="fa fa-plus" aria-hidden="true"></i>
                                         </button>

@@ -148,7 +148,7 @@ public class OrderDAO {
 
     public List<OrderDetail> getOrderDetailById(String orderId) {
         List<OrderDetail> list = new ArrayList<>();
-        String query = "SELECT od.CageName,od.Quantity,od.Price,c.Image\n"
+        String query = "SELECT od.CageID, od.CageName,od.Quantity,od.Price,c.Image\n"
                 + "  FROM tblOrderDetails od inner join tblCage c on c.CageID = od.CageID\n"
                 + "  where od.OrderID = ?";
         try {
@@ -158,9 +158,10 @@ public class OrderDAO {
             rs = ps.executeQuery();
             while (rs.next()) {
                 list.add(new OrderDetail(rs.getString(1),
-                        rs.getInt(2),
-                        rs.getDouble(3),
-                        rs.getString(4)));
+                        rs.getString(2),
+                        rs.getInt(3),
+                        rs.getDouble(4),
+                        rs.getString(5)));
             }
             ps.executeUpdate();
         } catch (Exception e) {

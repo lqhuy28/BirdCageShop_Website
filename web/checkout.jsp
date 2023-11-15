@@ -49,11 +49,11 @@
                                 </div>
                                 <div class="form-container">
                                     <label>Số điện thoại:</label> 
-                                    <input class="form-control" type="text" value="<%= u.getPhone()%>" name="phone">
+                                    <input class="form-control" type="text" value="<%= u.getPhone()%>" name="phone" required>
                                 </div>
                                 <div class="form-container">
                                     <label>Địa chỉ:</label> 
-                                    <input class="form-control" type="text" value="<%= u.getAddress()%>" name="address">
+                                    <input class="form-control" type="text" value="<%= u.getAddress()%>" name="address" required>
                                 </div>
                             </div>
 

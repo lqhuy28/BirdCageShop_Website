@@ -127,7 +127,7 @@
                         %>
                         <div class="add">   
                             <div class="search-container">
-                                <form action="SearchProductDashboard" method="POST" class="form-inline">
+                                <form action="SearchProductAdmin" method="POST" class="form-inline">
                                     <div class="form-group">
                                         <input type="text" placeholder="Tìm kiếm..." name="search" class="form-control"/>
                                     </div>

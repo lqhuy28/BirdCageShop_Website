@@ -110,7 +110,7 @@
 
 
                         <div class="search-container">
-                            <form action="OrderManager" method="POST" class="form-inline">
+                            <form action="SearchOrderManager" method="POST" class="form-inline">
                                 <div class="form-group">
                                     <input type="text" value="<%=search%>" placeholder="Tìm kiếm..."  class="form-control" name="search" id="search" />
                                 </div>
@@ -132,6 +132,7 @@
                                         <th class="text-center">Ngày đặt hàng</th>
                                         <th class="text-center">Phí Ship</th>
                                         <th class="text-center">Tổng Tiền</th>
+                                        <th class="text-center">Trạng thái</th>
                                         <th class="text-center">Chi tiết</th>
                                     </tr>
                                 </thead>
@@ -146,6 +147,7 @@
                                             <td class="text-center text-lg text-medium">${o.orderDate}</td>   
                                             <td class="text-center text-lg text-medium"><fmt:formatNumber value="${o.shipCost}" pattern="###,###"/> VNĐ</td>
                                             <td class="text-center text-lg text-medium"><fmt:formatNumber value="${o.total}" pattern="###,###"/> VNĐ</td>
+                                            <td class="text-center text-lg text-medium">${o.status?"Đã duyệt":"Chưa duyệt"}</td>
                                             <td class="text-center text-lg text-medium"><a href="DetailOrder?orderId=${o.orderID}" class="round-button"><i class="fa-solid fa-eye" style="color: white;"></i></a></td>
                                         </tr>
                                     </c:forEach>

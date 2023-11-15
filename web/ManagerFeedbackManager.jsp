@@ -3,7 +3,8 @@
     Created on : Oct 17, 2023, 12:55:58 AM
     Author     : QUANG HUY
 --%>
-
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@page import="dao.FeedBackDAO"%>
 <%@page import="model.FeedBack"%>
 <%@page import="model.Order"%>
 <%@page import="java.util.List"%>
@@ -66,7 +67,6 @@
                                     </div>
                                 </div>
                             </li>
-
                             <li class="nav-item">
                                 <div class="icon-integration">
                                     <div class="icon">
@@ -84,97 +84,113 @@
                     <div class="row">
                         <div class="col-md-12">
                             <div class="breadcrumb">
-                                <a href="ManagerOrderManager"><b>Danh sách đơn hàng</b></a>
+                                <a href="FeedbackManager"><b>Danh sách phản hồi</b></a>
                             </div>
                             <div id="clock"></div>
                         </div>
                     </div>
                     <div class="container">
 
-                        <div class="error_message">
-                            ${requestScope.ERROR}
-                        </div>
+                        <%
+                            String search = request.getParameter("search");
+                            if (search == null) {
+                                search = "";
+                            }
+                        %>    
+
+                        <%
+                            FeedBackDAO dao = new FeedBackDAO();
+                            List<FeedBack> listU = (List<FeedBack>) request.getAttribute("listF");
+                            if (listU == null) {
+                                listU = dao.searchFeedback("");
+                                request.setAttribute("listF", listU);
+                            }
+                        %>
                         <div class="search-container">
-                            <form action="searchUser" method="POST" class="form-inline">
+                            <form action="SearchFeedbackManager" method="POST" class="form-inline">
                                 <div class="form-group">
-                                    <input type="text" value="#" placeholder="Search..."  class="form-control" name="search" id="search" />
+                                    <input type="text" value="<%=search%>" placeholder="Tìm kiếm..."  class="form-control" name="search" id="search" />
                                 </div>
                                 <button type="submit" class="fa fa-solid fa-magnifying-glass" name="action" value="Search"></button>
-                                <% List<FeedBack> listF = (List<FeedBack>) request.getAttribute("listFeedback"); %>
                             </form>
                         </div>
+                        <% if (request.getAttribute("ERROR") != null) {%>
+                        <p><%= request.getAttribute("ERROR")%></p>
+                        <% } else {%>
                         <div id="table__paging">
-                            <table class="table">
-                                <thead>
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th class="text-center">Tên người dùng</th>
+                                    <th class="text-center">Đánh giá</th>
+                                    <th class="text-center">Mã người dùng</th>
+                                    <th class="text-center">Mã đơn hàng</th>
+                                    <th class="text-center">Ngày đánh giá</th>
+                                    <th class="text-center">Bình luận</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <c:forEach items="${listF}" var="x">
                                     <tr>
-                                        <th class="text-center">Tên người dùng</th>
-                                        <th class="text-center">Đánh giá</th>
-                                        <th class="text-center">Mã người dùng</th>
-                                        <th class="text-center">Mã đơn hàng</th>
-                                        <th class="text-center">Ngày đánh giá</th>
+                                        <td class="text-center text-lg text-medium">${x.fullName}</td>
+                                        <td class="text-center text-lg text-medium">${x.rating}</td>
+                                        <td class="text-center text-lg text-medium">${x.userID}</td>
+                                        <td class="text-center text-lg text-medium">${x.orderId}</td>
+                                        <td class="text-center text-lg text-medium">${x.feedbackDate}</td>  
+                                        <td class="text-center text-lg text-medium">${x.comment}</td>   
                                     </tr>
-                                </thead>
-                                <tbody>
-                                    <% for (FeedBack f : listF) {
-                                    %>
-                                    <tr>
-                                        <td class="text-center text-lg text-medium"><%=f.getFullName()%></td>
-                                        <td class="text-center text-lg text-medium"><%=f.getRating()%></td>
-                                        <td class="text-center text-lg text-medium"><%=f.getUserID()%></td>
-                                        <td class="text-center text-lg text-medium"><%=f.getOrderId()%></td>
-                                        <td class="text-center text-lg text-medium"><%=f.getFeedbackDate()%></td>   
-                                    </tr>
-                                    <% }%>
-                                </tbody>
-                            </table>
-                        </div>
+                                </c:forEach>
+                            </tbody>
+                        </table>
+                            </div>
                         <nav aria-label="Page navigation">
-                            <ul class="pagination justify-content-center">
+                                <ul class="pagination justify-content-center">
 
-                            </ul>
-                        </nav>
+                                </ul>
+                            </nav>
                     </div>
+                    <% }%>
                 </main>
             </div>
-            <script>
-                $(document).ready(function () {
-                    var itemsPerPage = 10; // Number of items to display per page
-                    var $tableContainer = $('#table__paging');
-                    var $table = $tableContainer.find('table');
-                    var $pagination = $('.pagination');
+                <script>
+        $(document).ready(function () {
+            var itemsPerPage = 10; // Number of items to display per page
+            var $tableContainer = $('#table__paging');
+            var $table = $tableContainer.find('table');
+            var $pagination = $('.pagination');
 
-                    var numRows = $table.find('tbody tr').length;
-                    var numPages = Math.ceil(numRows / itemsPerPage);
+            var numRows = $table.find('tbody tr').length;
+            var numPages = Math.ceil(numRows / itemsPerPage);
 
-                    // Create pagination links
-                    for (var i = 1; i <= numPages; i++) {
-                        var $li = $('<li class="page-item"><a class="page-link" href="#">' + i + '</a></li>');
-                        $li.data('page', i);
-                        $pagination.append($li);
-                    }
+            // Create pagination links
+            for (var i = 1; i <= numPages; i++) {
+                var $li = $('<li class="page-item"><a class="page-link" href="#">' + i + '</a></li>');
+                $li.data('page', i);
+                $pagination.append($li);
+            }
 
-                    // Show the first page and highlight its link
-                    $table.find('tbody tr:gt(' + (itemsPerPage - 1) + ')').hide();
-                    $pagination.find('li:first').addClass('active');
+            // Show the first page and highlight its link
+            $table.find('tbody tr:gt(' + (itemsPerPage - 1) + ')').hide();
+            $pagination.find('li:first').addClass('active');
 
-                    // Handle pagination link click
-                    $pagination.find('li').click(function () {
-                        var $this = $(this);
-                        var page = $this.data('page');
+            // Handle pagination link click
+            $pagination.find('li').click(function () {
+                var $this = $(this);
+                var page = $this.data('page');
 
-                        // Hide and show the appropriate rows
-                        var firstItem = (page - 1) * itemsPerPage;
-                        var lastItem = firstItem + itemsPerPage;
+                // Hide and show the appropriate rows
+                var firstItem = (page - 1) * itemsPerPage;
+                var lastItem = firstItem + itemsPerPage;
 
-                        $table.find('tbody tr').hide();
-                        $table.find('tbody tr:eq(' + (firstItem) + ')').show();
-                        $table.find('tbody tr:gt(' + (firstItem) + '):lt(' + (itemsPerPage - 1) + ')').show();
+                $table.find('tbody tr').hide();
+                $table.find('tbody tr:eq(' + (firstItem) + ')').show();
+                $table.find('tbody tr:gt(' + (firstItem) + '):lt(' + (itemsPerPage - 1) + ')').show();
 
-                        // Highlight the clicked link
-                        $pagination.find('li').removeClass('active');
-                        $this.addClass('active');
-                    });
-                });
-            </script>
+                // Highlight the clicked link
+                $pagination.find('li').removeClass('active');
+                $this.addClass('active');
+            });
+        });
+    </script>
     </body>
 </html>

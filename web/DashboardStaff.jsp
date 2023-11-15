@@ -111,7 +111,7 @@
                             ${requestScope.ERROR}
                         </div>
                         <div class="search-container">
-                            <form action="OrderManager" method="POST" class="form-inline">
+                            <form action="SearchOrderStaff" method="POST" class="form-inline">
                                 <div class="form-group">
                                     <input type="text" value="<%=search%>" placeholder="Tìm kiếm..."  class="form-control" name="search" id="search" />
                                 </div>

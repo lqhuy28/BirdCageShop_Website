@@ -21,8 +21,8 @@ import model.ProductDTO;
  *
  * @author trand
  */
-@WebServlet(name = "SearchProductDashboard", urlPatterns = {"/SearchProductDashboard"})
-public class SearchProductDashboard extends HttpServlet {
+@WebServlet(name = "SearchProductAdmin", urlPatterns = {"/SearchProductAdmin"})
+public class SearchProductAdmin extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -33,8 +33,8 @@ public class SearchProductDashboard extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
-    private static final String ERROR = "dashboardManager.jsp";
-    private static final String SUCCESS = "dashboardManager.jsp";
+    private static final String ERROR = "ShowProduct.jsp";
+    private static final String SUCCESS = "ShowProduct.jsp";
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {

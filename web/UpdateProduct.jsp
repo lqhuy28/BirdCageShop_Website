@@ -3,7 +3,6 @@
     Created on : Sep 21, 2023, 5:45:14 PM
     Author     : Acer
 --%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -142,14 +141,14 @@
                                 <tr>
                                     <td>Giá mới</td>
                                     <td>
-                                        <input value=<fmt:formatNumber value="${st.priceNew}" pattern="###,###"/> VNĐ type="text" name="PriceNew" required="">
+                                        <input value="${st.priceNew}" type="text" name="PriceNew" required="">
                                     </td>
                                 </tr>
 
                                 <tr>
                                     <td>Giá cũ</td>
                                     <td>
-                                        <input value=<fmt:formatNumber value="${st.priceOld}" pattern="###,###"/> VNĐ type="text" name="PriceOld" required="">
+                                        <input value="${st.priceOld}" type="text" name="PriceOld" required="">
                                     </td>
                                 </tr>
 

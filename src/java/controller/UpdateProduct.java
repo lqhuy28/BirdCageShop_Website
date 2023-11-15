@@ -96,7 +96,7 @@ public class UpdateProduct extends HttpServlet {
         String sStatus = request.getParameter("Status");
         ProductDAO dao = new ProductDAO();
         dao.updateProduct(sCageID, sCategoryID, sCageName, sCageDetails, sPriceNew, sPriceOld, sImage, sQuantity, sStatus);
-        response.sendRedirect("load");
+        response.sendRedirect("DashboardManager");
     }
 
     /**

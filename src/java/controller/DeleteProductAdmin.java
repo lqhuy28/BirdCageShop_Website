@@ -18,8 +18,8 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author Acer
  */
-@WebServlet(name = "DeleteProduct", urlPatterns = {"/delete"})
-public class DeleteProduct extends HttpServlet {
+@WebServlet(name = "DeleteProductAdmin", urlPatterns = {"/DeleteProductAdmin"})
+public class DeleteProductAdmin extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -65,7 +65,7 @@ public class DeleteProduct extends HttpServlet {
         String id = request.getParameter("sid");
         ProductDAO dao = new ProductDAO();
         dao.deleteProduct(id);
-        response.sendRedirect("DashboardManager");
+        response.sendRedirect("load");
     }
 
     /**

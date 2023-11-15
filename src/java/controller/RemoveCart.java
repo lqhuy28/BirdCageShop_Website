@@ -19,7 +19,7 @@ import model.Cart;
 
 /**
  *
- * @author trand
+ * @author Admin
  */
 @WebServlet(name = "RemoveCart", urlPatterns = {"/RemoveCart"})
 public class RemoveCart extends HttpServlet {
@@ -91,7 +91,7 @@ public class RemoveCart extends HttpServlet {
             session.setAttribute("cart", cart);
             processRequest(request, response);
         }
-
+//
     }
 
     /**

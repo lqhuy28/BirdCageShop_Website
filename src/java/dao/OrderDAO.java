@@ -17,10 +17,9 @@ import model.OrderDetail;
 import model.OrderSuccess;
 import model.ProductDTO;
 import utils.DBUtils;
-
 /**
  *
- * @author trand
+ * @author Admin
  */
 public class OrderDAO {
 

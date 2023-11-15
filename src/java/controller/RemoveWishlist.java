@@ -20,7 +20,7 @@ import model.Wishlist;
 
 /**
  *
- * @author trand
+ * @author Admin
  */
 @WebServlet(name = "RemoveWishlist", urlPatterns = {"/RemoveWishlist"})
 public class RemoveWishlist extends HttpServlet {

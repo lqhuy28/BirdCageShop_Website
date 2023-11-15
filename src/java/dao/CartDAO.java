@@ -8,10 +8,9 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import utils.DBUtils;
-
 /**
  *
- * @author trand
+ * @author Admin
  */
 public class CartDAO {
 

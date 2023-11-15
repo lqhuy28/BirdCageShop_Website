@@ -19,7 +19,7 @@ import model.OrderDetail;
 
 /**
  *
- * @author trand
+ * @author Admin
  */
 @WebServlet(name = "DetailOrder", urlPatterns = {"/DetailOrder"})
 public class DetailOrder extends HttpServlet {

@@ -17,7 +17,7 @@ import model.Cart;
 
 /**
  *
- * @author trand
+ * @author Admin
  */
 @WebServlet(name = "ReloadCart", urlPatterns = {"/ReloadCart"})
 public class ReloadCart extends HttpServlet {
@@ -75,7 +75,7 @@ public class ReloadCart extends HttpServlet {
         request.getRequestDispatcher("viewCart.jsp").
                 forward(request, response);
     }
-
+//
     /**
      * Handles the HTTP <code>POST</code> method.
      *

@@ -28,10 +28,6 @@ import model.Cart;
 import model.ProductDTO;
 import model.User;
 
-/**
- *
- * @author trand
- */
 @WebServlet(name = "CheckoutController", urlPatterns = {"/CheckoutController"})
 public class CheckoutController extends HttpServlet {
 

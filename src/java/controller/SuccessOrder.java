@@ -19,7 +19,7 @@ import model.OrderSuccess;
 
 /**
  *
- * @author trand
+ * @author Admin
  */
 @WebServlet(name = "SuccessOrder", urlPatterns = {"/SuccessOrder"})
 public class SuccessOrder extends HttpServlet {

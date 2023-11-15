@@ -6,7 +6,7 @@ package model;
 
 /**
  *
- * @author trand
+ * @author Admin
  */
 public class Wishlist {
     String cageId;

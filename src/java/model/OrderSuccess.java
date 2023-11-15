@@ -8,7 +8,7 @@ import java.sql.Date;
 
 /**
  *
- * @author trand
+ * @author Admin
  */
 public class OrderSuccess {
 

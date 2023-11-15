@@ -24,10 +24,6 @@ import model.ProductDTO;
 import model.Reponse;
 import model.User;
 
-/**
- *
- * @author trand
- */
 @WebServlet(name = "ProductDetail", urlPatterns = {"/ProductDetail"})
 public class ProductDetail extends HttpServlet {
 

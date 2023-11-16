@@ -130,8 +130,8 @@ public class UserDAO {
             e.printStackTrace();
         }
     }
-    
-    public void updatePasswordByEmail(String password,String email){
+
+    public void updatePasswordByEmail(String password, String email) {
         Connection conn = null;
         PreparedStatement ptm = null;
         String sql = "UPDATE tblUsers set password=? WHERE email=?";
@@ -276,7 +276,8 @@ public class UserDAO {
 
         return check;
     }
-public int CountCage() {
+
+    public int CountCage() {
         int count = 0;
         String sql = "SELECT COUNT(*) as 'count'\n"
                 + "  FROM tblCage";
@@ -323,18 +324,58 @@ public int CountCage() {
         }
         return count;
     }
-    public double CountOrderPrice(){
+
+    public double CountOrderPrice() {
         double count = 0;
         String sql = "SELECT SUM(Total) AS tong_doanh_thu FROM tblOrders ";
         try {
             conn = new DBUtils().getConnection();
             ptm = conn.prepareStatement(sql);
             rs = ptm.executeQuery();
-            while(rs.next()){
-                count = rs. getDouble(1);
+            while (rs.next()) {
+                count = rs.getDouble(1);
             }
         } catch (Exception e) {
         }
         return count;
+    }
+
+    public boolean checkEmailExistsInDatabase(String email) {
+        Connection conn = null;
+        PreparedStatement ptm = null;
+        ResultSet rs = null;
+        boolean emailExists = false;
+
+        try {
+            conn = new DBUtils().getConnection();
+            if (conn != null) {
+                String sql = "SELECT UserID FROM tblUsers WHERE Email = ?";
+                ptm = conn.prepareStatement(sql);
+                ptm.setString(1, email);
+                rs = ptm.executeQuery();
+                if (rs.next()) {
+                    // Email tồn tại trong cơ sở dữ liệu
+                    emailExists = true;
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                if (rs != null) {
+                    rs.close();
+                }
+                if (ptm != null) {
+                    ptm.close();
+                }
+                if (conn != null) {
+                    conn.close();
+                }
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+
+        return emailExists;
     }
 }

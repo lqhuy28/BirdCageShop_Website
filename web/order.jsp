@@ -48,7 +48,7 @@
                             %>
                             <tr>
                                 <td class="text-center text-lg text-medium"><%=o.getOrderID()%></td>
-                                <td class="text-center text-lg text-medium"><%=o.getCageName()%></td>
+                                <td class="text-center text-lg text-medium"><%=o.getCageName().equals("Lồng yêu cầu")?"Lồng yêu cầu":"Lồng có sẵn"%></td>
                                 <td class="text-center text-lg text-medium"><%=o.getOrderDate()%></td>   
                                 <td class="text-center text-lg text-medium"><%=o.getPhone()%></td>
                                 <td class="text-center text-lg text-medium"><%=o.getAddress()%></td>

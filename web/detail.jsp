@@ -256,7 +256,7 @@
                         </div>
                         <input type="hidden" value="<%=product.getCageID()%>" name="id">
                         <input type="hidden" value="0" name="rate" id="rate">
-                        <input type="text" placeholder="Hãy chia sẽ cảm nhận, đánh giá về sản phẩm này nhé" value="" name="feedback"><input class="phanhoi" type="submit" value="Gửi phản hồi">
+                        <input type="text" placeholder="Hãy chia sẽ cảm nhận, đánh giá về sản phẩm này nhé" value="" name="feedback"><input class="phanhoi" id="phanhoi" type="submit" value="Gửi phản hồi">
                     </form>
                     <% }%>
 
@@ -403,6 +403,14 @@
                 }
             }
         }
+        
+        const responseItem = document.getElementById("phanhoi");
+        responseItem.addEventListener("click", function () {
+            if(parseInt(document.getElementById('rate').value) < 1){
+                alert("Rating me please");
+                event.preventDefault();
+            }
+        });
     </script>
     <script>
         function toggleReplyForm(commentId) {

@@ -4,6 +4,7 @@
  */
 package controller;
 
+import dao.UserDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Properties;
@@ -85,41 +86,46 @@ public class ForgotPassword extends HttpServlet {
      */
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        request.setCharacterEncoding("UTF-8");
-        response.setCharacterEncoding("UTF-8");
-        HttpSession ses = request.getSession();
-        String fromEmail = "happyprogramming551@gmail.com";
-        String password = "wses iyhv gpwd apsq";
+        throws ServletException, IOException {
+    request.setCharacterEncoding("UTF-8");
+    response.setCharacterEncoding("UTF-8");
+    HttpSession ses = request.getSession();
+    String fromEmail = "happyprogramming551@gmail.com";
+    String password = "wses iyhv gpwd apsq";
 
-        String toEmail = request.getParameter("email");
+    String toEmail = request.getParameter("email");
 
-        String smtpHost = "smtp.gmail.com";
-        String smtpPort = "587";
+    // TODO: Thực hiện truy vấn cơ sở dữ liệu để kiểm tra xem địa chỉ email tồn tại hay không.
+    UserDAO dao= new UserDAO();
+    boolean emailExists = dao.checkEmailExistsInDatabase(toEmail); // Thay thế bằng hàm kiểm tra trong cơ sở dữ liệu của bạn.
 
-        String smtpAuth = "true";
-        String smtpStartTLS = "true";
+    String smtpHost = "smtp.gmail.com";
+    String smtpPort = "587";
 
-        Properties props = new Properties();
-        props.put("mail.smtp.host", smtpHost);
-        props.put("mail.smtp.port", smtpPort);
-        props.put("mail.smtp.auth", smtpAuth);
-        props.put("mail.smtp.starttls.enable", smtpStartTLS);
+    String smtpAuth = "true";
+    String smtpStartTLS = "true";
 
-        Session session = Session.getInstance(props, new Authenticator() {
-            protected PasswordAuthentication getPasswordAuthentication() {
-                return new PasswordAuthentication(fromEmail, password);
-            }
-        });
+    Properties props = new Properties();
+    props.put("mail.smtp.host", smtpHost);
+    props.put("mail.smtp.port", smtpPort);
+    props.put("mail.smtp.auth", smtpAuth);
+    props.put("mail.smtp.starttls.enable", smtpStartTLS);
 
+    Session session = Session.getInstance(props, new Authenticator() {
+        protected PasswordAuthentication getPasswordAuthentication() {
+            return new PasswordAuthentication(fromEmail, password);
+        }
+    });
+
+    if (emailExists) {
         try {
             Message message = new MimeMessage(session);
             message.setFrom(new InternetAddress(fromEmail));
             message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(toEmail));
             message.setSubject("Change your password");
             Random rand = new Random();
-            int code =  rand.nextInt(9999);
-            message.setText("Your authentication code : " +code);
+            int code = rand.nextInt(9999);
+            message.setText("Your authentication code : " + code);
             ses.setAttribute("code", String.valueOf(code));
             ses.setAttribute("email", toEmail);
             Transport.send(message);
@@ -127,7 +133,12 @@ public class ForgotPassword extends HttpServlet {
         } catch (MessagingException e) {
             e.printStackTrace();
         }
+    } else {
+        // Địa chỉ email không tồn tại trong cơ sở dữ liệu, hiển thị thông báo lỗi.
+        request.setAttribute("ERROR", "Email không hợp lệ");
+        request.getRequestDispatcher("ForgotPassword.jsp").forward(request, response);
     }
+}
 
     /**
      * Returns a short description of the servlet.

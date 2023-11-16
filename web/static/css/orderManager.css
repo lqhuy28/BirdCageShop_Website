@@ -196,3 +196,22 @@ table {
 .round-button i {
   font-size: 15px; /* Điều chỉnh kích thước của biểu tượng theo mong muốn */
 }
+
+.round-button1 {
+  display: inline-block;
+  width: 25px; /* Điều chỉnh kích thước theo mong muốn */
+  height: 25px; /* Điều chỉnh kích thước theo mong muốn */
+  background-color: green; /* Màu sắc nền */
+  border-radius: 50%; /* Để tạo hình tròn, đặt giá trị này là 50% */
+  text-align: center;
+  line-height: 25px; /* Đảm bảo nội dung nằm giữa ô tròn */
+  text-decoration: none; /* Loại bỏ đường gạch chân mặc định cho liên kết */
+  color: #fff; /* Màu sắc chữ */
+}
+.round-button1:hover {
+  background-color: #00CC00;
+}
+
+.round-button1 i {
+  font-size: 15px; /* Điều chỉnh kích thước của biểu tượng theo mong muốn */
+}

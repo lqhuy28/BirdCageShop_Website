@@ -250,7 +250,6 @@ body {
 }
 
 .feedback-item {
-    border: 1px solid #ddd;
     padding: 10px;
     margin: 10px 0;
 }
@@ -272,9 +271,14 @@ body {
 }
 
 .feedback-content {
-    margin-top: 10px;
+    font-size: 20px;
+    margin-bottom: 15px;
 }
-
+.first__Cmt{
+    border: 1px solid #ccc; /* Viền */
+    padding: 15px 20px; /* Khoảng cách nội dung với viền */
+    border-radius: 8px; /* Đường cong viền */
+}
 .detail-quantity {
     display: flex;
     align-items: center;
@@ -337,8 +341,52 @@ body {
 .compare{
     margin-left: 100px;
 }
+
+/*feedback*/
+.coment {
+    border: 2px solid #ccc; /* Viền */
+    padding: 15px; /* Khoảng cách nội dung với viền */
+    border-radius: 8px; /* Đường cong viền */
+    width: 40%; /* Độ rộng */
+    margin: 10px 0px;
+}
+
+.coment > div {
+    margin-bottom: 10px; /* Khoảng cách giữa các phần tử con */
+}
 .stars {
+
+}
+
+.title__star{
+    font-size: 20px;
+    font-weight: 700;
+}
+.wrapper {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Khoảng cách giữa hai phần tử */
+}
+textarea{
+    width: 80%;
+}
+
+.phanhoi{
     display: inline-block;
+    margin-right: 10px;
+    background: rgb(255, 255, 255);
+    border: 1px solid rgb(24, 158, 255);
+    font-size: 14px;
+    color: rgb(24, 158, 255);
+    padding: 5px 15px;
+    border-radius: 4px;
+    cursor: pointer;
+    padding: 15px 15px;
+    font-weight: 700;
+}
+.phanhoi:hover{
+    background-color: rgb(24, 158, 255);
+    color: white;
 }
 
 .star {
@@ -356,6 +404,15 @@ body {
 .star.checked {
     color: #FFC400; /* Màu sáng cho các sao được chọn */
 }
+
+.feedback-user{
+    font-size: 22px;
+}
+
+.feedback-user p{
+    font-size: 15px;
+    margin-top: -5px;
+}
 .reply-button {
     display: inline-block;
     margin-right: 10px;
@@ -366,15 +423,16 @@ body {
     padding: 5px 15px;
     border-radius: 4px;
     cursor: pointer;
+    margin:10px 0px 10px 50px;
 }
-.phanhoi{
-    display: inline-block;
-    margin-right: 10px;
-    background: rgb(255, 255, 255);
-    border: 1px solid rgb(24, 158, 255);
-    font-size: 12px;
-    color: rgb(24, 158, 255);
-    padding: 5px 15px;
-    border-radius: 4px;
-    cursor: pointer;
+
+.feedback-reply-item{
+    border: 1px solid #ccc; /* Viền */
+    padding: 10px 20px; /* Khoảng cách nội dung với viền */
+    border-radius: 8px; /* Đường cong viền */
+    margin: 10px 0px 10px 50px;
+}
+
+.wrap__rep{
+    margin: 10px 0px 10px 50px;
 }

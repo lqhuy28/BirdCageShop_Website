@@ -27,7 +27,7 @@
         <link rel="stylesheet" href="static/css/detail.css">
         <link rel="stylesheet" href="static/css/root.css">
         <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet"/>
-        <title>Document</title>
+        <title>Thông tin sản phẩm</title>
     </head>
     <body class="fade-in">
         <%
@@ -186,56 +186,64 @@
                     <h4 class="pro-d-title">
                         <strong><i class="fa-solid fa-comment"></i> Khách hàng đánh giá</strong>
                     </h4>   
-            <% for (FeedBack f : lF) {%>
+                    <% for (FeedBack f : lF) {%>
 
                     <div class="feedback-item">
-                        <p><%=f.getFeedbackDate()%></p>
-                        <div class="feedback-header">
-                            <div class="feedback-user">
-                                <%=f.getFullName()%>
-                            </div>
+                        <div class="first__Cmt">
+                            <div class="feedback-header">
+                                <div class="feedback-user">
+                                    <%=f.getFullName()%>
+                                    <p><%=f.getFeedbackDate()%></p>
+                                </div>
 
-                            <div class="star-rating">
-                                <div class="stars">
-                                    <% int rate = Integer.parseInt(f.getRating()); %>
-                                    <% for (int i = 0; i < rate; i++) {
-                                    %>
-                                    <span class="starD">&#9733;</span>
-                                    <% }%>
+                                <div class="star-rating">
+                                    <div class="stars">
+                                        <% int rate = Integer.parseInt(f.getRating()); %>
+                                        <% for (int i = 0; i < rate; i++) {
+                                        %>
+                                        <span class="starD">&#9733;</span>
+                                        <% }%>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="feedback-content">
-                            <%=f.getComment()%>
-                        </div>
-
-                    </div>
-                    <% for (Reponse r : lR) {
-                            if (r.getFeedbackId() == f.getFeedbackId()) {
-                    %> 
-                    <div class="feedback-reply-item">
-                        <p><%=r.getDate()%></p>
-                        <div class="feedback-header">
-                            <div class="feedback-user">
-                                <%=r.getName()%>
+                            <div class="feedback-content">
+                                <%=f.getComment()%>
                             </div>
                         </div>
-                        <div class="feedback-content">
-                            <%=r.getComment()%>
+                        <% for (Reponse r : lR) {
+                                if (r.getFeedbackId() == f.getFeedbackId()) {
+                        %> 
+                        <div class="feedback-reply-item">
+
+                            <div class="feedback-header">
+                                <div class="feedback-user">
+                                    <%=r.getName()%>
+                                </div>
+                            </div>
+                            <p><%=r.getDate()%></p>
+                            <div class="feedback-content">
+                                <%=r.getComment()%>
+                            </div>
                         </div>
+                        <% }
+                            }%>
+
+                        <form action="ResponseController" method="post" id="replyForm<%=f.getFeedbackId()%>" style="display:none;">
+                            <div class="wrapper wrap__rep">
+                                <input type="hidden" value="<%=f.getFeedbackId()%>" name="idF">
+                                <input type="hidden" value="<%=product.getCageID()%>" name="id">
+                                <textarea placeholder="Trả lời phản hồi.." name="reply"></textarea>
+                                <input class="phanhoi" type="submit" value="Gửi phản hồi">  
+                            </div>
+                        </form>
+                        <% if (user != null) {%>
+                        <span class="reply-button" onclick="toggleReplyForm(<%=f.getFeedbackId()%>)">Trả lời</span>
+                        <% } %>
+                        <% }%>
                     </div>
-                    <% }
-                        }%>
-                    <form action="ResponseController" method="post" id="replyForm<%=f.getFeedbackId()%>" style="display:none;">
-                        <input type="hidden" value="<%=f.getFeedbackId()%>" name="idF">
-                        <input type="hidden" value="<%=product.getCageID()%>" name="id">
-                        <input type="text" value="" name="reply">
-                        <input type="submit" value="Gửi phản hồi">                            
-                    </form>
-                    <% if (user != null) {%>
-                    <span class="reply-button" onclick="toggleReplyForm(<%=f.getFeedbackId()%>)">Trả lời</span>
-                    <% } %>
-                    <% }%>
+
+
+
                     <%
                         int check = 0;
                         if (userId
@@ -247,16 +255,22 @@
                     <% if (check
                                 == 1) {%>
                     <form action="FeedbackController" method="post">
-                        <div class="stars">
-                            <span class="star" onclick="rate(1)">&#9733;</span>
-                            <span class="star" onclick="rate(2)">&#9733;</span>
-                            <span class="star" onclick="rate(3)">&#9733;</span>
-                            <span class="star" onclick="rate(4)">&#9733;</span>
-                            <span class="star" onclick="rate(5)">&#9733;</span>
+                        <div class="coment">
+                            <div>
+                                <span class="title__star">Đánh giá sao: </span>
+                                <span class="star" onclick="rate(1)">&#9733;</span>
+                                <span class="star" onclick="rate(2)">&#9733;</span>
+                                <span class="star" onclick="rate(3)">&#9733;</span>
+                                <span class="star" onclick="rate(4)">&#9733;</span>
+                                <span class="star" onclick="rate(5)">&#9733;</span>
+                            </div>
+                            <div class="wrapper">
+                                <input type="hidden" value="<%=product.getCageID()%>" name="id">
+                                <input type="hidden" value="0" name="rate" id="rate">
+                                <textarea placeholder="Hãy chia sẻ cảm nhận, đánh giá về sản phẩm này nhé" name="feedback"></textarea>
+                                <input class="phanhoi" id="phanhoi" type="submit" value="Gửi phản hồi">
+                            </div>
                         </div>
-                        <input type="hidden" value="<%=product.getCageID()%>" name="id">
-                        <input type="hidden" value="0" name="rate" id="rate">
-                        <input type="text" placeholder="Hãy chia sẽ cảm nhận, đánh giá về sản phẩm này nhé" value="" name="feedback"><input class="phanhoi" id="phanhoi" type="submit" value="Gửi phản hồi">
                     </form>
                     <% }%>
 
@@ -403,10 +417,10 @@
                 }
             }
         }
-        
+
         const responseItem = document.getElementById("phanhoi");
         responseItem.addEventListener("click", function () {
-            if(parseInt(document.getElementById('rate').value) < 1){
+            if (parseInt(document.getElementById('rate').value) < 1) {
                 alert("Rating me please");
                 event.preventDefault();
             }

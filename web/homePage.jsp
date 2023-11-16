@@ -85,37 +85,15 @@
                                         <div class="carousel-inner">
                                             <div class="carousel-item active" style="background-image: url(https://c4.wallpaperflare.com/wallpaper/404/390/382/cages-cityscape-window-digital-art-wallpaper-preview.jpg);">
                                                 <div class="hero__text" >
-                                                    <span>BIRD CAGE 3</span>
+                                                    <span>Cửa hàng lồng chim</span>
                                                     <h2>Lồng chim <br>số 1 Việt Nam </h2>
                                                     <p>Lồng chim luôn có sẵn để hỗ trợ khách hàng</p>
-                                                    <a href="#" class="primary-btn">MUA NGAY</a>
+                                                    <a href="search?search" class="primary-btn">MUA NGAY</a>
                                                 </div>
                                             </div>
-                                            <div class="carousel-item" style="background-image: url(https://images.unsplash.com/photo-1680971661953-476b0c800faa?auto=format&fit=crop&q=80&w=1976&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D);">
-                                                <div class="hero__text" >
-                                                    <span>BIRD CAGE 1</span>
-                                                    <h2>Lồng chim <br>số 1 Việt Nam </h2>
-                                                    <p>Lồng chim luôn có sẵn để hỗ trợ khách hàng</p>
-                                                    <a href="#" class="primary-btn">MUA NGAY</a>
-                                                </div>
-                                            </div>
-                                            <div class="carousel-item"  style="background-image: url(https://images.unsplash.com/photo-1540818767417-e2437dc12c3d?auto=format&fit=crop&q=80&w=2070&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D);"> 
-                                                <div class="hero__text">
-                                                    <span>BIRD CAGE 2</span>
-                                                    <h2>Lồng chim <br>số 1 Việt Nam </h2>
-                                                    <p>Lồng chim luôn có sẵn để hỗ trợ khách hàng</p>
-                                                    <a href="#" class="primary-btn"> MUA NGAY</a>
-                                                </div>
-                                            </div>
+                                            
                                         </div>
-                                        <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-                                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                                            <span class="sr-only">Previous</span>
-                                        </a>
-                                        <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-                                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                                            <span class="sr-only">Next</span>
-                                        </a>
+                                        
                                     </div>
 
                                 </div>

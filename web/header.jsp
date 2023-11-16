@@ -106,7 +106,6 @@
                                         <li><a href="PrivacyPolicy">Chính sách bảo mật</a></li>
                                     </ul>
                                 </li>
-                                <li><a href="">Liên hệ</a></li>
                             </ul>
                         </nav>
                     </div>

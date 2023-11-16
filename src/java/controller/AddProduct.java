@@ -6,6 +6,7 @@
 package controller;
 
 import static com.sun.org.apache.xalan.internal.xsltc.compiler.util.Type.Int;
+import dao.MaterialDAO;
 import dao.ProductDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -15,6 +16,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import model.Material;
 import model.ProductDTO;
 
 /**
@@ -41,7 +43,7 @@ public class AddProduct extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet AddControl</title>");            
+            out.println("<title>Servlet AddControl</title>");
             out.println("</head>");
             out.println("<body>");
             out.println("<h1>Servlet AddControl at " + request.getContextPath() + "</h1>");
@@ -65,7 +67,7 @@ public class AddProduct extends HttpServlet {
         request.setCharacterEncoding("UTF-8");
         response.setCharacterEncoding("UTF-8");
         ProductDAO dao = new ProductDAO();
-        
+
         request.getRequestDispatcher("AddProduct.jsp").
                 forward(request, response);
         processRequest(request, response);
@@ -93,9 +95,26 @@ public class AddProduct extends HttpServlet {
         double sPriceOld = Double.parseDouble(request.getParameter("PriceOld"));
         String sImage = request.getParameter("Image");
         int sQuantity = Integer.parseInt(request.getParameter("Quantity"));
-        String sStatus = request.getParameter("Status");     
+        String sStatus = request.getParameter("Status");
         ProductDAO dao = new ProductDAO();
         dao.insertProduct(sCageID, sCategoryID, sCageName, sCageDetails, sPriceNew, sPriceOld, sImage, sQuantity, sStatus);
+        MaterialDAO md = new MaterialDAO();
+        List<Material> list = md.getAllMaterial();
+        for (Material material : list) {
+            if (material.getMaterialName().equals("trụ")) {
+                dao.insertMaterialRequest(sCageID, material.getMaterialID(), 0, "");
+            } else if (material.getMaterialName().equals("móc")) {
+                dao.insertMaterialRequest(sCageID, material.getMaterialID(), 0, "");
+            } else if (material.getMaterialName().equals("nan")) {
+                dao.insertMaterialRequest(sCageID, material.getMaterialID(), 0, "");
+            } else if (material.getMaterialName().equals("đáy")) {
+                dao.insertMaterialRequest(sCageID, material.getMaterialID(), 0, "");
+            } else if (material.getMaterialName().equals("cửa")) {
+                dao.insertMaterialRequest(sCageID, material.getMaterialID(), 0, "");
+            } else if (material.getMaterialName().equals("cốc")) {
+                dao.insertMaterialRequest(sCageID, material.getMaterialID(), 0, "");
+            }
+        }
         response.sendRedirect("DashboardManager");
     }
 

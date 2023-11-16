@@ -72,7 +72,7 @@
                             %>
                             <span class="starD">☆</span>
                             <% }%>
-                            <div>
+                            <div class="count__feed">
                                 <%=count1%> đánh giá
                             </div>
                         </div>
@@ -148,7 +148,7 @@
                             %>
                             <span class="starD">☆</span>
                             <% }%>
-                            <div>
+                            <div class="count__feed">
                                 <%=count2%> đánh giá
                             </div>
                         </div>

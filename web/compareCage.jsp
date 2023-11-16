@@ -3,6 +3,7 @@
     Created on : Oct 28, 2023, 2:31:51 AM
     Author     : QUANG HUY
 --%>
+<%@page import="model.FeedBack"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <%@page import="java.util.List"%>
 <%@page import="model.CageMaterial"%>
@@ -28,6 +29,8 @@
             ProductDTO product2 = (ProductDTO) request.getAttribute("product2");
             List<CageMaterial> cm1 = (List<CageMaterial>) request.getAttribute("cageMaterial1");
             List<CageMaterial> cm2 = (List<CageMaterial>) request.getAttribute("cageMaterial2");
+            List<FeedBack> lF1 = (List<FeedBack>) request.getAttribute("feedback1");
+            List<FeedBack> lF2 = (List<FeedBack>) request.getAttribute("feedback2");
         %>
         <h2><strong><i class="fa-solid fa-code-compare"></i> So sánh lồng chim</strong></h2>
         <div class="container">
@@ -41,14 +44,37 @@
                             <strong><%=product1.getCageName()%></strong>
                         </h4>
                         <!-- Hiển thị thông tin sản phẩm -->
+                        <%
+                            double avg1 = 0.0;
+                            int totalRate1 = 0;
+                            int count1 = 0;
+                            long rateFloor1 = 0;
+                            if (lF1.size() > 0) {
+                                for (FeedBack f : lF1) {
+                                    int rate = Integer.parseInt(f.getRating());
+                                    totalRate1 += rate;
+                                    count1++;
+                                }
+                                avg1= totalRate1 / count1;
+                                rateFloor1 = Math.round(avg1);
+                            }
+
+                        %>
                         <div class="rate-container">
                             <div class="rate-avg">
-                                3.0
+                                <%=avg1%>
                             </div>
-                            <div class="star-rating">
-                                <span>★★★☆☆</span>
+                            <% for (int i = 0; i < rateFloor1; i++) {
+                            %>
+                            <span class="starD">&#9733;</span>
+                            <% }%>
+                            <% for (int i = 0; i < 5 - rateFloor1; i++) {
+                            %>
+                            <span class="starD">☆</span>
+                            <% }%>
+                            <div>
+                                <%=count1%> đánh giá
                             </div>
-                            
                         </div>
                         <div class="m-bot15 detail-price mt-3 ">
                             <span class="amount-old"><fmt:formatNumber value="<%=product1.getPriceOld()%>" pattern="###,###"/> VNĐ</span>  
@@ -94,14 +120,37 @@
                             <strong><%=product2.getCageName()%></strong>
                         </h4>
                         <!-- Hiển thị thông tin sản phẩm -->
+                        <%
+                            double avg2 = 0.0;
+                            int totalRate2 = 0;
+                            int count2 = 0;
+                            long rateFloor2 = 0;
+                            if (lF2.size() > 0) {
+                                for (FeedBack f : lF2) {
+                                    int rate = Integer.parseInt(f.getRating());
+                                    totalRate2 += rate;
+                                    count2++;
+                                }
+                                avg2 = totalRate2/ count2;
+                                rateFloor2 = Math.round(avg2);
+                            }
+
+                        %>
                         <div class="rate-container">
                             <div class="rate-avg">
-                                4.0
+                                <%=avg2%>
                             </div>
-                            <div class="star-rating">
-                                <span>★★★★☆</span>
+                            <% for (int i = 0; i < rateFloor2; i++) {
+                            %>
+                            <span class="starD">&#9733;</span>
+                            <% }%>
+                            <% for (int i = 0; i < 5 - rateFloor2; i++) {
+                            %>
+                            <span class="starD">☆</span>
+                            <% }%>
+                            <div>
+                                <%=count2%> đánh giá
                             </div>
-                            
                         </div>
                         <div class="m-bot15 detail-price mt-3 ">
                             <span class="amount-old"><fmt:formatNumber value="<%=product2.getPriceOld()%>" pattern="###,###"/> VNĐ</span>  
@@ -138,9 +187,9 @@
                 </div>
             </div>
         </div>
-                            <div class="btn__buy">
-        <button id="goBack2StepsButton" type="submit"  
-                class="btn action-btn btn-round btn-success backtwo"><i class="fa-solid fa-cart-shopping"></i> Tiếp tục mua hàng</button>
+        <div class="btn__buy">
+            <button id="goBack2StepsButton" type="submit"  
+                    class="btn action-btn btn-round btn-success backtwo"><i class="fa-solid fa-cart-shopping"></i> Tiếp tục mua hàng</button>
         </div>
         <script>
             const goBack2StepsButton = document.getElementById("goBack2StepsButton");

@@ -4,6 +4,7 @@
  */
 package controller;
 
+import dao.FeedBackDAO;
 import dao.MaterialDAO;
 import dao.ProductDAO;
 import java.io.IOException;
@@ -15,6 +16,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import model.CageMaterial;
+import model.FeedBack;
 import model.ProductDTO;
 import org.apache.http.client.fluent.Request;
 
@@ -25,7 +27,6 @@ import org.apache.http.client.fluent.Request;
 @WebServlet(name = "CompareCage", urlPatterns = {"/CompareCage"})
 public class CompareCage extends HttpServlet {
 
-    
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         request.setCharacterEncoding("UTF-8");
@@ -36,7 +37,7 @@ public class CompareCage extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet CompareCage</title>");            
+            out.println("<title>Servlet CompareCage</title>");
             out.println("</head>");
             out.println("<body>");
             out.println("<h1>Servlet CompareCage at " + request.getContextPath() + "</h1>");
@@ -45,40 +46,40 @@ public class CompareCage extends HttpServlet {
         }
     }
 
-    
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         request.setCharacterEncoding("UTF-8");
         response.setCharacterEncoding("UTF-8");
 //        processRequest(request, response);
-          ProductDAO dao = new ProductDAO();
-          String pid1 = request.getParameter("id1");
-          String pid2 = request.getParameter("id2");
-          ProductDTO product1 = dao.getProductByID(pid1);
-          ProductDTO product2 = dao.getProductByID(pid2);
-          request.setAttribute("product1", product1);
-          request.setAttribute("product2", product2);
-          MaterialDAO md = new MaterialDAO();
-          List<CageMaterial> cm1 = md.getCageMaterialByID(pid1);
-          List<CageMaterial> cm2 = md.getCageMaterialByID(pid2);
-          request.setAttribute("cageMaterial1", cm1);
-          request.setAttribute("cageMaterial2", cm2);
-          
-          request.getRequestDispatcher("compareCage.jsp").
+        ProductDAO dao = new ProductDAO();
+        String pid1 = request.getParameter("id1");
+        String pid2 = request.getParameter("id2");
+        ProductDTO product1 = dao.getProductByID(pid1);
+        ProductDTO product2 = dao.getProductByID(pid2);
+        FeedBackDAO fbd = new FeedBackDAO();
+        List<FeedBack> lf1 = fbd.getFeedbackByCageId(pid1);
+        request.setAttribute("feedback1", lf1);
+        List<FeedBack> lf2 = fbd.getFeedbackByCageId(pid2);
+        request.setAttribute("feedback2", lf2);
+        request.setAttribute("product1", product1);
+        request.setAttribute("product2", product2);
+        MaterialDAO md = new MaterialDAO();
+        List<CageMaterial> cm1 = md.getCageMaterialByID(pid1);
+        List<CageMaterial> cm2 = md.getCageMaterialByID(pid2);
+        request.setAttribute("cageMaterial1", cm1);
+        request.setAttribute("cageMaterial2", cm2);
+
+        request.getRequestDispatcher("compareCage.jsp").
                 forward(request, response);
     }
-    
-    
 
-    
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         processRequest(request, response);
     }
 
-    
     @Override
     public String getServletInfo() {
         return "Short description";

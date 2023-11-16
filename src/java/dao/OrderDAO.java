@@ -68,7 +68,19 @@ public class OrderDAO {
         } catch (Exception e) {
         }
     }
+    public void deleteOrder(String orderId) {
+        String query = "delete from tblOrderDetails where OrderID = ?\n"
+                + "  delete from tblOrders where OrderID = ?";
+        try {
+            conn = new DBUtils().getConnection();
+            ps = conn.prepareStatement(query);
+            ps.setString(1, orderId);
+            ps.setString(2, orderId);
+            ps.executeUpdate();
+        } catch (Exception e) {
+        }
 
+    }
     public List<Order> getOrder(String userID) {
         List<Order> list = new ArrayList<>();
         String query = "select o.OrderID, o.UserID, o.Phone, o.Address,o.OrderDate,o.ShippingCod, o.Total, o.OrderStatus from tblOrders o where o.UserID = ? ORDER BY o.OrderDate DESC";
@@ -214,19 +226,7 @@ public class OrderDAO {
         return list;
     }
 
-    public void deleteOrder(String orderId) {
-        String query = "delete from tblOrderDetails where OrderID = ?\n"
-                + "  delete from tblOrders where OrderID = ?";
-        try {
-            conn = new DBUtils().getConnection();
-            ps = conn.prepareStatement(query);
-            ps.setString(1, orderId);
-            ps.setString(2, orderId);
-            ps.executeUpdate();
-        } catch (Exception e) {
-        }
-
-    }
+    
 
     public void changeOrderStatus(String orderId) {
         String query = "UPDATE tblOrders \n"
@@ -245,7 +245,7 @@ public class OrderDAO {
         }
     }
 
-    public List<Order> getOrder(Date orderDate) {
+    public List<Order> getOrder(Date orderDate) { //dashboard
         List<Order> list = new ArrayList<>();
         String query = "select o.OrderID, o.UserID, o.Phone, o.Address,o.OrderDate,o.ShippingCod, o.Total, o.OrderStatus from tblOrders o\n"
                 + "                where o.OrderDate = ?";
@@ -273,8 +273,8 @@ public class OrderDAO {
 
     public List<Order> searchOrder(String search) {
         List<Order> list = new ArrayList<>();
-        String query = "select o.OrderID, o.UserID, o.Phone, o.Address,o.OrderDate,o.ShippingCod, o.Total, o.OrderStatus from tblOrders o\n"
-                + "                where orderID like ? ORDER BY o.OrderDate DESC ";
+        String query = "select OrderID, UserID, Phone, Address,OrderDate,ShippingCod, Total, OrderStatus from tblOrders \n"
+                + "                where orderID like ? ORDER BY OrderDate DESC ";
         try {
             conn = new DBUtils().getConnection();
             if (conn != null) {

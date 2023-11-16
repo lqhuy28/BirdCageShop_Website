@@ -25,8 +25,8 @@ public class UserDAO {
     ResultSet rs = null;
     private static final String UPDATEUSER = "UPDATE tblUsers set fullName=?, password=?, phone=?, email=?, address=?, roleID=? WHERE userID=?";
     private static final String LOGIN = "SELECT FullName, Phone, Email, Address, RoleID, Status FROM tblUsers WHERE UserID=? AND Password=?";
-    private static final String searchUser = "select * from tblUsers where (userID like ? or fullname like ?) AND RoleID <> 'Admin' ORDER BY RoleID ASC";
-    private static final String listUser = "select * from tblUsers";
+    private static final String SEARCHUSER = "select * from tblUsers where (userID like ? or fullname like ?) AND RoleID <> 'Admin' ORDER BY RoleID ASC";
+    private static final String LISTUSER = "select * from tblUsers";
     private static final String DELETEUSER = "UPDATE tblUsers \n"
             + "SET Status = CASE\n"
             + "WHEN Status = '0' THEN '1'\n"
@@ -35,7 +35,7 @@ public class UserDAO {
             + "end\n"
             + "where userID = ?";
     ;
-    private static final String getUserByuserID = "select UserID, FullName, Password, Phone, Email, Address, RoleID,Status FROM tblUsers where userID like ?";
+    private static final String GETUSERBYUSERID = "select UserID, FullName, Password, Phone, Email, Address, RoleID,Status FROM tblUsers where userID like ?";
     private static final String UPDATE = "UPDATE tblUsers set fullName=?, password=?, phone=?, email=?, address=?, roleID=? WHERE userID=?";
     private static final String INSERT = "INSERT INTO tblUsers(UserID, FullName, Password, Phone, Email, Address, RoleID, Status) VALUES(?,?,?,?,?,?,?,?)";
     private static final String CHECK_DUPLICATE = "SELECT UserID FROM tblUsers ";
@@ -48,7 +48,7 @@ public class UserDAO {
         try {
             conn = new DBUtils().getConnection();
             if (conn != null) {
-                ptm = conn.prepareStatement(searchUser);
+                ptm = conn.prepareStatement(SEARCHUSER);
                 ptm.setString(1, "%" + search + "%");
                 ptm.setString(2, "%" + search + "%");
                 rs = ptm.executeQuery();
@@ -93,7 +93,7 @@ public class UserDAO {
     public User getUserByuserID(String userID) {
         try {
             conn = new DBUtils().getConnection();
-            ptm = conn.prepareStatement(getUserByuserID);
+            ptm = conn.prepareStatement(GETUSERBYUSERID);
             ptm.setString(1, userID);
             rs = ptm.executeQuery();
             while (rs.next()) {

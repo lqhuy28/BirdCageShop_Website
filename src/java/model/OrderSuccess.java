@@ -6,10 +6,6 @@ package model;
 
 import java.sql.Date;
 
-/**
- *
- * @author Admin
- */
 public class OrderSuccess {
 
     String orderID;

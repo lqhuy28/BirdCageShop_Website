@@ -65,21 +65,21 @@ public class OrderController extends HttpServlet {
             throws ServletException, IOException {
         request.setCharacterEncoding("UTF-8");
         response.setCharacterEncoding("UTF-8");
-        OrderDAO od = new OrderDAO();
+        OrderDAO dao = new OrderDAO();
         try {
             String orderId = request.getParameter("orderId");
-            od.changeOrderStatus(orderId);
+            dao.changeOrderStatus(orderId);
             HttpSession session = request.getSession();
             User u = (User) session.getAttribute("LOGIN_USER");
 
-            List<Order> list = od.getOrder(u.getUserID());
+            List<Order> list = dao.getOrder(u.getUserID());
             request.setAttribute("listOrder", list);
             request.getRequestDispatcher("order.jsp").
                     forward(request, response);
         } catch (Exception e) {
             HttpSession session = request.getSession();
             User u = (User) session.getAttribute("LOGIN_USER");
-            List<Order> list = od.getOrder(u.getUserID());
+            List<Order> list = dao.getOrder(u.getUserID());
             request.setAttribute("listOrder", list);
             request.getRequestDispatcher("order.jsp").
                     forward(request, response);

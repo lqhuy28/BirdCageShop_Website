@@ -4,10 +4,7 @@
  */
 package model;
 
-/**
- *
- * @author trand
- */
+
 public class CageMaterial {
     String cageId;
     String materialName;

@@ -306,7 +306,7 @@ public class ProductDAO {
 
     public List<ProductDTO> getProductByPriceRange(double minPrice, double maxPrice){
         List<ProductDTO> filterProduct = new ArrayList<>();
-        String query = "SELECT * FROM tblCage WHERE PriceNew >= ? AND PriceNew <= ? AND Quantity > 0";
+        String query = "SELECT * FROM tblCage WHERE PriceNew >= ? AND PriceNew <= ? AND Quantity > 0 ORDER BY PriceNew ASC";
         try {
             conn = new DBUtils().getConnection();
             ps = conn.prepareStatement(query);

@@ -162,7 +162,6 @@
                                                 <div class="btn-group">
                                                     <a href="update?sid=${x.cageID}" class="btn btn-success"><i class="fa-solid fa-file-pen"></i></a>
                                                     <a href="AddMaterial?sid=${x.cageID}" class="btn btn-primary"><i class="fa-solid fa-recycle"></i></a>
-                                                    <a href="delete?sid=${x.cageID}" class="btn btn-danger"><i class="fa-solid fa-trash"></i></a>
                                                     <form action="cart" method="POST">
                                                         <input type="hidden" name="id" value="${x.cageID}"/>
                                                         <input type="hidden" name="quantity" value="1"/>

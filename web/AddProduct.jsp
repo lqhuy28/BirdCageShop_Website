@@ -40,27 +40,6 @@
                     <hr>
                     <ul class="nav flex-column">
                         <li class="nav-item">
-                            <div class="icon-integration">
-                                <div class="icon">
-                                    <i class="fa-solid fa-network-wired" style="color: #ffffff;"></i>
-                                </div>
-                                <div class="title">
-                                    <a class="nav-link" href="DashboardController"><span>  Bảng điều khiển</span></a>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="nav-item">
-                            <div class="icon-integration">
-                                <div class="icon">
-                                    <i class="fa fa-solid fa-users" style="color: #ffffff;"></i>
-                                </div>
-                                <div class="title">
-                                    <a class="nav-link" href="searchUser"><span>Quản lí khách hàng</span></a>
-                                </div>
-                            </div>
-                        </li>
-
-                        <li class="nav-item">
                             <div class="icon-integration" style="margin-left: 18px;">
                                 <div class="icon">
                                     <i class="fa-solid fa-weight-hanging" style="color: #ffffff;"></i>                            

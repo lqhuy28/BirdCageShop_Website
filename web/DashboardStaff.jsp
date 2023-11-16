@@ -147,8 +147,8 @@
                                         <td class="text-center text-lg text-medium"><fmt:formatNumber value="${o.total}" pattern="###,###"/> VNĐ</td>
                                         <td class="text-center text-lg text-medium">${o.status?"Đã duyệt":"Chưa duyệt"}</td> 
                                         <td class="text-center text-lg text-medium">
-                                            <a href="DetailOrder?orderId=${o.orderID}" class="round-button"><i class="fa-solid fa-eye" style="color: white;"></i></a>
-                                            <a href="UpdateOrderStaff?orderId=${o.orderID}" class="round-button"><i class="fa-solid fa-circle-check" style="color: white;"></i></a>
+                                            <a href="DetailOrderStaff?orderId=${o.orderID}" class="round-button"><i class="fa-solid fa-eye" style="color: white;"></i></a>
+                                            <a href="UpdateOrderStaff?orderId=${o.orderID}" class="round-button1"><i class="fa-solid fa-circle-check" style="color: white;"></i></a>
                                         </td>
                                     </tr>
                                 </c:forEach>

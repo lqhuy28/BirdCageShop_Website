@@ -127,7 +127,7 @@
                                             <td class="text-center text-lg text-medium">${x.feedbackDate}</td> 
                                             <td class="text-center text-lg text-medium">${x.rating}</td>
                                             <td class="text-center text-lg text-medium">${x.comment}</td>   
-                                            <td class="text-center text-lg text-medium"><a href="ProductDetail" class="round-button"><i class="fa-solid fa-comments" style="color: white;"></i></a></td>
+                                            <td class="text-center text-lg text-medium"><a href="" class="round-button"><i class="fa-solid fa-comments" style="color: white;"></i></a></td>
                                         </tr>
                                     </c:forEach>
                                 </tbody><i class="fa-solid fa-eye" style="color: white;"

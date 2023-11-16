@@ -44,9 +44,11 @@
                     <button type="submit" name="action" class="register" value="Login"> Xác nhận </button>
 
 
+                    <% if (request.getAttribute("ERROR") != null) {%>
                     <div class="error_message">
-                        ${requestScope.ERROR}
+                        <%= request.getAttribute("ERROR")%>
                     </div>
+                    <% }%>
                 </form>
             </div>
             <div class="clear"></div>

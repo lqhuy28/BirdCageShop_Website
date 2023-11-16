@@ -277,21 +277,32 @@ public class OrderDAO {
                 + "                where orderID like ? ORDER BY OrderDate DESC ";
         try {
             conn = new DBUtils().getConnection();
-            if (conn != null) {
-                ps = conn.prepareStatement(query);
-                ps.setString(1, "%" + search + "%");
-                rs = ps.executeQuery();
-                while (rs.next()) {
-                    list.add(new Order(rs.getString(1),
-                            rs.getString(2),
-                            rs.getString(3),
-                            rs.getString(4),
-                            rs.getDate(5),
-                            rs.getDouble(6),
-                            rs.getDouble(7),
-                            rs.getBoolean(8)));
+            ps = conn.prepareStatement(query);
+            ps.setString(1,"%" + search + "%");
+            ResultSet rs1 = ps.executeQuery();
+            while (rs1.next()) {
+                String query2 = "select od.CageName, od.CageID from tblOrderDetails od where od.OrderId = ?";
+                ps = conn.prepareStatement(query2);
+                ps.setString(1, rs1.getString(1));
+                ResultSet rs2 = ps.executeQuery();
+                String cageID = "";
+                String cageName = "";
+                while (rs2.next()) {
+                    cageName = rs2.getString(1);
+                    cageID = rs2.getString(2);
                 }
+                list.add(new Order(rs1.getString(1),
+                        rs1.getString(2),
+                        cageID,
+                        cageName,
+                        rs1.getString(3),
+                        rs1.getString(4),
+                        rs1.getDate(5),
+                        rs1.getDouble(6),
+                        rs1.getDouble(7),
+                        rs1.getBoolean(8)));
             }
+            ps.executeUpdate();
         } catch (Exception e) {
         }
         return list;

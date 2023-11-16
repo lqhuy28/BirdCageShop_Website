@@ -81,21 +81,24 @@ public class ResetPassword extends HttpServlet {
      */
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        request.setCharacterEncoding("UTF-8");
-        response.setCharacterEncoding("UTF-8");
-        String password = request.getParameter("newPassword");
-        String validPassword = request.getParameter("validPassword");
-        String email = (String)request.getSession().getAttribute("email");
-        if(password.equals(validPassword)){
-            UserDAO ud = new UserDAO();
-            ud.updatePasswordByEmail(password, email);
-            request.getSession().removeAttribute("email");
-            request.getRequestDispatcher("login.jsp").forward(request, response);
-        }else{
-            request.setAttribute("ERROR", "Mật khẩu không trùng khớp");
-        }
+        throws ServletException, IOException {
+    request.setCharacterEncoding("UTF-8");
+    response.setCharacterEncoding("UTF-8");
+
+    String password = request.getParameter("newPassword");
+    String validPassword = request.getParameter("validPassword");
+    String email = (String)request.getSession().getAttribute("email");
+
+    if (password != null && password.equals(validPassword)) {
+        UserDAO ud = new UserDAO();
+        ud.updatePasswordByEmail(password, email);
+        request.getSession().removeAttribute("email");
+        request.getRequestDispatcher("login.jsp").forward(request, response);
+    } else {
+        request.setAttribute("ERROR", "Mật khẩu không trùng khớp");
+        request.getRequestDispatcher("ResetPassword.jsp").forward(request, response);
     }
+}
 
     /**
      * Returns a short description of the servlet.

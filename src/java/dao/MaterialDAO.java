@@ -60,4 +60,18 @@ public class MaterialDAO {
         }
         return list;
     }
+    public void updateQuantityMaterial(String CageID, String matID, int Quantity) {
+        String query = "update tblCageMaterial\n"
+                + "set Quantity = ?\n"
+                + "where CageID = ? AND MaterialID = ?";
+        try {
+            conn = new DBUtils().getConnection();
+            ps = conn.prepareStatement(query);
+            ps.setInt(1, Quantity);
+            ps.setString(2, CageID);
+            ps.setString(3, matID);
+            ps.executeUpdate();
+        } catch (Exception e) {
+        }
+    }
 }

@@ -45,6 +45,8 @@
                         </div>
                         <hr>
                         <ul class="nav flex-column">
+                            
+
                             <li class="nav-item">
                                 <div class="icon-integration" style="margin-left: 18px;">
                                     <div class="icon">
@@ -52,7 +54,7 @@
                                     </div>
 
                                     <div class="title">
-                                        <a class="nav-link" href="DashboardManager"><span>Quản lí sản phẩm</span></a>
+                                        <a class="nav-link" href ="DashboardManager"><span>Quản lí sản phẩm</span></a>
                                     </div>
                                 </div>
                             </li>
@@ -67,6 +69,7 @@
                                     </div>
                                 </div>
                             </li>
+
                             <li class="nav-item">
                                 <div class="icon-integration">
                                     <div class="icon">
@@ -77,6 +80,7 @@
                                     </div>
                                 </div>
                             </li>
+
                         </ul>
                     </aside>
                 </div>
@@ -107,7 +111,7 @@
                             }
                         %>
                         <div class="search-container">
-                            <form action="SearchFeedBack" method="POST" class="form-inline">
+                            <form action="SearchFeedbackManager" method="POST" class="form-inline">
                                 <div class="form-group">
                                     <input type="text" value="<%=search%>" placeholder="Tìm kiếm..."  class="form-control" name="search" id="search" />
                                 </div>
@@ -127,7 +131,6 @@
                                         <th class="text-center">Ngày đánh giá</th>
                                         <th class="text-center">Đánh giá</th>
                                         <th class="text-center">Bình luận</th>
-                                        <th class="text-center">Chức năng</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -139,7 +142,6 @@
                                             <td class="text-center text-lg text-medium">${x.feedbackDate}</td> 
                                             <td class="text-center text-lg text-medium">${x.rating}</td>
                                             <td class="text-center text-lg text-medium">${x.comment}</td>   
-                                            <td class="text-center text-lg text-medium"><a href="#" class="round-button"><i class="fa-solid fa-eye" style="color: white;"></i></a></td>
                                         </tr>
                                     </c:forEach>
                                 </tbody>

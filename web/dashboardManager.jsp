@@ -48,41 +48,41 @@
                         </div>
                         <hr>
                         <ul class="nav flex-column">
-                            <li class="nav-item">
-                                <div class="icon-integration" style="margin-left: 18px;">
-                                    <div class="icon">
-                                        <i class="fa-solid fa-weight-hanging" style="color: #ffffff;"></i>                            
-                                    </div>
-
-                                    <div class="title">
-                                        <a class="nav-link" href="DashboardManager"><span>Quản lí sản phẩm</span></a>
-                                    </div>
+                        <li class="nav-item">
+                            <div class="icon-integration" style="margin-left: 18px;">
+                                <div class="icon">
+                                    <i class="fa-solid fa-weight-hanging" style="color: #ffffff;"></i>                            
                                 </div>
-                            </li>
 
-                            <li class="nav-item">
-                                <div class="icon-integration">
-                                    <div class="icon">
-                                        <i class="fa-solid fa-cart-shopping" style="color: #ffffff;"></i>                            
-                                    </div>
-                                    <div class="title">
-                                        <a class="nav-link" href="ManagerOrderManager"><span>Quản lí đơn hàng</span></a>
-                                    </div>
+                                <div class="title">
+                                    <a class="nav-link" href ="DashboardManager"><span>Quản lí sản phẩm</span></a>
                                 </div>
-                            </li>
+                            </div>
+                        </li>
 
-                            <li class="nav-item">
-                                <div class="icon-integration">
-                                    <div class="icon">
-                                        <i class="fa-solid fa-comments" style="color: #ffffff;"></i>                            
-                                    </div>
-                                    <div class="title">
-                                        <a class="nav-link" href="FeedbackManagerManager"><span>Kiểm tra phản hồi</span></a>
-                                    </div>
+                        <li class="nav-item">
+                            <div class="icon-integration">
+                                <div class="icon">
+                                    <i class="fa-solid fa-cart-shopping" style="color: #ffffff;"></i>                            
                                 </div>
-                            </li>
+                                <div class="title">
+                                    <a class="nav-link" href="ManagerOrderManager"><span>Quản lí đơn hàng</span></a>
+                                </div>
+                            </div>
+                        </li>
 
-                        </ul>
+                        <li class="nav-item">
+                            <div class="icon-integration">
+                                <div class="icon">
+                                    <i class="fa-solid fa-comments" style="color: #ffffff;"></i>                            
+                                </div>
+                                <div class="title">
+                                    <a class="nav-link" href="FeedbackManagerManager"><span>Kiểm tra phản hồi</span></a>
+                                </div>
+                            </div>
+                        </li>
+
+                    </ul>
                     </aside>
                 </div>
 

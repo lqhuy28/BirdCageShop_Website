@@ -86,7 +86,7 @@
                     <div class="row">
                         <div class="col-md-12">
                             <div class="breadcrumb">
-                                <a href="OrderManager"><b>Danh sách đơn hàng</b></a>
+                                <a href="#"><b>Quản lí đơn hàng</b></a>
                             </div>
                             <div id="clock"></div>
                         </div>

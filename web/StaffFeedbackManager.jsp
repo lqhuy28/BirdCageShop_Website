@@ -61,7 +61,7 @@
                                         <i class="fa-solid fa-comments" style="color: #ffffff;"></i>                            
                                     </div>
                                     <div class="title">
-                                        <a class="nav-link" href="StaffFeedbackManager"><span>Kiểm tra phản hồi</span></a>
+                                        <a class="nav-link" href="FeedbackStaffManager"><span>Kiểm tra phản hồi</span></a>
                                     </div>
                                 </div>
                             </li>
@@ -95,7 +95,7 @@
                             }
                         %>
                         <div class="search-container">
-                            <form action="SearchFeedBack" method="POST" class="form-inline">
+                            <form action="SearchFeedbackStaff" method="POST" class="form-inline">
                                 <div class="form-group">
                                     <input type="text" value="<%=search%>" placeholder="Tìm kiếm..."  class="form-control" name="search" id="search" />
                                 </div>

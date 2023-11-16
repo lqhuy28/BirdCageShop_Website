@@ -45,66 +45,68 @@
                         </div>
                         <hr>
                         <ul class="nav flex-column">
-                            <li class="nav-item">
-                                <div class="icon-integration">
-                                    <div class="icon">
-                                        <i class="fa-solid fa-network-wired" style="color: #ffffff;"></i>
-                                    </div>
-                                    <div class="title">
-                                        <a class="nav-link" href="DashboardController"><span>Bảng điều khiển</span></a>
-                                    </div>
-                            </li>
-                            <li class="nav-item">
-                                <div class="icon-integration">
-                                    <div class="icon">
-                                        <i class="fa-solid fa-users" style="color: #ffffff;"></i>
-                                    </div>
-                                    <div class="title">
-                                        <a class="nav-link" href="searchUser"><span>Quản lí khách hàng</span></a>
-                                    </div>
+                        <li class="nav-item">
+                            <div class="icon-integration">
+                                <div class="icon">
+                                    <i class="fa-solid fa-network-wired" style="color: #ffffff;"></i>
                                 </div>
-                            </li>
+                                <div class="title">
+                                    <a class="nav-link" href="DashboardController"><span>Bảng điều khiển</span></a>
+                                </div>
+                        </li>
+                        <li class="nav-item">
+                            <div class="icon-integration">
+                                <div class="icon">
+                                    <i class="fa fa-solid fa-users" style="color: #ffffff;"></i>
+                                </div>
+                                <div class="title">
+                                    <a class="nav-link" href="searchUser"><span>Quản lí khách hàng</span></a>
+                                </div>
+                            </div>
+                        </li>
 
-                            <li class="nav-item">
-                                <div class="icon-integration" style="margin-left: 18px;">
-                                    <div class="icon">
-                                        <i class="fa-solid fa-weight-hanging" style="color: #ffffff;"></i>                            
-                                    </div>
+                        <li class="nav-item">
+                            <div class="icon-integration" style="margin-left: 18px;">
+                                <div class="icon">
+                                    <i class="fa-solid fa-weight-hanging" style="color: #ffffff;"></i>                            
+                                </div>
 
-                                    <div class="title">
-                                        <a class="nav-link" href="load"><span>Quản lí sản phẩm</span></a>
-                                    </div>
+                                <div class="title">
+                                    <a class="nav-link" href ="load"><span>Quản lí sản phẩm</span></a>
                                 </div>
-                            </li>
+                            </div>
+                        </li>
 
-                            <li class="nav-item">
-                                <div class="icon-integration">
-                                    <div class="icon">
-                                        <i class="fa-solid fa-cart-shopping" style="color: #ffffff;"></i>                            
-                                    </div>
-                                    <div class="title">
-                                        <a class="nav-link" href="OrderManager"><span>Quản lí đơn hàng</span></a>
-                                    </div>
+                        <li class="nav-item">
+                            <div class="icon-integration">
+                                <div class="icon">
+                                    <i class="fa-solid fa-cart-shopping" style="color: #ffffff;"></i>                            
                                 </div>
-                            </li>
-                            <li class="nav-item">
-                                <div class="icon-integration">
-                                    <div class="icon">
-                                        <i class="fa-solid fa-comments" style="color: #ffffff;"></i>                            
-                                    </div>
-                                    <div class="title">
-                                        <a class="nav-link" href="FeedbackManager"><span>Kiểm tra phản hồi</span></a>
-                                    </div>
+                                <div class="title">
+                                    <a class="nav-link" href="OrderManager"><span>Quản lí đơn hàng</span></a>
                                 </div>
-                            </li>
-                        </ul>
+                            </div>
+                        </li>
+
+                        <li class="nav-item">
+                            <div class="icon-integration">
+                                <div class="icon">
+                                    <i class="fa-solid fa-comments" style="color: #ffffff;"></i>                            
+                                </div>
+                                <div class="title">
+                                    <a class="nav-link" href="FeedbackManager"><span>Kiểm tra phản hồi</span></a>
+                                </div>
+                            </div>
+                        </li>
+
+                    </ul>
                     </aside>
                 </div>
                 <main class="col-md-10">
                     <div class="row">
                         <div class="col-md-12">
                             <div class="breadcrumb">
-                                <a href="FeedbackManager"><b>Danh sách phản hồi</b></a>
+                                <a href="#"><b>Danh sách phản hồi</b></a>
                             </div>
                             <div id="clock"></div>
                         </div>
@@ -147,7 +149,6 @@
                                         <th class="text-center">Ngày đánh giá</th>
                                         <th class="text-center">Đánh giá</th>
                                         <th class="text-center">Bình luận</th>
-                                        <th class="text-center">Chức năng</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -159,7 +160,6 @@
                                             <td class="text-center text-lg text-medium">${x.feedbackDate}</td> 
                                             <td class="text-center text-lg text-medium">${x.rating}</td>
                                             <td class="text-center text-lg text-medium">${x.comment}</td>   
-                                            <td class="text-center text-lg text-medium"><a href="#" class="round-button"><i class="fa-solid fa-eye" style="color: white;"></i></a></td>
                                         </tr>
                                     </c:forEach>
                                 </tbody>

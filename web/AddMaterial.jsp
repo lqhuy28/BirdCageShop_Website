@@ -49,7 +49,7 @@
                                 </div>
 
                                 <div class="title">
-                                    <a class="nav-link" href="load"><span>Quản lí sản phẩm</span></a>
+                                    <a class="nav-link" href="DashboardManager"><span>Quản lí sản phẩm</span></a>
                                 </div>
                             </div>
                         </li>
@@ -60,7 +60,7 @@
                                     <i class="fa-solid fa-cart-shopping" style="color: #ffffff;"></i>                            
                                 </div>
                                 <div class="title">
-                                    <a class="nav-link" href="OrderManager"><span>Quản lí đơn hàng</span></a>
+                                    <a class="nav-link" href="ManagerOrderManager"><span>Quản lí đơn hàng</span></a>
                                 </div>
                             </div>
                         </li>
@@ -71,7 +71,7 @@
                                     <i class="fa-solid fa-comments" style="color: #ffffff;"></i>                            
                                 </div>
                                 <div class="title">
-                                    <a class="nav-link" href="FeedbackManager"><span>Kiểm tra phản hồi</span></a>
+                                    <a class="nav-link" href="FeedbackManagerManager"><span>Kiểm tra phản hồi</span></a>
                                 </div>
                             </div>
                         </li>
@@ -83,7 +83,7 @@
                     <div class="row">
                         <div class="col-md-12">
                             <div class="breadcrumb">
-                                <a href="update"><b>Cập nhật sản phẩm</b></a>
+                                <a href="update"><b>Thêm nguyên liệu</b></a>
                             </div>
                             <div id="clock"></div>
                         </div>

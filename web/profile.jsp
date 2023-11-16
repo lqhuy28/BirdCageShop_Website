@@ -67,7 +67,10 @@
                                         <td>Địa chỉ</td>
                                         <td><input value="${us.address}" type="text" name="address"></td>
                                     </tr>
-
+                                    <tr>
+                                        
+                                        <td><input value="${us.roleID}" type="hidden" name="roleID"></td>
+                                    </tr>
                                     <tr>
                                         <td></td>
                                         <td><button name="changeProfile" type="submit">Cập nhật</button></td>

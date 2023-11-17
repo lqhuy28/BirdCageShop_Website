@@ -62,6 +62,7 @@ public class FeedbackStaffManager extends HttpServlet {
             throws ServletException, IOException {
         FeedBackDAO fbd = new FeedBackDAO();
         List<FeedBack> f = fbd.getAllFeedback();
+        
         request.setAttribute("listFeedback", f);
         request.getRequestDispatcher("StaffFeedbackManager.jsp").forward(request, response);
     }

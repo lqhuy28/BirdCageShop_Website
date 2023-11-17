@@ -131,7 +131,23 @@ public class FeedBackDAO {
         }
         return orderId;
     }
+public String getCageIDBYOrderID(String id) {
+        String orderId = "";
+        String query = "select top(1) o.CageID from tblCage o inner join tblOrderDetails od on od.CageID = o.CageID where od.OrderID = ?";
 
+        try {
+            conn = new DBUtils().getConnection();
+            ps = conn.prepareStatement(query);
+            ps.setString(1, id);
+            rs = ps.executeQuery();
+            while (rs.next()) {
+                orderId = rs.getString(1);
+            }
+            ps.executeUpdate();
+        } catch (Exception e) {
+        }
+        return orderId;
+    }
     public List<FeedBack> getAllFeedback() {
         List<FeedBack> list = new ArrayList<>();
         String query = "select * from tblFeedback ORDER BY FeedbackDate ASC";

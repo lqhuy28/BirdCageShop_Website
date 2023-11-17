@@ -89,6 +89,7 @@
                         <%
                             FeedBackDAO dao = new FeedBackDAO();
                             List<FeedBack> listU = (List<FeedBack>) request.getAttribute("listF");
+                            
                             if (listU == null) {
                                 listU = dao.searchFeedback("");
                                 request.setAttribute("listF", listU);
@@ -119,17 +120,19 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <c:forEach items="${listF}" var="x">
+                                    <%for (FeedBack f : listU) {
+                                    %>
+                                        <% String cageID = dao.getCageIDBYOrderID(f.getOrderId()); %>
                                         <tr>
-                                            <td class="text-center text-lg text-medium">${x.userID}</td>
-                                            <td class="text-center text-lg text-medium">${x.fullName}</td>
-                                            <td class="text-center text-lg text-medium">${x.orderId}</td>
-                                            <td class="text-center text-lg text-medium">${x.feedbackDate}</td> 
-                                            <td class="text-center text-lg text-medium">${x.rating}</td>
-                                            <td class="text-center text-lg text-medium">${x.comment}</td>   
-                                            <td class="text-center text-lg text-medium"><a href="" class="round-button"><i class="fa-solid fa-comments" style="color: white;"></i></a></td>
+                                            <td class="text-center text-lg text-medium"><%=f.getUserID()%></td>
+                                            <td class="text-center text-lg text-medium"><%=f.getFullName()%></td>
+                                            <td class="text-center text-lg text-medium"><%=f.getOrderId()%></td>
+                                            <td class="text-center text-lg text-medium"><%=f.getFeedbackDate()%></td> 
+                                            <td class="text-center text-lg text-medium"><%=f.getRating()%></td>
+                                            <td class="text-center text-lg text-medium"><%=f.getComment()%></td>   
+                                            <td class="text-center text-lg text-medium"><a href="ProductDetail?id=<%=cageID%>" class="round-button"><i class="fa-solid fa-comments" style="color: white;"></i></a></td>
                                         </tr>
-                                    </c:forEach>
+                                    <% } %>
                                 </tbody><i class="fa-solid fa-eye" style="color: white;"
                             </table>
                         </div>

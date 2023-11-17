@@ -57,7 +57,7 @@
                         <li class="nav-item">
                             <div class="icon-integration">
                                 <div class="icon">
-                                    <i class="fa fa-solid fa-users" style="color: #ffffff;"></i>
+                                    <i class="fa-solid fa-users" style="color: #ffffff;"></i>
                                 </div>
                                 <div class="title">
                                     <a class="nav-link" href="searchUser"><span>Quản lí khách hàng</span></a>

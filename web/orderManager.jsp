@@ -166,7 +166,7 @@
                                         <td class="text-center text-lg text-medium">${o.orderDate}</td>   
                                         <td class="text-center text-lg text-medium"><fmt:formatNumber value="${o.shipCost}" pattern="###,###"/> VNĐ</td>
                                         <td class="text-center text-lg text-medium"><fmt:formatNumber value="${o.total}" pattern="###,###"/> VNĐ</td>
-                                        <td class="text-center text-lg text-medium"><a href="DetailOrderManager?orderId=${o.orderID}&cageId=${o.cageID}" class="round-button"><i class="fa-solid fa-eye" style="color: white;"></i></a></td>
+                                        <td class="text-center text-lg text-medium"><a href="DetailOrderAdmin?orderId=${o.orderID}&cageId=${o.cageID}" class="round-button"><i class="fa-solid fa-eye" style="color: white;"></i></a></td>
                                     </tr>
                                 </c:forEach>
                             </tbody>

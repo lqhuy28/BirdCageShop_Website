@@ -134,14 +134,6 @@
                         <p>Ngày đặt hàng: <%=o.getOrderDate()%></p>
                         <div class="styles__StyledGroupSection-sc-ri73gr-0 cRRvpz">
                             <div class="styles__StyledSection-sc-ri73gr-1 gQjSfs">
-                                <div class="title">Thông tin người nhận</div>
-                                <div class="content">
-                                    <p class="name">${sessionScope.LOGIN_USER.fullName}</p>
-                                    <p class="address"><span>Địa chỉ: </span><%=o.getAddress()%></p>
-                                    <p class="phone"><span>Điện thoại: </span><%=o.getPhone()%></p>
-                                </div>
-                            </div>
-                            <div class="styles__StyledSection-sc-ri73gr-1 gQjSfs">
                                 <div class="title">Hình thức giao hàng</div>
                                 <div class="content">
                                     <span> Giao Tiết Kiệm</span></p>

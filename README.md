@@ -10,7 +10,7 @@ This project were made by 5 members of team as part of SWP391 subject (Applicati
 - Tran Van Minh Manh
 - Nguyen Doan Trong Doanh
 - Pham Hong Quan
-  
+     
 ## Description
 There are 5 actors participated in our system:
 - **Admin**: leader/manager of the organization, plays the role of managing the entire system, has full privileges such as managing products, orders, users, content, and delivery. interface, system settings, etc.

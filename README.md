@@ -5,7 +5,7 @@
 This project were made by 5 members of team as part of SWP391 subject (Application Developement Project) at FPT University.
 
 ## Members of team
-- Hoang Dinh Duc (Leader)
+- Hoang Dinh Duc
 - Le Quang Huy
 - Tran Van Minh Manh
 - Nguyen Doan Trong Doanh
